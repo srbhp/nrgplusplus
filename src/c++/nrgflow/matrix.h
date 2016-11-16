@@ -1,6 +1,8 @@
 #include <mkl_lapacke.h> 
-//#include <lapacke.h> 
+//#include <lapacke.h>
+
 /*If you want to use lapacke then use   #include <lapacke.h> */
+#include<iomanip>
 class matrix
 {
 	public:
@@ -50,7 +52,7 @@ void matrix::dispMatrix(double *  a,int n)
 	for(long int i=0;i<n;i++)
 	{
 	for(long int j=0;j<n;j++)
-		std::cout<<a[i*n+j]<<"\t"  ; 
+		std::cout<<std::fixed<<std::setprecision(3)<<a[i*n+j]<<" "  ; 
 	std::cout<<std::endl;
 	}
 }	

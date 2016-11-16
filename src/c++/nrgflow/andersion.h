@@ -6,14 +6,15 @@
 #include <string>
 #include <algorithm>  
 #include <mkl.h>
+#include <omp.h>
 #include "matrix.h"
 class QDanderson
 {
     public:
 	void initMatrix( double *  a ) ;// 
-	void zinitMatrix( double *  a ) ;// 
+	double spheat( double *  w ) ;// 
 	void shiftEnergy( double *  w ,int n) ;// 
-	void zaddaSite(double * a,double * b, double * c ,double rescale); 
+	void addaSite(double * a,double * b, double * c ,double rescale); 
 	void calcSpec(double * a,double * b,std::ofstream& pfile ) ;// 
 	void updateUP(double *a ,double * up,double * oldup);
 	void initOperator(double *a, double * up);
@@ -54,6 +55,13 @@ double  param::hopping(int site )
 {
 	return  (1.0+1.0/LAMBDA)*(1-std::pow(LAMBDA,-site-1))*0.50/std::sqrt((1.0-std::pow(LAMBDA,-2.*site-1))*(1-std::pow(LAMBDA,-2.*site-3))) ;
 }
+double QDanderson::spheat( double *  w)
+{
+	double a1=0.0 ; 
+	for(int i=0;i<param.currDim;i++)
+	a1=a1+ w[i]*w[i]*std::exp(-w[i]) ;
+	return a1 ; 
+}
 void  QDanderson::shiftEnergy( double *  w ,int n)
 {
 	double * bs=new double[n]() ; 
@@ -66,15 +74,23 @@ void  QDanderson::shiftEnergy( double *  w ,int n)
 }
 void  QDanderson::calcSpec(double * a,double * b,std::ofstream& pfile ) 
 {
-	double tsup1,tsdw1,tsup2,tsdw2 ;
 	int n=param.currDim;
 	int m=param.currDim/4;
+	double a1=0,a2=0;
 
+	/*
 	for(int iw=1;iw<n;iw++){
-	pfile<<(b[iw]-b[0])<<" "<<std::pow(a[0*n+iw],2)<< " "<<std::pow(tsdw1,2)<<std::endl;
+	a1=a1+std::pow(a[0+n*iw],2);
+	a2=a2+std::pow(a[0*n+iw],2);
+	}*/
+	
+	for(int iw=0;iw<n;iw++){
+	a1=a1+a[iw*n+iw] ;
+	a2=a2+std::exp(-b[iw]) ;
 	}
+	pfile<<2.0*std::pow(param.LAMBDA,-param.wchain/2.0)<<" "<<a1<<" "<<a2 <<std::endl;
 }
-void  QDanderson::zaddaSite(double * a,double * b, double * c,double aa ) 
+void  QDanderson::addaSite(double * a,double * b, double * c,double aa ) 
 {
 	double diaa =param.sqLAMBDA ;
 	if( param.wchain < -0.5 ){
@@ -108,19 +124,19 @@ void  QDanderson::zaddaSite(double * a,double * b, double * c,double aa )
 		double	upn=0,dwn=0;
 		double	upd=0,dwd=0;
 		for(int nci=0;nci<prem/4; nci++){
-		/*upn += (b[i*prem+(nci+rs*1)]*b[j*prem+(nci+rs*0)] + b[i*prem+(nci+rs*3)]*b[j*prem+(nci+rs*2)]) ; 
+		upn += (b[i*prem+(nci+rs*1)]*b[j*prem+(nci+rs*0)] + b[i*prem+(nci+rs*3)]*b[j*prem+(nci+rs*2)]) ; 
 		dwn += (b[i*prem+(nci+rs*2)]*b[j*prem+(nci+rs*0)] - b[i*prem+(nci+rs*3)]*b[j*prem+(nci+rs*1)]) ;
 
 		upd += (b[i*prem+(nci+rs*0)]*b[j*prem+(nci+rs*1)] + b[i*prem+(nci+rs*2)]*b[j*prem+(nci+rs*3)]) ; 
 		dwd += (b[i*prem+(nci+rs*0)]*b[j*prem+(nci+rs*2)] - b[i*prem+(nci+rs*1)]*b[j*prem+(nci+rs*3)]) ;
 
-		*/
+		/*
 		upn += (b[i+prem*(nci+rs*1)]*b[j+prem*(nci+rs*0)] + b[i+prem*(nci+rs*3)]*b[j+prem*(nci+rs*2)]) ; 
 		dwn += (b[i+prem*(nci+rs*2)]*b[j+prem*(nci+rs*0)] - b[i+prem*(nci+rs*3)]*b[j+prem*(nci+rs*1)]) ;
 
 		upd += (b[i+prem*(nci+rs*0)]*b[j+prem*(nci+rs*1)] + b[i+prem*(nci+rs*2)]*b[j+prem*(nci+rs*3)]) ; 
 		dwd += (b[i+prem*(nci+rs*0)]*b[j+prem*(nci+rs*2)] - b[i+prem*(nci+rs*1)]*b[j+prem*(nci+rs*3)]) ;
-		
+		*/
 		}
 		//Up spin
 		a[(i+p*0)*m+(j+p*1)] = upn*aa; 
@@ -137,7 +153,7 @@ void  QDanderson::zaddaSite(double * a,double * b, double * c,double aa )
 	
 	
 }	
-void QDanderson::zinitMatrix(double * a)
+void QDanderson::initMatrix(double * a)
 {
 	std::cout<<"eps "<<param.eps<<" U "<<param.U<<std::endl;
 	//Dot Hamiltonian H = eps*n_d - B/2 (n_{d,up}-n_{d,down}) + U . n_{d,up} . n_{d,down}
@@ -159,10 +175,12 @@ void QDanderson::initOperator(double *a, double * up)
 	for(long int i=0;i<m;i++)
 	for(long int j=0;j<m;j++)
 	{
-		up[i*m+j] += a[i+m*0]*a[j+m*1] + a[i+m*1]*a[j+m*3 ] ;
+		//up[i*m+j] = a[i+m*1]*a[j+m*0] + a[i+m*3]*a[j+m*2 ] ;
+		up[i*m+j] = a[i+m*3]*a[j+m*3]  ;
 	}
 
 }
+
 void QDanderson::updateUP(double *a ,double * up,double * oldup)
 {
 	int long m=param.currDim;
@@ -171,7 +189,8 @@ void QDanderson::updateUP(double *a ,double * up,double * oldup)
 	std::cout<<"Old: "<<p <<" "<<m<<std::endl;
 	double * uptm = new double [m*m] ();
 	double * tmat = new double [m*m] ();
-	if( uptm == nullptr || tmat == nullptr )
+	//if( !uptm == nullptr || tmat == nullptr )
+	if( !uptm  || !tmat )
 		std::cout<<"Unable to allocate memory "<<std::endl;
 		
 	#pragma omp parallel for  collapse(2)

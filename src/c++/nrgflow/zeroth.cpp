@@ -1,18 +1,24 @@
-#include "andersionz.h"
+#include "andersion.h"
 //#include <chkp.h>
 int main()
 {
 	std::cout<<"Starting NRG .... "<<std::endl;
 	param.setparam() ;
-	param.maxStates=500;
+	param.maxStates=1000;
 	param.U=0.50; 
 	param.V=std::sqrt(0.014/std::acos(-1)); 
-	param.eps=-param.U/2  ;
+	param.eps=-param.U*0.50  ;
 	std::ostringstream ss;
-	ss <<"spectr-U"<<param.U<<".dat";
+	ss <<"spectr-U"<<std::fixed<<std::setprecision(3)<<param.U<<".dat";
 	std::string s(ss.str());
-	std::ofstream pfile(s) ; 
+	std::ofstream pfile(s.c_str()) ;
 
+	ss.str("") ;
+	ss <<"energy-U"<<std::fixed<<std::setprecision(3) <<param.U<<".dat";
+	s =ss.str();
+	std::ofstream sfile(s.c_str()) ;
+
+	double ctime = omp_get_wtime();
 	//Create first Initial Matrix 
 	double * a = new double [param.currDim*param.currDim] () ; //matrix
 	double * exa = new double [param.currDim*param.currDim] () ; //matrix
@@ -21,14 +27,15 @@ int main()
 	double * up = new double [param.currDim*param.currDim] () ; //eigen value
 	double * oldup = new double [param.currDim*param.currDim] () ; //eigen value
 	std::cout<<"Starting NRG Dim: "<<param.currDim<<std::endl;
-	QDanderson.zinitMatrix(a) ; //create matrix
+	QDanderson.initMatrix(a) ; //create matrix
 	matrix.diag(a,w,param.currDim) ; //Diagonalize the matrix
 	QDanderson.initOperator(a,oldup);
 	matrix.dispArray(w,param.currDim) ;
+	matrix.dispMatrix(oldup,param.currDim) ;
 
 
 	double  hopping =1.0;
-	int Noiter=60,iter=1;
+	int Noiter=100,iter=1;
 	
 	for(int iter=0; iter<Noiter;iter++)
 	{
@@ -40,7 +47,7 @@ int main()
 	delete [] exa ; 
 	exa = new (std::nothrow) double [param.currDim*param.currDim]() ; 
 	if (!exa) std::cout<<"Unable to allocate memory for exa"<<std::endl;  
-	QDanderson.zaddaSite(exa,a,w,hopping);
+	QDanderson.addaSite(exa,a,w,hopping);
 	//matrix.dispMatrix(exa,param.currDim) ;
 	
 	delete [] exw; 
@@ -60,6 +67,7 @@ int main()
 	matrix.copyArrG(w,exw,param.currDim) ; //Keep a copy of the matrix 
 	std::cout<<"Lowest eigenvalue: "<<w[0]<<" and Highest eigenvalue: "<<w[param.currDim-1]<<std::endl;
 
+	/*
 	delete [] up;
 	up = new (std::nothrow)  double [param.currDim*param.currDim] () ; //matrix
 	if (!up) std::cout<<"Unable to allocate memory for a"<<std::endl; 
@@ -69,6 +77,17 @@ int main()
 	oldup = new (std::nothrow)  double [param.currDim*param.currDim] () ; //matrix
 	if (!oldup) std::cout<<"Unable to allocate memory for a"<<std::endl;  
 	matrix.copyMatrix(oldup,up,param.currDim) ;
+	std::cout<<"Calc for spectrum started .. "<<std::endl;
+	QDanderson.calcSpec(up,w,pfile ) ;
+	*/
+	if(param.wchain%2 ==0 && param.wchain > 2){
+		//sfile<<param.wchain<<" "<<QDanderson.spheat(w) <<std::endl;
+		sfile<<param.wchain<<" " ; 
+		for(int i=0;i<100;i++)
+			sfile<<w[i]<<" ";
+		sfile<<std::endl;
+	}
+
 
 	param.preDim=param.currDim;
 	param.wchain=param.wchain+1;
@@ -80,11 +99,10 @@ int main()
 
 	}
 	
-	std::cout<<"Calc for spectrum started .. "<<std::endl;
-	QDanderson.calcSpec(up,w,pfile ) ;
-		
+	std::cout<<"Total time spend: "<<omp_get_wtime() - ctime<<std::endl ; 	
 	
 	pfile.close();
+	sfile.close();
 	delete [] a;
 	delete [] w;
 	delete [] exa;
