@@ -1,9 +1,13 @@
 # kondo-nrg
 This is a Numerical Renormalization Group(NRG) code for the single site Anderson 
- impurity model. I have followed Rev. Mod. Phys. 80, 395(2008)(https://doi.org/10.1103/RevModPhys.80.395) . 
+
+ impurity model. I have followed Rev. Mod. Phys. 80, 395(2008)
+
+(https://doi.org/10.1103/RevModPhys.80.395) . 
  
 ## Dependence 
-It use LAPACKE (http://www.netlib.org/lapack/lapacke.html) for 
+It use LAPACKE (http://www.netlib.org/lapack/lapacke.html) for
+ 
  matrix operations such as diagonalization, multiplication.  It also use OPENMP
  for parallel computing.  
  
