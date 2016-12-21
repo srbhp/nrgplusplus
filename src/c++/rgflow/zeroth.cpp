@@ -4,9 +4,9 @@ int main()
 {
 	std::cout<<"Starting NRG .... "<<std::endl;
 	param.setparam() ;
-	param.maxStates=1000;
-	param.U=0.50; 
-	param.V=std::sqrt(0.014/std::acos(-1)); 
+	param.maxStates=4000;
+	param.U=0.0010;
+	param.V=0.0040 ;
 	param.eps=-param.U*0.50  ;
 	std::ostringstream ss;
 	ss <<"spectr-U"<<std::fixed<<std::setprecision(3)<<param.U<<".dat";
@@ -14,7 +14,7 @@ int main()
 	std::ofstream pfile(s.c_str()) ;
 
 	ss.str("") ;
-	ss <<"energy-U"<<std::fixed<<std::setprecision(3) <<param.U<<".dat";
+	ss <<"energy-U"<<std::fixed<<std::setprecision(3)<<param.U<<".dat";
 	s =ss.str();
 	std::ofstream sfile(s.c_str()) ;
 
@@ -31,11 +31,13 @@ int main()
 	matrix.diag(a,w,param.currDim) ; //Diagonalize the matrix
 	QDanderson.initOperator(a,oldup);
 	matrix.dispArray(w,param.currDim) ;
-	matrix.dispMatrix(oldup,param.currDim) ;
+	matrix.chfermionOP(oldup,param.currDim) ;
 
+		//matrix.dispMatrix(oldup,param.currDim);
+		//QDanderson.calcSpec(oldup,w,pfile ) ;
 
 	double  hopping =1.0;
-	int Noiter=100,iter=1;
+	int Noiter=80,iter=1;
 	
 	for(int iter=0; iter<Noiter;iter++)
 	{
@@ -67,7 +69,7 @@ int main()
 	matrix.copyArrG(w,exw,param.currDim) ; //Keep a copy of the matrix 
 	std::cout<<"Lowest eigenvalue: "<<w[0]<<" and Highest eigenvalue: "<<w[param.currDim-1]<<std::endl;
 
-	/*
+	/*	
 	delete [] up;
 	up = new (std::nothrow)  double [param.currDim*param.currDim] () ; //matrix
 	if (!up) std::cout<<"Unable to allocate memory for a"<<std::endl; 
@@ -77,13 +79,18 @@ int main()
 	oldup = new (std::nothrow)  double [param.currDim*param.currDim] () ; //matrix
 	if (!oldup) std::cout<<"Unable to allocate memory for a"<<std::endl;  
 	matrix.copyMatrix(oldup,up,param.currDim) ;
-	std::cout<<"Calc for spectrum started .. "<<std::endl;
-	QDanderson.calcSpec(up,w,pfile ) ;
+	matrix.chfermionOP(oldup,param.currDim) ;
+	if(param.wchain%2 ==0 && param.wchain >= 0)
+	{
+		std::cout<<"Calc for spectrum started wchain:  "<<param.wchain<<std::endl;
+		QDanderson.calcSpec(up,w,pfile ) ;
+	}
+	
 	*/
-	if(param.wchain%2 ==0 && param.wchain > 2){
-		//sfile<<param.wchain<<" "<<QDanderson.spheat(w) <<std::endl;
+	if(param.wchain%2 ==0 && param.wchain > 0){
 		sfile<<param.wchain<<" " ; 
-		for(int i=0;i<100;i++)
+		QDanderson.spheat(w,sfile ) ;
+		for(int i=0;i<std::min(100,param.currDim);i++)
 			sfile<<w[i]<<" ";
 		sfile<<std::endl;
 	}
@@ -98,6 +105,7 @@ int main()
 
 
 	}
+	
 	
 	std::cout<<"Total time spend: "<<omp_get_wtime() - ctime<<std::endl ; 	
 	

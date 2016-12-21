@@ -1,0 +1,6 @@
+set term png
+set o 'out.png'
+
+set xlabel 'Iteration no (n)'
+set ylabel 'Energy'
+p for [i=4:100] 'energy-U0.001.dat' u 1:i w lp lw 2 ps 0.5 notitle
