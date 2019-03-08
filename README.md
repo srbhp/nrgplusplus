@@ -1,3 +1,5 @@
+###warning :: Work in progress 
+
 # kondo-nrg
 This is a Numerical Renormalization Group(NRG) code for the single site Anderson 
 
