@@ -34,6 +34,7 @@ exhale_args = {
     # "treeViewIsBootstrap": True,
     "exhaleExecutesDoxygen": True,
     "exhaleDoxygenStdin": "INPUT = ../nrgcore/include",
+    "pageLevelConfigMeta": ":github_url: https://github.com/srbhp/nrgplusplus"
 }
 
 # Tell sphinx what the primary language being documented is.
