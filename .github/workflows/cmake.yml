@@ -37,7 +37,7 @@ jobs:
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       run: mkdir build 
         && cd build 
-        && cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DCMAKE_CXX_FLAGS=" -D_GLIBCXX_USE_TBB_PAR_BACKEND=0 -std=c++20 -qopenmp  -qmkl -fp-model precise " -DCMAKE_CXX_COMPILER=icpx -DCMAKE_C_COMPILER=icx  .
+        && cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DCMAKE_CXX_FLAGS=" -D_GLIBCXX_USE_TBB_PAR_BACKEND=0 -std=c++20 -qopenmp  -qmkl -fp-model precise " -DCMAKE_CXX_COMPILER=icpx -DCMAKE_C_COMPILER=icx  ..
 
     - name: Build
       # Build your program with the given configuration
