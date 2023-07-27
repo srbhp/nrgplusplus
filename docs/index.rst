@@ -17,7 +17,7 @@ designed with efficiency and speed in mind.
 
 
 
-.. image:: ../docs/outline.svg
+.. image:: ../docs/image/outline.svg
    :width: 100%
    :alt: Outline of the nrgplusplus library
 
