@@ -28,6 +28,11 @@ set(THREADS_PREFER_PTHREAD_FLAG ON) # This is just for us, we do prefer pthreads
 #  This is so you can include and then link against their libs. For very basic example usage, see the thread_profiling_example.cpp
 # ---- Create library ----
 
+##########Dependencies########
+find_package(HDF5 COMPONENTS CXX HL)
+include_directories(${HDF5_INCLUDE_DIR})
+set(LINK_LIBS ${LINK_LIBS} ${HDF5_LIBRARIES})
+
 #----------------------------------------------------------------
 add_library(NRG ${headers} ${sources})
 target_include_directories(NRG PUBLIC .)
