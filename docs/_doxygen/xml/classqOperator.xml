@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classqOperator" kind="class" language="C++" prot="public">
+    <compoundname>qOperator</compoundname>
+    <includes refid="qOperator_8hpp" local="no">qOperator.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classqOperator_1abdd979346839227fd4e0eb816408a7a3" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::array&lt; size_t, 2 &gt;, <ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt;&gt; &gt;</type>
+        <definition>std::map&lt;std::array&lt;size_t, 2&gt;, qmatrix&lt;&gt; &gt; qOperator::storage</definition>
+        <argsstring></argsstring>
+        <name>storage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="28" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classqOperator_1a081d4cfbbb1c667fd7758cdb2ae81990" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>qOperator::qOperator</definition>
+        <argsstring>()=default</argsstring>
+        <name>qOperator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classqOperator_1a5ef74b19656a201c20f4a40052e9820c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>qOperator::qOperator</definition>
+        <argsstring>(qmatrix&lt; double &gt; &amp;opr, size_t i, size_t j)</argsstring>
+        <name>qOperator</name>
+        <param>
+          <type><ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt; double &gt; &amp;</type>
+          <declname>opr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="32" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classqOperator_1a75b863c291a8cf10f65fe2af949056aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto qOperator::getMap</definition>
+        <argsstring>()</argsstring>
+        <name>getMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="36" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classqOperator_1ad7726c996001fe1038dfa1d613383c26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void qOperator::set</definition>
+        <argsstring>(const qmatrix&lt; double &gt; &amp;opr, size_t i, size_t j)</argsstring>
+        <name>set</name>
+        <param>
+          <type>const <ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt; double &gt; &amp;</type>
+          <declname>opr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="37" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="37" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classqOperator_1a66c83c43379293607830aa657b527b4c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void qOperator::set</definition>
+        <argsstring>(qmatrix&lt; double &gt; &amp;opr, size_t i, size_t j)</argsstring>
+        <name>set</name>
+        <param>
+          <type><ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt; double &gt; &amp;</type>
+          <declname>opr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="44" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="44" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classqOperator_1a1d4caefd06937b308b89508c483b1086" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt; double &gt; * &gt;</type>
+        <definition>std::optional&lt;qmatrix&lt;double&gt; *&gt; qOperator::get</definition>
+        <argsstring>(size_t i, size_t j)</argsstring>
+        <name>get</name>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+<para>This function returns the <computeroutput>qmatrix</computeroutput> pointer for the sub-block <computeroutput>i</computeroutput> and <computeroutput>j</computeroutput>. If the sub-block is not found, it returns an empty <computeroutput>std::optional</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the block to be returned. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>j</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the block to be returned. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::optional&lt;qmatrix&gt; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="63" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="63" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classqOperator_1ae5a1ca3e849160806d26966981325738" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void qOperator::unitaryTransform</definition>
+        <argsstring>(qOperator &amp;U)</argsstring>
+        <name>unitaryTransform</name>
+        <param>
+          <type><ref refid="classqOperator" kindref="compound">qOperator</ref> &amp;</type>
+          <declname>U</declname>
+        </param>
+        <briefdescription>
+<para>This function unitary transform the <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> by the <computeroutput>U</computeroutput> matrix. The <computeroutput>U</computeroutput> matrix is a block-diagonal matrix of <computeroutput>qmatrix</computeroutput> type. The <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> is transformed as  U^  <ref refid="classqOperator" kindref="compound">qOperator</ref>  U </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The unitary matrix to transform the <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput>. Usually we get this matrix after diagonalization of the Hamiltonian. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="80" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="80" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classqOperator_1aeef3533a438069661e929daaa1431ff9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void qOperator::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clear the storage for the operator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="104" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="104" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classqOperator_1a296b5e0ffb7c893769af4faa1fc3c248" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void qOperator::display</definition>
+        <argsstring>(std::ostream &amp;out) const</argsstring>
+        <name>display</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Print the <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> to the output stream. Avoid calling this function if the size of the <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> is large. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output stream </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="117" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="117" bodyend="122"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classqOperator_1a117acd47d8448859ee77550c8943caa7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;out, const qOperator &amp;val)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classqOperator" kindref="compound">qOperator</ref> &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qOperator.hpp" line="123" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="123" bodyend="127"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classqOperator" kindref="compound">qOperator</ref> is a class to store the oprator sub-blocks only where this has a finite value. It does not store any thing if the sub-blocks don&apos;t have any finite element. Remember that the <computeroutput>get</computeroutput> function is an std::optional. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/nrgcore/qOperator.hpp" line="21" column="1" bodyfile="nrgcore/include/nrgcore/qOperator.hpp" bodystart="21" bodyend="128"/>
+    <listofallmembers>
+      <member refid="classqOperator_1aeef3533a438069661e929daaa1431ff9" prot="public" virt="non-virtual"><scope>qOperator</scope><name>clear</name></member>
+      <member refid="classqOperator_1a296b5e0ffb7c893769af4faa1fc3c248" prot="public" virt="non-virtual"><scope>qOperator</scope><name>display</name></member>
+      <member refid="classqOperator_1a1d4caefd06937b308b89508c483b1086" prot="public" virt="non-virtual"><scope>qOperator</scope><name>get</name></member>
+      <member refid="classqOperator_1a75b863c291a8cf10f65fe2af949056aa" prot="public" virt="non-virtual"><scope>qOperator</scope><name>getMap</name></member>
+      <member refid="classqOperator_1a117acd47d8448859ee77550c8943caa7" prot="public" virt="non-virtual"><scope>qOperator</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classqOperator_1a081d4cfbbb1c667fd7758cdb2ae81990" prot="public" virt="non-virtual"><scope>qOperator</scope><name>qOperator</name></member>
+      <member refid="classqOperator_1a5ef74b19656a201c20f4a40052e9820c" prot="public" virt="non-virtual"><scope>qOperator</scope><name>qOperator</name></member>
+      <member refid="classqOperator_1ad7726c996001fe1038dfa1d613383c26" prot="public" virt="non-virtual"><scope>qOperator</scope><name>set</name></member>
+      <member refid="classqOperator_1a66c83c43379293607830aa657b527b4c" prot="public" virt="non-virtual"><scope>qOperator</scope><name>set</name></member>
+      <member refid="classqOperator_1abdd979346839227fd4e0eb816408a7a3" prot="private" virt="non-virtual"><scope>qOperator</scope><name>storage</name></member>
+      <member refid="classqOperator_1ae5a1ca3e849160806d26966981325738" prot="public" virt="non-virtual"><scope>qOperator</scope><name>unitaryTransform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

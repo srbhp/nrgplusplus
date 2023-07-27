@@ -1,0 +1,480 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classh5stream_1_1h5stream" kind="class" language="C++" prot="public">
+    <compoundname>h5stream::h5stream</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classh5stream_1_1h5stream_1a46567c60502555cc7cfbd4c8b01f22f2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool h5stream::h5stream::debug</definition>
+        <argsstring></argsstring>
+        <name>debug</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="122" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classh5stream_1_1h5stream_1a0e16344629cd61bded2212c8ccb717ee" prot="public" static="no" mutable="no">
+        <type>H5std_string</type>
+        <definition>H5std_string h5stream::h5stream::hdf5FileName</definition>
+        <argsstring></argsstring>
+        <name>hdf5FileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="125" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classh5stream_1_1h5stream_1a0bc2125e2d8ae1fa1b446036b1d8653c" prot="public" static="no" mutable="no">
+        <type>H5::H5File</type>
+        <definition>H5::H5File h5stream::h5stream::hdf5File</definition>
+        <argsstring></argsstring>
+        <name>hdf5File</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="126" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1a272ad28016dc89027faae94d3d724837" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>h5stream::h5stream::h5stream</definition>
+        <argsstring>()=default</argsstring>
+        <name>h5stream</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="127" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1ae8109dcd78c34660ad9fd76f251fb0f3" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>h5stream::h5stream::h5stream</definition>
+        <argsstring>(const std::string &amp;fileName, const std::string &amp;rw=std::string(&quot;tr&quot;))</argsstring>
+        <name>h5stream</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>rw</declname>
+          <defval>std::string(&quot;tr&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="129" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="129" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1aff67857469d128177eb4a154b4529ab6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void h5stream::h5stream::setFileName</definition>
+        <argsstring>(const H5std_string &amp;fileName, const std::string &amp;rw=std::string(&quot;tr&quot;))</argsstring>
+        <name>setFileName</name>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>rw</declname>
+          <defval>std::string(&quot;tr&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="133" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="133" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1add97c7c115afcc4d16d405bb2c2b67b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval>double</defval>
+          </param>
+          <param>
+            <type>template&lt; typename... &gt; class</type>
+            <declname>vec</declname>
+            <defname>vec</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void h5stream::h5stream::write</definition>
+        <argsstring>(const std::vector&lt; vec&lt; T &gt;&gt; &amp;data, const H5std_string &amp;datasetName)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const std::vector&lt; vec&lt; T &gt;&gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>datasetName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="157" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="157" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1a9e85bae85761be83dd5074c82d32d8d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval>double</defval>
+          </param>
+          <param>
+            <type>template&lt; typename... &gt; class</type>
+            <declname>vec</declname>
+            <defname>vec</defname>
+            <defval>std::vector</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void h5stream::h5stream::write</definition>
+        <argsstring>(const vec&lt; T &gt; &amp;data, const H5std_string &amp;datasetName)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const vec&lt; T &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>datasetName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="163" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="163" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1a6158bac7508b9cdfcc19421a0cda5c45" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval>double</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void h5stream::h5stream::write</definition>
+        <argsstring>(const H5std_string &amp;datasetName, const T *data, unsigned data_size)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>datasetName</declname>
+        </param>
+        <param>
+          <type>const T *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>data_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="168" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="168" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1a08546022fa05692c11eb76778b62726d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval>double</defval>
+          </param>
+          <param>
+            <type>template&lt; typename... &gt; class</type>
+            <declname>vec</declname>
+            <defname>vec</defname>
+            <defval>std::vector</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void h5stream::h5stream::read</definition>
+        <argsstring>(vec&lt; T &gt; &amp;data, const H5std_string &amp;datasetName)</argsstring>
+        <name>read</name>
+        <param>
+          <type>vec&lt; T &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>datasetName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="190" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="190" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1ab44442d3d0d929b523cf734f8a653075" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval>double</defval>
+          </param>
+          <param>
+            <type>template&lt; typename... &gt; class</type>
+            <declname>vec</declname>
+            <defname>vec</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void h5stream::h5stream::read</definition>
+        <argsstring>(std::vector&lt; vec&lt; T &gt;&gt; &amp;data, const H5std_string &amp;datasetName)</argsstring>
+        <name>read</name>
+        <param>
+          <type>std::vector&lt; vec&lt; T &gt;&gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>datasetName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="212" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="212" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1aba2545d238754f1c9a63a01ed8cc905b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void h5stream::h5stream::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="236" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="236" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1a1fbdca6515eeb42e3d2ab4ce9f196671" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double h5stream::h5stream::fileSize</definition>
+        <argsstring>() const</argsstring>
+        <name>fileSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="237" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="237" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1a6fb0be69c76e81aeb2ca05cd08445308" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classh5stream_1_1dspace" kindref="compound">dspace</ref></type>
+        <definition>dspace h5stream::h5stream::getDataspace</definition>
+        <argsstring>(const H5std_string &amp;dataset_name)</argsstring>
+        <name>getDataspace</name>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>dataset_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="240" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="240" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1a179550e7f0f38f06c7319abbbe12bc20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classh5stream_1_1gspace" kindref="compound">gspace</ref></type>
+        <definition>gspace h5stream::h5stream::getGroup</definition>
+        <argsstring>(const H5std_string &amp;dataset_name)</argsstring>
+        <name>getGroup</name>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>dataset_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="243" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="243" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1a2c7073f7143eb30e8406a387bfb24b8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto h5stream::h5stream::createGroup</definition>
+        <argsstring>(const H5std_string &amp;group_name)</argsstring>
+        <name>createGroup</name>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>group_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="246" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="246" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1a6517ad2c43ca402ec642831a99ff2c77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void h5stream::h5stream::writeMetadata</definition>
+        <argsstring>(const T &amp;data, const H5std_string &amp;label)</argsstring>
+        <name>writeMetadata</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="252" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="252" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classh5stream_1_1h5stream_1a075da956e0752bd226231cc3e00bb3f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void h5stream::h5stream::readMetadata</definition>
+        <argsstring>(T &amp;data, const H5std_string &amp;label)</argsstring>
+        <name>readMetadata</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const H5std_string &amp;</type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="257" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="257" bodyend="261"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classh5stream_1_1h5stream_1ac1fc46dfb40136d4551f20b9a787c244" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>friend <ref refid="classh5stream_1_1h5stream" kindref="compound">h5stream</ref> &amp;</type>
+        <definition>h5stream&amp; operator&lt;&lt;</definition>
+        <argsstring>(h5stream &amp;out, const h5str1&lt; T &gt; &amp;struct1)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type><ref refid="classh5stream_1_1h5stream" kindref="compound">h5stream</ref> &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structh5stream_1_1h5str1" kindref="compound">h5str1</ref>&lt; T &gt; &amp;</type>
+          <declname>struct1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="265" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="265" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="friend" id="classh5stream_1_1h5stream_1a03fdae9d245292899c66d40548c65245" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>friend <ref refid="classh5stream_1_1h5stream" kindref="compound">h5stream</ref> &amp;</type>
+        <definition>h5stream&amp; operator&gt;&gt;</definition>
+        <argsstring>(h5stream &amp;out, const h5str1&lt; T &gt; &amp;struct1)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type><ref refid="classh5stream_1_1h5stream" kindref="compound">h5stream</ref> &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structh5stream_1_1h5str1" kindref="compound">h5str1</ref>&lt; T &gt; &amp;</type>
+          <declname>struct1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="270" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="270" bodyend="273"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/utils/h5stream.hpp" line="121" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="121" bodyend="275"/>
+    <listofallmembers>
+      <member refid="classh5stream_1_1h5stream_1aba2545d238754f1c9a63a01ed8cc905b" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>close</name></member>
+      <member refid="classh5stream_1_1h5stream_1a2c7073f7143eb30e8406a387bfb24b8f" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>createGroup</name></member>
+      <member refid="classh5stream_1_1h5stream_1a46567c60502555cc7cfbd4c8b01f22f2" prot="private" virt="non-virtual"><scope>h5stream::h5stream</scope><name>debug</name></member>
+      <member refid="classh5stream_1_1h5stream_1a1fbdca6515eeb42e3d2ab4ce9f196671" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>fileSize</name></member>
+      <member refid="classh5stream_1_1h5stream_1a6fb0be69c76e81aeb2ca05cd08445308" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>getDataspace</name></member>
+      <member refid="classh5stream_1_1h5stream_1a179550e7f0f38f06c7319abbbe12bc20" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>getGroup</name></member>
+      <member refid="classh5stream_1_1h5stream_1a272ad28016dc89027faae94d3d724837" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>h5stream</name></member>
+      <member refid="classh5stream_1_1h5stream_1ae8109dcd78c34660ad9fd76f251fb0f3" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>h5stream</name></member>
+      <member refid="classh5stream_1_1h5stream_1a0bc2125e2d8ae1fa1b446036b1d8653c" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>hdf5File</name></member>
+      <member refid="classh5stream_1_1h5stream_1a0e16344629cd61bded2212c8ccb717ee" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>hdf5FileName</name></member>
+      <member refid="classh5stream_1_1h5stream_1ac1fc46dfb40136d4551f20b9a787c244" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classh5stream_1_1h5stream_1a03fdae9d245292899c66d40548c65245" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classh5stream_1_1h5stream_1a08546022fa05692c11eb76778b62726d" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>read</name></member>
+      <member refid="classh5stream_1_1h5stream_1ab44442d3d0d929b523cf734f8a653075" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>read</name></member>
+      <member refid="classh5stream_1_1h5stream_1a075da956e0752bd226231cc3e00bb3f7" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>readMetadata</name></member>
+      <member refid="classh5stream_1_1h5stream_1aff67857469d128177eb4a154b4529ab6" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>setFileName</name></member>
+      <member refid="classh5stream_1_1h5stream_1add97c7c115afcc4d16d405bb2c2b67b5" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>write</name></member>
+      <member refid="classh5stream_1_1h5stream_1a9e85bae85761be83dd5074c82d32d8d6" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>write</name></member>
+      <member refid="classh5stream_1_1h5stream_1a6158bac7508b9cdfcc19421a0cda5c45" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>write</name></member>
+      <member refid="classh5stream_1_1h5stream_1a6517ad2c43ca402ec642831a99ff2c77" prot="public" virt="non-virtual"><scope>h5stream::h5stream</scope><name>writeMetadata</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

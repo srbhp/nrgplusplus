@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_d111b1dd30680ea57bb87aa325f6640b" kind="dir">
+    <compoundname>nrgcore</compoundname>
+    <innerdir refid="dir_0ee6419de5c4643ef5487d81d4b1ef68">nrgcore/include</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/"/>
+  </compounddef>
+</doxygen>

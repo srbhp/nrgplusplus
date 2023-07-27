@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_6cbb7b4d154bb78533df1ba43b0ba62d" kind="dir">
+    <compoundname>nrgcore/include/dynamics</compoundname>
+    <innerfile refid="fdmBackwardIteration_8hpp">fdmBackwardIteration.hpp</innerfile>
+    <innerfile refid="fdmSpectrum_8hpp">fdmSpectrum.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/dynamics/"/>
+  </compounddef>
+</doxygen>

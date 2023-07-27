@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classconfigPerser" kind="class" language="C++" prot="public">
+    <compoundname>configPerser</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classconfigPerser_1a84bfa89d0f759cfc2fc162c9b394cc88" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; configPerser::config</definition>
+        <argsstring></argsstring>
+        <name>config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/configPerser.hpp" line="19" column="1" bodyfile="nrgcore/include/utils/configPerser.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classconfigPerser_1a2ad9106db2618fecfce5c75a6267ddbd" prot="public" static="yes" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string configPerser::configFileName</definition>
+        <argsstring></argsstring>
+        <name>configFileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/configPerser.hpp" line="22" column="1" bodyfile="nrgcore/include/utils/configPerser.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classconfigPerser_1abe22f60c5f8dcd0a072fea426826d2db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>configPerser::configPerser</definition>
+        <argsstring>()</argsstring>
+        <name>configPerser</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/configPerser.hpp" line="23" column="1" bodyfile="nrgcore/include/utils/configPerser.hpp" bodystart="23" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classconfigPerser_1a0c6fa58a0c8329ca102e7f1a0e0fdb11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T configPerser::get</definition>
+        <argsstring>(const std::string &amp;key)</argsstring>
+        <name>get</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/configPerser.hpp" line="55" column="1" bodyfile="nrgcore/include/utils/configPerser.hpp" bodystart="55" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classconfigPerser_1ad8dc5a2feebeb49c9fd37ecfad81bee3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void configPerser::print</definition>
+        <argsstring>()</argsstring>
+        <name>print</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/configPerser.hpp" line="92" column="1" bodyfile="nrgcore/include/utils/configPerser.hpp" bodystart="92" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/utils/configPerser.hpp" line="9" column="1" bodyfile="nrgcore/include/utils/configPerser.hpp" bodystart="9" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classconfigPerser_1a84bfa89d0f759cfc2fc162c9b394cc88" prot="private" virt="non-virtual"><scope>configPerser</scope><name>config</name></member>
+      <member refid="classconfigPerser_1a2ad9106db2618fecfce5c75a6267ddbd" prot="public" virt="non-virtual"><scope>configPerser</scope><name>configFileName</name></member>
+      <member refid="classconfigPerser_1abe22f60c5f8dcd0a072fea426826d2db" prot="public" virt="non-virtual"><scope>configPerser</scope><name>configPerser</name></member>
+      <member refid="classconfigPerser_1a0c6fa58a0c8329ca102e7f1a0e0fdb11" prot="public" virt="non-virtual"><scope>configPerser</scope><name>get</name></member>
+      <member refid="classconfigPerser_1ad8dc5a2feebeb49c9fd37ecfad81bee3" prot="public" virt="non-virtual"><scope>configPerser</scope><name>print</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

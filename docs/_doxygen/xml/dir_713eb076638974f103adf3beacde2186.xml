@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_713eb076638974f103adf3beacde2186" kind="dir">
+    <compoundname>nrgcore/include/models</compoundname>
+    <innerfile refid="fermionBasis_8hpp">fermionBasis.hpp</innerfile>
+    <innerfile refid="freeModel_8hpp">freeModel.hpp</innerfile>
+    <innerfile refid="kondoSC_8hpp">kondoSC.hpp</innerfile>
+    <innerfile refid="kondoTwoImpuritySC_8hpp">kondoTwoImpuritySC.hpp</innerfile>
+    <innerfile refid="rabiAndersonSC_8hpp">rabiAndersonSC.hpp</innerfile>
+    <innerfile refid="resonantTwoLead_8hpp">resonantTwoLead.hpp</innerfile>
+    <innerfile refid="spinhalf_8hpp">spinhalf.hpp</innerfile>
+    <innerfile refid="spinhalfKondo_8hpp">spinhalfKondo.hpp</innerfile>
+    <innerfile refid="spinhalfSC_8hpp">spinhalfSC.hpp</innerfile>
+    <innerfile refid="spinlessTwoLead_8hpp">spinlessTwoLead.hpp</innerfile>
+    <innerfile refid="spinnless_8hpp">spinnless.hpp</innerfile>
+    <innerfile refid="twoChannel_8hpp">twoChannel.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/models/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_0ee6419de5c4643ef5487d81d4b1ef68" kind="dir">
+    <compoundname>nrgcore/include</compoundname>
+    <innerdir refid="dir_6cbb7b4d154bb78533df1ba43b0ba62d">nrgcore/include/dynamics</innerdir>
+    <innerdir refid="dir_713eb076638974f103adf3beacde2186">nrgcore/include/models</innerdir>
+    <innerdir refid="dir_d4b033c2a2f131b6a350ce4edf7f7310">nrgcore/include/nrgcore</innerdir>
+    <innerdir refid="dir_c750ff455fde1949068a5fdbd3e1e609">nrgcore/include/static</innerdir>
+    <innerdir refid="dir_509370c109708ebfcedd2ae031b23b70">nrgcore/include/utils</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/"/>
+  </compounddef>
+</doxygen>

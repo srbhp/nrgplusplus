@@ -1,0 +1,627 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classnrgcore" kind="class" language="C++" prot="public">
+    <compoundname>nrgcore</compoundname>
+    <includes refid="nrgcore_8hpp" local="no">nrgcore.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename im_type</type>
+      </param>
+      <param>
+        <type>typename bath_type</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classnrgcore_1a151583fd6a460dfef289d82e97de8af0" prot="private" static="no" mutable="no">
+        <type>im_type *</type>
+        <definition>im_type* nrgcore&lt; im_type, bath_type &gt;::impurityModel</definition>
+        <argsstring></argsstring>
+        <name>impurityModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="54" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1a0d06ab4607e81c68c7c2a633280b1477" prot="private" static="no" mutable="no">
+        <type>bath_type *</type>
+        <definition>bath_type* nrgcore&lt; im_type, bath_type &gt;::bath_model</definition>
+        <argsstring></argsstring>
+        <name>bath_model</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="55" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1a609dc7d9f8f58db81f7decc759ff6131" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt;</type>
+        <definition>std::vector&lt;qOperator&gt; nrgcore&lt; im_type, bath_type &gt;::pre_fdag_oparator</definition>
+        <argsstring></argsstring>
+        <name>pre_fdag_oparator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="57" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1a2ea178dd405d187d59db5c7584973794" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; nrgcore&lt; im_type, bath_type &gt;::chi_bath</definition>
+        <argsstring></argsstring>
+        <name>chi_bath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="614" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="614" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1a04968f74a6a5bed4b2ee1f74ad091ff3" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t nrgcore&lt; im_type, bath_type &gt;::no_of_kept_states</definition>
+        <argsstring></argsstring>
+        <name>no_of_kept_states</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="617" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="617" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1ac0f19ae7a532eebedfb078d131573c62" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t nrgcore&lt; im_type, bath_type &gt;::max_kept_states</definition>
+        <argsstring></argsstring>
+        <name>max_kept_states</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="618" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="618" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1aa3d2d501fbeac8b482cacc8966ca1de4" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nrgcore&lt; im_type, bath_type &gt;::errorbarInEnergy</definition>
+        <argsstring></argsstring>
+        <name>errorbarInEnergy</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="619" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="619" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classnrgcore_1a1db2a4bc084130bf881b23bcf7ff8d3f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; nrgcore&lt; im_type, bath_type &gt;::all_eigenvalue</definition>
+        <argsstring></argsstring>
+        <name>all_eigenvalue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="622" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="622" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1a1295ccad18475e366e2963b5954290f0" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; nrgcore&lt; im_type, bath_type &gt;::relativeGroundStateEnergy</definition>
+        <argsstring></argsstring>
+        <name>relativeGroundStateEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="623" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="623" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1a45dec061cf541b82ffca95a80dc95227" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; size_t &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;size_t&gt; &gt; nrgcore&lt; im_type, bath_type &gt;::eigenvaluesQ_kept_indices</definition>
+        <argsstring></argsstring>
+        <name>eigenvaluesQ_kept_indices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="625" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="625" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1aee19ab5ab690aa26e43d9f27b3935303" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;qmatrix&lt;double&gt; &gt; nrgcore&lt; im_type, bath_type &gt;::current_hamiltonQ</definition>
+        <argsstring></argsstring>
+        <name>current_hamiltonQ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="626" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="626" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1ae289193271af8b2f2d01594a7eede84f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; nrgcore&lt; im_type, bath_type &gt;::current_sysmQ</definition>
+        <argsstring></argsstring>
+        <name>current_sysmQ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="627" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="627" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1aa389235c025e012af3d43806d7841d5d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; nrgcore&lt; im_type, bath_type &gt;::pre_sysmQ</definition>
+        <argsstring></argsstring>
+        <name>pre_sysmQ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="628" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="628" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1a2016def91b17970ebce51493ebbf0970" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; nrgcore&lt; im_type, bath_type &gt;::eigenvaluesQ</definition>
+        <argsstring></argsstring>
+        <name>eigenvaluesQ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="629" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="629" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1ae6754feff76c8b31609761de044e69d2" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; size_t &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;size_t&gt; &gt; nrgcore&lt; im_type, bath_type &gt;::coupled_nQ_index</definition>
+        <argsstring></argsstring>
+        <name>coupled_nQ_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="630" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="630" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1a57e3fa8284d5b773cb33add300ae402a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nrgcore&lt; im_type, bath_type &gt;::nrg_iterations_cnt</definition>
+        <argsstring></argsstring>
+        <name>nrg_iterations_cnt</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="632" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="632" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1a11d2d4dfa64966cecfda5f87cb9e8d86" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nrgcore&lt; im_type, bath_type &gt;::nrg_iterations_min</definition>
+        <argsstring></argsstring>
+        <name>nrg_iterations_min</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="633" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="633" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1aafe224f191c433a9927d3cc1e474b25f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; nrgcore&lt; im_type, bath_type &gt;::bath_eigenvaluesQ</definition>
+        <argsstring></argsstring>
+        <name>bath_eigenvaluesQ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="634" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="634" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnrgcore_1aaca801cba78b070101f4a074dc5ea445" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; nrgcore&lt; im_type, bath_type &gt;::nq_bath</definition>
+        <argsstring></argsstring>
+        <name>nq_bath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="635" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="635" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnrgcore_1a0e05a444e6bab4b5982ff9480ef82ac2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nrgcore&lt; im_type, bath_type &gt;::nrgcore</definition>
+        <argsstring>(im_type &amp;im_hamilt, bath_type &amp;bt_hamilt)</argsstring>
+        <name>nrgcore</name>
+        <param>
+          <type>im_type &amp;</type>
+          <declname>im_hamilt</declname>
+        </param>
+        <param>
+          <type>bath_type &amp;</type>
+          <declname>bt_hamilt</declname>
+        </param>
+        <briefdescription>
+<para>[TODO:description] </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>im_hamilt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[TODO:parameter] </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bt_hamilt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[TODO:parameter] </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="66" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="66" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1ab9e6604eaada9f7cd70b80ba2c3440b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrgcore&lt; im_type, bath_type &gt;::add_bath_site</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;thopping, double rescale)</argsstring>
+        <name>add_bath_site</name>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>thopping</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rescale</declname>
+        </param>
+        <briefdescription>
+<para>This function is called to add a bath site. This is done for each iteration of the simulation. This function create a full Hamiltonian from the impurity and bath class and diagonalize it. The eigenvalues are stored in eigenvaluesQ. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>thopping</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This a array for the    </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rescale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This is the rescaling factor  {}  </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="85" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="85" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1a8d35e68ff38ad158345ea5f3fe62b9e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrgcore&lt; im_type, bath_type &gt;::update_internal_state</definition>
+        <argsstring>()</argsstring>
+        <name>update_internal_state</name>
+        <briefdescription>
+<para>This function is called to discard the higher energy state and update some the internal state of the nrgcore class. This function should be called after add_bath_site. If we need to update some bath or impurity operators (i.e., f_dag_operator) then we should call this function after the update is done. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="135" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="135" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1a7be68e2ea9367ce7478c450701d0c269" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrgcore&lt; im_type, bath_type &gt;::test</definition>
+        <argsstring>()</argsstring>
+        <name>test</name>
+        <briefdescription>
+<para>[TODO: We have added few basic test for the impurity and bath class here.] </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="144" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="144" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1a4615721d43b17d68b21bc089b897b220" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrgcore&lt; im_type, bath_type &gt;::create_next_hamiltonians</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;t_hopping, double rescale)</argsstring>
+        <name>create_next_hamiltonians</name>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>t_hopping</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rescale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="162" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="162" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1adc153e3471e213e8474e71e90bb33ba0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrgcore&lt; im_type, bath_type &gt;::create_next_basis</definition>
+        <argsstring>()</argsstring>
+        <name>create_next_basis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="264" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="264" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1a20dacfcbb1a4b3c3678c370cf45327a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrgcore&lt; im_type, bath_type &gt;::discard_higher_energies</definition>
+        <argsstring>()</argsstring>
+        <name>discard_higher_energies</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="289" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="289" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1a1e9bdb830e8f545d08d779b079edc57f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrgcore&lt; im_type, bath_type &gt;::set_parameters</definition>
+        <argsstring>(size_t n=1024)</argsstring>
+        <name>set_parameters</name>
+        <param>
+          <type>size_t</type>
+          <declname>n</declname>
+          <defval>1024</defval>
+        </param>
+        <briefdescription>
+<para>Set the maximum numbers of states to be kept states. The actual number of states is determined by adding few more degenarete states. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum number of states to be kept </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="364" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="364" bodyend="370"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1a0e8829608933ed94a3bbe4a4fb78fe9a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; nrgcore&lt; im_type, bath_type &gt;::get_basis_nQ</definition>
+        <argsstring>()</argsstring>
+        <name>get_basis_nQ</name>
+        <briefdescription>
+<para>Get the current Basis vector. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>std::vector&lt;std::vector&lt;int&gt;&gt; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="377" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="377" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1a10f8eb43b7beef9c4329dc935ac5fc70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; nrgcore&lt; im_type, bath_type &gt;::get_eigenvaluesQ</definition>
+        <argsstring>()</argsstring>
+        <name>get_eigenvaluesQ</name>
+        <briefdescription>
+<para>This function returns the eigenvalues of the Hamiltonian in the current basis. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>std::vector&lt;std::vector&lt;double&gt;&gt; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="389" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="389" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1a06b5f3ee8c6a9386105185c26e49006d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto nrgcore&lt; im_type, bath_type &gt;::get_f_dag_operator</definition>
+        <argsstring>()</argsstring>
+        <name>get_f_dag_operator</name>
+        <briefdescription>
+<para>Returns the  f^{}  operator in the current basis current wilson site. This <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> is used to construct the Hamiltonian for the next iteration. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>std::vector&lt;qOperator&gt; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="402" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="402" bodyend="402"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1a022e1995590ebcda3a1d874f0062ea39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrgcore&lt; im_type, bath_type &gt;::checkHigherEnergyDiscarded</definition>
+        <argsstring>()</argsstring>
+        <name>checkHigherEnergyDiscarded</name>
+        <briefdescription>
+<para>Check whether any states are discarded in the current iteration. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="408" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="408" bodyend="410"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1afa701c47194e8b472a2883ed82ce53fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt; *</type>
+        <definition>std::vector&lt;qOperator&gt;* nrgcore&lt; im_type, bath_type &gt;::getPreWilsonSiteOperators</definition>
+        <argsstring>()</argsstring>
+        <name>getPreWilsonSiteOperators</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="636" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="636" bodyend="638"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classnrgcore_1aee10c06b554661378e15e0f38c36e2c7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrgcore&lt; im_type, bath_type &gt;::set_current_fdag_operator</definition>
+        <argsstring>()</argsstring>
+        <name>set_current_fdag_operator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="413" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="413" bodyend="516"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1ad471a1fe24b53d9baba77840bcd783b1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrgcore&lt; im_type, bath_type &gt;::enforceDegeneracy</definition>
+        <argsstring>()</argsstring>
+        <name>enforceDegeneracy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="517" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="517" bodyend="535"/>
+      </memberdef>
+      <memberdef kind="function" id="classnrgcore_1ae0f4bbe9811f9c6f72ba87f009a8b7c2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrgcore&lt; im_type, bath_type &gt;::set_current_fdag_operator_old</definition>
+        <argsstring>()</argsstring>
+        <name>set_current_fdag_operator_old</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="536" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="536" bodyend="608"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>We use this class solve the NRG problem of a bath and an Impurity. This class take two template parameter one for the impurity and one for the bath. The bath and impurity are the should have the same quantum number. </para>    </briefdescription>
+    <detaileddescription>
+<para>The bath and impurity Hamiltonian is diagonalized in the block basis of the quantum numbers. These eigenvales are zero for a metallic bath and non-zero for a superconductor bath.</para><para>We assume that the impurity and bath are connected by a few interactions terms.</para><para><formula id="1">\[ H_{inter} = \sum_{i} (\lambda_i a_{i}^{\dagger}b_{i} + h.c ) \]</formula> where <formula id="2">$ a_{i}^{\dagger} $</formula> is the creation operator of the impurity and <formula id="3">$ b_{i}^{\dagger} $</formula> is the creation operator of the bath. The <formula id="4">$ \lambda_i $</formula> are the coupling constants.</para><para>The number of operator for the bath and impurity should be the same. If this is the case (i.e., Anderson Model) then we can pass the impurity class and bath class to the nrgcore class as a template parameter. If this is not the case (i.e., Kondo Model )then we create the impurity class out of the impurity site and the first Wilson site. Then we pass this combined impurity class and bath class to the nrgcore class.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>im_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of Impurity class. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bath_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of bath class. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>im_hamilt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Impurity class Hamiltonian. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bt_hamilt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bath class Hamiltonian. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>[TODO:return] </para></simplesect>
+</para>    </detaileddescription>
+    <location file="nrgcore/include/nrgcore/nrgcore.hpp" line="53" column="1" bodyfile="nrgcore/include/nrgcore/nrgcore.hpp" bodystart="53" bodyend="639"/>
+    <listofallmembers>
+      <member refid="classnrgcore_1ab9e6604eaada9f7cd70b80ba2c3440b2" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>add_bath_site</name></member>
+      <member refid="classnrgcore_1a1db2a4bc084130bf881b23bcf7ff8d3f" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>all_eigenvalue</name></member>
+      <member refid="classnrgcore_1aafe224f191c433a9927d3cc1e474b25f" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>bath_eigenvaluesQ</name></member>
+      <member refid="classnrgcore_1a0d06ab4607e81c68c7c2a633280b1477" prot="private" virt="non-virtual"><scope>nrgcore</scope><name>bath_model</name></member>
+      <member refid="classnrgcore_1a022e1995590ebcda3a1d874f0062ea39" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>checkHigherEnergyDiscarded</name></member>
+      <member refid="classnrgcore_1a2ea178dd405d187d59db5c7584973794" prot="private" virt="non-virtual"><scope>nrgcore</scope><name>chi_bath</name></member>
+      <member refid="classnrgcore_1ae6754feff76c8b31609761de044e69d2" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>coupled_nQ_index</name></member>
+      <member refid="classnrgcore_1adc153e3471e213e8474e71e90bb33ba0" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>create_next_basis</name></member>
+      <member refid="classnrgcore_1a4615721d43b17d68b21bc089b897b220" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>create_next_hamiltonians</name></member>
+      <member refid="classnrgcore_1aee19ab5ab690aa26e43d9f27b3935303" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>current_hamiltonQ</name></member>
+      <member refid="classnrgcore_1ae289193271af8b2f2d01594a7eede84f" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>current_sysmQ</name></member>
+      <member refid="classnrgcore_1a20dacfcbb1a4b3c3678c370cf45327a0" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>discard_higher_energies</name></member>
+      <member refid="classnrgcore_1a2016def91b17970ebce51493ebbf0970" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>eigenvaluesQ</name></member>
+      <member refid="classnrgcore_1a45dec061cf541b82ffca95a80dc95227" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>eigenvaluesQ_kept_indices</name></member>
+      <member refid="classnrgcore_1ad471a1fe24b53d9baba77840bcd783b1" prot="private" virt="non-virtual"><scope>nrgcore</scope><name>enforceDegeneracy</name></member>
+      <member refid="classnrgcore_1aa3d2d501fbeac8b482cacc8966ca1de4" prot="private" virt="non-virtual"><scope>nrgcore</scope><name>errorbarInEnergy</name></member>
+      <member refid="classnrgcore_1a0e8829608933ed94a3bbe4a4fb78fe9a" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>get_basis_nQ</name></member>
+      <member refid="classnrgcore_1a10f8eb43b7beef9c4329dc935ac5fc70" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>get_eigenvaluesQ</name></member>
+      <member refid="classnrgcore_1a06b5f3ee8c6a9386105185c26e49006d" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>get_f_dag_operator</name></member>
+      <member refid="classnrgcore_1afa701c47194e8b472a2883ed82ce53fe" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>getPreWilsonSiteOperators</name></member>
+      <member refid="classnrgcore_1a151583fd6a460dfef289d82e97de8af0" prot="private" virt="non-virtual"><scope>nrgcore</scope><name>impurityModel</name></member>
+      <member refid="classnrgcore_1ac0f19ae7a532eebedfb078d131573c62" prot="private" virt="non-virtual"><scope>nrgcore</scope><name>max_kept_states</name></member>
+      <member refid="classnrgcore_1a04968f74a6a5bed4b2ee1f74ad091ff3" prot="private" virt="non-virtual"><scope>nrgcore</scope><name>no_of_kept_states</name></member>
+      <member refid="classnrgcore_1aaca801cba78b070101f4a074dc5ea445" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>nq_bath</name></member>
+      <member refid="classnrgcore_1a57e3fa8284d5b773cb33add300ae402a" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>nrg_iterations_cnt</name></member>
+      <member refid="classnrgcore_1a11d2d4dfa64966cecfda5f87cb9e8d86" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>nrg_iterations_min</name></member>
+      <member refid="classnrgcore_1a0e05a444e6bab4b5982ff9480ef82ac2" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>nrgcore</name></member>
+      <member refid="classnrgcore_1a609dc7d9f8f58db81f7decc759ff6131" prot="private" virt="non-virtual"><scope>nrgcore</scope><name>pre_fdag_oparator</name></member>
+      <member refid="classnrgcore_1aa389235c025e012af3d43806d7841d5d" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>pre_sysmQ</name></member>
+      <member refid="classnrgcore_1a1295ccad18475e366e2963b5954290f0" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>relativeGroundStateEnergy</name></member>
+      <member refid="classnrgcore_1aee10c06b554661378e15e0f38c36e2c7" prot="private" virt="non-virtual"><scope>nrgcore</scope><name>set_current_fdag_operator</name></member>
+      <member refid="classnrgcore_1ae0f4bbe9811f9c6f72ba87f009a8b7c2" prot="private" virt="non-virtual"><scope>nrgcore</scope><name>set_current_fdag_operator_old</name></member>
+      <member refid="classnrgcore_1a1e9bdb830e8f545d08d779b079edc57f" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>set_parameters</name></member>
+      <member refid="classnrgcore_1a7be68e2ea9367ce7478c450701d0c269" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>test</name></member>
+      <member refid="classnrgcore_1a8d35e68ff38ad158345ea5f3fe62b9e7" prot="public" virt="non-virtual"><scope>nrgcore</scope><name>update_internal_state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

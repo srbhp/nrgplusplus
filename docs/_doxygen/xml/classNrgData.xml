@@ -1,0 +1,401 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classNrgData" kind="class" language="C++" prot="public">
+    <compoundname>NrgData</compoundname>
+    <includes refid="nrgData_8hpp" local="no">nrgData.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename nrgcore_type</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNrgData_1a7358e9749d5c36318611770e3619af3a" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string NrgData&lt; nrgcore_type &gt;::tmpNrgFilename</definition>
+        <argsstring></argsstring>
+        <name>tmpNrgFilename</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="32" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNrgData_1a561beb87bfd16dd372f70d058a4fea60" prot="private" static="no" mutable="no">
+        <type>nrgcore_type *</type>
+        <definition>nrgcore_type* NrgData&lt; nrgcore_type &gt;::nrg_object</definition>
+        <argsstring></argsstring>
+        <name>nrg_object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="33" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNrgData_1a4f3f8925e3f2d00fba5075d75255679b" prot="private" static="no" mutable="no">
+        <type><ref refid="classh5stream_1_1h5stream" kindref="compound">h5stream::h5stream</ref></type>
+        <definition>h5stream::h5stream NrgData&lt; nrgcore_type &gt;::pfiletmp</definition>
+        <argsstring></argsstring>
+        <name>pfiletmp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="34" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNrgData_1ad6e307c99220f5a6b16fa745932c03e8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NrgData&lt; nrgcore_type &gt;::isClosed</definition>
+        <argsstring></argsstring>
+        <name>isClosed</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="35" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classNrgData_1ad62354af657829df2991cac7b96dab1b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NrgData&lt; nrgcore_type &gt;::debugIO</definition>
+        <argsstring></argsstring>
+        <name>debugIO</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="288" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNrgData_1a7376f6003140ccb665a78fab37e5e47f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; size_t &gt;</type>
+        <definition>std::vector&lt;size_t&gt; NrgData&lt; nrgcore_type &gt;::savedNRGIndex</definition>
+        <argsstring></argsstring>
+        <name>savedNRGIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="289" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNrgData_1a8df3ffc332eeec35bbf4956000dcf430" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>NrgData&lt; nrgcore_type &gt;::NrgData</definition>
+        <argsstring>(const std::string &amp;tfilename=&quot;&quot;)</argsstring>
+        <name>NrgData</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tfilename</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>This sets the <computeroutput>nrg_object</computeroutput> to <computeroutput>nullptr</computeroutput> and you need to specify the <computeroutput>nrg_object</computeroutput> by calling the <computeroutput>setNRGObject</computeroutput> function. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tfilename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File name of the HDF5 file to save the data. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="44" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="44" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1ab942d707634bf56c300efd43f9bd322b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::readFromFile</definition>
+        <argsstring>(const std::string &amp;tfile)</argsstring>
+        <name>readFromFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tfile</declname>
+        </param>
+        <briefdescription>
+<para>Read the data from the file <computeroutput>tfile</computeroutput> into the <computeroutput>nrg_object</computeroutput>. This function is used to read the data back into the <computeroutput>nrg_object</computeroutput> for back-ward iteration of the NRG calculation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="62" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="62" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1ad1f535374f2a908406a97146b95f70bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::setFileName</definition>
+        <argsstring>(const std::string &amp;tfile)</argsstring>
+        <name>setFileName</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tfile</declname>
+        </param>
+        <briefdescription>
+<para>Set the file name of the HDF5 file to save the data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="77" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="77" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1a8b6f27b119d9adecf59e4ec65127c1b8" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>NrgData&lt; nrgcore_type &gt;::NrgData</definition>
+        <argsstring>(nrgcore_type *t_nrg_object, const std::string &amp;tfilename=&quot;&quot;)</argsstring>
+        <name>NrgData</name>
+        <param>
+          <type>nrgcore_type *</type>
+          <declname>t_nrg_object</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tfilename</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="83" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="83" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1a62824c8b7ff6e2eb6d12bfe9d20fc75a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::setNRGObject</definition>
+        <argsstring>(nrgcore_type *t_nrg_object)</argsstring>
+        <name>setNRGObject</name>
+        <param>
+          <type>nrgcore_type *</type>
+          <declname>t_nrg_object</declname>
+        </param>
+        <briefdescription>
+<para>Set the <computeroutput>nrg_object</computeroutput> to <computeroutput>t_nrg_object</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="98" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1a97fc1d2e22c3794a668f91aab5caf582" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::saveFinalState</definition>
+        <argsstring>()</argsstring>
+        <name>saveFinalState</name>
+        <briefdescription>
+<para>We should call this function after the last iteration of the Wilson Chain. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="106" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="106" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1a8806440d009d1d0e1ce27cd63ae37855" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>We should always call this function after the last iteration of the Wilson Chain to close file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="115" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="115" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1abb7e4c3286eefb1e15ee8caec21f05b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>This  {deletes}  the temp file and closes the file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="123" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="123" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1a4bcf5ab8fc0badbda78f97ae2ea2e382" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::saveCurrentData</definition>
+        <argsstring>()</argsstring>
+        <name>saveCurrentData</name>
+        <briefdescription>
+<para>This saves data for the the current iteration state of the Wilson Chain. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="134" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="134" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1ad1accbf9e196b8933343d4fe0bc35180" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::saveqOperator</definition>
+        <argsstring>(std::vector&lt; qOperator &gt; *opr, const std::string &amp;hgroup)</argsstring>
+        <name>saveqOperator</name>
+        <param>
+          <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt; *</type>
+          <declname>opr</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>hgroup</declname>
+        </param>
+        <briefdescription>
+<para>Saves the <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> in the file. This function is called after the <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> is constructed and rotated in the eigenbasis after each iteration. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>opr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> to be saved. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hgroup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The group name in which the <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> is to be saved. Remember pass same string when reading the <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> from the file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="174" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="174" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1ae905ad27e7a45e8f2393526511cc8109" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::loadqOperator</definition>
+        <argsstring>(std::vector&lt; qOperator &gt; *opr, const std::string &amp;hgroup)</argsstring>
+        <name>loadqOperator</name>
+        <param>
+          <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt; *</type>
+          <declname>opr</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>hgroup</declname>
+        </param>
+        <briefdescription>
+<para>Reads the <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> from the file. This function is called in the back-ward iteration of the Wilson Chain. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>opr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> to be read from the file. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hgroup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The group name in which the <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput> was saved. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="214" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="214" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1af599e13e0eacf442b27aeca1cca05165" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::loadCurrentData</definition>
+        <argsstring>()</argsstring>
+        <name>loadCurrentData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="251" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="251" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classNrgData_1a6b89587cb68d94031173109e6817e23f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NrgData&lt; nrgcore_type &gt;::loadCurrentData</definition>
+        <argsstring>(int in)</argsstring>
+        <name>loadCurrentData</name>
+        <param>
+          <type>int</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Loads the data from the file. This function is called in the back-ward iteration of the Wilson Chain. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current iteration number or the Wilson number. We normally pass the <computeroutput>nrg_object-&gt;nrg_iterations_cnt</computeroutput> to this function. We set the impurity to the iteration number to be -1. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/nrgData.hpp" line="260" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="260" bodyend="287"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class provides a way to save the <computeroutput>nrgcore</computeroutput> internal data from the NRG calculation into a HDF5 file. The data is saved in a file and can be read back into the NRG calculation. This is useful for back-ward iteration of the of the nrg-iterations. Everything needed for NRG iteration can accessed from this this file. This class also provides functionality to read and write <computeroutput><ref refid="classqOperator" kindref="compound">qOperator</ref></computeroutput>. </para>    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>nrgcore_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of the <computeroutput>nrgcore</computeroutput> object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tfilename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File name of the HDF5 file to save the data. If this is empty, a random file name is generated starting with the name <computeroutput>tempfile</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>    </detaileddescription>
+    <location file="nrgcore/include/nrgcore/nrgData.hpp" line="31" column="1" bodyfile="nrgcore/include/nrgcore/nrgData.hpp" bodystart="31" bodyend="290"/>
+    <listofallmembers>
+      <member refid="classNrgData_1abb7e4c3286eefb1e15ee8caec21f05b7" prot="public" virt="non-virtual"><scope>NrgData</scope><name>clear</name></member>
+      <member refid="classNrgData_1a8806440d009d1d0e1ce27cd63ae37855" prot="public" virt="non-virtual"><scope>NrgData</scope><name>close</name></member>
+      <member refid="classNrgData_1ad62354af657829df2991cac7b96dab1b" prot="public" virt="non-virtual"><scope>NrgData</scope><name>debugIO</name></member>
+      <member refid="classNrgData_1ad6e307c99220f5a6b16fa745932c03e8" prot="private" virt="non-virtual"><scope>NrgData</scope><name>isClosed</name></member>
+      <member refid="classNrgData_1af599e13e0eacf442b27aeca1cca05165" prot="public" virt="non-virtual"><scope>NrgData</scope><name>loadCurrentData</name></member>
+      <member refid="classNrgData_1a6b89587cb68d94031173109e6817e23f" prot="public" virt="non-virtual"><scope>NrgData</scope><name>loadCurrentData</name></member>
+      <member refid="classNrgData_1ae905ad27e7a45e8f2393526511cc8109" prot="public" virt="non-virtual"><scope>NrgData</scope><name>loadqOperator</name></member>
+      <member refid="classNrgData_1a561beb87bfd16dd372f70d058a4fea60" prot="private" virt="non-virtual"><scope>NrgData</scope><name>nrg_object</name></member>
+      <member refid="classNrgData_1a8df3ffc332eeec35bbf4956000dcf430" prot="public" virt="non-virtual"><scope>NrgData</scope><name>NrgData</name></member>
+      <member refid="classNrgData_1a8b6f27b119d9adecf59e4ec65127c1b8" prot="public" virt="non-virtual"><scope>NrgData</scope><name>NrgData</name></member>
+      <member refid="classNrgData_1a4f3f8925e3f2d00fba5075d75255679b" prot="private" virt="non-virtual"><scope>NrgData</scope><name>pfiletmp</name></member>
+      <member refid="classNrgData_1ab942d707634bf56c300efd43f9bd322b" prot="public" virt="non-virtual"><scope>NrgData</scope><name>readFromFile</name></member>
+      <member refid="classNrgData_1a4bcf5ab8fc0badbda78f97ae2ea2e382" prot="public" virt="non-virtual"><scope>NrgData</scope><name>saveCurrentData</name></member>
+      <member refid="classNrgData_1a7376f6003140ccb665a78fab37e5e47f" prot="public" virt="non-virtual"><scope>NrgData</scope><name>savedNRGIndex</name></member>
+      <member refid="classNrgData_1a97fc1d2e22c3794a668f91aab5caf582" prot="public" virt="non-virtual"><scope>NrgData</scope><name>saveFinalState</name></member>
+      <member refid="classNrgData_1ad1accbf9e196b8933343d4fe0bc35180" prot="public" virt="non-virtual"><scope>NrgData</scope><name>saveqOperator</name></member>
+      <member refid="classNrgData_1ad1f535374f2a908406a97146b95f70bf" prot="public" virt="non-virtual"><scope>NrgData</scope><name>setFileName</name></member>
+      <member refid="classNrgData_1a62824c8b7ff6e2eb6d12bfe9d20fc75a" prot="public" virt="non-virtual"><scope>NrgData</scope><name>setNRGObject</name></member>
+      <member refid="classNrgData_1a7358e9749d5c36318611770e3619af3a" prot="private" virt="non-virtual"><scope>NrgData</scope><name>tmpNrgFilename</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

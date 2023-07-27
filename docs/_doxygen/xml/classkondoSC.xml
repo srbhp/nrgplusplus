@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classkondoSC" kind="class" language="C++" prot="public">
+    <compoundname>kondoSC</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classkondoSC_1a436e42bc88737dde8b15cadbcc6fe409" prot="private" static="no" mutable="no">
+        <type><ref refid="classfermionBasis" kindref="compound">fermionBasis</ref></type>
+        <definition>fermionBasis kondoSC::localSCbabsis</definition>
+        <argsstring></argsstring>
+        <name>localSCbabsis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/kondoSC.hpp" line="16" column="1" bodyfile="nrgcore/include/models/kondoSC.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classkondoSC_1a5335bcaac876fc80b02bfbaed204da02" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; kondoSC::eigenvalues_Q</definition>
+        <argsstring></argsstring>
+        <name>eigenvalues_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/kondoSC.hpp" line="40" column="1" bodyfile="nrgcore/include/models/kondoSC.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classkondoSC_1a26d814b88d8c1d09bce979170eb9bf8f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; kondoSC::chi_Q</definition>
+        <argsstring></argsstring>
+        <name>chi_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/kondoSC.hpp" line="41" column="1" bodyfile="nrgcore/include/models/kondoSC.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classkondoSC_1a1ef81e06387b21af3787431f7f65aaef" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; kondoSC::n_Q</definition>
+        <argsstring></argsstring>
+        <name>n_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/kondoSC.hpp" line="42" column="1" bodyfile="nrgcore/include/models/kondoSC.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classkondoSC_1af2dbc9fe2bd81c4914c4a3233eb22eac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>kondoSC::kondoSC</definition>
+        <argsstring>(double JKondo, double spinS, double localDelta)</argsstring>
+        <name>kondoSC</name>
+        <param>
+          <type>double</type>
+          <declname>JKondo</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>spinS</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>localDelta</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new <ref refid="classkondoSC" kindref="compound">kondoSC</ref> object. </para>        </briefdescription>
+        <detaileddescription>
+<para>This class is for a single orbital with spin up and down f operator. SIAM can be made entirely from this class. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>JKondo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>J value for the Kondo interaction </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spinS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Spin value i.e,. 1/2 or 3/2. Integer Spin may not work </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/kondoSC.hpp" line="29" column="1" bodyfile="nrgcore/include/models/kondoSC.hpp" bodystart="29" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classkondoSC_1a57e36fdd416160d0215aad263d22c246" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; kondoSC::get_basis</definition>
+        <argsstring>() const</argsstring>
+        <name>get_basis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/kondoSC.hpp" line="34" column="1" bodyfile="nrgcore/include/models/kondoSC.hpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classkondoSC_1adffb60c572bd007e655a8adcd1d06609" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; kondoSC::get_eigenvaluesQ</definition>
+        <argsstring>() const</argsstring>
+        <name>get_eigenvaluesQ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/kondoSC.hpp" line="35" column="1" bodyfile="nrgcore/include/models/kondoSC.hpp" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classkondoSC_1a12903c3d02d68186085ba8307e53d7bf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; kondoSC::get_chi_Q</definition>
+        <argsstring>() const</argsstring>
+        <name>get_chi_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/kondoSC.hpp" line="38" column="1" bodyfile="nrgcore/include/models/kondoSC.hpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classkondoSC_1acdc81121b748470b2c4455ba66978f19" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void kondoSC::createBasis</definition>
+        <argsstring>(double JKondo, double spinS, double localDelta)</argsstring>
+        <name>createBasis</name>
+        <param>
+          <type>double</type>
+          <declname>JKondo</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>spinS</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>localDelta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/kondoSC.hpp" line="45" column="1" bodyfile="nrgcore/include/models/kondoSC.hpp" bodystart="45" bodyend="180"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/models/kondoSC.hpp" line="15" column="1" bodyfile="nrgcore/include/models/kondoSC.hpp" bodystart="15" bodyend="182"/>
+    <listofallmembers>
+      <member refid="classkondoSC_1a26d814b88d8c1d09bce979170eb9bf8f" prot="public" virt="non-virtual"><scope>kondoSC</scope><name>chi_Q</name></member>
+      <member refid="classkondoSC_1acdc81121b748470b2c4455ba66978f19" prot="private" virt="non-virtual"><scope>kondoSC</scope><name>createBasis</name></member>
+      <member refid="classkondoSC_1a5335bcaac876fc80b02bfbaed204da02" prot="public" virt="non-virtual"><scope>kondoSC</scope><name>eigenvalues_Q</name></member>
+      <member refid="classkondoSC_1a57e36fdd416160d0215aad263d22c246" prot="public" virt="non-virtual"><scope>kondoSC</scope><name>get_basis</name></member>
+      <member refid="classkondoSC_1a12903c3d02d68186085ba8307e53d7bf" prot="public" virt="non-virtual"><scope>kondoSC</scope><name>get_chi_Q</name></member>
+      <member refid="classkondoSC_1adffb60c572bd007e655a8adcd1d06609" prot="public" virt="non-virtual"><scope>kondoSC</scope><name>get_eigenvaluesQ</name></member>
+      <member refid="classkondoSC_1af2dbc9fe2bd81c4914c4a3233eb22eac" prot="public" virt="non-virtual"><scope>kondoSC</scope><name>kondoSC</name></member>
+      <member refid="classkondoSC_1a436e42bc88737dde8b15cadbcc6fe409" prot="private" virt="non-virtual"><scope>kondoSC</scope><name>localSCbabsis</name></member>
+      <member refid="classkondoSC_1a1ef81e06387b21af3787431f7f65aaef" prot="public" virt="non-virtual"><scope>kondoSC</scope><name>n_Q</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

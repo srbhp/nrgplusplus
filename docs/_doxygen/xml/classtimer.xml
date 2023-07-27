@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classtimer" kind="class" language="C++" prot="public">
+    <compoundname>timer</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtimer_1a9f945ba90a526026f7de657a079a0101" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string timer::fn_name</definition>
+        <argsstring></argsstring>
+        <name>fn_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/timer.hpp" line="28" column="1" bodyfile="nrgcore/include/utils/timer.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtimer_1abd6fcf4d57980c30be1bd8a4f7f4fe3b" prot="private" static="no" mutable="no">
+        <type>std::chrono::high_resolution_clock::time_point</type>
+        <definition>std::chrono::high_resolution_clock::time_point timer::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/timer.hpp" line="29" column="1" bodyfile="nrgcore/include/utils/timer.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtimer_1aa4111813e8b4e42a2a6890615292b547" prot="private" static="no" mutable="no">
+        <type>std::chrono::high_resolution_clock::time_point</type>
+        <definition>std::chrono::high_resolution_clock::time_point timer::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/timer.hpp" line="30" column="1" bodyfile="nrgcore/include/utils/timer.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtimer_1a8921425f039a9756cc6179701b605a84" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>timer::timer</definition>
+        <argsstring>(const std::string &amp;name=std::string(&quot;main&quot;))</argsstring>
+        <name>timer</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+          <defval>std::string(&quot;main&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/timer.hpp" line="8" column="1" bodyfile="nrgcore/include/utils/timer.hpp" bodystart="8" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classtimer_1a66fc54d1f33bd9d4bec5f8d563595c2e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void timer::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/timer.hpp" line="13" column="1" bodyfile="nrgcore/include/utils/timer.hpp" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classtimer_1aee05958ea6b0fbf36ea1fd22747cd546" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>timer::~timer</definition>
+        <argsstring>()</argsstring>
+        <name>~timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/timer.hpp" line="14" column="1" bodyfile="nrgcore/include/utils/timer.hpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classtimer_1ad1f316a9b4d69a7fe7c0d29003b888a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double timer::getDuration</definition>
+        <argsstring>()</argsstring>
+        <name>getDuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/timer.hpp" line="18" column="1" bodyfile="nrgcore/include/utils/timer.hpp" bodystart="18" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/utils/timer.hpp" line="6" column="1" bodyfile="nrgcore/include/utils/timer.hpp" bodystart="6" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classtimer_1aa4111813e8b4e42a2a6890615292b547" prot="private" virt="non-virtual"><scope>timer</scope><name>end</name></member>
+      <member refid="classtimer_1a9f945ba90a526026f7de657a079a0101" prot="private" virt="non-virtual"><scope>timer</scope><name>fn_name</name></member>
+      <member refid="classtimer_1ad1f316a9b4d69a7fe7c0d29003b888a8" prot="public" virt="non-virtual"><scope>timer</scope><name>getDuration</name></member>
+      <member refid="classtimer_1a66fc54d1f33bd9d4bec5f8d563595c2e" prot="public" virt="non-virtual"><scope>timer</scope><name>reset</name></member>
+      <member refid="classtimer_1abd6fcf4d57980c30be1bd8a4f7f4fe3b" prot="private" virt="non-virtual"><scope>timer</scope><name>start</name></member>
+      <member refid="classtimer_1a8921425f039a9756cc6179701b605a84" prot="public" virt="non-virtual"><scope>timer</scope><name>timer</name></member>
+      <member refid="classtimer_1aee05958ea6b0fbf36ea1fd22747cd546" prot="public" virt="non-virtual"><scope>timer</scope><name>~timer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

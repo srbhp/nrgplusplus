@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classqsymmetry" kind="class" language="C++" prot="public">
+    <compoundname>qsymmetry</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classqsymmetry_1afa4481cc76db5837eb75e588915aff0b" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t qsymmetry::no_of_symmetry</definition>
+        <argsstring></argsstring>
+        <name>no_of_symmetry</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qsymmetry.hpp" line="8" column="1" bodyfile="nrgcore/include/nrgcore/qsymmetry.hpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classqsymmetry_1a68467bcf2db118c7377fb3e1e0d55ef6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; qsymmetry::sys_string</definition>
+        <argsstring></argsstring>
+        <name>sys_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qsymmetry.hpp" line="9" column="1" bodyfile="nrgcore/include/nrgcore/qsymmetry.hpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classqsymmetry_1ac6f57304440772a9ed77b788c965a89f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>qsymmetry::qsymmetry</definition>
+        <argsstring>()</argsstring>
+        <name>qsymmetry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qsymmetry.hpp" line="12" column="1" bodyfile="nrgcore/include/nrgcore/qsymmetry.hpp" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classqsymmetry_1aeaec8a3bdce416caa537bd3a3244872a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void qsymmetry::add_symmetry</definition>
+        <argsstring>(const std::string &amp;_id)</argsstring>
+        <name>add_symmetry</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qsymmetry.hpp" line="13" column="1" bodyfile="nrgcore/include/nrgcore/qsymmetry.hpp" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classqsymmetry_1ad9f5132e831ab402347c6254a5253b3a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t qsymmetry::get_symmetry_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_symmetry_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qsymmetry.hpp" line="17" column="1" bodyfile="nrgcore/include/nrgcore/qsymmetry.hpp" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classqsymmetry_1ad2901e5a0a62d965888f62f7a003806f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void qsymmetry::print_symmetry</definition>
+        <argsstring>() const</argsstring>
+        <name>print_symmetry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/nrgcore/qsymmetry.hpp" line="18" column="1" bodyfile="nrgcore/include/nrgcore/qsymmetry.hpp" bodystart="18" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/nrgcore/qsymmetry.hpp" line="5" column="1" bodyfile="nrgcore/include/nrgcore/qsymmetry.hpp" bodystart="5" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classqsymmetry_1aeaec8a3bdce416caa537bd3a3244872a" prot="public" virt="non-virtual"><scope>qsymmetry</scope><name>add_symmetry</name></member>
+      <member refid="classqsymmetry_1ad9f5132e831ab402347c6254a5253b3a" prot="public" virt="non-virtual"><scope>qsymmetry</scope><name>get_symmetry_size</name></member>
+      <member refid="classqsymmetry_1afa4481cc76db5837eb75e588915aff0b" prot="private" virt="non-virtual"><scope>qsymmetry</scope><name>no_of_symmetry</name></member>
+      <member refid="classqsymmetry_1ad2901e5a0a62d965888f62f7a003806f" prot="public" virt="non-virtual"><scope>qsymmetry</scope><name>print_symmetry</name></member>
+      <member refid="classqsymmetry_1ac6f57304440772a9ed77b788c965a89f" prot="public" virt="non-virtual"><scope>qsymmetry</scope><name>qsymmetry</name></member>
+      <member refid="classqsymmetry_1a68467bcf2db118c7377fb3e1e0d55ef6" prot="private" virt="non-virtual"><scope>qsymmetry</scope><name>sys_string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

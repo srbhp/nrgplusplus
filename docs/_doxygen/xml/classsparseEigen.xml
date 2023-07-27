@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classsparseEigen" kind="class" language="C++" prot="public">
+    <compoundname>sparseEigen</compoundname>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classsparseEigen_1a2f2a3ab0507694a9ba6b91272d29092b" prot="private" static="no">
+        <type>double</type>
+        <definition>using sparseEigen::datatype =  double</definition>
+        <argsstring></argsstring>
+        <name>datatype</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="98" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsparseEigen_1a96bd671fa9c177c4d6371be9974b6ef2" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; Eigen::Triplet&lt; datatype &gt; &gt;</type>
+        <definition>std::vector&lt;Eigen::Triplet&lt;datatype&gt; &gt; sparseEigen::coefficients</definition>
+        <argsstring></argsstring>
+        <name>coefficients</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="100" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsparseEigen_1a6ee362df11cb88d9a616f0a761cee984" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t sparseEigen::column</definition>
+        <argsstring></argsstring>
+        <name>column</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="101" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsparseEigen_1a74f93a01b1dcd3504f27700334a90e88" prot="private" static="no" mutable="no">
+        <type>Eigen::SparseMatrix&lt; datatype &gt;</type>
+        <definition>Eigen::SparseMatrix&lt;datatype&gt; sparseEigen::SparseA</definition>
+        <argsstring></argsstring>
+        <name>SparseA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="102" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsparseEigen_1a4b975b693606d5e6ce8428018e3037fe" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sparseEigen::sparseEigen</definition>
+        <argsstring>(size_t n=0)</argsstring>
+        <name>sparseEigen</name>
+        <param>
+          <type>size_t</type>
+          <declname>n</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="105" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classsparseEigen_1a31535f4243b743326a44f3835cb5352b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sparseEigen::set</definition>
+        <argsstring>(size_t i, size_t j, double value)</argsstring>
+        <name>set</name>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="109" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="109" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classsparseEigen_1a8d7619bb0ec6770b824b290d60f95fed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto sparseEigen::getMatrix</definition>
+        <argsstring>()</argsstring>
+        <name>getMatrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="112" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="112" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classsparseEigen_1a557781b2805408761fd41764a70f4e0e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto sparseEigen::solve</definition>
+        <argsstring>()</argsstring>
+        <name>solve</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="116" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="116" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classsparseEigen_1a53963be4bf85e8e6e33d7db4b8f60df1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto sparseEigen::vectorDot</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;X)</argsstring>
+        <name>vectorDot</name>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>X</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="153" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="153" bodyend="166"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/utils/sparseSolver.hpp" line="97" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="97" bodyend="167"/>
+    <listofallmembers>
+      <member refid="classsparseEigen_1a96bd671fa9c177c4d6371be9974b6ef2" prot="private" virt="non-virtual"><scope>sparseEigen</scope><name>coefficients</name></member>
+      <member refid="classsparseEigen_1a6ee362df11cb88d9a616f0a761cee984" prot="private" virt="non-virtual"><scope>sparseEigen</scope><name>column</name></member>
+      <member refid="classsparseEigen_1a2f2a3ab0507694a9ba6b91272d29092b" prot="private" virt="non-virtual"><scope>sparseEigen</scope><name>datatype</name></member>
+      <member refid="classsparseEigen_1a8d7619bb0ec6770b824b290d60f95fed" prot="public" virt="non-virtual"><scope>sparseEigen</scope><name>getMatrix</name></member>
+      <member refid="classsparseEigen_1a31535f4243b743326a44f3835cb5352b" prot="public" virt="non-virtual"><scope>sparseEigen</scope><name>set</name></member>
+      <member refid="classsparseEigen_1a557781b2805408761fd41764a70f4e0e" prot="public" virt="non-virtual"><scope>sparseEigen</scope><name>solve</name></member>
+      <member refid="classsparseEigen_1a74f93a01b1dcd3504f27700334a90e88" prot="private" virt="non-virtual"><scope>sparseEigen</scope><name>SparseA</name></member>
+      <member refid="classsparseEigen_1a4b975b693606d5e6ce8428018e3037fe" prot="public" virt="non-virtual"><scope>sparseEigen</scope><name>sparseEigen</name></member>
+      <member refid="classsparseEigen_1a53963be4bf85e8e6e33d7db4b8f60df1" prot="public" virt="non-virtual"><scope>sparseEigen</scope><name>vectorDot</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classspinhalf" kind="class" language="C++" prot="public">
+    <compoundname>spinhalf</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspinhalf_1a5ef41c31ce80a54184f21247ae201387" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt;&gt; &gt;</type>
+        <definition>std::vector&lt;qmatrix&lt;&gt; &gt; spinhalf::f_dag_raw</definition>
+        <argsstring></argsstring>
+        <name>f_dag_raw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="14" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalf_1a8c8dcbeb1211a0fd30e04a6b95008d42" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double spinhalf::Uint</definition>
+        <argsstring></argsstring>
+        <name>Uint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="15" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalf_1af313e81b3c7d454ab5c3df26cae72264" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double spinhalf::epsilon_d</definition>
+        <argsstring></argsstring>
+        <name>epsilon_d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="16" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalf_1ae0fd385c5908e40b027afe4d1d136e06" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double spinhalf::magnetic_field</definition>
+        <argsstring></argsstring>
+        <name>magnetic_field</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="17" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classspinhalf_1a6d6a9594a540f6fe4dee0c1c7565e7c3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt;</type>
+        <definition>std::vector&lt;qOperator&gt; spinhalf::f_dag_operator</definition>
+        <argsstring></argsstring>
+        <name>f_dag_operator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="89" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalf_1ac48842c80cfdc462b9b9d6e5a7ee5d55" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; spinhalf::eigenvalues_Q</definition>
+        <argsstring></argsstring>
+        <name>eigenvalues_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="90" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalf_1ac922def557bd9e5c26f47352f3faac2f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; spinhalf::chi_Q</definition>
+        <argsstring></argsstring>
+        <name>chi_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="91" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalf_1adb2a54462b432a730fc92345a892fe60" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; spinhalf::n_Q</definition>
+        <argsstring></argsstring>
+        <name>n_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="92" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalf_1afcc5c87a7d7c90231d4b83982ae08f49" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt;</type>
+        <definition>std::vector&lt;qOperator&gt; spinhalf::doubleOccupancy</definition>
+        <argsstring></argsstring>
+        <name>doubleOccupancy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="93" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspinhalf_1af8c75ec73922c786a8a0d0cf13538173" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>spinhalf::spinhalf</definition>
+        <argsstring>(double teps, double tUint, double tmag=0)</argsstring>
+        <name>spinhalf</name>
+        <param>
+          <type>double</type>
+          <declname>teps</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tUint</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tmag</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Model for a single orbital with spin up and down f operator. SIAM can made entirely from this class. </para>        </briefdescription>
+        <detaileddescription>
+<para>This class is for a single orbital with spin up and down f operator. SIAM can made entirely from this class. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>teps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>:  of SIAM </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tUint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>U</computeroutput> Columb interaction of SIAM </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tmag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: Magnetic field of SIAM </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="35" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="35" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinhalf_1a57ef95e030e7481396657edddc756db3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; spinhalf::get_basis</definition>
+        <argsstring>() const</argsstring>
+        <name>get_basis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="80" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinhalf_1a68d0e2d350155e1c7673ad37c2398bdb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; spinhalf::get_eigenvaluesQ</definition>
+        <argsstring>() const</argsstring>
+        <name>get_eigenvaluesQ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="81" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="81" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinhalf_1ab92e8863658abe5441360d6e8bc1b8be" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; spinhalf::get_chi_Q</definition>
+        <argsstring>() const</argsstring>
+        <name>get_chi_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="84" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinhalf_1ab400371ef9040c40c290df280924df31" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto spinhalf::getDoubleOcc</definition>
+        <argsstring>() const</argsstring>
+        <name>getDoubleOcc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalf.hpp" line="94" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="94" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/models/spinhalf.hpp" line="13" column="1" bodyfile="nrgcore/include/models/spinhalf.hpp" bodystart="13" bodyend="95"/>
+    <listofallmembers>
+      <member refid="classspinhalf_1ac922def557bd9e5c26f47352f3faac2f" prot="public" virt="non-virtual"><scope>spinhalf</scope><name>chi_Q</name></member>
+      <member refid="classspinhalf_1afcc5c87a7d7c90231d4b83982ae08f49" prot="public" virt="non-virtual"><scope>spinhalf</scope><name>doubleOccupancy</name></member>
+      <member refid="classspinhalf_1ac48842c80cfdc462b9b9d6e5a7ee5d55" prot="public" virt="non-virtual"><scope>spinhalf</scope><name>eigenvalues_Q</name></member>
+      <member refid="classspinhalf_1af313e81b3c7d454ab5c3df26cae72264" prot="private" virt="non-virtual"><scope>spinhalf</scope><name>epsilon_d</name></member>
+      <member refid="classspinhalf_1a6d6a9594a540f6fe4dee0c1c7565e7c3" prot="public" virt="non-virtual"><scope>spinhalf</scope><name>f_dag_operator</name></member>
+      <member refid="classspinhalf_1a5ef41c31ce80a54184f21247ae201387" prot="private" virt="non-virtual"><scope>spinhalf</scope><name>f_dag_raw</name></member>
+      <member refid="classspinhalf_1a57ef95e030e7481396657edddc756db3" prot="public" virt="non-virtual"><scope>spinhalf</scope><name>get_basis</name></member>
+      <member refid="classspinhalf_1ab92e8863658abe5441360d6e8bc1b8be" prot="public" virt="non-virtual"><scope>spinhalf</scope><name>get_chi_Q</name></member>
+      <member refid="classspinhalf_1a68d0e2d350155e1c7673ad37c2398bdb" prot="public" virt="non-virtual"><scope>spinhalf</scope><name>get_eigenvaluesQ</name></member>
+      <member refid="classspinhalf_1ab400371ef9040c40c290df280924df31" prot="public" virt="non-virtual"><scope>spinhalf</scope><name>getDoubleOcc</name></member>
+      <member refid="classspinhalf_1ae0fd385c5908e40b027afe4d1d136e06" prot="private" virt="non-virtual"><scope>spinhalf</scope><name>magnetic_field</name></member>
+      <member refid="classspinhalf_1adb2a54462b432a730fc92345a892fe60" prot="public" virt="non-virtual"><scope>spinhalf</scope><name>n_Q</name></member>
+      <member refid="classspinhalf_1af8c75ec73922c786a8a0d0cf13538173" prot="public" virt="non-virtual"><scope>spinhalf</scope><name>spinhalf</name></member>
+      <member refid="classspinhalf_1a8c8dcbeb1211a0fd30e04a6b95008d42" prot="private" virt="non-virtual"><scope>spinhalf</scope><name>Uint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

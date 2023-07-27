@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="qsymmetry_8hpp" kind="file" language="C++">
+    <compoundname>qsymmetry.hpp</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="fermionBasis_8hpp" local="no">nrgcore/include/models/fermionBasis.hpp</includedby>
+    <includedby refid="freeModel_8hpp" local="yes">nrgcore/include/models/freeModel.hpp</includedby>
+    <includedby refid="kondoSC_8hpp" local="yes">nrgcore/include/models/kondoSC.hpp</includedby>
+    <includedby refid="kondoTwoImpuritySC_8hpp" local="yes">nrgcore/include/models/kondoTwoImpuritySC.hpp</includedby>
+    <includedby refid="rabiAndersonSC_8hpp" local="yes">nrgcore/include/models/rabiAndersonSC.hpp</includedby>
+    <includedby refid="resonantTwoLead_8hpp" local="yes">nrgcore/include/models/resonantTwoLead.hpp</includedby>
+    <includedby refid="spinhalf_8hpp" local="yes">nrgcore/include/models/spinhalf.hpp</includedby>
+    <includedby refid="spinhalfKondo_8hpp" local="yes">nrgcore/include/models/spinhalfKondo.hpp</includedby>
+    <includedby refid="spinhalfSC_8hpp" local="yes">nrgcore/include/models/spinhalfSC.hpp</includedby>
+    <includedby refid="spinlessTwoLead_8hpp" local="yes">nrgcore/include/models/spinlessTwoLead.hpp</includedby>
+    <includedby refid="spinnless_8hpp" local="yes">nrgcore/include/models/spinnless.hpp</includedby>
+    <incdepgraph>
+      <node id="459">
+        <label>string</label>
+      </node>
+      <node id="460">
+        <label>vector</label>
+      </node>
+      <node id="457">
+        <label>nrgcore/include/nrgcore/qsymmetry.hpp</label>
+        <link refid="qsymmetry_8hpp"/>
+        <childnode refid="458" relation="include">
+        </childnode>
+        <childnode refid="459" relation="include">
+        </childnode>
+        <childnode refid="460" relation="include">
+        </childnode>
+      </node>
+      <node id="458">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="468">
+        <label>nrgcore/include/models/spinhalf.hpp</label>
+        <link refid="spinhalf_8hpp_source"/>
+      </node>
+      <node id="466">
+        <label>nrgcore/include/models/rabiAndersonSC.hpp</label>
+        <link refid="rabiAndersonSC_8hpp_source"/>
+      </node>
+      <node id="472">
+        <label>nrgcore/include/models/spinnless.hpp</label>
+        <link refid="spinnless_8hpp_source"/>
+      </node>
+      <node id="463">
+        <label>nrgcore/include/models/freeModel.hpp</label>
+        <link refid="freeModel_8hpp_source"/>
+      </node>
+      <node id="469">
+        <label>nrgcore/include/models/spinhalfKondo.hpp</label>
+        <link refid="spinhalfKondo_8hpp_source"/>
+      </node>
+      <node id="464">
+        <label>nrgcore/include/models/kondoSC.hpp</label>
+        <link refid="kondoSC_8hpp_source"/>
+      </node>
+      <node id="471">
+        <label>nrgcore/include/models/spinlessTwoLead.hpp</label>
+        <link refid="spinlessTwoLead_8hpp_source"/>
+      </node>
+      <node id="462">
+        <label>nrgcore/include/models/fermionBasis.hpp</label>
+        <link refid="fermionBasis_8hpp_source"/>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="464" relation="include">
+        </childnode>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+        <childnode refid="468" relation="include">
+        </childnode>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+        <childnode refid="472" relation="include">
+        </childnode>
+      </node>
+      <node id="461">
+        <label>nrgcore/include/nrgcore/qsymmetry.hpp</label>
+        <link refid="qsymmetry_8hpp"/>
+        <childnode refid="462" relation="include">
+        </childnode>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="464" relation="include">
+        </childnode>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+        <childnode refid="468" relation="include">
+        </childnode>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+        <childnode refid="472" relation="include">
+        </childnode>
+      </node>
+      <node id="465">
+        <label>nrgcore/include/models/kondoTwoImpuritySC.hpp</label>
+        <link refid="kondoTwoImpuritySC_8hpp_source"/>
+      </node>
+      <node id="470">
+        <label>nrgcore/include/models/spinhalfSC.hpp</label>
+        <link refid="spinhalfSC_8hpp_source"/>
+      </node>
+      <node id="467">
+        <label>nrgcore/include/models/resonantTwoLead.hpp</label>
+        <link refid="resonantTwoLead_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classqsymmetry" prot="public">qsymmetry</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="classqsymmetry" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classqsymmetry" kindref="compound">qsymmetry</ref><sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>a<sp/>base<sp/>class<sp/>for<sp/>the<sp/>symmetries<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>hamiltonian.<sp/>This<sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>no_of_symmetry{};</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/>sys_string;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><ref refid="classqsymmetry" kindref="compound">qsymmetry</ref>()<sp/>:<sp/>sys_string({</highlight><highlight class="stringliteral">&quot;qsymmetry&quot;</highlight><highlight class="normal">})<sp/>{}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_symmetry(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;_id)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>no_of_symmetry++;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>sys_string.push_back(_id);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>[[nodiscard]]<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>get_symmetry_size()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>no_of_symmetry;<sp/>}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print_symmetry()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Symmetry<sp/>of<sp/>this<sp/>model:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;s<sp/>:<sp/>sys_string)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>s<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="nrgcore/include/nrgcore/qsymmetry.hpp"/>
+  </compounddef>
+</doxygen>

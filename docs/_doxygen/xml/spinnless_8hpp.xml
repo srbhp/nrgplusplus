@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="spinnless_8hpp" kind="file" language="C++">
+    <compoundname>spinnless.hpp</compoundname>
+    <includes refid="fermionBasis_8hpp" local="yes">models/fermionBasis.hpp</includes>
+    <includes refid="qOperator_8hpp" local="yes">nrgcore/qOperator.hpp</includes>
+    <includes refid="qsymmetry_8hpp" local="yes">nrgcore/qsymmetry.hpp</includes>
+    <includes refid="qmatrix_8hpp" local="yes">utils/qmatrix.hpp</includes>
+    <incdepgraph>
+      <node id="316">
+        <label>nrgcore/include/models/spinnless.hpp</label>
+        <link refid="spinnless_8hpp"/>
+        <childnode refid="317" relation="include">
+        </childnode>
+        <childnode refid="318" relation="include">
+        </childnode>
+        <childnode refid="337" relation="include">
+        </childnode>
+        <childnode refid="319" relation="include">
+        </childnode>
+      </node>
+      <node id="320">
+        <label>cmath</label>
+      </node>
+      <node id="328">
+        <label>stdexcept</label>
+      </node>
+      <node id="324">
+        <label>numeric</label>
+      </node>
+      <node id="338">
+        <label>string</label>
+      </node>
+      <node id="325">
+        <label>mkl.h</label>
+      </node>
+      <node id="334">
+        <label>map</label>
+      </node>
+      <node id="327">
+        <label>ostream</label>
+      </node>
+      <node id="317">
+        <label>models/fermionBasis.hpp</label>
+        <link refid="fermionBasis_8hpp_source"/>
+        <childnode refid="318" relation="include">
+        </childnode>
+        <childnode refid="319" relation="include">
+        </childnode>
+        <childnode refid="320" relation="include">
+        </childnode>
+        <childnode refid="333" relation="include">
+        </childnode>
+        <childnode refid="323" relation="include">
+        </childnode>
+        <childnode refid="334" relation="include">
+        </childnode>
+        <childnode refid="337" relation="include">
+        </childnode>
+        <childnode refid="327" relation="include">
+        </childnode>
+        <childnode refid="336" relation="include">
+        </childnode>
+      </node>
+      <node id="319">
+        <label>utils/qmatrix.hpp</label>
+        <link refid="qmatrix_8hpp_source"/>
+        <childnode refid="320" relation="include">
+        </childnode>
+        <childnode refid="321" relation="include">
+        </childnode>
+        <childnode refid="322" relation="include">
+        </childnode>
+        <childnode refid="323" relation="include">
+        </childnode>
+        <childnode refid="324" relation="include">
+        </childnode>
+        <childnode refid="325" relation="include">
+        </childnode>
+        <childnode refid="326" relation="include">
+        </childnode>
+        <childnode refid="327" relation="include">
+        </childnode>
+        <childnode refid="328" relation="include">
+        </childnode>
+        <childnode refid="329" relation="include">
+        </childnode>
+        <childnode refid="330" relation="include">
+        </childnode>
+        <childnode refid="331" relation="include">
+        </childnode>
+      </node>
+      <node id="329">
+        <label>tuple</label>
+      </node>
+      <node id="335">
+        <label>optional</label>
+      </node>
+      <node id="331">
+        <label>vector</label>
+      </node>
+      <node id="332">
+        <label>array</label>
+      </node>
+      <node id="318">
+        <label>nrgcore/qOperator.hpp</label>
+        <link refid="qOperator_8hpp_source"/>
+        <childnode refid="319" relation="include">
+        </childnode>
+        <childnode refid="332" relation="include">
+        </childnode>
+        <childnode refid="320" relation="include">
+        </childnode>
+        <childnode refid="333" relation="include">
+        </childnode>
+        <childnode refid="323" relation="include">
+        </childnode>
+        <childnode refid="334" relation="include">
+        </childnode>
+        <childnode refid="335" relation="include">
+        </childnode>
+        <childnode refid="327" relation="include">
+        </childnode>
+        <childnode refid="336" relation="include">
+        </childnode>
+      </node>
+      <node id="337">
+        <label>nrgcore/qsymmetry.hpp</label>
+        <link refid="qsymmetry_8hpp_source"/>
+        <childnode refid="323" relation="include">
+        </childnode>
+        <childnode refid="338" relation="include">
+        </childnode>
+        <childnode refid="331" relation="include">
+        </childnode>
+      </node>
+      <node id="323">
+        <label>iostream</label>
+      </node>
+      <node id="333">
+        <label>cstddef</label>
+      </node>
+      <node id="326">
+        <label>mkl_lapacke.h</label>
+      </node>
+      <node id="330">
+        <label>type_traits</label>
+      </node>
+      <node id="336">
+        <label>set</label>
+      </node>
+      <node id="321">
+        <label>complex</label>
+      </node>
+      <node id="322">
+        <label>initializer_list</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classspinless" prot="public">spinless</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;models/fermionBasis.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nrgcore/qOperator.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nrgcore/qsymmetry.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qmatrix.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="classspinless" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classspinless" kindref="compound">spinless</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13" refid="classspinless_1a42d5ae800e4b85903115ea1c7f6374d9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classspinless_1a42d5ae800e4b85903115ea1c7f6374d9" kindref="member">spinless</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>teps<sp/>=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classfermionBasis" kindref="compound">fermionBasis</ref><sp/>spinlessBasis(</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>1<sp/>for<sp/>the<sp/>label<sp/>and<sp/>two<sp/>for<sp/>the<sp/>lead</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fermionBasis::chargeOnly<sp/></highlight><highlight class="comment">//<sp/>Charge<sp/>is<sp/>only<sp/>conserved</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>fermion<sp/>channels/spins</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>f_dag_operator<sp/>=<sp/>spinlessBasis.get_f_dag_operator();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>f_dag_raw<sp/>=<sp/>spinlessBasis.get_raw_f_dag_operator();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>n_Q</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>n_Q<sp/>=<sp/>spinlessBasis.get_unique_Qnumbers();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>chi_Q</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>chi_Q.clear();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ai<sp/>:<sp/>n_Q)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t_charge<sp/>=<sp/>std::accumulate(ai.begin(),<sp/>ai.end(),<sp/>0);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>chi_Q.push_back(std::pow(-1.,<sp/>t_charge));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;chi_Q:<sp/>&quot;<sp/>&lt;&lt;<sp/>chi_Q<sp/>&lt;&lt;<sp/>std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>up<sp/>the<sp/>Hamiltonian</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>n_label<sp/>=<sp/>f_dag_raw[0].dot(f_dag_raw[0].cTranspose());</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;n_up&quot;<sp/>&lt;&lt;<sp/>n_up<sp/>&lt;&lt;<sp/>&quot;n_down&quot;<sp/>&lt;&lt;<sp/>n_down;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>H<sp/>=<sp/>n_label<sp/>*<sp/>teps<sp/></highlight><highlight class="comment">//<sp/>onsite<sp/>energy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Columb<sp/>Energy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>hamiltonian<sp/><sp/>in<sp/>the<sp/>blocked<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>h_blocked<sp/>=<sp/>spinlessBasis.get_block_Hamiltonian(H);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>h_blocked.display();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Diagonalize<sp/>the<sp/>hamilton</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>eigenvalues_Q.clear();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>eigenvalues_Q.resize(n_Q.size(),<sp/>{});</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n_Q.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eigenvalues_Q[i]<sp/>=<sp/>(h_blocked.get(i,<sp/>i)).value()-&gt;diag();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO(sp):<sp/>rotate<sp/>the<sp/>f<sp/>operator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>End<sp/>of<sp/>the<sp/>constructor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>left<sp/>and<sp/>right<sp/>operators<sp/>are<sp/>only<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO(sp):<sp/>rotate<sp/>the<sp/>f<sp/>operator<sp/><sp/>and<sp/>n<sp/>operator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48" refid="classspinless_1a346940c20aa4e329694afb441cf99b38" refkind="member"><highlight class="normal"><sp/><sp/>[[nodiscard]]<sp/>std::vector&lt;std::vector&lt;int&gt;&gt;<sp/><ref refid="classspinless_1a346940c20aa4e329694afb441cf99b38" kindref="member">get_basis</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>n_Q;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54" refid="classspinless_1af485270386b45a7e7d71b8e0ffb44050" refkind="member"><highlight class="normal"><sp/><sp/>[[nodiscard]]<sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/><ref refid="classspinless_1af485270386b45a7e7d71b8e0ffb44050" kindref="member">get_eigenvaluesQ</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eigenvalues_Q;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61" refid="classspinless_1ad2b23f9972c33c25d9641ea6bd6e8679" refkind="member"><highlight class="normal"><sp/><sp/>[[nodiscard]]<sp/>std::vector&lt;double&gt;<sp/><ref refid="classspinless_1ad2b23f9972c33c25d9641ea6bd6e8679" kindref="member">get_chi_Q</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>chi_Q;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>protected:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>parameter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>std::vector&lt;qOperator&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f_dag_operator;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/>eigenvalues_Q;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>chi_Q;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;int&gt;&gt;<sp/><sp/><sp/><sp/>n_Q;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="nrgcore/include/models/spinnless.hpp"/>
+  </compounddef>
+</doxygen>

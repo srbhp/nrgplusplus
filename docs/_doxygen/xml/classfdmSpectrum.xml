@@ -1,0 +1,548 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classfdmSpectrum" kind="class" language="C++" prot="public">
+    <compoundname>fdmSpectrum</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename nrgcore_type</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classfdmSpectrum_1af5d7426b1161a11c5240c1e497949a49" prot="private" static="no" mutable="no">
+        <type>nrgcore_type *</type>
+        <definition>nrgcore_type* fdmSpectrum&lt; nrgcore_type &gt;::nrg_object</definition>
+        <argsstring></argsstring>
+        <name>nrg_object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="23" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1ac3e8a30bf83307235c28bde1bbcaf3de" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fdmSpectrum&lt; nrgcore_type &gt;::kBT</definition>
+        <argsstring></argsstring>
+        <name>kBT</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="24" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a7cb1fb2f2aa09e081778d34dfecc3019" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fdmSpectrum&lt; nrgcore_type &gt;::localGroundStateEnergy</definition>
+        <argsstring></argsstring>
+        <name>localGroundStateEnergy</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="268" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1ae2657edb34ef695005886e5119b9f8ec" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fdmSpectrum&lt; nrgcore_type &gt;::localPartitionFunction</definition>
+        <argsstring></argsstring>
+        <name>localPartitionFunction</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="269" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="269" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a69ff7b2cdae608360793706912ab83f7" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; size_t &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;size_t&gt; &gt; fdmSpectrum&lt; nrgcore_type &gt;::previoudKeptIndex</definition>
+        <argsstring></argsstring>
+        <name>previoudKeptIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="270" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a473fdfdb48fb7752ef891b2680be9d30" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fdmSpectrum&lt; nrgcore_type &gt;::spWeightErrorBar</definition>
+        <argsstring></argsstring>
+        <name>spWeightErrorBar</name>
+        <initializer>{1e-20}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="271" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a656af2c033429c7fe90d89ed4b19d8c2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fdmSpectrum&lt; nrgcore_type &gt;::globalGroundStateEnergy</definition>
+        <argsstring></argsstring>
+        <name>globalGroundStateEnergy</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="272" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1aad3c841a7f00e2bc3caf4d9d29914fe9" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt;&gt; &gt;</type>
+        <definition>std::vector&lt;qmatrix&lt;&gt; &gt; fdmSpectrum&lt; nrgcore_type &gt;::reducedRho</definition>
+        <argsstring></argsstring>
+        <name>reducedRho</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="273" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1ac7fe4f2387149ac163ac535243221520" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; fdmSpectrum&lt; nrgcore_type &gt;::vecPartitions</definition>
+        <argsstring></argsstring>
+        <name>vecPartitions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="274" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a2070d19492ccb2cf96f48d42a50fa9b2" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; fdmSpectrum&lt; nrgcore_type &gt;::positiveWeight</definition>
+        <argsstring></argsstring>
+        <name>positiveWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="276" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1ad1ed19f2f7a927e182ce2229ed8382ae" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; fdmSpectrum&lt; nrgcore_type &gt;::negativeWeight</definition>
+        <argsstring></argsstring>
+        <name>negativeWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="277" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1ab6990259527881a10816de0f05936226" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fdmSpectrum&lt; nrgcore_type &gt;::energyPts</definition>
+        <argsstring></argsstring>
+        <name>energyPts</name>
+        <initializer>= 100000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="279" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1ab312a489bdc2c0b104c03f484a99abae" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fdmSpectrum&lt; nrgcore_type &gt;::maxEnergy</definition>
+        <argsstring></argsstring>
+        <name>maxEnergy</name>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="280" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="280" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a4f568aaa357f25bace826760ec930289" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fdmSpectrum&lt; nrgcore_type &gt;::minEnergy</definition>
+        <argsstring></argsstring>
+        <name>minEnergy</name>
+        <initializer>= 1e-10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="281" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a6be295531cfa16a44fce576803afb94d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fdmSpectrum&lt; nrgcore_type &gt;::delE</definition>
+        <argsstring></argsstring>
+        <name>delE</name>
+        <initializer>= (energyPts - 1.0) / (std::log(maxEnergy / minEnergy))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="282" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classfdmSpectrum_1a6b7a30f31ebec18802d44960c93d8d71" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; fdmSpectrum&lt; nrgcore_type &gt;::BoltzmannFactor</definition>
+        <argsstring></argsstring>
+        <name>BoltzmannFactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="123" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a3e1c62ba868d7ec862062d9aa5cfc9dc" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; size_t &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;size_t&gt; &gt; fdmSpectrum&lt; nrgcore_type &gt;::currentKeptIndex</definition>
+        <argsstring></argsstring>
+        <name>currentKeptIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="285" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a2aeacef415c5771a0f78c2b34af4d02b" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt;&gt; &gt;</type>
+        <definition>std::vector&lt;qmatrix&lt;&gt; &gt; fdmSpectrum&lt; nrgcore_type &gt;::rhoZero</definition>
+        <argsstring></argsstring>
+        <name>rhoZero</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="286" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a4ee75056b9f519d3ecd95bf98eeb8c80" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt; *</type>
+        <definition>std::vector&lt;qOperator&gt;* fdmSpectrum&lt; nrgcore_type &gt;::aOperator</definition>
+        <argsstring></argsstring>
+        <name>aOperator</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="287" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a04b5888b576e09839d601cab733a5484" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt; *</type>
+        <definition>std::vector&lt;qOperator&gt;* fdmSpectrum&lt; nrgcore_type &gt;::bOperator</definition>
+        <argsstring></argsstring>
+        <name>bOperator</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="288" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1ae4ddd768bd7dc5c5607766a5a0bf1646" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool fdmSpectrum&lt; nrgcore_type &gt;::lastiteration</definition>
+        <argsstring></argsstring>
+        <name>lastiteration</name>
+        <initializer>{true}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="289" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1aa56aff2ce9387a16ab54c0a13fa90d64" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fdmSpectrum&lt; nrgcore_type &gt;::energyRescale</definition>
+        <argsstring></argsstring>
+        <name>energyRescale</name>
+        <initializer>{1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="290" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfdmSpectrum_1a9444d13dfde9c0149b2c0a0e48abfc20" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fdmSpectrum&lt; nrgcore_type &gt;::energyErrorBar</definition>
+        <argsstring></argsstring>
+        <name>energyErrorBar</name>
+        <initializer>{1e-5}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="291" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classfdmSpectrum_1af5ba897a5a1ad4b82bfd6062efe82fb5" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>fdmSpectrum&lt; nrgcore_type &gt;::fdmSpectrum</definition>
+        <argsstring>(nrgcore_type *t_nrg_object)</argsstring>
+        <name>fdmSpectrum</name>
+        <param>
+          <type>nrgcore_type *</type>
+          <declname>t_nrg_object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="27" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classfdmSpectrum_1a71cdeea38cce4f663ef802574abacb7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void fdmSpectrum&lt; nrgcore_type &gt;::setup</definition>
+        <argsstring>(nrgcore_type *t_nrg_object)</argsstring>
+        <name>setup</name>
+        <param>
+          <type>nrgcore_type *</type>
+          <declname>t_nrg_object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="31" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="31" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classfdmSpectrum_1abb77ca9736fe7dc5075fcdd2691762aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void fdmSpectrum&lt; nrgcore_type &gt;::calcSpectrum</definition>
+        <argsstring>(double energyScale)</argsstring>
+        <name>calcSpectrum</name>
+        <param>
+          <type>double</type>
+          <declname>energyScale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="36" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="36" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classfdmSpectrum_1aac62f230483ab788959bb8a70f030fbc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void fdmSpectrum&lt; nrgcore_type &gt;::setReduceDensityMatrix</definition>
+        <argsstring>()</argsstring>
+        <name>setReduceDensityMatrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="45" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="45" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classfdmSpectrum_1a1a34358ac05aa3ee5d75aa7e58800a0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void fdmSpectrum&lt; nrgcore_type &gt;::setLocalPartitionFunction</definition>
+        <argsstring>()</argsstring>
+        <name>setLocalPartitionFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="89" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="89" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classfdmSpectrum_1ad2c8cc43827c6c782120c53fd81bde35" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void fdmSpectrum&lt; nrgcore_type &gt;::setRhoZero</definition>
+        <argsstring>()</argsstring>
+        <name>setRhoZero</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="124" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="124" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classfdmSpectrum_1a6b07dc563e7c7ad10dc3ffbcc46e4742" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void fdmSpectrum&lt; nrgcore_type &gt;::rhoDotOperators</definition>
+        <argsstring>()</argsstring>
+        <name>rhoDotOperators</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="159" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="159" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classfdmSpectrum_1ade5894635436e0ced450c0e1f505384a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void fdmSpectrum&lt; nrgcore_type &gt;::setTemperature</definition>
+        <argsstring>(double at)</argsstring>
+        <name>setTemperature</name>
+        <param>
+          <type>double</type>
+          <declname>at</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="231" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="231" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classfdmSpectrum_1a61ba4a198251b81043692f9dd8d9d508" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void fdmSpectrum&lt; nrgcore_type &gt;::setCurrentIndex</definition>
+        <argsstring>()</argsstring>
+        <name>setCurrentIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="232" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="232" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="classfdmSpectrum_1aae0e260c4c2fbcc4a4b3cf36dbf099ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void fdmSpectrum&lt; nrgcore_type &gt;::setOperator</definition>
+        <argsstring>(std::vector&lt; qOperator &gt; *bopr, std::vector&lt; qOperator &gt; *aopr=nullptr)</argsstring>
+        <name>setOperator</name>
+        <param>
+          <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt; *</type>
+          <declname>bopr</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt; *</type>
+          <declname>aopr</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="242" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="242" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classfdmSpectrum_1a6343b801048cf871736b39e00d333ae0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename filetype</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void fdmSpectrum&lt; nrgcore_type &gt;::saveFinalData</definition>
+        <argsstring>(filetype *pfile)</argsstring>
+        <name>saveFinalData</name>
+        <param>
+          <type>filetype *</type>
+          <declname>pfile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="251" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="251" bodyend="265"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/dynamics/fdmSpectrum.hpp" line="22" column="1" bodyfile="nrgcore/include/dynamics/fdmSpectrum.hpp" bodystart="22" bodyend="292"/>
+    <listofallmembers>
+      <member refid="classfdmSpectrum_1a4ee75056b9f519d3ecd95bf98eeb8c80" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>aOperator</name></member>
+      <member refid="classfdmSpectrum_1a6b7a30f31ebec18802d44960c93d8d71" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>BoltzmannFactor</name></member>
+      <member refid="classfdmSpectrum_1a04b5888b576e09839d601cab733a5484" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>bOperator</name></member>
+      <member refid="classfdmSpectrum_1abb77ca9736fe7dc5075fcdd2691762aa" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>calcSpectrum</name></member>
+      <member refid="classfdmSpectrum_1a3e1c62ba868d7ec862062d9aa5cfc9dc" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>currentKeptIndex</name></member>
+      <member refid="classfdmSpectrum_1a6be295531cfa16a44fce576803afb94d" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>delE</name></member>
+      <member refid="classfdmSpectrum_1a9444d13dfde9c0149b2c0a0e48abfc20" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>energyErrorBar</name></member>
+      <member refid="classfdmSpectrum_1ab6990259527881a10816de0f05936226" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>energyPts</name></member>
+      <member refid="classfdmSpectrum_1aa56aff2ce9387a16ab54c0a13fa90d64" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>energyRescale</name></member>
+      <member refid="classfdmSpectrum_1af5ba897a5a1ad4b82bfd6062efe82fb5" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>fdmSpectrum</name></member>
+      <member refid="classfdmSpectrum_1a656af2c033429c7fe90d89ed4b19d8c2" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>globalGroundStateEnergy</name></member>
+      <member refid="classfdmSpectrum_1ac3e8a30bf83307235c28bde1bbcaf3de" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>kBT</name></member>
+      <member refid="classfdmSpectrum_1ae4ddd768bd7dc5c5607766a5a0bf1646" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>lastiteration</name></member>
+      <member refid="classfdmSpectrum_1a7cb1fb2f2aa09e081778d34dfecc3019" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>localGroundStateEnergy</name></member>
+      <member refid="classfdmSpectrum_1ae2657edb34ef695005886e5119b9f8ec" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>localPartitionFunction</name></member>
+      <member refid="classfdmSpectrum_1ab312a489bdc2c0b104c03f484a99abae" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>maxEnergy</name></member>
+      <member refid="classfdmSpectrum_1a4f568aaa357f25bace826760ec930289" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>minEnergy</name></member>
+      <member refid="classfdmSpectrum_1ad1ed19f2f7a927e182ce2229ed8382ae" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>negativeWeight</name></member>
+      <member refid="classfdmSpectrum_1af5d7426b1161a11c5240c1e497949a49" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>nrg_object</name></member>
+      <member refid="classfdmSpectrum_1a2070d19492ccb2cf96f48d42a50fa9b2" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>positiveWeight</name></member>
+      <member refid="classfdmSpectrum_1a69ff7b2cdae608360793706912ab83f7" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>previoudKeptIndex</name></member>
+      <member refid="classfdmSpectrum_1aad3c841a7f00e2bc3caf4d9d29914fe9" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>reducedRho</name></member>
+      <member refid="classfdmSpectrum_1a6b07dc563e7c7ad10dc3ffbcc46e4742" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>rhoDotOperators</name></member>
+      <member refid="classfdmSpectrum_1a2aeacef415c5771a0f78c2b34af4d02b" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>rhoZero</name></member>
+      <member refid="classfdmSpectrum_1a6343b801048cf871736b39e00d333ae0" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>saveFinalData</name></member>
+      <member refid="classfdmSpectrum_1a61ba4a198251b81043692f9dd8d9d508" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>setCurrentIndex</name></member>
+      <member refid="classfdmSpectrum_1a1a34358ac05aa3ee5d75aa7e58800a0b" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>setLocalPartitionFunction</name></member>
+      <member refid="classfdmSpectrum_1aae0e260c4c2fbcc4a4b3cf36dbf099ed" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>setOperator</name></member>
+      <member refid="classfdmSpectrum_1aac62f230483ab788959bb8a70f030fbc" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>setReduceDensityMatrix</name></member>
+      <member refid="classfdmSpectrum_1ad2c8cc43827c6c782120c53fd81bde35" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>setRhoZero</name></member>
+      <member refid="classfdmSpectrum_1ade5894635436e0ced450c0e1f505384a" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>setTemperature</name></member>
+      <member refid="classfdmSpectrum_1a71cdeea38cce4f663ef802574abacb7c" prot="public" virt="non-virtual"><scope>fdmSpectrum</scope><name>setup</name></member>
+      <member refid="classfdmSpectrum_1a473fdfdb48fb7752ef891b2680be9d30" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>spWeightErrorBar</name></member>
+      <member refid="classfdmSpectrum_1ac7fe4f2387149ac163ac535243221520" prot="private" virt="non-virtual"><scope>fdmSpectrum</scope><name>vecPartitions</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classspinless" kind="class" language="C++" prot="public">
+    <compoundname>spinless</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classspinless_1a608737c6ffef8de31f0790e8aac2be69" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt;</type>
+        <definition>std::vector&lt;qOperator&gt; spinless::f_dag_operator</definition>
+        <argsstring></argsstring>
+        <name>f_dag_operator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinnless.hpp" line="74" column="1" bodyfile="nrgcore/include/models/spinnless.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinless_1a43741893dcfc3ad99808bd33d2f60016" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; spinless::eigenvalues_Q</definition>
+        <argsstring></argsstring>
+        <name>eigenvalues_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinnless.hpp" line="75" column="1" bodyfile="nrgcore/include/models/spinnless.hpp" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinless_1a61ca16fb1a25869c9691af3e02e25fd6" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; spinless::chi_Q</definition>
+        <argsstring></argsstring>
+        <name>chi_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinnless.hpp" line="76" column="1" bodyfile="nrgcore/include/models/spinnless.hpp" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinless_1aad6e25f2b80761cddae0937b7bc1e511" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; spinless::n_Q</definition>
+        <argsstring></argsstring>
+        <name>n_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinnless.hpp" line="77" column="1" bodyfile="nrgcore/include/models/spinnless.hpp" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspinless_1a42d5ae800e4b85903115ea1c7f6374d9" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>spinless::spinless</definition>
+        <argsstring>(double teps=0)</argsstring>
+        <name>spinless</name>
+        <param>
+          <type>double</type>
+          <declname>teps</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This class is for a single orbital with coupled to Two lead. Only chrge is conserved </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinnless.hpp" line="13" column="1" bodyfile="nrgcore/include/models/spinnless.hpp" bodystart="13" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinless_1a346940c20aa4e329694afb441cf99b38" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; spinless::get_basis</definition>
+        <argsstring>() const</argsstring>
+        <name>get_basis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>returns the basis vector</para>        </inbodydescription>
+        <location file="nrgcore/include/models/spinnless.hpp" line="48" column="1" bodyfile="nrgcore/include/models/spinnless.hpp" bodystart="48" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinless_1af485270386b45a7e7d71b8e0ffb44050" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; spinless::get_eigenvaluesQ</definition>
+        <argsstring>() const</argsstring>
+        <name>get_eigenvaluesQ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>return eigenvalues_Q</para>        </inbodydescription>
+        <location file="nrgcore/include/models/spinnless.hpp" line="54" column="1" bodyfile="nrgcore/include/models/spinnless.hpp" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinless_1ad2b23f9972c33c25d9641ea6bd6e8679" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; spinless::get_chi_Q</definition>
+        <argsstring>() const</argsstring>
+        <name>get_chi_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This functions returns <computeroutput>vector&lt;vector&gt;</computeroutput> of <formula id="0">$ \chi_Q = e^{n_Q} $</formula></para>        </inbodydescription>
+        <location file="nrgcore/include/models/spinnless.hpp" line="61" column="1" bodyfile="nrgcore/include/models/spinnless.hpp" bodystart="61" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/models/spinnless.hpp" line="6" column="1" bodyfile="nrgcore/include/models/spinnless.hpp" bodystart="6" bodyend="78"/>
+    <listofallmembers>
+      <member refid="classspinless_1a61ca16fb1a25869c9691af3e02e25fd6" prot="public" virt="non-virtual"><scope>spinless</scope><name>chi_Q</name></member>
+      <member refid="classspinless_1a43741893dcfc3ad99808bd33d2f60016" prot="public" virt="non-virtual"><scope>spinless</scope><name>eigenvalues_Q</name></member>
+      <member refid="classspinless_1a608737c6ffef8de31f0790e8aac2be69" prot="public" virt="non-virtual"><scope>spinless</scope><name>f_dag_operator</name></member>
+      <member refid="classspinless_1a346940c20aa4e329694afb441cf99b38" prot="public" virt="non-virtual"><scope>spinless</scope><name>get_basis</name></member>
+      <member refid="classspinless_1ad2b23f9972c33c25d9641ea6bd6e8679" prot="public" virt="non-virtual"><scope>spinless</scope><name>get_chi_Q</name></member>
+      <member refid="classspinless_1af485270386b45a7e7d71b8e0ffb44050" prot="public" virt="non-virtual"><scope>spinless</scope><name>get_eigenvaluesQ</name></member>
+      <member refid="classspinless_1aad6e25f2b80761cddae0937b7bc1e511" prot="public" virt="non-virtual"><scope>spinless</scope><name>n_Q</name></member>
+      <member refid="classspinless_1a42d5ae800e4b85903115ea1c7f6374d9" prot="public" virt="non-virtual"><scope>spinless</scope><name>spinless</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

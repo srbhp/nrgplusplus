@@ -1,0 +1,528 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+  <compound refid="classconfigPerser" kind="class"><name>configPerser</name>
+    <member refid="classconfigPerser_1a84bfa89d0f759cfc2fc162c9b394cc88" kind="variable"><name>config</name></member>
+    <member refid="classconfigPerser_1a2ad9106db2618fecfce5c75a6267ddbd" kind="variable"><name>configFileName</name></member>
+    <member refid="classconfigPerser_1abe22f60c5f8dcd0a072fea426826d2db" kind="function"><name>configPerser</name></member>
+    <member refid="classconfigPerser_1a0c6fa58a0c8329ca102e7f1a0e0fdb11" kind="function"><name>get</name></member>
+    <member refid="classconfigPerser_1ad8dc5a2feebeb49c9fd37ecfad81bee3" kind="function"><name>print</name></member>
+  </compound>
+  <compound refid="classh5stream_1_1dspace" kind="class"><name>h5stream::dspace</name>
+    <member refid="classh5stream_1_1dspace_1a1bc67a404db6f4da6498f45d24969e53" kind="variable"><name>dataset</name></member>
+    <member refid="classh5stream_1_1dspace_1a309813d17ec734443fce133b07ce86b2" kind="function"><name>dspace</name></member>
+    <member refid="classh5stream_1_1dspace_1ab90ec96421d7af9fe355d53da2e42c85" kind="function"><name>write_atr</name></member>
+    <member refid="classh5stream_1_1dspace_1ae05c1e8c860636972324cf6d18e5a4bb" kind="function"><name>read_atr</name></member>
+  </compound>
+  <compound refid="classexactSolver" kind="class"><name>exactSolver</name>
+    <member refid="classexactSolver_1af78dd987db48771213ca9b9b23a73ba9" kind="variable"><name>qmat</name></member>
+    <member refid="classexactSolver_1aac21be922efd8c7296d0bf86c66ab7a8" kind="variable"><name>column</name></member>
+    <member refid="classexactSolver_1acb8f052994ebf8ae5e2059d351bf329a" kind="function"><name>exactSolver</name></member>
+    <member refid="classexactSolver_1a46f1feca718349d89fead54c82db19d7" kind="function"><name>set</name></member>
+    <member refid="classexactSolver_1ab9b33eb0d230355ada4a2ce810d25b02" kind="function"><name>solve</name></member>
+    <member refid="classexactSolver_1a3dac2d1aa296fc28585737fdf5972f30" kind="function"><name>vectorDot</name></member>
+  </compound>
+  <compound refid="classfdmBackwardIteration" kind="class"><name>fdmBackwardIteration</name>
+    <member refid="classfdmBackwardIteration_1a7363fda54fa5a86d917a5ef6c02d4f62" kind="variable"><name>nrgObject</name></member>
+    <member refid="classfdmBackwardIteration_1a547f3f7cc82c0a51f4572248e5d824da" kind="variable"><name>kBT</name></member>
+    <member refid="classfdmBackwardIteration_1aefa5bf627fe7a7117d1829cfb4cb80cc" kind="variable"><name>currentKeptIndex</name></member>
+    <member refid="classfdmBackwardIteration_1a0954ca0fe800c293a497f71d1a69a785" kind="variable"><name>rhoZero</name></member>
+    <member refid="classfdmBackwardIteration_1adf04aeee4f83935a72b66b108b06c7c0" kind="variable"><name>lastiteration</name></member>
+    <member refid="classfdmBackwardIteration_1a335fbea27a9931eee12cc1768a192d53" kind="variable"><name>energyErrorBar</name></member>
+    <member refid="classfdmBackwardIteration_1a4915f03887b53da8c6dff4f9f6345a84" kind="variable"><name>BoltzmannFactor</name></member>
+    <member refid="classfdmBackwardIteration_1a1a6ea0cd98cefd39296ad42653af903a" kind="variable"><name>localGroundStateEnergy</name></member>
+    <member refid="classfdmBackwardIteration_1a19f1c3cd9c7a10d969cf056360ca640e" kind="variable"><name>localPartitionFunction</name></member>
+    <member refid="classfdmBackwardIteration_1a1f0cc262d0450d0f3490a3b8b5cabf24" kind="variable"><name>previoudKeptIndex</name></member>
+    <member refid="classfdmBackwardIteration_1a7be8eb33d9bb651a982a8daf4f8b3828" kind="variable"><name>spWeightErrorBar</name></member>
+    <member refid="classfdmBackwardIteration_1a23bf7457617d937ef9b9e2f4d39234c8" kind="variable"><name>reducedRho</name></member>
+    <member refid="classfdmBackwardIteration_1a241e74eab1ff2c7ac93db5879770a2d8" kind="variable"><name>vecPartitions</name></member>
+    <member refid="classfdmBackwardIteration_1a669ff14a8ddec46fb19f3fbfd1afd235" kind="function"><name>fdmBackwardIteration</name></member>
+    <member refid="classfdmBackwardIteration_1afbf4e5ea1cb234055a7927b7d58b3b90" kind="function"><name>setup</name></member>
+    <member refid="classfdmBackwardIteration_1a70f7055214b161966aafcbcb36dc46fe" kind="function"><name>calcSpectrum</name></member>
+    <member refid="classfdmBackwardIteration_1a30cc0b5aa6177e6e14d45628ab6981ec" kind="function"><name>setReduceDensityMatrix</name></member>
+    <member refid="classfdmBackwardIteration_1a74c946c514f7d84c2d10f038fd3713e8" kind="function"><name>setLocalPartitionFunction</name></member>
+    <member refid="classfdmBackwardIteration_1a7157b5baeb031615952a7ce6dd2a8536" kind="function"><name>rhoDotStaticOperators</name></member>
+    <member refid="classfdmBackwardIteration_1abc9ddcea97f0b3710e0b91a743e62149" kind="function"><name>setRhoZero</name></member>
+    <member refid="classfdmBackwardIteration_1a9444363925659aeb2a6ce81fa51f2c1a" kind="function"><name>setRhoZero</name></member>
+    <member refid="classfdmBackwardIteration_1a58dffaffd7764cfff5ca27fdec87e885" kind="function"><name>setTemperature</name></member>
+    <member refid="classfdmBackwardIteration_1ae774d0dec09a40d2ec9396c10c40b079" kind="function"><name>setCurrentIndex</name></member>
+    <member refid="classfdmBackwardIteration_1a4e084471446f636fdbe9d3acb709254b" kind="function"><name>clearKeptIndex</name></member>
+  </compound>
+  <compound refid="classfdmSpectrum" kind="class"><name>fdmSpectrum</name>
+    <member refid="classfdmSpectrum_1af5d7426b1161a11c5240c1e497949a49" kind="variable"><name>nrg_object</name></member>
+    <member refid="classfdmSpectrum_1ac3e8a30bf83307235c28bde1bbcaf3de" kind="variable"><name>kBT</name></member>
+    <member refid="classfdmSpectrum_1a7cb1fb2f2aa09e081778d34dfecc3019" kind="variable"><name>localGroundStateEnergy</name></member>
+    <member refid="classfdmSpectrum_1ae2657edb34ef695005886e5119b9f8ec" kind="variable"><name>localPartitionFunction</name></member>
+    <member refid="classfdmSpectrum_1a69ff7b2cdae608360793706912ab83f7" kind="variable"><name>previoudKeptIndex</name></member>
+    <member refid="classfdmSpectrum_1a473fdfdb48fb7752ef891b2680be9d30" kind="variable"><name>spWeightErrorBar</name></member>
+    <member refid="classfdmSpectrum_1a656af2c033429c7fe90d89ed4b19d8c2" kind="variable"><name>globalGroundStateEnergy</name></member>
+    <member refid="classfdmSpectrum_1aad3c841a7f00e2bc3caf4d9d29914fe9" kind="variable"><name>reducedRho</name></member>
+    <member refid="classfdmSpectrum_1ac7fe4f2387149ac163ac535243221520" kind="variable"><name>vecPartitions</name></member>
+    <member refid="classfdmSpectrum_1a2070d19492ccb2cf96f48d42a50fa9b2" kind="variable"><name>positiveWeight</name></member>
+    <member refid="classfdmSpectrum_1ad1ed19f2f7a927e182ce2229ed8382ae" kind="variable"><name>negativeWeight</name></member>
+    <member refid="classfdmSpectrum_1ab6990259527881a10816de0f05936226" kind="variable"><name>energyPts</name></member>
+    <member refid="classfdmSpectrum_1ab312a489bdc2c0b104c03f484a99abae" kind="variable"><name>maxEnergy</name></member>
+    <member refid="classfdmSpectrum_1a4f568aaa357f25bace826760ec930289" kind="variable"><name>minEnergy</name></member>
+    <member refid="classfdmSpectrum_1a6be295531cfa16a44fce576803afb94d" kind="variable"><name>delE</name></member>
+    <member refid="classfdmSpectrum_1a6b7a30f31ebec18802d44960c93d8d71" kind="variable"><name>BoltzmannFactor</name></member>
+    <member refid="classfdmSpectrum_1a3e1c62ba868d7ec862062d9aa5cfc9dc" kind="variable"><name>currentKeptIndex</name></member>
+    <member refid="classfdmSpectrum_1a2aeacef415c5771a0f78c2b34af4d02b" kind="variable"><name>rhoZero</name></member>
+    <member refid="classfdmSpectrum_1a4ee75056b9f519d3ecd95bf98eeb8c80" kind="variable"><name>aOperator</name></member>
+    <member refid="classfdmSpectrum_1a04b5888b576e09839d601cab733a5484" kind="variable"><name>bOperator</name></member>
+    <member refid="classfdmSpectrum_1ae4ddd768bd7dc5c5607766a5a0bf1646" kind="variable"><name>lastiteration</name></member>
+    <member refid="classfdmSpectrum_1aa56aff2ce9387a16ab54c0a13fa90d64" kind="variable"><name>energyRescale</name></member>
+    <member refid="classfdmSpectrum_1a9444d13dfde9c0149b2c0a0e48abfc20" kind="variable"><name>energyErrorBar</name></member>
+    <member refid="classfdmSpectrum_1af5ba897a5a1ad4b82bfd6062efe82fb5" kind="function"><name>fdmSpectrum</name></member>
+    <member refid="classfdmSpectrum_1a71cdeea38cce4f663ef802574abacb7c" kind="function"><name>setup</name></member>
+    <member refid="classfdmSpectrum_1abb77ca9736fe7dc5075fcdd2691762aa" kind="function"><name>calcSpectrum</name></member>
+    <member refid="classfdmSpectrum_1aac62f230483ab788959bb8a70f030fbc" kind="function"><name>setReduceDensityMatrix</name></member>
+    <member refid="classfdmSpectrum_1a1a34358ac05aa3ee5d75aa7e58800a0b" kind="function"><name>setLocalPartitionFunction</name></member>
+    <member refid="classfdmSpectrum_1ad2c8cc43827c6c782120c53fd81bde35" kind="function"><name>setRhoZero</name></member>
+    <member refid="classfdmSpectrum_1a6b07dc563e7c7ad10dc3ffbcc46e4742" kind="function"><name>rhoDotOperators</name></member>
+    <member refid="classfdmSpectrum_1ade5894635436e0ced450c0e1f505384a" kind="function"><name>setTemperature</name></member>
+    <member refid="classfdmSpectrum_1a61ba4a198251b81043692f9dd8d9d508" kind="function"><name>setCurrentIndex</name></member>
+    <member refid="classfdmSpectrum_1aae0e260c4c2fbcc4a4b3cf36dbf099ed" kind="function"><name>setOperator</name></member>
+    <member refid="classfdmSpectrum_1a6343b801048cf871736b39e00d333ae0" kind="function"><name>saveFinalData</name></member>
+  </compound>
+  <compound refid="classfdmThermodynamics" kind="class"><name>fdmThermodynamics</name>
+    <member refid="classfdmThermodynamics_1a8a3a15caa1f5e5d4625ee9563efd377b" kind="variable"><name>nrg_object</name></member>
+    <member refid="classfdmThermodynamics_1a08c906084c21fdbfc44b959466afc990" kind="variable"><name>nrgMaxIterations</name></member>
+    <member refid="classfdmThermodynamics_1a16337c829ca3901e0841eef0386a4a66" kind="variable"><name>bathDimension</name></member>
+    <member refid="classfdmThermodynamics_1a4252b52f7e0edeb3b41260ccaaa68b0d" kind="variable"><name>qsysOPerator</name></member>
+    <member refid="classfdmThermodynamics_1abb43df5e58faaf952de0ea2fa13fe3a8" kind="variable"><name>qsysOPeratorValue</name></member>
+    <member refid="classfdmThermodynamics_1a2f8957cb9d37fb3679614ca298f6d691" kind="variable"><name>temperatureArray</name></member>
+    <member refid="classfdmThermodynamics_1a6f2abaa8c4d7cedf2eac435b9bfb31a5" kind="variable"><name>maxExpNumber</name></member>
+    <member refid="classfdmThermodynamics_1aa37cc0515632b6dec4ec4279656b6ef4" kind="variable"><name>previoudKeptIndex</name></member>
+    <member refid="classfdmThermodynamics_1a816039a078710604a63137eede5726e0" kind="variable"><name>discardedEigValues</name></member>
+    <member refid="classfdmThermodynamics_1ab8c59b027ad42f5c4185506859138cb0" kind="variable"><name>allEigValues</name></member>
+    <member refid="classfdmThermodynamics_1a50eaae0b845118df979b06152870785e" kind="variable"><name>currentKeptIndex</name></member>
+    <member refid="classfdmThermodynamics_1a5e22cd65262b7b85d987e9b92b06fa4a" kind="function"><name>fdmThermodynamics</name></member>
+    <member refid="classfdmThermodynamics_1ac95f7c7f8f2d2a5e5034a09305dd2f73" kind="function"><name>setSystemOperator</name></member>
+    <member refid="classfdmThermodynamics_1a5847b23d9450150bdafb380f021cf2d4" kind="function"><name>calcThermodynamics</name></member>
+    <member refid="classfdmThermodynamics_1a8a9eae6e63b1279e8fb35a340ca53249" kind="function"><name>setCurrentKeptIndex</name></member>
+    <member refid="classfdmThermodynamics_1aa5734398d9fa948987289e793a38858f" kind="function"><name>saveFinalData</name></member>
+    <member refid="classfdmThermodynamics_1a74cd9eb4336b5fc491c730590296e791" kind="function"><name>regulateExp</name></member>
+  </compound>
+  <compound refid="classfermionBasis" kind="class"><name>fermionBasis</name>
+    <member refid="classfermionBasis_1a497fc81023f5d5ed04e1f54e22632656" kind="enum"><name>modelSymmetry</name></member>
+    <member refid="classfermionBasis_1a497fc81023f5d5ed04e1f54e22632656ac54e09a51bfeb0e6478b26e761fe3eef" kind="enumvalue"><name>chargeOnly</name></member>
+    <member refid="classfermionBasis_1a497fc81023f5d5ed04e1f54e22632656a08d2f9bd45991d7c66f72e77efcf8524" kind="enumvalue"><name>spinOnly</name></member>
+    <member refid="classfermionBasis_1a497fc81023f5d5ed04e1f54e22632656a050c6a44dae5eedd146a22ed18bf6c1c" kind="enumvalue"><name>chargeAndSpin</name></member>
+    <member refid="classfermionBasis_1a2dd696ddb8b77b9c5118a2340c871e73" kind="variable"><name>f_dag_operator</name></member>
+    <member refid="classfermionBasis_1a974306b676a1fe1e91cea8feb63ecd74" kind="variable"><name>fnParticle</name></member>
+    <member refid="classfermionBasis_1a0ddccd63033ccaa781227cb43b120d90" kind="variable"><name>fermionOprMat</name></member>
+    <member refid="classfermionBasis_1a528b6381dbefa5f0e5a593ae9eea0f05" kind="variable"><name>DebugView</name></member>
+    <member refid="classfermionBasis_1a9845f5fecc0eb2a3d94c7d5d9768d04e" kind="variable"><name>nQuantum</name></member>
+    <member refid="classfermionBasis_1aa1faeb4a739d684b7bf99cdddfd3f347" kind="variable"><name>unique_Qnumbers</name></member>
+    <member refid="classfermionBasis_1a5a358bb03ed982dee80d5f10820647ab" kind="variable"><name>nQBlocks</name></member>
+    <member refid="classfermionBasis_1adc24b22c2481f077f7b24d71f7545b14" kind="function"><name>fermionBasis</name></member>
+    <member refid="classfermionBasis_1a2de7a51570d6cdc0cf8c8e808e6de446" kind="function"><name>get_raw_f_dag_operator</name></member>
+    <member refid="classfermionBasis_1a52c7f2b5afc842522517d52155e9ac8e" kind="function"><name>get_f_dag_operator</name></member>
+    <member refid="classfermionBasis_1aca21027917b357582e77359cf96d922b" kind="function"><name>create_QuantumNChargeonly</name></member>
+    <member refid="classfermionBasis_1a00eff0dae72666ad15c9934d7e83a78b" kind="function"><name>create_QuantumNspinCharge</name></member>
+    <member refid="classfermionBasis_1ab05e316702a319543ebc40bd1dc3eb5a" kind="function"><name>create_QuantumSpinOnly</name></member>
+    <member refid="classfermionBasis_1ae7abc1c67fb5da8ece9e1970725af8dc" kind="function"><name>createQNumbers</name></member>
+    <member refid="classfermionBasis_1a64026f3f3cab8f8524261b7315cf965e" kind="function"><name>create_Block_structure</name></member>
+    <member refid="classfermionBasis_1a539b073098d53e94acea4eef299d2bcf" kind="function"><name>get_unique_Qnumbers</name></member>
+    <member refid="classfermionBasis_1aaefbf07cab9ad739c1a12b2b96eb2c12" kind="function"><name>get_block_operators</name></member>
+    <member refid="classfermionBasis_1acbacaa1b5f8b69f3aec6055dfd14eff1" kind="function"><name>get_block_Hamiltonian</name></member>
+    <member refid="classfermionBasis_1aa287e3c7aa98d2c9689ab7880659b061" kind="function"><name>get_basis</name></member>
+    <member refid="classfermionBasis_1a70829559e10e719c5a3fb673194bd6cc" kind="function"><name>setDebugMode</name></member>
+    <member refid="classfermionBasis_1a6bda55637fbbc02bfa5b979090534ef4" kind="function"><name>createFermionBasis</name></member>
+    <member refid="classfermionBasis_1a035b5e6b76ebe2d809032d2b3adabe2f" kind="function"><name>set_f_dag_operators</name></member>
+  </compound>
+  <compound refid="classfreeModel" kind="class"><name>freeModel</name>
+    <member refid="classfreeModel_1a98776009cc4cfc827559bc92df9b790f" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classfreeModel_1a6776accd0ca7f867d10d87846ba5c4b0" kind="variable"><name>chi_Q</name></member>
+    <member refid="classfreeModel_1acd98b1376646430ffce26da11106e67c" kind="variable"><name>n_Q</name></member>
+    <member refid="classfreeModel_1a0e91c462a514b9d9765ebb458eb75ced" kind="function"><name>freeModel</name></member>
+    <member refid="classfreeModel_1af83dd79cf17068c005361a33757b7b10" kind="function"><name>get_basis</name></member>
+    <member refid="classfreeModel_1a10fed8e8694bc63bc7a7e291cf4a8b56" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classfreeModel_1afdab9987eeb28a557367819430d068e2" kind="function"><name>get_chi_Q</name></member>
+    <member refid="classfreeModel_1a5f998bd46b5661eb991bde9b8cc366a0" kind="function"><name>createBasis</name></member>
+  </compound>
+  <compound refid="classh5stream_1_1gspace" kind="class"><name>h5stream::gspace</name>
+    <member refid="classh5stream_1_1gspace_1a0ba71614d5f3842b78000443f3ac21ce" kind="variable"><name>dataset</name></member>
+    <member refid="classh5stream_1_1gspace_1a711aed4ab5d19633ed16e8877aefe90e" kind="function"><name>gspace</name></member>
+    <member refid="classh5stream_1_1gspace_1ab728da85dba90e1229f54f95d18d4d3c" kind="function"><name>write_atr</name></member>
+    <member refid="classh5stream_1_1gspace_1a54f8e7211e6a65d25bcfa918e7b3c887" kind="function"><name>read_atr</name></member>
+  </compound>
+  <compound refid="structh5stream_1_1h5str1" kind="struct"><name>h5stream::h5str1</name>
+    <member refid="structh5stream_1_1h5str1_1a9f38b86b06bd242011e583cc78760888" kind="variable"><name>keyName</name></member>
+    <member refid="structh5stream_1_1h5str1_1a619a11ec3b372a4ca10bc5dc5b97d9a7" kind="variable"><name>data</name></member>
+    <member refid="structh5stream_1_1h5str1_1afe5e4d2840e12bba757540bef70c9a96" kind="variable"><name>dataSize</name></member>
+  </compound>
+  <compound refid="classh5stream_1_1h5stream" kind="class"><name>h5stream::h5stream</name>
+    <member refid="classh5stream_1_1h5stream_1a46567c60502555cc7cfbd4c8b01f22f2" kind="variable"><name>debug</name></member>
+    <member refid="classh5stream_1_1h5stream_1a0e16344629cd61bded2212c8ccb717ee" kind="variable"><name>hdf5FileName</name></member>
+    <member refid="classh5stream_1_1h5stream_1a0bc2125e2d8ae1fa1b446036b1d8653c" kind="variable"><name>hdf5File</name></member>
+    <member refid="classh5stream_1_1h5stream_1a272ad28016dc89027faae94d3d724837" kind="function"><name>h5stream</name></member>
+    <member refid="classh5stream_1_1h5stream_1ae8109dcd78c34660ad9fd76f251fb0f3" kind="function"><name>h5stream</name></member>
+    <member refid="classh5stream_1_1h5stream_1aff67857469d128177eb4a154b4529ab6" kind="function"><name>setFileName</name></member>
+    <member refid="classh5stream_1_1h5stream_1add97c7c115afcc4d16d405bb2c2b67b5" kind="function"><name>write</name></member>
+    <member refid="classh5stream_1_1h5stream_1a9e85bae85761be83dd5074c82d32d8d6" kind="function"><name>write</name></member>
+    <member refid="classh5stream_1_1h5stream_1a6158bac7508b9cdfcc19421a0cda5c45" kind="function"><name>write</name></member>
+    <member refid="classh5stream_1_1h5stream_1a08546022fa05692c11eb76778b62726d" kind="function"><name>read</name></member>
+    <member refid="classh5stream_1_1h5stream_1ab44442d3d0d929b523cf734f8a653075" kind="function"><name>read</name></member>
+    <member refid="classh5stream_1_1h5stream_1aba2545d238754f1c9a63a01ed8cc905b" kind="function"><name>close</name></member>
+    <member refid="classh5stream_1_1h5stream_1a1fbdca6515eeb42e3d2ab4ce9f196671" kind="function"><name>fileSize</name></member>
+    <member refid="classh5stream_1_1h5stream_1a6fb0be69c76e81aeb2ca05cd08445308" kind="function"><name>getDataspace</name></member>
+    <member refid="classh5stream_1_1h5stream_1a179550e7f0f38f06c7319abbbe12bc20" kind="function"><name>getGroup</name></member>
+    <member refid="classh5stream_1_1h5stream_1a2c7073f7143eb30e8406a387bfb24b8f" kind="function"><name>createGroup</name></member>
+    <member refid="classh5stream_1_1h5stream_1a6517ad2c43ca402ec642831a99ff2c77" kind="function"><name>writeMetadata</name></member>
+    <member refid="classh5stream_1_1h5stream_1a075da956e0752bd226231cc3e00bb3f7" kind="function"><name>readMetadata</name></member>
+    <member refid="classh5stream_1_1h5stream_1ac1fc46dfb40136d4551f20b9a787c244" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="classh5stream_1_1h5stream_1a03fdae9d245292899c66d40548c65245" kind="friend"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="classkondoSC" kind="class"><name>kondoSC</name>
+    <member refid="classkondoSC_1a436e42bc88737dde8b15cadbcc6fe409" kind="variable"><name>localSCbabsis</name></member>
+    <member refid="classkondoSC_1a5335bcaac876fc80b02bfbaed204da02" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classkondoSC_1a26d814b88d8c1d09bce979170eb9bf8f" kind="variable"><name>chi_Q</name></member>
+    <member refid="classkondoSC_1a1ef81e06387b21af3787431f7f65aaef" kind="variable"><name>n_Q</name></member>
+    <member refid="classkondoSC_1af2dbc9fe2bd81c4914c4a3233eb22eac" kind="function"><name>kondoSC</name></member>
+    <member refid="classkondoSC_1a57e36fdd416160d0215aad263d22c246" kind="function"><name>get_basis</name></member>
+    <member refid="classkondoSC_1adffb60c572bd007e655a8adcd1d06609" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classkondoSC_1a12903c3d02d68186085ba8307e53d7bf" kind="function"><name>get_chi_Q</name></member>
+    <member refid="classkondoSC_1acdc81121b748470b2c4455ba66978f19" kind="function"><name>createBasis</name></member>
+  </compound>
+  <compound refid="classkondoTwoImpuritySC" kind="class"><name>kondoTwoImpuritySC</name>
+    <member refid="classkondoTwoImpuritySC_1aef0dd9c6981fc42b3466a274fa5e8bb0" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classkondoTwoImpuritySC_1a493b8aa3a162f5285fb1e40e57f50371" kind="variable"><name>chi_Q</name></member>
+    <member refid="classkondoTwoImpuritySC_1a72ac2d1f7e5e794dd9b06a90a92d5c83" kind="variable"><name>n_Q</name></member>
+    <member refid="classkondoTwoImpuritySC_1a5865425e9d9d595b36a86ec1f83e1ed7" kind="function"><name>kondoTwoImpuritySC</name></member>
+    <member refid="classkondoTwoImpuritySC_1a5f8d03376d00bd3c19ae9e6faf33087d" kind="function"><name>get_basis</name></member>
+    <member refid="classkondoTwoImpuritySC_1a686d4571a0239d505c5d0a6e254a398a" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classkondoTwoImpuritySC_1ac7736f2e04b8fa51fdd3eefee6291644" kind="function"><name>get_chi_Q</name></member>
+  </compound>
+  <compound refid="classnrgcore" kind="class"><name>nrgcore</name>
+    <member refid="classnrgcore_1a151583fd6a460dfef289d82e97de8af0" kind="variable"><name>impurityModel</name></member>
+    <member refid="classnrgcore_1a0d06ab4607e81c68c7c2a633280b1477" kind="variable"><name>bath_model</name></member>
+    <member refid="classnrgcore_1a609dc7d9f8f58db81f7decc759ff6131" kind="variable"><name>pre_fdag_oparator</name></member>
+    <member refid="classnrgcore_1a2ea178dd405d187d59db5c7584973794" kind="variable"><name>chi_bath</name></member>
+    <member refid="classnrgcore_1a04968f74a6a5bed4b2ee1f74ad091ff3" kind="variable"><name>no_of_kept_states</name></member>
+    <member refid="classnrgcore_1ac0f19ae7a532eebedfb078d131573c62" kind="variable"><name>max_kept_states</name></member>
+    <member refid="classnrgcore_1aa3d2d501fbeac8b482cacc8966ca1de4" kind="variable"><name>errorbarInEnergy</name></member>
+    <member refid="classnrgcore_1a1db2a4bc084130bf881b23bcf7ff8d3f" kind="variable"><name>all_eigenvalue</name></member>
+    <member refid="classnrgcore_1a1295ccad18475e366e2963b5954290f0" kind="variable"><name>relativeGroundStateEnergy</name></member>
+    <member refid="classnrgcore_1a45dec061cf541b82ffca95a80dc95227" kind="variable"><name>eigenvaluesQ_kept_indices</name></member>
+    <member refid="classnrgcore_1aee19ab5ab690aa26e43d9f27b3935303" kind="variable"><name>current_hamiltonQ</name></member>
+    <member refid="classnrgcore_1ae289193271af8b2f2d01594a7eede84f" kind="variable"><name>current_sysmQ</name></member>
+    <member refid="classnrgcore_1aa389235c025e012af3d43806d7841d5d" kind="variable"><name>pre_sysmQ</name></member>
+    <member refid="classnrgcore_1a2016def91b17970ebce51493ebbf0970" kind="variable"><name>eigenvaluesQ</name></member>
+    <member refid="classnrgcore_1ae6754feff76c8b31609761de044e69d2" kind="variable"><name>coupled_nQ_index</name></member>
+    <member refid="classnrgcore_1a57e3fa8284d5b773cb33add300ae402a" kind="variable"><name>nrg_iterations_cnt</name></member>
+    <member refid="classnrgcore_1a11d2d4dfa64966cecfda5f87cb9e8d86" kind="variable"><name>nrg_iterations_min</name></member>
+    <member refid="classnrgcore_1aafe224f191c433a9927d3cc1e474b25f" kind="variable"><name>bath_eigenvaluesQ</name></member>
+    <member refid="classnrgcore_1aaca801cba78b070101f4a074dc5ea445" kind="variable"><name>nq_bath</name></member>
+    <member refid="classnrgcore_1a0e05a444e6bab4b5982ff9480ef82ac2" kind="function"><name>nrgcore</name></member>
+    <member refid="classnrgcore_1ab9e6604eaada9f7cd70b80ba2c3440b2" kind="function"><name>add_bath_site</name></member>
+    <member refid="classnrgcore_1a8d35e68ff38ad158345ea5f3fe62b9e7" kind="function"><name>update_internal_state</name></member>
+    <member refid="classnrgcore_1a7be68e2ea9367ce7478c450701d0c269" kind="function"><name>test</name></member>
+    <member refid="classnrgcore_1a4615721d43b17d68b21bc089b897b220" kind="function"><name>create_next_hamiltonians</name></member>
+    <member refid="classnrgcore_1adc153e3471e213e8474e71e90bb33ba0" kind="function"><name>create_next_basis</name></member>
+    <member refid="classnrgcore_1a20dacfcbb1a4b3c3678c370cf45327a0" kind="function"><name>discard_higher_energies</name></member>
+    <member refid="classnrgcore_1a1e9bdb830e8f545d08d779b079edc57f" kind="function"><name>set_parameters</name></member>
+    <member refid="classnrgcore_1a0e8829608933ed94a3bbe4a4fb78fe9a" kind="function"><name>get_basis_nQ</name></member>
+    <member refid="classnrgcore_1a10f8eb43b7beef9c4329dc935ac5fc70" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classnrgcore_1a06b5f3ee8c6a9386105185c26e49006d" kind="function"><name>get_f_dag_operator</name></member>
+    <member refid="classnrgcore_1a022e1995590ebcda3a1d874f0062ea39" kind="function"><name>checkHigherEnergyDiscarded</name></member>
+    <member refid="classnrgcore_1afa701c47194e8b472a2883ed82ce53fe" kind="function"><name>getPreWilsonSiteOperators</name></member>
+    <member refid="classnrgcore_1aee10c06b554661378e15e0f38c36e2c7" kind="function"><name>set_current_fdag_operator</name></member>
+    <member refid="classnrgcore_1ad471a1fe24b53d9baba77840bcd783b1" kind="function"><name>enforceDegeneracy</name></member>
+    <member refid="classnrgcore_1ae0f4bbe9811f9c6f72ba87f009a8b7c2" kind="function"><name>set_current_fdag_operator_old</name></member>
+  </compound>
+  <compound refid="classNrgData" kind="class"><name>NrgData</name>
+    <member refid="classNrgData_1a7358e9749d5c36318611770e3619af3a" kind="variable"><name>tmpNrgFilename</name></member>
+    <member refid="classNrgData_1a561beb87bfd16dd372f70d058a4fea60" kind="variable"><name>nrg_object</name></member>
+    <member refid="classNrgData_1a4f3f8925e3f2d00fba5075d75255679b" kind="variable"><name>pfiletmp</name></member>
+    <member refid="classNrgData_1ad6e307c99220f5a6b16fa745932c03e8" kind="variable"><name>isClosed</name></member>
+    <member refid="classNrgData_1ad62354af657829df2991cac7b96dab1b" kind="variable"><name>debugIO</name></member>
+    <member refid="classNrgData_1a7376f6003140ccb665a78fab37e5e47f" kind="variable"><name>savedNRGIndex</name></member>
+    <member refid="classNrgData_1a8df3ffc332eeec35bbf4956000dcf430" kind="function"><name>NrgData</name></member>
+    <member refid="classNrgData_1ab942d707634bf56c300efd43f9bd322b" kind="function"><name>readFromFile</name></member>
+    <member refid="classNrgData_1ad1f535374f2a908406a97146b95f70bf" kind="function"><name>setFileName</name></member>
+    <member refid="classNrgData_1a8b6f27b119d9adecf59e4ec65127c1b8" kind="function"><name>NrgData</name></member>
+    <member refid="classNrgData_1a62824c8b7ff6e2eb6d12bfe9d20fc75a" kind="function"><name>setNRGObject</name></member>
+    <member refid="classNrgData_1a97fc1d2e22c3794a668f91aab5caf582" kind="function"><name>saveFinalState</name></member>
+    <member refid="classNrgData_1a8806440d009d1d0e1ce27cd63ae37855" kind="function"><name>close</name></member>
+    <member refid="classNrgData_1abb7e4c3286eefb1e15ee8caec21f05b7" kind="function"><name>clear</name></member>
+    <member refid="classNrgData_1a4bcf5ab8fc0badbda78f97ae2ea2e382" kind="function"><name>saveCurrentData</name></member>
+    <member refid="classNrgData_1ad1accbf9e196b8933343d4fe0bc35180" kind="function"><name>saveqOperator</name></member>
+    <member refid="classNrgData_1ae905ad27e7a45e8f2393526511cc8109" kind="function"><name>loadqOperator</name></member>
+    <member refid="classNrgData_1af599e13e0eacf442b27aeca1cca05165" kind="function"><name>loadCurrentData</name></member>
+    <member refid="classNrgData_1a6b89587cb68d94031173109e6817e23f" kind="function"><name>loadCurrentData</name></member>
+  </compound>
+  <compound refid="classqmatrix" kind="class"><name>qmatrix</name>
+    <member refid="classqmatrix_1a97ad80143ea431b38846dc9694fb36a3" kind="variable"><name>mat</name></member>
+    <member refid="classqmatrix_1abf573175a0121877413be95346290dd4" kind="variable"><name>row</name></member>
+    <member refid="classqmatrix_1a27efbbb3280bcc5e102845f521a5874b" kind="variable"><name>column</name></member>
+    <member refid="classqmatrix_1ae168d34e9394535fa085666e7e9b53c9" kind="variable"><name>dim</name></member>
+    <member refid="classqmatrix_1a9e5e9003f3ce469757a099f0a5cb387d" kind="function"><name>qmatrix</name></member>
+    <member refid="classqmatrix_1ab09878c317208706ea39b8cf868355ca" kind="function"><name>qmatrix</name></member>
+    <member refid="classqmatrix_1a902c08267bf4f6e49a982140470a8014" kind="function"><name>qmatrix</name></member>
+    <member refid="classqmatrix_1a0a392ae029af40d7eac0bd4dae61257a" kind="function"><name>resize</name></member>
+    <member refid="classqmatrix_1a2680c028b1b135431723997b8baebc6e" kind="function"><name>clear</name></member>
+    <member refid="classqmatrix_1aa03000cc351014a3d862b32ad1d812e7" kind="function"><name>qmatrix</name></member>
+    <member refid="classqmatrix_1a633f6c2391c796e4c7f3be3625c9534f" kind="function"><name>qmatrix</name></member>
+    <member refid="classqmatrix_1aa844a436f313995011c9c6532aa56f69" kind="function"><name>operator()</name></member>
+    <member refid="classqmatrix_1afefad923ade89e26040acc0e7cb074fc" kind="function"><name>operator()</name></member>
+    <member refid="classqmatrix_1adbecb76ad443d23f5d51ad607594418d" kind="function"><name>at</name></member>
+    <member refid="classqmatrix_1a59c909a73509ee458350a68d2aff7fb8" kind="function"><name>at</name></member>
+    <member refid="classqmatrix_1a00cbc3509491b6b8abb6ce93b4cda0a1" kind="function"><name>size</name></member>
+    <member refid="classqmatrix_1ae3badb1bfe40d438cf529bfd2389fe9e" kind="function"><name>getrow</name></member>
+    <member refid="classqmatrix_1a0a4cf01d412b597898aadf2b13001f40" kind="function"><name>getcolumn</name></member>
+    <member refid="classqmatrix_1a8be0ac95f15d11a130d5397b8622e1dd" kind="function"><name>operator()</name></member>
+    <member refid="classqmatrix_1a75f8a716ded3a482d7afb07de0262aa3" kind="function"><name>operator()</name></member>
+    <member refid="classqmatrix_1a7dda1dd830d35a2f020d2220ccd561bd" kind="function"><name>at</name></member>
+    <member refid="classqmatrix_1aeb878190b7ec527fb1e8f54dca779257" kind="function"><name>at</name></member>
+    <member refid="classqmatrix_1a5aad44dcbace9580be01d99aadb5086d" kind="function"><name>sum</name></member>
+    <member refid="classqmatrix_1a64ba36d00e24160611c9815d75c74f78" kind="function"><name>absSum</name></member>
+    <member refid="classqmatrix_1a205d170d9b02bca054d32a4065d1e941" kind="function"><name>trace</name></member>
+    <member refid="classqmatrix_1ad7e0749cdd0c30fbab6b6fa12005e083" kind="function"><name>getdiagonal</name></member>
+    <member refid="classqmatrix_1a7955242553c86d87ac3bde3fd097d190" kind="function"><name>id</name></member>
+    <member refid="classqmatrix_1a2a34dfb0454aed7513510315a0cf2089" kind="function"><name>real</name></member>
+    <member refid="classqmatrix_1a31bb6f471a36331761b3ac4b42686dfa" kind="function"><name>imag</name></member>
+    <member refid="classqmatrix_1a246c16a9b083e8a0266a0ddaa7f6de47" kind="function"><name>cTranspose</name></member>
+    <member refid="classqmatrix_1a98ec0f47e20363d3655635d52619d408" kind="function"><name>operator*</name></member>
+    <member refid="classqmatrix_1a3ba03da6cabf12f4f4d75ccd1368ae06" kind="function"><name>operator/</name></member>
+    <member refid="classqmatrix_1a6a7eb56e727f08ced623d0059c6b9ba0" kind="function"><name>data</name></member>
+    <member refid="classqmatrix_1ac32c4b85f89ddf6a57a839552e655443" kind="function"><name>data</name></member>
+    <member refid="classqmatrix_1ad88578dd84b8ef2dae3bd3aeacdbec11" kind="function"><name>begin</name></member>
+    <member refid="classqmatrix_1a0ffccbdbc2d71cce1f2880af77267fd1" kind="function"><name>end</name></member>
+    <member refid="classqmatrix_1ac635d01b275109809173db421ff94d6e" kind="function"><name>display</name></member>
+    <member refid="classqmatrix_1a66283796414743d4874e2fd1af0088fa" kind="function"><name>operator+</name></member>
+    <member refid="classqmatrix_1a80abc4437066e9696ad9e185144e6a7b" kind="function"><name>operator-</name></member>
+    <member refid="classqmatrix_1afc7f48927e57e2192c46b3a0c15fde63" kind="function"><name>dot</name></member>
+    <member refid="classqmatrix_1a5effa22b7013d93c8450459e49b34d81" kind="function"><name>diag</name></member>
+    <member refid="classqmatrix_1aef575497c81ee49ba52f8913d9d5063d" kind="function"><name>nonsys_diag_complex</name></member>
+    <member refid="classqmatrix_1a068d7b240b64ad73faca162b3b1f0392" kind="function"><name>nonsys_diag_real</name></member>
+    <member refid="classqmatrix_1a9b39a5a3f83923ed339b822b176b16a1" kind="function"><name>krDot</name></member>
+    <member refid="classqmatrix_1ac97b21c855548d7ee7b3c1c0f159bcf5" kind="function"><name>unitary_transform</name></member>
+    <member refid="classqmatrix_1a99b817177e1bf80d8b694c6e142715b3" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="classqOperator" kind="class"><name>qOperator</name>
+    <member refid="classqOperator_1abdd979346839227fd4e0eb816408a7a3" kind="variable"><name>storage</name></member>
+    <member refid="classqOperator_1a081d4cfbbb1c667fd7758cdb2ae81990" kind="function"><name>qOperator</name></member>
+    <member refid="classqOperator_1a5ef74b19656a201c20f4a40052e9820c" kind="function"><name>qOperator</name></member>
+    <member refid="classqOperator_1a75b863c291a8cf10f65fe2af949056aa" kind="function"><name>getMap</name></member>
+    <member refid="classqOperator_1ad7726c996001fe1038dfa1d613383c26" kind="function"><name>set</name></member>
+    <member refid="classqOperator_1a66c83c43379293607830aa657b527b4c" kind="function"><name>set</name></member>
+    <member refid="classqOperator_1a1d4caefd06937b308b89508c483b1086" kind="function"><name>get</name></member>
+    <member refid="classqOperator_1ae5a1ca3e849160806d26966981325738" kind="function"><name>unitaryTransform</name></member>
+    <member refid="classqOperator_1aeef3533a438069661e929daaa1431ff9" kind="function"><name>clear</name></member>
+    <member refid="classqOperator_1a296b5e0ffb7c893769af4faa1fc3c248" kind="function"><name>display</name></member>
+    <member refid="classqOperator_1a117acd47d8448859ee77550c8943caa7" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="classqsymmetry" kind="class"><name>qsymmetry</name>
+    <member refid="classqsymmetry_1afa4481cc76db5837eb75e588915aff0b" kind="variable"><name>no_of_symmetry</name></member>
+    <member refid="classqsymmetry_1a68467bcf2db118c7377fb3e1e0d55ef6" kind="variable"><name>sys_string</name></member>
+    <member refid="classqsymmetry_1ac6f57304440772a9ed77b788c965a89f" kind="function"><name>qsymmetry</name></member>
+    <member refid="classqsymmetry_1aeaec8a3bdce416caa537bd3a3244872a" kind="function"><name>add_symmetry</name></member>
+    <member refid="classqsymmetry_1ad9f5132e831ab402347c6254a5253b3a" kind="function"><name>get_symmetry_size</name></member>
+    <member refid="classqsymmetry_1ad2901e5a0a62d965888f62f7a003806f" kind="function"><name>print_symmetry</name></member>
+  </compound>
+  <compound refid="classrabiAndersonSC" kind="class"><name>rabiAndersonSC</name>
+    <member refid="classrabiAndersonSC_1a5aa18a46f547e54273eb1ce17db9ed99" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classrabiAndersonSC_1ad1d46ec597a3f1962f180e55ffc6778a" kind="variable"><name>chi_Q</name></member>
+    <member refid="classrabiAndersonSC_1a267b4e7060e23d23ce6760301a72af08" kind="variable"><name>n_Q</name></member>
+    <member refid="classrabiAndersonSC_1a76cb6771b558fd737703e473844bb843" kind="function"><name>rabiAndersonSC</name></member>
+    <member refid="classrabiAndersonSC_1a99768d599da33f3c73c14c74a7fd3b4b" kind="function"><name>get_basis</name></member>
+    <member refid="classrabiAndersonSC_1ae24bbbe9cd0ef62cf665b280cd6c7615" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classrabiAndersonSC_1aaa2f16e7df4b0655b2e1d382fca7259b" kind="function"><name>get_chi_Q</name></member>
+    <member refid="classrabiAndersonSC_1a233a56962dbe8adec9ff559bd4dcb38c" kind="function"><name>createBasis</name></member>
+  </compound>
+  <compound refid="classresonantTwoLead" kind="class"><name>resonantTwoLead</name>
+    <member refid="classresonantTwoLead_1a4952f2658e391e8a43094e6a239bdf5d" kind="variable"><name>impurityFdag</name></member>
+    <member refid="classresonantTwoLead_1ae664b3c3d5ec4d8b7efeaf636a2b6834" kind="variable"><name>impurityNparticle</name></member>
+    <member refid="classresonantTwoLead_1a435cf74465bc0144562c8ef18ec28f98" kind="variable"><name>f_dag_operator</name></member>
+    <member refid="classresonantTwoLead_1a9205fe78b191d3f311c6d99cf8ab677b" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classresonantTwoLead_1a01ed33c6738fc6abd7dce42968a6e3ca" kind="variable"><name>chi_Q</name></member>
+    <member refid="classresonantTwoLead_1a3f7a96510c91dc16b9d5f83498be5a25" kind="variable"><name>n_Q</name></member>
+    <member refid="classresonantTwoLead_1ae4bfb7773fb1e1877406483b0757fa72" kind="function"><name>resonantTwoLead</name></member>
+    <member refid="classresonantTwoLead_1abb9d7c60c7c58e3f63d088fe3bd75963" kind="function"><name>get_basis</name></member>
+    <member refid="classresonantTwoLead_1a29af6460efe317ea5b61c4b264e5bf8f" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classresonantTwoLead_1a6a3e218f7c64f110276ce5582ae457eb" kind="function"><name>get_chi_Q</name></member>
+  </compound>
+  <compound refid="classsparseEigen" kind="class"><name>sparseEigen</name>
+    <member refid="classsparseEigen_1a2f2a3ab0507694a9ba6b91272d29092b" kind="typedef"><name>datatype</name></member>
+    <member refid="classsparseEigen_1a96bd671fa9c177c4d6371be9974b6ef2" kind="variable"><name>coefficients</name></member>
+    <member refid="classsparseEigen_1a6ee362df11cb88d9a616f0a761cee984" kind="variable"><name>column</name></member>
+    <member refid="classsparseEigen_1a74f93a01b1dcd3504f27700334a90e88" kind="variable"><name>SparseA</name></member>
+    <member refid="classsparseEigen_1a4b975b693606d5e6ce8428018e3037fe" kind="function"><name>sparseEigen</name></member>
+    <member refid="classsparseEigen_1a31535f4243b743326a44f3835cb5352b" kind="function"><name>set</name></member>
+    <member refid="classsparseEigen_1a8d7619bb0ec6770b824b290d60f95fed" kind="function"><name>getMatrix</name></member>
+    <member refid="classsparseEigen_1a557781b2805408761fd41764a70f4e0e" kind="function"><name>solve</name></member>
+    <member refid="classsparseEigen_1a53963be4bf85e8e6e33d7db4b8f60df1" kind="function"><name>vectorDot</name></member>
+  </compound>
+  <compound refid="classspinhalf" kind="class"><name>spinhalf</name>
+    <member refid="classspinhalf_1a5ef41c31ce80a54184f21247ae201387" kind="variable"><name>f_dag_raw</name></member>
+    <member refid="classspinhalf_1a8c8dcbeb1211a0fd30e04a6b95008d42" kind="variable"><name>Uint</name></member>
+    <member refid="classspinhalf_1af313e81b3c7d454ab5c3df26cae72264" kind="variable"><name>epsilon_d</name></member>
+    <member refid="classspinhalf_1ae0fd385c5908e40b027afe4d1d136e06" kind="variable"><name>magnetic_field</name></member>
+    <member refid="classspinhalf_1a6d6a9594a540f6fe4dee0c1c7565e7c3" kind="variable"><name>f_dag_operator</name></member>
+    <member refid="classspinhalf_1ac48842c80cfdc462b9b9d6e5a7ee5d55" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classspinhalf_1ac922def557bd9e5c26f47352f3faac2f" kind="variable"><name>chi_Q</name></member>
+    <member refid="classspinhalf_1adb2a54462b432a730fc92345a892fe60" kind="variable"><name>n_Q</name></member>
+    <member refid="classspinhalf_1afcc5c87a7d7c90231d4b83982ae08f49" kind="variable"><name>doubleOccupancy</name></member>
+    <member refid="classspinhalf_1af8c75ec73922c786a8a0d0cf13538173" kind="function"><name>spinhalf</name></member>
+    <member refid="classspinhalf_1a57ef95e030e7481396657edddc756db3" kind="function"><name>get_basis</name></member>
+    <member refid="classspinhalf_1a68d0e2d350155e1c7673ad37c2398bdb" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classspinhalf_1ab92e8863658abe5441360d6e8bc1b8be" kind="function"><name>get_chi_Q</name></member>
+    <member refid="classspinhalf_1ab400371ef9040c40c290df280924df31" kind="function"><name>getDoubleOcc</name></member>
+  </compound>
+  <compound refid="classspinhalfKondo" kind="class"><name>spinhalfKondo</name>
+    <member refid="classspinhalfKondo_1abb3e2b161539ec050f789c808679484b" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classspinhalfKondo_1ae4c9ee5168cbb841f3fdc1ee3948c92b" kind="variable"><name>chi_Q</name></member>
+    <member refid="classspinhalfKondo_1a6dc7ce518ab6e99fc1beafa96a2d0ab9" kind="variable"><name>f_dag_operator</name></member>
+    <member refid="classspinhalfKondo_1acff3dff7b2e1b836cfb4279e925e5785" kind="variable"><name>n_Q</name></member>
+    <member refid="classspinhalfKondo_1a5d4de8ea30e2f5f528393c1c2c69fde2" kind="function"><name>spinhalfKondo</name></member>
+    <member refid="classspinhalfKondo_1a0b8a639eb59669f4625e6b76b408169e" kind="function"><name>get_basis</name></member>
+    <member refid="classspinhalfKondo_1a16d3f9c3f1748cbd7642b86dbb4ba8be" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classspinhalfKondo_1a8d92513c4d2effd93da6fa15d5471ec0" kind="function"><name>get_chi_Q</name></member>
+    <member refid="classspinhalfKondo_1a59a5861ab76407fcc3009c4a2f3363b8" kind="function"><name>createBasis</name></member>
+  </compound>
+  <compound refid="classspinhalfSC" kind="class"><name>spinhalfSC</name>
+    <member refid="classspinhalfSC_1a1a8527de97ecf1a06fa158e4f0079a95" kind="variable"><name>f_dag_raw</name></member>
+    <member refid="classspinhalfSC_1a67ccb45247d42f9caf2e2801f5fe0e3b" kind="variable"><name>localSCbabsis</name></member>
+    <member refid="classspinhalfSC_1afa043ef92eb6044fc26fac7296b3ceff" kind="variable"><name>f_dag_operator</name></member>
+    <member refid="classspinhalfSC_1abae07596244644835a6b126c38b8ab8d" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classspinhalfSC_1a94408a303ff0884e4accf3430675ea73" kind="variable"><name>chi_Q</name></member>
+    <member refid="classspinhalfSC_1aa427204ceb0fb8a87246c03a34f7ea6a" kind="variable"><name>n_Q</name></member>
+    <member refid="classspinhalfSC_1ae3fb5fee441eccdc2aafd318691a236b" kind="function"><name>spinhalfSC</name></member>
+    <member refid="classspinhalfSC_1a441845c4cd02ee6532b04ee93233beef" kind="function"><name>addSCDelta</name></member>
+    <member refid="classspinhalfSC_1a8ba2bf58ecbc22dea84238f6c0778cd8" kind="function"><name>get_basis</name></member>
+    <member refid="classspinhalfSC_1a1f66235cf5e457fa3005460643777252" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classspinhalfSC_1addefee48db5057566fd8d8f9b6352772" kind="function"><name>get_chi_Q</name></member>
+    <member refid="classspinhalfSC_1a2110563b77e8c8ba5f4a429c650a1103" kind="function"><name>set_chi_Q</name></member>
+  </compound>
+  <compound refid="classspinless" kind="class"><name>spinless</name>
+    <member refid="classspinless_1a608737c6ffef8de31f0790e8aac2be69" kind="variable"><name>f_dag_operator</name></member>
+    <member refid="classspinless_1a43741893dcfc3ad99808bd33d2f60016" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classspinless_1a61ca16fb1a25869c9691af3e02e25fd6" kind="variable"><name>chi_Q</name></member>
+    <member refid="classspinless_1aad6e25f2b80761cddae0937b7bc1e511" kind="variable"><name>n_Q</name></member>
+    <member refid="classspinless_1a42d5ae800e4b85903115ea1c7f6374d9" kind="function"><name>spinless</name></member>
+    <member refid="classspinless_1a346940c20aa4e329694afb441cf99b38" kind="function"><name>get_basis</name></member>
+    <member refid="classspinless_1af485270386b45a7e7d71b8e0ffb44050" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classspinless_1ad2b23f9972c33c25d9641ea6bd6e8679" kind="function"><name>get_chi_Q</name></member>
+  </compound>
+  <compound refid="classspinnlessTwoLead" kind="class"><name>spinnlessTwoLead</name>
+    <member refid="classspinnlessTwoLead_1ace3a55ec97fdb150d46f52d25d89c2fa" kind="variable"><name>f_dag_operator</name></member>
+    <member refid="classspinnlessTwoLead_1a7f784b51936731445978acbbc60a89ac" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classspinnlessTwoLead_1aea00e1c0503ea306b03a122d6d0c8c1c" kind="variable"><name>chi_Q</name></member>
+    <member refid="classspinnlessTwoLead_1a0989889cde9b83fee758667230d44d07" kind="variable"><name>n_Q</name></member>
+    <member refid="classspinnlessTwoLead_1a1c49ba39ab179c26dee34d126a4e2828" kind="function"><name>spinnlessTwoLead</name></member>
+    <member refid="classspinnlessTwoLead_1a97744c841e15a334342f0409a7216902" kind="function"><name>get_basis</name></member>
+    <member refid="classspinnlessTwoLead_1a0f1f344f50272fbd36fa216bf2a80ad1" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classspinnlessTwoLead_1a98480e600dc18d0d6dbff427b89fbb40" kind="function"><name>get_chi_Q</name></member>
+  </compound>
+  <compound refid="classtimer" kind="class"><name>timer</name>
+    <member refid="classtimer_1a9f945ba90a526026f7de657a079a0101" kind="variable"><name>fn_name</name></member>
+    <member refid="classtimer_1abd6fcf4d57980c30be1bd8a4f7f4fe3b" kind="variable"><name>start</name></member>
+    <member refid="classtimer_1aa4111813e8b4e42a2a6890615292b547" kind="variable"><name>end</name></member>
+    <member refid="classtimer_1a8921425f039a9756cc6179701b605a84" kind="function"><name>timer</name></member>
+    <member refid="classtimer_1a66fc54d1f33bd9d4bec5f8d563595c2e" kind="function"><name>reset</name></member>
+    <member refid="classtimer_1aee05958ea6b0fbf36ea1fd22747cd546" kind="function"><name>~timer</name></member>
+    <member refid="classtimer_1ad1f316a9b4d69a7fe7c0d29003b888a8" kind="function"><name>getDuration</name></member>
+  </compound>
+  <compound refid="classtwoChannel" kind="class"><name>twoChannel</name>
+    <member refid="classtwoChannel_1a64223f93d3834ae88fe8635a7866095d" kind="variable"><name>f_dag_operator</name></member>
+    <member refid="classtwoChannel_1a946124b3d48076d46fe86a60fdab74b7" kind="variable"><name>eigenvalues_Q</name></member>
+    <member refid="classtwoChannel_1a0acfb2bc4b0f2083a66c5b4961d8c32f" kind="variable"><name>chi_Q</name></member>
+    <member refid="classtwoChannel_1a159d2d164df3c3dbb98f46fe98bd93ed" kind="variable"><name>n_Q</name></member>
+    <member refid="classtwoChannel_1a14cdb05730f2bc7a426bd60f4de5a3db" kind="function"><name>twoChannel</name></member>
+    <member refid="classtwoChannel_1a4fe76227e187337d9d2d621c9b8892a1" kind="function"><name>get_basis</name></member>
+    <member refid="classtwoChannel_1af518fc6a1704d710a65e0c72eeac1ee4" kind="function"><name>get_eigenvaluesQ</name></member>
+    <member refid="classtwoChannel_1a8d11b422b9c9cca649ec1b57606dfc2d" kind="function"><name>get_chi_Q</name></member>
+  </compound>
+  <compound refid="namespaceh5stream" kind="namespace"><name>h5stream</name>
+  </compound>
+  <compound refid="fdmBackwardIteration_8hpp" kind="file"><name>fdmBackwardIteration.hpp</name>
+  </compound>
+  <compound refid="fdmSpectrum_8hpp" kind="file"><name>fdmSpectrum.hpp</name>
+  </compound>
+  <compound refid="fermionBasis_8hpp" kind="file"><name>fermionBasis.hpp</name>
+  </compound>
+  <compound refid="freeModel_8hpp" kind="file"><name>freeModel.hpp</name>
+  </compound>
+  <compound refid="kondoSC_8hpp" kind="file"><name>kondoSC.hpp</name>
+  </compound>
+  <compound refid="kondoTwoImpuritySC_8hpp" kind="file"><name>kondoTwoImpuritySC.hpp</name>
+  </compound>
+  <compound refid="rabiAndersonSC_8hpp" kind="file"><name>rabiAndersonSC.hpp</name>
+  </compound>
+  <compound refid="resonantTwoLead_8hpp" kind="file"><name>resonantTwoLead.hpp</name>
+  </compound>
+  <compound refid="spinhalf_8hpp" kind="file"><name>spinhalf.hpp</name>
+  </compound>
+  <compound refid="spinhalfKondo_8hpp" kind="file"><name>spinhalfKondo.hpp</name>
+  </compound>
+  <compound refid="spinhalfSC_8hpp" kind="file"><name>spinhalfSC.hpp</name>
+  </compound>
+  <compound refid="spinlessTwoLead_8hpp" kind="file"><name>spinlessTwoLead.hpp</name>
+  </compound>
+  <compound refid="spinnless_8hpp" kind="file"><name>spinnless.hpp</name>
+  </compound>
+  <compound refid="twoChannel_8hpp" kind="file"><name>twoChannel.hpp</name>
+  </compound>
+  <compound refid="nrgcore_8hpp" kind="file"><name>nrgcore.hpp</name>
+  </compound>
+  <compound refid="nrgData_8hpp" kind="file"><name>nrgData.hpp</name>
+  </compound>
+  <compound refid="qOperator_8hpp" kind="file"><name>qOperator.hpp</name>
+  </compound>
+  <compound refid="qsymmetry_8hpp" kind="file"><name>qsymmetry.hpp</name>
+  </compound>
+  <compound refid="sysOperator_8hpp" kind="file"><name>sysOperator.hpp</name>
+    <member refid="sysOperator_8hpp_1a83ad7b6117e9ef905244c84064f1f616" kind="function"><name>update_system_operator</name></member>
+  </compound>
+  <compound refid="fdmThermodynamics_8hpp" kind="file"><name>fdmThermodynamics.hpp</name>
+  </compound>
+  <compound refid="configPerser_8hpp" kind="file"><name>configPerser.hpp</name>
+  </compound>
+  <compound refid="functions_8hpp" kind="file"><name>functions.hpp</name>
+    <member refid="functions_8hpp_1a25b9b7a11ac54dada4a6846ad7cd8309" kind="function"><name>sign</name></member>
+    <member refid="functions_8hpp_1a4e7a68798ad527dfe63e74462a51c458" kind="function"><name>minIndex</name></member>
+    <member refid="functions_8hpp_1ae63e1db5d0d40db1a2f3f5128478bf78" kind="function"><name>to_string_with_precision</name></member>
+  </compound>
+  <compound refid="h5stream_8hpp" kind="file"><name>h5stream.hpp</name>
+    <member refid="h5stream_8hpp_1af2d2c818b6da06c6006772503a39346a" kind="function"><name>get_datatype_for_hdf5</name></member>
+    <member refid="h5stream_8hpp_1aaac843f223618e3049ef25518cacbb73" kind="function"><name>get_datatype_for_hdf5&lt; char &gt;</name></member>
+    <member refid="h5stream_8hpp_1afd9c87b073fb0334185119d2c0c9e7b8" kind="function"><name>get_datatype_for_hdf5&lt; unsigned char &gt;</name></member>
+    <member refid="h5stream_8hpp_1a3712347525054057fd78d06fbfe1bb67" kind="function"><name>get_datatype_for_hdf5&lt; short &gt;</name></member>
+    <member refid="h5stream_8hpp_1a8b723da298b357456ecb2b4ffe4d7c77" kind="function"><name>get_datatype_for_hdf5&lt; unsigned short &gt;</name></member>
+    <member refid="h5stream_8hpp_1aebdc589eff918d5fa4d6ce03b9533b33" kind="function"><name>get_datatype_for_hdf5&lt; int &gt;</name></member>
+    <member refid="h5stream_8hpp_1a3695b12ed83830edf7ba768bf5f283ce" kind="function"><name>get_datatype_for_hdf5&lt; unsigned int &gt;</name></member>
+    <member refid="h5stream_8hpp_1a29bd0af1a7e21aeebbeb71caa159e79f" kind="function"><name>get_datatype_for_hdf5&lt; long &gt;</name></member>
+    <member refid="h5stream_8hpp_1a38e42b380517189a4e16ecb604b6f2f0" kind="function"><name>get_datatype_for_hdf5&lt; unsigned long &gt;</name></member>
+    <member refid="h5stream_8hpp_1a53c3752b26048e543311b61ac3b508bb" kind="function"><name>get_datatype_for_hdf5&lt; long long &gt;</name></member>
+    <member refid="h5stream_8hpp_1a6a42821eb5340682d89d481f9cce82ed" kind="function"><name>get_datatype_for_hdf5&lt; unsigned long long &gt;</name></member>
+    <member refid="h5stream_8hpp_1ac2838ff7adfe71661d9addcfef2aafeb" kind="function"><name>get_datatype_for_hdf5&lt; float &gt;</name></member>
+    <member refid="h5stream_8hpp_1af558ccc3d2a08fc323fa2ff1f4cee0cd" kind="function"><name>get_datatype_for_hdf5&lt; double &gt;</name></member>
+    <member refid="h5stream_8hpp_1a5275f18363fab8f556b49d24b5b46003" kind="function"><name>get_datatype_for_hdf5&lt; long double &gt;</name></member>
+  </compound>
+  <compound refid="qmatrix_8hpp" kind="file"><name>qmatrix.hpp</name>
+    <member refid="qmatrix_8hpp_1a1fa119034fee07a6d5449926cbb7915a" kind="define"><name>MKL_Complex16</name></member>
+    <member refid="qmatrix_8hpp_1abd6904db17a5d69254767d08ac38017f" kind="typedef"><name>cm_vec</name></member>
+    <member refid="qmatrix_8hpp_1ab2dbfe7993a57547e652df1c7a16070a" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="qmatrix_8hpp_1ae7b897264f4dc6ce2542cebd43a1ca01" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="qmatrix_8hpp_1a4ac29b348b55ab476db12e107646e8af" kind="function"><name>LOGGER</name></member>
+  </compound>
+  <compound refid="sparseSolver_8hpp" kind="file"><name>sparseSolver.hpp</name>
+    <member refid="sparseSolver_8hpp_1a5bd13fea2d52009d82048504cb75e7c1" kind="define"><name>EIGEN_USE_MKL_ALL</name></member>
+  </compound>
+  <compound refid="timer_8hpp" kind="file"><name>timer.hpp</name>
+  </compound>
+  <compound refid="dir_6cbb7b4d154bb78533df1ba43b0ba62d" kind="dir"><name>nrgcore/include/dynamics</name>
+  </compound>
+  <compound refid="dir_0ee6419de5c4643ef5487d81d4b1ef68" kind="dir"><name>nrgcore/include</name>
+  </compound>
+  <compound refid="dir_713eb076638974f103adf3beacde2186" kind="dir"><name>nrgcore/include/models</name>
+  </compound>
+  <compound refid="dir_d4b033c2a2f131b6a350ce4edf7f7310" kind="dir"><name>nrgcore/include/nrgcore</name>
+  </compound>
+  <compound refid="dir_d111b1dd30680ea57bb87aa325f6640b" kind="dir"><name>nrgcore</name>
+  </compound>
+  <compound refid="dir_c750ff455fde1949068a5fdbd3e1e609" kind="dir"><name>nrgcore/include/static</name>
+  </compound>
+  <compound refid="dir_509370c109708ebfcedd2ae031b23b70" kind="dir"><name>nrgcore/include/utils</name>
+  </compound>
+</doxygenindex>

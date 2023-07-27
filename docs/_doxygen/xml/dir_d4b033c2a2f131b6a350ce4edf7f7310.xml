@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_d4b033c2a2f131b6a350ce4edf7f7310" kind="dir">
+    <compoundname>nrgcore/include/nrgcore</compoundname>
+    <innerfile refid="nrgcore_8hpp">nrgcore.hpp</innerfile>
+    <innerfile refid="nrgData_8hpp">nrgData.hpp</innerfile>
+    <innerfile refid="qOperator_8hpp">qOperator.hpp</innerfile>
+    <innerfile refid="qsymmetry_8hpp">qsymmetry.hpp</innerfile>
+    <innerfile refid="sysOperator_8hpp">sysOperator.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/nrgcore/"/>
+  </compounddef>
+</doxygen>

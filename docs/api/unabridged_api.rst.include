@@ -1,0 +1,288 @@
+
+Full API
+--------
+
+Namespaces
+**********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   namespace_h5stream.rst
+
+Classes and Structs
+*******************
+
+
+.. toctree::
+   :maxdepth: 5
+
+   structh5stream_1_1h5str1.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classconfigPerser.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classexactSolver.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classfdmBackwardIteration.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classfdmSpectrum.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classfdmThermodynamics.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classfermionBasis.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classfreeModel.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classh5stream_1_1dspace.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classh5stream_1_1gspace.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classh5stream_1_1h5stream.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classkondoSC.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classkondoTwoImpuritySC.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classnrgcore.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classNrgData.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classqmatrix.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classqOperator.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classqsymmetry.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classrabiAndersonSC.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classresonantTwoLead.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classsparseEigen.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classspinhalf.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classspinhalfKondo.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classspinhalfSC.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classspinless.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classspinnlessTwoLead.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classtimer.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classtwoChannel.rst
+
+Functions
+*********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1af2d2c818b6da06c6006772503a39346a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1aaac843f223618e3049ef25518cacbb73.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1af558ccc3d2a08fc323fa2ff1f4cee0cd.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1ac2838ff7adfe71661d9addcfef2aafeb.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1aebdc589eff918d5fa4d6ce03b9533b33.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1a29bd0af1a7e21aeebbeb71caa159e79f.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1a5275f18363fab8f556b49d24b5b46003.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1a53c3752b26048e543311b61ac3b508bb.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1a3712347525054057fd78d06fbfe1bb67.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1afd9c87b073fb0334185119d2c0c9e7b8.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1a3695b12ed83830edf7ba768bf5f283ce.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1a38e42b380517189a4e16ecb604b6f2f0.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1a6a42821eb5340682d89d481f9cce82ed.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_h5stream_8hpp_1a8b723da298b357456ecb2b4ffe4d7c77.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_qmatrix_8hpp_1a4ac29b348b55ab476db12e107646e8af.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   functions_8hpp_1a4e7a68798ad527dfe63e74462a51c458.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_qmatrix_8hpp_1ab2dbfe7993a57547e652df1c7a16070a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_qmatrix_8hpp_1ae7b897264f4dc6ce2542cebd43a1ca01.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   functions_8hpp_1a25b9b7a11ac54dada4a6846ad7cd8309.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   functions_8hpp_1ae63e1db5d0d40db1a2f3f5128478bf78.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_sysOperator_8hpp_1a83ad7b6117e9ef905244c84064f1f616.rst
+
+Defines
+*******
+
+
+.. toctree::
+   :maxdepth: 5
+
+   define_sparseSolver_8hpp_1a5bd13fea2d52009d82048504cb75e7c1.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   define_qmatrix_8hpp_1a1fa119034fee07a6d5449926cbb7915a.rst
+
+Typedefs
+********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   typedef_qmatrix_8hpp_1abd6904db17a5d69254767d08ac38017f.rst

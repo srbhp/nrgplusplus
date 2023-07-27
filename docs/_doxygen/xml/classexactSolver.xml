@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classexactSolver" kind="class" language="C++" prot="public">
+    <compoundname>exactSolver</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classexactSolver_1af78dd987db48771213ca9b9b23a73ba9" prot="private" static="no" mutable="no">
+        <type><ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt; double &gt;</type>
+        <definition>qmatrix&lt;double&gt; exactSolver::qmat</definition>
+        <argsstring></argsstring>
+        <name>qmat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="15" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classexactSolver_1aac21be922efd8c7296d0bf86c66ab7a8" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t exactSolver::column</definition>
+        <argsstring></argsstring>
+        <name>column</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="16" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classexactSolver_1acb8f052994ebf8ae5e2059d351bf329a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>exactSolver::exactSolver</definition>
+        <argsstring>(size_t n=0)</argsstring>
+        <name>exactSolver</name>
+        <param>
+          <type>size_t</type>
+          <declname>n</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="19" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classexactSolver_1a46f1feca718349d89fead54c82db19d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void exactSolver::set</definition>
+        <argsstring>(size_t i, size_t j, double val)</argsstring>
+        <name>set</name>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="20" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classexactSolver_1ab9b33eb0d230355ada4a2ce810d25b02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; exactSolver::solve</definition>
+        <argsstring>()</argsstring>
+        <name>solve</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="23" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="23" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classexactSolver_1a3dac2d1aa296fc28585737fdf5972f30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto exactSolver::vectorDot</definition>
+        <argsstring>(std::vector&lt; double &gt; &amp;a)</argsstring>
+        <name>vectorDot</name>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/sparseSolver.hpp" line="50" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="50" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/utils/sparseSolver.hpp" line="14" column="1" bodyfile="nrgcore/include/utils/sparseSolver.hpp" bodystart="14" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classexactSolver_1aac21be922efd8c7296d0bf86c66ab7a8" prot="private" virt="non-virtual"><scope>exactSolver</scope><name>column</name></member>
+      <member refid="classexactSolver_1acb8f052994ebf8ae5e2059d351bf329a" prot="public" virt="non-virtual"><scope>exactSolver</scope><name>exactSolver</name></member>
+      <member refid="classexactSolver_1af78dd987db48771213ca9b9b23a73ba9" prot="private" virt="non-virtual"><scope>exactSolver</scope><name>qmat</name></member>
+      <member refid="classexactSolver_1a46f1feca718349d89fead54c82db19d7" prot="public" virt="non-virtual"><scope>exactSolver</scope><name>set</name></member>
+      <member refid="classexactSolver_1ab9b33eb0d230355ada4a2ce810d25b02" prot="public" virt="non-virtual"><scope>exactSolver</scope><name>solve</name></member>
+      <member refid="classexactSolver_1a3dac2d1aa296fc28585737fdf5972f30" prot="public" virt="non-virtual"><scope>exactSolver</scope><name>vectorDot</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

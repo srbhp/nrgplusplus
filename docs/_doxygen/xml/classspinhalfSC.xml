@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classspinhalfSC" kind="class" language="C++" prot="public">
+    <compoundname>spinhalfSC</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspinhalfSC_1a1a8527de97ecf1a06fa158e4f0079a95" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqmatrix" kindref="compound">qmatrix</ref>&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;qmatrix&lt;double&gt; &gt; spinhalfSC::f_dag_raw</definition>
+        <argsstring></argsstring>
+        <name>f_dag_raw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This class is for a single orbital with spin up and down f operator. SIAM can made entirely from this class. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="22" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalfSC_1a67ccb45247d42f9caf2e2801f5fe0e3b" prot="private" static="no" mutable="no">
+        <type><ref refid="classfermionBasis" kindref="compound">fermionBasis</ref></type>
+        <definition>fermionBasis spinhalfSC::localSCbabsis</definition>
+        <argsstring></argsstring>
+        <name>localSCbabsis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="23" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classspinhalfSC_1afa043ef92eb6044fc26fac7296b3ceff" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classqOperator" kindref="compound">qOperator</ref> &gt;</type>
+        <definition>std::vector&lt;qOperator&gt; spinhalfSC::f_dag_operator</definition>
+        <argsstring></argsstring>
+        <name>f_dag_operator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="151" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalfSC_1abae07596244644835a6b126c38b8ab8d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; spinhalfSC::eigenvalues_Q</definition>
+        <argsstring></argsstring>
+        <name>eigenvalues_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="152" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalfSC_1a94408a303ff0884e4accf3430675ea73" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; spinhalfSC::chi_Q</definition>
+        <argsstring></argsstring>
+        <name>chi_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="153" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspinhalfSC_1aa427204ceb0fb8a87246c03a34f7ea6a" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; spinhalfSC::n_Q</definition>
+        <argsstring></argsstring>
+        <name>n_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="154" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspinhalfSC_1ae3fb5fee441eccdc2aafd318691a236b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>spinhalfSC::spinhalfSC</definition>
+        <argsstring>(double teps, double tUint, double tmag)</argsstring>
+        <name>spinhalfSC</name>
+        <param>
+          <type>double</type>
+          <declname>teps</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tUint</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tmag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="26" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="26" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinhalfSC_1a441845c4cd02ee6532b04ee93233beef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void spinhalfSC::addSCDelta</definition>
+        <argsstring>(double delta)</argsstring>
+        <name>addSCDelta</name>
+        <param>
+          <type>double</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="90" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="90" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinhalfSC_1a8ba2bf58ecbc22dea84238f6c0778cd8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; spinhalfSC::get_basis</definition>
+        <argsstring>() const</argsstring>
+        <name>get_basis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>returns the basis vector</para>        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="125" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="125" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinhalfSC_1a1f66235cf5e457fa3005460643777252" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; spinhalfSC::get_eigenvaluesQ</definition>
+        <argsstring>() const</argsstring>
+        <name>get_eigenvaluesQ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>returns eigenvalues_Q</para>        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="131" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="131" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinhalfSC_1addefee48db5057566fd8d8f9b6352772" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; spinhalfSC::get_chi_Q</definition>
+        <argsstring>() const</argsstring>
+        <name>get_chi_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This functions returns <computeroutput>vector&lt;vector&gt;</computeroutput> of <formula id="0">$ \chi_Q = e^{n_Q} $</formula></para>        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="138" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="138" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classspinhalfSC_1a2110563b77e8c8ba5f4a429c650a1103" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void spinhalfSC::set_chi_Q</definition>
+        <argsstring>()</argsstring>
+        <name>set_chi_Q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/models/spinhalfSC.hpp" line="149" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/models/spinhalfSC.hpp" line="16" column="1" bodyfile="nrgcore/include/models/spinhalfSC.hpp" bodystart="16" bodyend="155"/>
+    <listofallmembers>
+      <member refid="classspinhalfSC_1a441845c4cd02ee6532b04ee93233beef" prot="public" virt="non-virtual"><scope>spinhalfSC</scope><name>addSCDelta</name></member>
+      <member refid="classspinhalfSC_1a94408a303ff0884e4accf3430675ea73" prot="public" virt="non-virtual"><scope>spinhalfSC</scope><name>chi_Q</name></member>
+      <member refid="classspinhalfSC_1abae07596244644835a6b126c38b8ab8d" prot="public" virt="non-virtual"><scope>spinhalfSC</scope><name>eigenvalues_Q</name></member>
+      <member refid="classspinhalfSC_1afa043ef92eb6044fc26fac7296b3ceff" prot="public" virt="non-virtual"><scope>spinhalfSC</scope><name>f_dag_operator</name></member>
+      <member refid="classspinhalfSC_1a1a8527de97ecf1a06fa158e4f0079a95" prot="private" virt="non-virtual"><scope>spinhalfSC</scope><name>f_dag_raw</name></member>
+      <member refid="classspinhalfSC_1a8ba2bf58ecbc22dea84238f6c0778cd8" prot="public" virt="non-virtual"><scope>spinhalfSC</scope><name>get_basis</name></member>
+      <member refid="classspinhalfSC_1addefee48db5057566fd8d8f9b6352772" prot="public" virt="non-virtual"><scope>spinhalfSC</scope><name>get_chi_Q</name></member>
+      <member refid="classspinhalfSC_1a1f66235cf5e457fa3005460643777252" prot="public" virt="non-virtual"><scope>spinhalfSC</scope><name>get_eigenvaluesQ</name></member>
+      <member refid="classspinhalfSC_1a67ccb45247d42f9caf2e2801f5fe0e3b" prot="private" virt="non-virtual"><scope>spinhalfSC</scope><name>localSCbabsis</name></member>
+      <member refid="classspinhalfSC_1aa427204ceb0fb8a87246c03a34f7ea6a" prot="public" virt="non-virtual"><scope>spinhalfSC</scope><name>n_Q</name></member>
+      <member refid="classspinhalfSC_1a2110563b77e8c8ba5f4a429c650a1103" prot="public" virt="non-virtual"><scope>spinhalfSC</scope><name>set_chi_Q</name></member>
+      <member refid="classspinhalfSC_1ae3fb5fee441eccdc2aafd318691a236b" prot="public" virt="non-virtual"><scope>spinhalfSC</scope><name>spinhalfSC</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structh5stream_1_1h5str1" kind="struct" language="C++" prot="public">
+    <compoundname>h5stream::h5str1</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>T</declname>
+        <defname>T</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structh5stream_1_1h5str1_1a9f38b86b06bd242011e583cc78760888" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string h5stream::h5str1&lt; T &gt;::keyName</definition>
+        <argsstring></argsstring>
+        <name>keyName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="68" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structh5stream_1_1h5str1_1a619a11ec3b372a4ca10bc5dc5b97d9a7" prot="public" static="no" mutable="no">
+        <type>T *</type>
+        <definition>T* h5stream::h5str1&lt; T &gt;::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="69" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structh5stream_1_1h5str1_1afe5e4d2840e12bba757540bef70c9a96" prot="public" static="no" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned h5stream::h5str1&lt; T &gt;::dataSize</definition>
+        <argsstring></argsstring>
+        <name>dataSize</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="nrgcore/include/utils/h5stream.hpp" line="70" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="nrgcore/include/utils/h5stream.hpp" line="67" column="1" bodyfile="nrgcore/include/utils/h5stream.hpp" bodystart="67" bodyend="71"/>
+    <listofallmembers>
+      <member refid="structh5stream_1_1h5str1_1a619a11ec3b372a4ca10bc5dc5b97d9a7" prot="public" virt="non-virtual"><scope>h5stream::h5str1</scope><name>data</name></member>
+      <member refid="structh5stream_1_1h5str1_1afe5e4d2840e12bba757540bef70c9a96" prot="public" virt="non-virtual"><scope>h5stream::h5str1</scope><name>dataSize</name></member>
+      <member refid="structh5stream_1_1h5str1_1a9f38b86b06bd242011e583cc78760888" prot="public" virt="non-virtual"><scope>h5stream::h5str1</scope><name>keyName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
