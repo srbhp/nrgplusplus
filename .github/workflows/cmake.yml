@@ -30,7 +30,7 @@ jobs:
         && echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/oneAPI.list
         && sudo apt update
         && sudo apt install intel-oneapi-mkl intel-oneapi-compiler-dpcpp-cpp --yes
-        && source  /opt/intel/oneapi/setvars.sh intel64 
+        && source  /opt/intel/oneapi/setvars.sh 
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
