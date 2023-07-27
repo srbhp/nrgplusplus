@@ -1,6 +1,6 @@
 project = "nrgplusplus"
 copyright = "2017-2022, Saurabh Pradhan"
-author = "Stephen McDowell"
+author = "Saurabh Pradhan"
 
 
 # -- General configuration ---------------------------------------------------
@@ -17,7 +17,7 @@ extensions = [
 ]
 
 # Setup the breathe extension
-breathe_projects = {"nrgplusplus": "./_doxygen/xml"}
+breathe_projects = {"nrgplusplus": "../build/_doxygen/xml"}
 breathe_default_project = "nrgplusplus"
 
 # Setup the exhale extension
