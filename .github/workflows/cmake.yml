@@ -39,7 +39,7 @@ jobs:
       run: 
         git fetch 
         && git checkout gh-pages
-        && git rebase master   
+        && git rebase master  --strategy=theirs  
         && cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DCMAKE_CXX_FLAGS=" -D_GLIBCXX_USE_TBB_PAR_BACKEND=0 -std=c++20 -qopenmp  -qmkl -fp-model precise " -DCMAKE_CXX_COMPILER=/opt/intel/oneapi/compiler/latest/linux/bin/icpx  .
 
     - name: Setup git
@@ -54,4 +54,4 @@ jobs:
         && cp -rf ${{github.workspace}}/build/docs/* ${{github.workspace}}/
         && git add --all .
         && git commit -m "update the webpages"
-        && git push origin gh-pages
+        && git push origin gh-pages --force 
