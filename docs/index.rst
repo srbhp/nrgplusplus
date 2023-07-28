@@ -38,6 +38,7 @@ Docs
   :maxdepth: 2
   :caption: Contents:
 
+  api/library_root
   build
   docnrgcore
   docspinhalf
