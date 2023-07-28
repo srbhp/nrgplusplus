@@ -2,7 +2,7 @@
 
 
 ##  Documentation
-![srbhp.github.io/nrgplusplus](https://srbhp.github.io/nrgplusplus/)
+https://srbhp.github.io/nrgplusplus/
 
 
 
