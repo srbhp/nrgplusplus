@@ -17,7 +17,7 @@ https://srbhp.github.io/nrgplusplus/
 ## RG flow
  
  Energy flow Renormalization group: This figure should be compared with Fig.4 of the RMP paper.
-![alt text](src/c++/rgflow/out.png)
+![alt text](docs/image/rgflow.png)
 
 ### How to build a Model
 
