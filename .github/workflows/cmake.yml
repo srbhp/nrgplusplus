@@ -38,6 +38,8 @@ jobs:
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       run: 
         git fetch 
+        && git checkout gh-pages
+        && git rebase master   
         && cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DCMAKE_CXX_FLAGS=" -D_GLIBCXX_USE_TBB_PAR_BACKEND=0 -std=c++20 -qopenmp  -qmkl -fp-model precise " -DCMAKE_CXX_COMPILER=/opt/intel/oneapi/compiler/latest/linux/bin/icpx  .
 
     - name: Setup git
@@ -46,7 +48,7 @@ jobs:
     - name: Build
       # build 
       run: 
-        git checkout gh-pages
+        touch .nojekyll
         && cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         && touch ${{github.workspace}}/.nojekyll
         && cp -rf ${{github.workspace}}/build/docs/* ${{github.workspace}}/
