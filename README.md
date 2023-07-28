@@ -11,8 +11,8 @@ https://srbhp.github.io/nrgplusplus/
 
 - `intel-mkl` : Lapack  
 - `hdf5` : We use hdf5 file for the I/O
-- to genarate documentation we these packages 
-    - `sphinx-rtd-theme, breathe,sphinx-sitemap,sphinx,exhale,alabaster `
+- to genarate documentation we need these packages 
+    - `sphinx-rtd-theme, breathe, sphinx-sitemap, sphinx, exhale, alabaster `
  
 ## RG flow
  
