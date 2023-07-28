@@ -25,7 +25,7 @@ exhale_args = {
     # These arguments are required
     "containmentFolder": "./api",
     "rootFileName": "library_root.rst",
-    "doxygenStripFromPath": "..",
+    "doxygenStripFromPath": "../nrgcore/include",
     # Heavily encouraged optional argument (see docs)
     "rootFileTitle": "Library API",
     # Suggested optional arguments
@@ -34,7 +34,7 @@ exhale_args = {
     # "treeViewIsBootstrap": True,
     "exhaleExecutesDoxygen": True,
     "exhaleDoxygenStdin": "INPUT = ../nrgcore/include",
-    "pageLevelConfigMeta": ":github_url: https://github.com/srbhp/nrgplusplus"
+    "pageLevelConfigMeta": ":github_url: https://github.com/srbhp/nrgplusplus",
 }
 
 # Tell sphinx what the primary language being documented is.
@@ -42,3 +42,31 @@ primary_domain = "cpp"
 
 # Tell sphinx what the pygments highlight language should be.
 highlight_language = "cpp"
+
+# The short X.Y version.
+# import exhale
+# NOTE: this is the companion site for Exhale, which is why I'm setting the
+#       version to be the same.  For your own projects, you would NOT do this!
+version = "0.0.1"  # exhale.__version__
+# The full version, including alpha/beta/rc tags.
+release = "rc"  # exhale.__version__
+
+# -- Options for HTML output -------------------------------------------------
+
+# [[[ begin theme marker ]]]
+# The name of the Pygments (syntax highlighting) style to use.
+# `sphinx` works very well with the RTD theme, but you can always change it
+pygments_style = "sphinx"
+
+# The theme to use for HTML and HTML Help pages.  See the documentation for
+# a list of builtin themes.
+#
+html_theme = "sphinx_rtd_theme"
+
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+html_static_path = ["_static"]
+# [[[ end theme marker ]]]
+
+rst_epilog = ".. |theme| replace:: ``{0}``".format(html_theme)
