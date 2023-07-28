@@ -44,10 +44,11 @@ jobs:
       # Build your program with the given configuration
       uses: fregante/setup-git-user@v2 # set git 
       # build 
-      run: git checkout gh-pages
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-      run: touch ${{github.workspace}}/.nojekyll
-      run: cp -rf ${{github.workspace}}/build/docs/* ${{github.workspace}}/
-      run: git add --all .
-      run: git commit -m "update the webpages"
-      run: git push origin gh-pages
+      run: 
+        git checkout gh-pages
+        && cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+        && touch ${{github.workspace}}/.nojekyll
+        && cp -rf ${{github.workspace}}/build/docs/* ${{github.workspace}}/
+        && git add --all .
+        && git commit -m "update the webpages"
+        && git push origin gh-pages
