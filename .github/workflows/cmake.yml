@@ -42,11 +42,14 @@ jobs:
 
     - name: Build
       # Build your program with the given configuration
-      run: 
-          cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}   
-          && git checkout gh-pages
-          && touch ${{github.workspace}}/.nojekyll
-          && cp -rf ${{github.workspace}}/build/docs/* ${{github.workspace}}/
-          && git add --all .
-          && git commit -m "update the webpages"
-          && git push origin gh-pages
+      steps:
+      - uses: actions/checkout@v3
+      - uses: fregante/setup-git-user@v2 # set git 
+      # build 
+      - run: git checkout gh-pages
+      - run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      - run: touch ${{github.workspace}}/.nojekyll
+      - run: cp -rf ${{github.workspace}}/build/docs/* ${{github.workspace}}/
+      - run: git add --all .
+      - run: git commit -m "update the webpages"
+      - run: git push origin gh-pages
