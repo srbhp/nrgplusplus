@@ -10,25 +10,27 @@
 #include <optional>
 #include <string>
 #include <vector>
+/**
+ * @class spinhalf
+ * @brief Model  for a single orbital with spin up and down
+ * f operator. SIAM can made entirely from this class.
+ *
+ *
+ * Each Model class should have ` f_dag_operator`, `eigenvalues_Q`, `chi_Q`,
+ * `n_Q`.
+ */
 class spinhalf {
   std::vector<qmatrix<>> f_dag_raw;
   double                 Uint;
   double                 epsilon_d;
   double                 magnetic_field;
-  /** This class is for a single orbital with spin up and
-   * down f operator. SIAM can made entirely from this
-   * class.
-   *
-   *
-   */
+
 public:
   // number of f operators
   /**
-   * @brief Model  for a single orbital with spin up and down
-   * f operator. SIAM can made entirely from this class.
+   * @brief
    *
-   *
-   * @param teps : \epsilon_d of SIAM
+   * @param teps : \f$\epsilon_d \f$ is onsite energy of the SIAM
    * @param tUint `U` Columb interaction of SIAM
    * @param tmag : Magnetic field of SIAM
    */
@@ -71,7 +73,7 @@ public:
     eigenvalues_Q.clear();
     eigenvalues_Q.resize(n_Q.size(), {});
     for (size_t i = 0; i < n_Q.size(); i++) {
-      eigenvalues_Q[i] = (h_blocked.get(i, i)).value()->diag();
+      eigenvalues_Q[i] = (h_blocked.get(i, i)).value()->diag(); // NOLINT
     }
     // TODO(sp): rotate the f operator
     // End of the constructor
@@ -82,14 +84,28 @@ public:
     return eigenvalues_Q;
   }
   [[nodiscard]] std::vector<double> get_chi_Q() const { return chi_Q; }
-  // protected:
-  // parameters
-  // functions
-  //
-  std::vector<qOperator>           f_dag_operator;
+  /**
+   * @brief \f$ f^\dagger\f$ operator
+   */
+  std::vector<qOperator> f_dag_operator;
+  /**
+   * @brief Eigenvalues of the Hamiltonian
+   */
   std::vector<std::vector<double>> eigenvalues_Q;
-  std::vector<double>              chi_Q;
-  std::vector<std::vector<int>>    n_Q;
-  std::vector<qOperator>           doubleOccupancy;
+  /**
+   * @brief Fermion sign of the each basis states. \f$ (-1)^ {n_{particle}}\f$
+   */
+  std::vector<double> chi_Q;
+  /**
+   * @brief Quantum numbers of the basis states.
+   */
+  std::vector<std::vector<int>> n_Q;
+  std::vector<qOperator>        doubleOccupancy;
+  /**
+   * @brief Double Occupancy of the site as operator. Not needed for the SIAM
+   * model build. Usefull for the static or dynamic calculation.
+   *
+   * @return
+   */
   [[nodiscard]] auto getDoubleOcc() const { return doubleOccupancy; }
 };

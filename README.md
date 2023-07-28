@@ -1,19 +1,18 @@
 ## ⚠ This is a work in progress repository
 
 
-## NRGCore srbhp.github.io/nrgplusplus/
-This is the main repository of the NRG library. 
+##  Documentation
+![srbhp.github.io/nrgplusplus](https://srbhp.github.io/nrgplusplus/)
 
-Use this repository as a `git submodule` to build an NRG model.
 
 
  
 ## Dependence 
-It uses LAPACKE (http://www.netlib.org/lapack/lapacke.html) for
- 
- matrix operations such as diagonalization, and multiplication.  It also uses OpenMP
- for parallel computing.  
- 
+
+- `intel-mkl` : Lapack  
+- `hdf5` : We use hdf5 file for the I/O
+- to genarate documentation we these packages 
+    - `sphinx-rtd-theme, breathe,sphinx-sitemap,sphinx,exhale,alabaster `
  
 ## RG flow
  
@@ -23,7 +22,8 @@ It uses LAPACKE (http://www.netlib.org/lapack/lapacke.html) for
 ### How to build a Model
 
 The `examples` directory contains examples of different Models. 
-1. Copy a folder from `examples` to start working on a specific model.
-1.  Edit `CMakeLists.txt` to add the model folder.
-1. `build` the project by invoking `make`.
+
+- Copy a folder from `examples` to start working on a specific model.
+- Edit `CMakeLists.txt` to add the model folder.
+- `build` the project by invoking `make`.
 

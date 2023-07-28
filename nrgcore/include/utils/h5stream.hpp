@@ -17,8 +17,8 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-//#include <vector>
-// Maps C++ type to HDF5 type
+// #include <vector>
+//  Maps C++ type to HDF5 type
 template <typename T> inline const H5::PredType &get_datatype_for_hdf5();
 // Reference:
 // https://www.hdfgroup.org/HDF5/doc/cpplus_RM/class_h5_1_1_pred_type.html
@@ -72,10 +72,23 @@ template <typename T> struct h5str1 {
 } // namespace h5stream
 //
 namespace h5stream {
+/**
+ * @class dspace
+ * @brief This class is responsible to read and write of the metadata/atrributes
+ * fo a dataset.
+ *
+ */
 class dspace {
 public:
   H5::DataSet dataset;
   explicit dspace(const H5::DataSet &datasetx) : dataset(datasetx){};
+  /**
+   * @brief Write Metadata
+   *
+   * @tparam T
+   * @param data
+   * @param dataname
+   */
   template <typename T>
   void write_atr(const T data, const H5std_string &dataname) {
     auto          type           = get_datatype_for_hdf5<T>();
@@ -84,6 +97,13 @@ public:
         dataset.createAttribute(dataname, type, attr_dataspace);
     attribute.write(type, &data);
   }
+  /**
+   * @brief Read Metadata
+   *
+   * @tparam T
+   * @param data
+   * @param dataname
+   */
   template <typename T> void read_atr(T &data, const H5std_string &dataname) {
     // auto type = get_datatype_for_hdf5<T>();
     H5::Attribute attribute = dataset.openAttribute(dataname);
@@ -93,10 +113,22 @@ public:
   //----------------------
 };
 // ---- -----------------------------------
+/**
+ * @class gspace: Read and write metadata to  a `H5::Group` object.
+ * @brief
+ *
+ */
 class gspace { // for group
 public:
   H5::Group dataset;
   explicit gspace(const H5::Group &datasetx) : dataset(datasetx){};
+  /**
+   * @brief Write Metadata
+   *
+   * @tparam T
+   * @param data
+   * @param dataname
+   */
   template <typename T>
   void write_atr(const T data, const H5std_string &dataname) {
     auto          type           = get_datatype_for_hdf5<T>();
@@ -105,6 +137,13 @@ public:
         dataset.createAttribute(dataname, type, attr_dataspace);
     attribute.write(type, &data);
   }
+  /**
+   * @brief Read Metadata
+   *
+   * @tparam T
+   * @param data
+   * @param dataname
+   */
   template <typename T> void read_atr(T &data, const H5std_string &dataname) {
     // auto type = get_datatype_for_hdf5<T>();
     H5::Attribute attribute = dataset.openAttribute(dataname);
@@ -118,6 +157,11 @@ public:
 // namespace h5stream
 //----------------------------------------------------------
 namespace h5stream {
+/**
+ * @class h5stream
+ * @brief
+ *
+ */
 class h5stream {
   bool debug = false;
 
@@ -130,6 +174,16 @@ public:
                     const std::string &rw = std::string("tr")) {
     setFileName(fileName, rw);
   }
+  /**
+   * @brief create and set the file name
+   *
+   * @param fileName
+   * @param rw : Possible values are
+   * "r": read only,
+   * "rw": Read-write access.
+   * "x"
+   * "tr": delete the file and create a emty file.: default
+   */
   void setFileName(const H5std_string &fileName, // NOLINT
                    const std::string  &rw = std::string("tr")) {
     hdf5FileName = fileName;
@@ -159,11 +213,24 @@ public:
       write<T, vec>(data[i], datasetName + std::to_string(i));
     }
   }
+  /**
+   * @brief
+   *
+   * @param data
+   * @param datasetName
+   */
   template <typename T = double, template <typename...> class vec = std::vector>
   void write(const vec<T> &data, const H5std_string &datasetName) {
     write<T>(datasetName, data.data(), data.size());
   }
   // Write raw pointer
+  /**
+   * @brief
+   *
+   * @param datasetName
+   * @param data
+   * @param data_size
+   */
   template <typename T = double>
   void write(const H5std_string &datasetName, const T *data,
              unsigned data_size) {
@@ -186,6 +253,12 @@ public:
     }
   }
   // Read file
+  /**
+   * @brief
+   *
+   * @param data
+   * @param datasetName
+   */
   template <typename T = double, template <typename...> class vec = std::vector>
   void read(vec<T> &data, const H5std_string &datasetName) {
     try {
@@ -208,6 +281,12 @@ public:
   }
   // Higher order vector  or matrix type
   // User has to give the correct size of the std::vector
+  /**
+   * @brief Read the data
+   *
+   * @param data
+   * @param datasetName
+   */
   template <typename T = double, template <typename...> class vec>
   void read(std::vector<vec<T>> &data, const H5std_string &datasetName) {
     data.clear();
@@ -233,27 +312,67 @@ public:
       throw std::runtime_error(err_string);
     }
   }
-  void                 close() { hdf5File.close(); }
+  /**
+   * @brief close the file
+   */
+  void close() { hdf5File.close(); }
+  /**
+   * @brief Return the filesize in MB.
+   *
+   * @return
+   */
   [[nodiscard]] double fileSize() const {
     return static_cast<double>(hdf5File.getFileSize()) / (1024 * 1024.);
   }
+  /**
+   * @brief
+   *
+   * @param dataset_name
+   * @return
+   */
   dspace getDataspace(const H5std_string &dataset_name) {
     return dspace(hdf5File.openDataSet(dataset_name));
   }
+  /**
+   * @brief
+   *
+   * @param dataset_name
+   * @return
+   */
   gspace getGroup(const H5std_string &dataset_name) {
     return gspace(hdf5File.openGroup(dataset_name));
   }
+  /**
+   * @brief Create a group name
+   *
+   * @param group_name
+   * @return
+   */
   auto createGroup(const H5std_string &group_name) {
     return gspace(hdf5File.createGroup(group_name));
   }
   //*************************************************
   // write metadata at the root label
+  /**
+   * @brief Write Metadata
+   *
+   * @tparam T `datatype`
+   * @param data
+   * @param label
+   */
   template <typename T>
   void writeMetadata(const T &data, const H5std_string &label) {
     //
     auto ds = getDataspace("");
     ds.write_atr(data, label);
   }
+  /**
+   * @brief
+   *
+   * @tparam T
+   * @param data
+   * @param label
+   */
   template <typename T> void readMetadata(T &data, const H5std_string &label) {
     //
     auto ds = getDataspace("");

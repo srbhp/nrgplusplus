@@ -38,10 +38,26 @@ public:
     setup(t_nrgObject);
     this->clearKeptIndex();
   }
+  /**
+   * @brief Explicitly set the `nrgobject`
+   *
+   * @param t_nrgObject
+   */
   void setup(nrgcore_type *t_nrgObject) {
     lastiteration = true;
     nrgObject     = t_nrgObject;
   }
+  /**
+   * @brief
+   * These function calls the following functions :
+   *   - 1. setCurrentIndex : set the indices  for the kept and Discarded states
+   *   - 2. setRhoZero : Creates the density matrix of the current Wilson Chain.
+   *   - 3. setReduceDensityMatrix: Reduce the density matrix after summing over
+   * the Enviorentment degree.
+   *
+   * @param energyScale: Energy scale of the currect NRG iteration. \f$
+   * \Lambda^{-(N-1)/2} \f$
+   */
   void calcSpectrum(double energyScale) {
     // Clear the operator
     setCurrentIndex();

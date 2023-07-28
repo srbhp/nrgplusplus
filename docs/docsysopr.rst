@@ -1,8 +1,5 @@
 Update Impurity and/or bath operators
 ================
 
-.. doxygenclass:: sysOperator
-   :members:
-
-
+.. doxygenfunction:: update_system_operator
 

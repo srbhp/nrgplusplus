@@ -11,6 +11,13 @@
 #include <optional>
 #include <tuple>
 #include <vector>
+/**
+ * @brief
+ *
+ * @tparam nrgcore_type
+ * @param t_nrg_object
+ * @return
+ */
 template <typename nrgcore_type> // nrgcore_type is a type of
 // We don't want to inherit the nrgcore_type.
 // Just want to use few of its objects as a pointer

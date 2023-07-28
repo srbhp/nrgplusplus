@@ -285,6 +285,12 @@ public:
     //--------------------------------------------------------------
     // End of loadNrgData0
   }
-  bool                debugIO = false;
+  /**
+   * @brief Print Debugg Info
+   */
+  bool debugIO = false;
+  /**
+   * @brief Nrg iteration Numbers for which higher energy states are discarded.
+   */
   std::vector<size_t> savedNRGIndex;
 };

@@ -11,28 +11,42 @@
 #include <set>
 /**
  * @class fermionBasis
- * @brief This is the main basis class for the electrons.
+ * @brief This is the main basis class for the electrons or fermions.
  * Every other fermion model class is derived from this class.
  * We normally dont inherit from this class. Just use as a local object.
  * See for example spinhalf.
  *
  */
 class fermionBasis {
-  // create the basis in nstates x nstates
-  // create the quantum numbers for spinANDcharge or charge only
-  // create the block structure
-  // set the fermion operators
-  //
 public:
+  /**
+   * @brief Symmetries used used in the proble
+   * chargeOnly: Only charge of the system is conserved.
+   * spinOnly : Only \f$S_z\f$ component of the total spin is coserved. This is
+   * use for the superconducting Bath.
+   * chargeAndSpin: Both charge and spin is conserved
+   */
   enum modelSymmetry {
-    chargeOnly,
+    chargeOnly, // Only charge of the system is conserved.
     spinOnly,
     chargeAndSpin
   }; // Add a key for the exact diagonisation
-  std::vector<qOperator>           f_dag_operator;
+  /**
+   * @brief \f$ f^\dagger \f$ of the system written using symmetries of the
+   * problem.
+   */
+  std::vector<qOperator> f_dag_operator; // f_dag operator
+  /**
+   * @brief Quantization numbers used to write various system operators
+   */
   std::vector<std::vector<double>> fnParticle;
-  fermionBasis(size_t        dof, // Fermion degree of freedom
-               modelSymmetry l) {
+  /**
+   * @brief
+   *
+   * @param dof : Fermion degree of freedom
+   * @param l : Symmetries of the system
+   */
+  fermionBasis(size_t dof, modelSymmetry l) {
     // create the basis in nstates x nstates
     createFermionBasis(dof); // create the basis in nstates x nstates
     // create the switch statement for l
@@ -66,7 +80,17 @@ public:
     set_f_dag_operators();    // set the fermion operators
     DebugView = false;        //
   }
+  /**
+   * @brief Get the full Matrix of the `f` operators.
+   *
+   * @return
+   */
   [[nodiscard]] auto get_raw_f_dag_operator() const { return fermionOprMat; }
+  /**
+   * @brief Get `f` operators of the site in terms of the `qmatrix` notations
+   *
+   * @return
+   */
   [[nodiscard]] auto get_f_dag_operator() const { return f_dag_operator; }
   void               create_QuantumNChargeonly() {
     // Here We assume that

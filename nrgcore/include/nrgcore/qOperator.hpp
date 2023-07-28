@@ -33,7 +33,20 @@ public:
     std::array<size_t, 2> idx = {i, j}; // ToDo : Check for overrides
     storage[idx]              = std::move(opr);
   }
+  /**
+   * @brief Get the internal Storage object of the `qmatrix`
+   *
+   * @return std::map<std::array<size_t, 2>, qmatrix<>>
+   */
   auto getMap() { return &storage; }
+  /**
+   * @brief Set the `qOperator` for the `i`th and `j`th
+   * symmetry basis.
+   *
+   * @param opr : Matrix object
+   * @param i : `i`th symmetry block
+   * @param j : `j`th symmetry block
+   */
   void set(const qmatrix<double> &opr, size_t i, size_t j) {
     std::array<size_t, 2> idx = {i, j}; // ToDo : Check for overrides
     if (storage.find(idx) != storage.end()) {
@@ -120,6 +133,14 @@ public:
           << "|" << aa.second;
     }
   }
+  /**
+   * @brief We can use `std::cout << qOperator ; ` or any other `ostream`
+   * object.
+   *
+   * @param out
+   * @param val
+   * @return
+   */
   friend std::ostream &operator<<(std::ostream &out, const qOperator &val) {
     out << "\n";
     val.display(out);
