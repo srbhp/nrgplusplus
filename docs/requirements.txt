@@ -3,3 +3,4 @@ breathe
 sphinx-sitemap
 sphinx
 exhale
+alabaster
