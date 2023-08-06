@@ -1,5 +1,63 @@
-How to build a Model
-================
+===========================
+QuickStart -
+===========================
+
+.. contents:: contents_name
+
+Install dependencies
+====================================
+
+-   We use Intel Compiler and MKL library for our matrix operations.
+`intel-oneapi-mkl-devel` and `intel-oneapi-compiler-dpcpp-cpp` are these two packages for this purpose.
+
+- We use HDF5 (`libhdf5-dev`) for our to read and write data. 
+
+- To generate the documentation we need few more python packages. 
+  Install these packages if you want to generate the documentation. 
+  dont want to generate the documentation then you do
+  
+  - `sphinx-doc doxygen graphviz`
+  - `sphinx-rtd-theme breathe sphinx-sitemap sphinx exhale`
+
+
+
+
+Ubuntu/Debian based Linux OS
+-----------------------------------
+Here is a list commands for to install the dependencies.
+
+  .. code-block:: python
+
+    sudo apt-get update 
+    sudo apt-get install sphinx-doc doxygen graphviz libhdf5-dev --yes
+    pip3 install sphinx-rtd-theme breathe sphinx-sitemap sphinx exhale
+    wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \ | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
+    echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/oneAPI.list
+    sudo apt update
+    sudo apt install intel-oneapi-mkl-devel intel-oneapi-compiler-dpcpp-cpp --yes
+    source  /opt/intel/oneapi/setvars.sh # We should add this line to the end of our ~/.bashrc line  
+
+
+Other Linux OS
+-----------------------------------
+We can use the currect package manager for to configure
+the repository for ``intel-mkl``. We can use ``pip3`` to  install 
+python Packages.
+
+
+
+How to Build a Model
+====================================
+
+Clone the `nrgplusplus` repo.
+-----------------------------------
+
+- [optional] Create a new folder. ``mkdir test_nrg; cd test_nrg``
+
+- Clone the repo. ``git clone https://github.com/srbhp/nrgplusplus.git``
+
+
+
 
 ``examples`` directory contains examples of different Models. 
 
@@ -10,3 +68,8 @@ How to build a Model
    - create a build directory and invoke cmake from there
     - ``mkdir build ; cd build ; cmake .. ; make``
     - if we manage to compile the project, then the executable will be in the ``build/ExampleModel/`` directory.
+
+
+
+================
+
