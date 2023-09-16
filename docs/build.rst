@@ -2,22 +2,26 @@
 QuickStart -
 ===========================
 
-.. contents:: contents_name
+.. contents:: 
 
 Install dependencies
 ====================================
 
 -   We use Intel Compiler and MKL library for our matrix operations.
-`intel-oneapi-mkl-devel` and `intel-oneapi-compiler-dpcpp-cpp` are these two packages for this purpose.
+  ``intel-oneapi-mkl-devel`` and ``intel-oneapi-compiler-dpcpp-cpp`` are these two packages for this purpose. GCC and Clang also works fine but we anyway need MKL 
+  for lapack. If you prefer not to use MKL then comment MKL #include part  
+  in the qmatrix.hpp file and uncomment the lapacke part.
 
-- We use HDF5 (`libhdf5-dev`) for our to read and write data. 
+- We use HDF5 (``libhdf5-dev``) for our to read and write data. We can also fully
+  save the NRG iteration state into a hdf5 file and load the NRG state to continue
+  the caculation. This usefull for during the calculation of the static and 
+  dynamic quantities. 
 
 - To generate the documentation we need few more python packages. 
   Install these packages if you want to generate the documentation. 
-  dont want to generate the documentation then you do
   
-  - `sphinx-doc doxygen graphviz`
-  - `sphinx-rtd-theme breathe sphinx-sitemap sphinx exhale`
+  - ``sphinx-doc doxygen graphviz``
+  - ``sphinx-rtd-theme breathe sphinx-sitemap sphinx exhale``
 
 
 
@@ -41,8 +45,10 @@ Here is a list commands for to install the dependencies.
 Other Linux OS
 -----------------------------------
 We can use the currect package manager for to configure
-the repository for ``intel-mkl``. We can use ``pip3`` to  install 
-python Packages.
+the repository for ``intel-mkl``. 
+https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-download.html
+
+We can use ``pip3`` to  install python Packages.
 
 
 
@@ -57,7 +63,8 @@ Clone the `nrgplusplus` repo.
 - Clone the repo. ``git clone https://github.com/srbhp/nrgplusplus.git``
 
 
-
+Examples
+-----------------------------------
 
 ``examples`` directory contains examples of different Models. 
 

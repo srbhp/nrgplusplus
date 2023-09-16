@@ -4,13 +4,12 @@
 #include <complex>
 #include <initializer_list>
 #include <iostream>
-// #include <lapacke.h> // comment this if mkl is used
-//  #include <cblas.h>
 #include <numeric>
+// #include <lapacke.h> // comment this if mkl is used
+// #include <cblas.h>
 // uncomment if you want to use the mkl class
 #define MKL_Complex16 std::complex<double>
 #include <mkl.h>
-// #include "mkl_cblas.h"
 #include <mkl_lapacke.h>
 // typedef double _Complex DCOMPLEX
 // #include <omp.h>

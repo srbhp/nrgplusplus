@@ -158,8 +158,76 @@ public:
 //----------------------------------------------------------
 namespace h5stream {
 /**
- * @class h5stream
- * @brief
+ * @class h5stream::h5stream
+ * @brief C++ Header-only library for simple HDF5 input/output
+ *
+ *## How to use
+ *
+ *		Just include the `h5stream.hpp` into your your main file.
+ *
+ *### Compile
+ *
+ *		@code{.bash}
+ *		g++ -lhdf5 -lhdf5_cpp -std=c++1z example.cpp
+ *		@endcode
+ *
+ *### Example
+ *
+ *#### Create a File with a mode.
+ *
+ *
+ *		- "tr":   Create a file, truncate if it exists, Default
+ *		- "r":    Readonly, the file must exist
+ *		- "rw": Read/write, the file must exist
+ *		- "x":   Create a file, fail if exists
+ *
+ *
+ *		@code{.cpp}
+ *		h5stream::h5stream file("sample.h5", "tr");
+ *		// or
+ *		h5stream::h5stream file("sample.h5");
+ *		@endcode
+ *
+ *#### write and read `std::vector`
+ *
+ *		Create a vector and write it to the file
+ *
+ *
+ *		@code{.cpp}
+ *		std::vector<double> matrix { 1, 2, 3282, 932 };
+ *		file.write<double>(matrix, "matrix");
+ *		@endcode
+ *
+ *
+ *#### write and read Metadata
+ *
+ *		Write Attributes( Metadata) to the to the same data space
+ *
+ *
+ *		@code{.cpp}
+ *		auto dspace = file.get_dataspace("matrix");
+ *		dspace.write_atr<double>(1.2, "Units");
+ *		@endcode
+ *
+ *
+ *#### Read data from the file
+ *
+ *
+ *		@code{.cpp}
+ *		auto xx = file.read_vector<double>("matrix");
+ *		//OR
+ *		file.read<double>(xx, "matrix");
+ *		@endcode
+ *
+ *
+ *#### Read Attribute (Metadata)
+ *		@code{.cpp}
+ *		double x = 0;
+ *		dspace.read_atr<double>(x, "Units");
+ *		std::cout << "Attribute : " << x << std::endl;
+ *		std::cout << "HDF file size (MB): " << file.file_size() <<
+ *std::endl;
+ *		@endcode
  *
  */
 class h5stream {
@@ -180,9 +248,15 @@ public:
    * @param fileName
    * @param rw : Possible values are
    * "r": read only,
-   * "rw": Read-write access.
-   * "x"
-   * "tr": delete the file and create a emty file.: default
+   *
+   * "rw": Read-write access. If the file is currently open for
+   * read-only access then it will be reopened. Absence of this
+   * flag implies read-only access.
+   *
+   * "x": Fail if file already exists. "r" and "tr" are mutually exclusive
+   *
+   * "tr": Truncate file, if it already exists, erasing all data previously
+   * stored in the file.: default
    */
   void setFileName(const H5std_string &fileName, // NOLINT
                    const std::string  &rw = std::string("tr")) {
