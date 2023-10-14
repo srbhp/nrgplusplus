@@ -161,19 +161,19 @@ namespace h5stream {
  * @class h5stream::h5stream
  * @brief C++ Header-only library for simple HDF5 input/output
  *
- *## How to use
+ *  \section <1>  How to use
  *
  *		Just include the `h5stream.hpp` into your your main file.
  *
- *### Compile
+ *  \subsection <1.1> How to  Compile
  *
  *		@code{.bash}
  *		g++ -lhdf5 -lhdf5_cpp -std=c++1z example.cpp
  *		@endcode
  *
- *### Example
+ * \section <2.1> Example
  *
- *#### Create a File with a mode.
+ *  \subsection <2.2> Create a File with a mode.
  *
  *
  *		- "tr":   Create a file, truncate if it exists, Default
@@ -188,7 +188,7 @@ namespace h5stream {
  *		h5stream::h5stream file("sample.h5");
  *		@endcode
  *
- *#### write and read `std::vector`
+ * \subsection <2.3> write and read `std::vector`
  *
  *		Create a vector and write it to the file
  *
@@ -199,7 +199,7 @@ namespace h5stream {
  *		@endcode
  *
  *
- *#### write and read Metadata
+ * \subsection <2.4>  write and read Metadata
  *
  *		Write Attributes( Metadata) to the to the same data space
  *
@@ -210,7 +210,7 @@ namespace h5stream {
  *		@endcode
  *
  *
- *#### Read data from the file
+ * \subsection <2.5> Read data from the file
  *
  *
  *		@code{.cpp}
@@ -220,13 +220,13 @@ namespace h5stream {
  *		@endcode
  *
  *
- *#### Read Attribute (Metadata)
+ *  \subsection <2.6>  Read Attribute (Metadata)
  *		@code{.cpp}
  *		double x = 0;
  *		dspace.read_atr<double>(x, "Units");
  *		std::cout << "Attribute : " << x << std::endl;
  *		std::cout << "HDF file size (MB): " << file.file_size() <<
- *std::endl;
+ *       std::endl;
  *		@endcode
  *
  */
