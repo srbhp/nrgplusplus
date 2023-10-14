@@ -161,19 +161,19 @@ namespace h5stream {
  * @class h5stream::h5stream
  * @brief C++ Header-only library for simple HDF5 input/output
  *
- *  \section <1>  How to use
+ *  <H2>  How to use </H2>
  *
  *		Just include the `h5stream.hpp` into your your main file.
  *
- *  \subsection <1.1> How to  Compile
+ *  <H3> How to  Compile </H3>
  *
  *		@code{.bash}
  *		g++ -lhdf5 -lhdf5_cpp -std=c++1z example.cpp
  *		@endcode
  *
- * \section <2.1> Example
+ * <H2> Example </H2>
  *
- *  \subsection <2.2> Create a File with a mode.
+ *  <H3> Create a File with a mode. </H3>
  *
  *
  *		- "tr":   Create a file, truncate if it exists, Default
@@ -188,7 +188,8 @@ namespace h5stream {
  *		h5stream::h5stream file("sample.h5");
  *		@endcode
  *
- * \subsection <2.3> write and read `std::vector`
+ * <H3>  write and read `std::vector`</H3>
+
  *
  *		Create a vector and write it to the file
  *
@@ -199,7 +200,7 @@ namespace h5stream {
  *		@endcode
  *
  *
- * \subsection <2.4>  write and read Metadata
+ * <H3>   write and read Metadata </H3>
  *
  *		Write Attributes( Metadata) to the to the same data space
  *
@@ -210,7 +211,7 @@ namespace h5stream {
  *		@endcode
  *
  *
- * \subsection <2.5> Read data from the file
+ *  <H3> Read data from the file </H3>
  *
  *
  *		@code{.cpp}
@@ -220,7 +221,7 @@ namespace h5stream {
  *		@endcode
  *
  *
- *  \subsection <2.6>  Read Attribute (Metadata)
+ *  <H3>  Read Attribute (Metadata) </H3>
  *		@code{.cpp}
  *		double x = 0;
  *		dspace.read_atr<double>(x, "Units");
