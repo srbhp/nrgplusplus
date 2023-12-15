@@ -28,4 +28,11 @@ set(THREADS_PREFER_PTHREAD_FLAG ON) # This is just for us, we do prefer pthreads
 # Create Documentation 
 add_subdirectory("nrgcore")
 add_subdirectory("docs")
-
+#add_subdirectory("examples/entropySIAM")
+# add all sub directories .. 
+# file(GLOB V_GLOB LIST_DIRECTORIES true "examples/*")
+# foreach(item ${V_GLOB})
+# 	if(IS_DIRECTORY ${item})
+# 		add_subdirectory(${item})
+# 	endif()
+# endforeach()

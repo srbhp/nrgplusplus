@@ -3,7 +3,7 @@ find_package(Sphinx REQUIRED)
 
 # Find all the public headers
 # get_target_property(NRGCore_PUBLIC_HEADER_DIR NRGCore INTERFACE_INCLUDE_DIRECTORIES)
-file(GLOB_RECURSE NRGCore_PUBLIC_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/../include/*/*.hpp)
+file(GLOB_RECURSE rst_dependent_files ${CMAKE_CURRENT_SOURCE_DIR}/*rst  )
 
 set(DOXYGEN_INPUT_DIR ${PROJECT_SOURCE_DIR}/nrgcore)
 set(DOXYGEN_OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/doxygen)
@@ -19,12 +19,11 @@ file(MAKE_DIRECTORY ${DOXYGEN_OUTPUT_DIR})
 
 # Only regenerate Doxygen when the Doxyfile or public headers change
 add_custom_command(OUTPUT ${DOXYGEN_INDEX_FILE}
-                   DEPENDS ${NRGCore_PUBLIC_HEADERS}
+                   DEPENDS ${rst_dependent_files}
                    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
                    MAIN_DEPENDENCY ${DOXYFILE_OUT} ${DOXYFILE_IN}
                    COMMENT "Generating docs"
                    VERBATIM)
-
 # Nice named target so we can run the job easily
 add_custom_target(Doxygen ALL DEPENDS ${DOXYGEN_INDEX_FILE})
 

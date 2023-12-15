@@ -7,11 +7,11 @@
 #include "nrgcore/sysOperator.hpp"
 #include <iostream>
 #include <string>
-double LAMBDA = 3.00; // Dont do this
-double hopping(int site) {
+const double LAMBDA = 3.00; // Dont do this
+double       hopping(int site) {
   return 0.5 * (1.0 + 1.0 / LAMBDA) * (1. - std::pow(LAMBDA, -site - 1)) /
          std::sqrt((1.0 - std::pow(LAMBDA, -2. * site - 1)) *
-                   (1.0 - std::pow(LAMBDA, -2. * site - 3)));
+                         (1.0 - std::pow(LAMBDA, -2. * site - 3)));
 }
 int main() {
   timer mtime("Total time : ");
@@ -47,8 +47,9 @@ int main() {
   // Bulla's RMP
   std::vector<qOperator> dUpDownDagger; // Up and Down particle number
   {
-    fermionBasis spinhalfBasis(2); // Number of fermion channels/spins
-    auto         f_dag_raw = spinhalfBasis.get_raw_f_dag_operator();
+    fermionBasis spinhalfBasis(
+        2, fermionBasis::chargeAndSpin); // Number of fermion channels/spins
+    auto f_dag_raw = spinhalfBasis.get_raw_f_dag_operator();
     // set f_operator
     // Total Number of particle
     auto ntotal = f_dag_raw[0].dot(f_dag_raw[0].cTranspose());

@@ -6,11 +6,11 @@
 #include "nrgcore/nrgcore.hpp"
 #include "nrgcore/sysOperator.hpp"
 #include <iostream>
-double LAMBDA = 3.00; // Dont do this
-double hopping(int site) {
+const double LAMBDA = 3.00; // Dont do this
+double       hopping(int site) {
   return 0.5 * (1.0 + 1.0 / LAMBDA) * (1. - std::pow(LAMBDA, -site - 1)) /
          std::sqrt((1.0 - std::pow(LAMBDA, -2. * site - 1)) *
-                   (1.0 - std::pow(LAMBDA, -2. * site - 3)));
+                         (1.0 - std::pow(LAMBDA, -2. * site - 3)));
 }
 int main() {
   h5stream::h5stream rfile("resultsTc.h5");
@@ -39,8 +39,9 @@ int main() {
                                // Bulla's RMP
   std::vector<qOperator> dUpDownDagger; // Up and Down particle number
   {
-    fermionBasis spinhalfBasis(2); // Number of fermion channels/spins
-    auto         f_dag_raw = spinhalfBasis.get_raw_f_dag_operator();
+    fermionBasis spinhalfBasis(
+        2, fermionBasis::chargeAndSpin); // Number of fermion channels/spins
+    auto f_dag_raw = spinhalfBasis.get_raw_f_dag_operator();
     // set f_operator
     // Total Number of particle
     auto ntotal = f_dag_raw[0].dot(f_dag_raw[0].cTranspose());
@@ -70,8 +71,9 @@ int main() {
     // dUpDownDagger[0].display();
     for (auto &aa : dUpDownDagger) {
       for (const auto &[key, value] : *aa.getMap()) {
-        for (size_t i = 0; i < value.size(); i++)
-          sum += std::pow(value.at(i), 2);
+        for (double i : value) {
+          sum += std::pow(i, 2);
+        }
       }
     }
     std::cout << "dUpDownDagger Sum :" << sum << std::endl;
@@ -122,8 +124,9 @@ int main() {
     // dUpDownDagger[0].display();
     for (auto &aa : dUpDownDagger) {
       for (const auto &[key, value] : *aa.getMap()) {
-        for (size_t i = 0; i < value.size(); i++)
-          sum += std::pow(value.at(i), 2);
+        for (double i : value) {
+          sum += std::pow(i, 2);
+        }
       }
     }
     std::cout << "dUpDownDagger Sum :" << sum << std::endl;

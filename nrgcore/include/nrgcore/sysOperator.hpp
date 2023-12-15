@@ -15,8 +15,8 @@
  * the function `add_bath_site` has been called and before
  * the `update_internal_state`.
  *
- * @tparam nrgcore_type nrgcore object type
- * @param systemo_oparator_nQ `qOperator` of the impurity class
+ * @tparam nrgcore_type nrgcore object type.
+ * @param systemo_oparator_nQ `qOperator` of the impurity class.
  */
 template <typename nrgcore_type> // nrgcore_type is a type of
 void update_system_operator(nrgcore_type           *nrg_object, // NOLINT

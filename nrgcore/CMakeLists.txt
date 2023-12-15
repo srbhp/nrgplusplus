@@ -18,6 +18,10 @@ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 # add sources and headers
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*/*.hpp")
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*/*.cpp")
+#
+
+
+
 include_directories(SYSTEM "${CMAKE_CURRENT_SOURCE_DIR}/include")
 #Add dependencies
 find_package(Threads REQUIRED)  # Threads may or may not be required. For the profiler, the target that you link against
@@ -33,8 +37,19 @@ find_package(HDF5 COMPONENTS CXX HL)
 include_directories(${HDF5_INCLUDE_DIR})
 set(LINK_LIBS ${LINK_LIBS} ${HDF5_LIBRARIES})
 
+# add_dependencies(NRG ${headers} ${sources})
+
 #----------------------------------------------------------------
-add_library(NRG ${headers} ${sources})
-target_include_directories(NRG PUBLIC .)
+add_library(NRG "${headers};${sources}" )
+# add_library(NRG ${headers} ${sources})
+# target_include_directories(NRG PUBLIC .)
+# fix rebuild if header or src file changes 
+target_include_directories(NRG  PRIVATE
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+)
+#
+
+target_include_directories(NRG INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include" )
 target_include_directories(NRG PRIVATE /opt/intel/oneapi/vtune/latest/sdk/include)
 target_link_directories(NRG PRIVATE /opt/intel/oneapi/vtune/latest/sdk/lib64)

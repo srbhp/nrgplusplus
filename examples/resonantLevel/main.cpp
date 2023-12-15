@@ -9,19 +9,17 @@
 #include "nrgcore/nrgData.hpp"
 #include "nrgcore/nrgcore.hpp"
 #include "nrgcore/sysOperator.hpp"
-#include "openChain/currentShellCouplingOpenChain.hpp"
-#include "openChain/staticExpectationOpenChain.hpp"
 #include <iostream>
 #include <string>
-double LAMBDA = 3.00; // Dont do this
-double hopping(int site) {
+const double LAMBDA = 3.00; // Dont do this
+double       hopping(int site) {
   return 0.5 * (1.0 + 1.0 / LAMBDA) * (1. - std::pow(LAMBDA, -site - 1)) /
          std::sqrt((1.0 - std::pow(LAMBDA, -2. * site - 1)) *
-                   (1.0 - std::pow(LAMBDA, -2. * site - 3)));
+                         (1.0 - std::pow(LAMBDA, -2. * site - 3)));
 }
 // int main(int argc, char *argv[]) {
 int main() {
-  std::srand(std::time(0));
+  std::srand(std::time(nullptr));
   timer mtime("Total time : ");
   // Parameter ############################################
   size_t nMax          = 6; // Number of NRG iteration
@@ -61,10 +59,10 @@ int main() {
   // This is consistentent with
   // Bulla's RMP
   std::vector<qOperator> nUpDownOperator{impurity.impurityNparticle};
-  currentOpenChain       fullOpenCalc(&siamTc,          // NRG objeect
-                                      &nUpDownOperator, // NRG local operator
-                                      LAMBDA);
-  // Hopping element for each operator
+  // currentOpenChain       fullOpenCalc(&siamTc,          // NRG objeect
+  //                                     &nUpDownOperator, // NRG local operator
+  //                                     LAMBDA);
+  // // Hopping element for each operator
   std::vector<double> thop;
   for (size_t in = 0; in < nMax; in++) {
     double rescale = 1.0;
@@ -78,7 +76,7 @@ int main() {
       minIterations++;
     }
     // bath operators are always saved
-    fullOpenCalc.saveFullNRGState();
+    // fullOpenCalc.saveFullNRGState();
     // Update all the previous bath operator
     // Every site has bath operators
     // openChainTC.saveBathOperators();
@@ -118,8 +116,8 @@ int main() {
   //    }
   //  }
   // #####################################################
-  fullOpenCalc.setVolltageArray(voltageArray);
-  fullOpenCalc.openChainFullCalculation();
+  // fullOpenCalc.setVolltageArray(voltageArray);
+  // fullOpenCalc.openChainFullCalculation();
   //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   std::cout << "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" << std::endl;
   std::cout << "%Second Backward Iteration %%" << std::endl;
@@ -134,7 +132,7 @@ int main() {
   //    fullOpenCalc.openChainFullCalculation(std::pow(LAMBDA, -(in - 1.0)
   //    / 2.0)); std::cout << "##########################" << std::endl;
   //  }
-  fullOpenCalc.saveOpenChainFinalData(&rfile);
+  // fullOpenCalc.saveOpenChainFinalData(&rfile);
   //
   // Dont do this
   rfile.close();
