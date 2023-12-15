@@ -41,7 +41,7 @@ jobs:
       run: 
         sudo apt-get update 
         && sudo apt-get install sphinx-doc doxygen graphviz libhdf5-dev --yes
-        && pip3 install sphinx-rtd-theme breathe sphinx-sitemap sphinx exhale
+        && pip3 install sphinx-rtd-theme breathe sphinx-sitemap sphinx==7.1 exhale
         &&  wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \ | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
         && echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/oneAPI.list
         && sudo apt update
