@@ -48,19 +48,20 @@ jobs:
         && sudo apt install intel-oneapi-mkl-devel intel-oneapi-compiler-dpcpp-cpp --yes
         && source  /opt/intel/oneapi/setvars.sh 
 
-    - name: Configure CMake
+    - name: Configure CMake and Build 
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       run: 
         source  /opt/intel/oneapi/setvars.sh 
         && which icpx 
         && cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  -DCMAKE_CXX_FLAGS=" -D_GLIBCXX_USE_TBB_PAR_BACKEND=0 -std=c++20 -qopenmp  -qmkl -fp-model precise " -DCMAKE_CXX_COMPILER=icpx  .
-    - name: Build
-      # build 
-      run: 
-        source  /opt/intel/oneapi/setvars.sh 
-        && cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -DCMAKE_CXX_FLAGS=" -D_GLIBCXX_USE_TBB_PAR_BACKEND=0 -std=c++20 -qopenmp  -qmkl -fp-model precise " -DCMAKE_CXX_COMPILER=icpx  
+        && make -C ${{github.workspace}}/build -j12 all
         && touch ${{github.workspace}}/build/docs/sphinx/.nojekyll
+        #   # - name: Build
+        # # build 
+        # run: 
+        #   source  /opt/intel/oneapi/setvars.sh 
+        #   && cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
       with:
