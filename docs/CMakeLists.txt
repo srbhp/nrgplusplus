@@ -3,13 +3,13 @@ find_package(Sphinx REQUIRED)
 
 # Find all the public headers
 # get_target_property(NRGCore_PUBLIC_HEADER_DIR NRGCore INTERFACE_INCLUDE_DIRECTORIES)
-file(GLOB_RECURSE rst_dependent_files ${CMAKE_CURRENT_SOURCE_DIR}/*rst  )
+file(GLOB_RECURSE rst_dependent_files ${CMAKE_CURRENT_SOURCE_DIR}/../nrgcore/*/*/*pp  )
 
 set(DOXYGEN_INPUT_DIR ${PROJECT_SOURCE_DIR}/nrgcore)
 set(DOXYGEN_OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/doxygen)
 set(DOXYGEN_INDEX_FILE ${DOXYGEN_OUTPUT_DIR}/xml/index.xml)
 set(DOXYFILE_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
-set(DOXYFILE_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+set(DOXYFILE_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile.out)
 
 # Replace variables inside @@ with the current values
 configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)

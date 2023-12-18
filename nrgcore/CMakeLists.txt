@@ -21,6 +21,10 @@ file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*/*
 #
 
 
+# Source and header dir
+set(PROJECT_SOURCE_DIR "src")
+set(PROJECT_INCLUDE_DIR "include")
+
 
 include_directories(SYSTEM "${CMAKE_CURRENT_SOURCE_DIR}/include")
 #Add dependencies

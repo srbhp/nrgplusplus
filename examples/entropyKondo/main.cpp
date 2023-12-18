@@ -5,11 +5,11 @@
 #include "static/fdmThermodynamics.hpp"
 #include "utils/h5stream.hpp"
 #include <iostream>
-double LAMBDA = 2.0; // Dont do this
-double hopping(int site) {
+const double LAMBDA = 2.0; // Dont do this
+double       hopping(int site) {
   return 0.5 * (1.0 + 1.0 / LAMBDA) * (1. - std::pow(LAMBDA, -site - 1)) /
          std::sqrt((1.0 - std::pow(LAMBDA, -2. * site - 1)) *
-                   (1.0 - std::pow(LAMBDA, -2. * site - 3)));
+                         (1.0 - std::pow(LAMBDA, -2. * site - 3)));
 }
 int main() {
   timer  mtime("Total time : ");
@@ -18,8 +18,6 @@ int main() {
   // double fc = 0.5 * std::log(LAMBDA) * (1. + LAMBDA) / (LAMBDA - 1.);
   // double V = std::sqrt(2.0 * fc * GAMMA / std::acos(-1.));
   double Jkondo = 0.250;
-  double Tk     = std::exp(-1. / Jkondo);
-  double Omega  = 0.00 * Tk;
   //
   size_t nMax{41}; // Number of NRG iteration
   // h5stream::h5stream rfile("resultsZero.h5");
