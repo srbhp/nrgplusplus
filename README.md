@@ -67,6 +67,10 @@ to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
+## Similar Open-source Projects 
+
+    1. http://www.phy.bme.hu/~dmnrg/
+    2. https://github.com/rokzitko/nrgljubljana
 
 ## Acknowledgment
 
