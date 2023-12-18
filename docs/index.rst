@@ -28,6 +28,15 @@ that describes the impurity. In some cases the impurity class
 model is also include the first Wilson site.
 
 
+Each Model (bath or impurity) class  should have
+these member vairables:
+
+  
+  std::vector<qOperator> f_dag_operator
+  std::vector<std::vector<double>> eigenvalues_Q
+  std::vector<double> chi_Q
+  std::vector<std::vector<int>> n_Q
+
 
 Docs
 ====
