@@ -13,29 +13,26 @@ double hopping(int site, double LAMBDA) {
 int main() {
   double LAMBDA = 2.50; // Dont do this
   timer  mtime("Total time : ");
-  int    nMax{11};         // Number of NRG iteration
+  int    nMax{41};         // Number of NRG iteration
   size_t minIterations{0}; // minimum number of iteration
   double U_int = 0.20;
   double GAMMA = 0.0100;
-  // double fc = 0.5 * std::log(LAMBDA) * (1. + LAMBDA) / (LAMBDA - 1.);
-  // double V = std::sqrt(2.0 * fc * GAMMA / std::acos(-1.));
-  double V   = std::sqrt(2.0 * GAMMA / std::acos(-1.));
-  double eps = -U_int * 0.40; // Warning: Epsilon is not half of the U
+  double fc    = 0.5 * std::log(LAMBDA) * (1. + LAMBDA) / (LAMBDA - 1.);
+  double V     = std::sqrt(2.0 * fc * GAMMA / std::acos(-1.));
+  double eps   = -U_int * 0.40; // Warning: Epsilon is not half of the U
   // next two are for the calcThermodynamics of the bare band without the
   // impurity
   // spinhalf           impurity(0, 0);
   // h5stream::h5stream  rfile("resultSIAMZero.h5");
   h5stream::h5stream rfile("resultSIAMU" + std::to_string(U_int) + ".h5");
   spinhalf           impurity(eps, U_int);
-  auto               doubleOcc = impurity.getDoubleOcc();
   // bath
   spinhalf bathModel(0, 0); // set parameters
   std::cout << "Done !" << std::endl;
   nrgcore<spinhalf, spinhalf> siam(impurity, bathModel);
-  siam.set_parameters(1024);       // set max number of states to be kept
+  siam.set_parameters(512);        // set max number of states to be kept
   siam.add_bath_site({V, V}, 1.0); // first site. This is consistentent with
                                    //
-  update_system_operator(&siam, doubleOcc);
   //
   siam.update_internal_state();
   NrgData rawData(&siam);
@@ -49,17 +46,15 @@ int main() {
     siam.add_bath_site({hopping(in, LAMBDA), hopping(in, LAMBDA)}, rescale);
     // std::cout << "Eigenvalues: " << siam.all_eigenvalue << std::endl;
     // Update operators if needed here. then ->
-    update_system_operator(&siam, doubleOcc);
     if (siam.checkHigherEnergyDiscarded()) {
       rawData.saveCurrentData();
-      rawData.saveqOperator(&doubleOcc, "/doubleOcc" + std::to_string(in));
     } else {
       minIterations++;
     }
     siam.update_internal_state();
-    // rfile.write(
-    //     siam.all_eigenvalue, // Save the eigenvalue of the current iteration
-    //     "Eigenvalues" + std::to_string(in));
+    rfile.write(
+        siam.all_eigenvalue, // Save the eigenvalue of the current iteration
+        "Eigenvalues" + std::to_string(in));
   }
   // Start of the Backward Iteration
   //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,7 +77,6 @@ int main() {
   // Load data
   // Start ofd the fdmSpectrum
   fdmThermodynamics fdmTc(&siam, temperatureArray);
-  fdmTc.setSystemOperator(&doubleOcc);
   for (size_t in = nMax; in > minIterations; in--) {
     // We dont need load the nrg data for the
     // last iteration
@@ -93,7 +87,6 @@ int main() {
               << std::endl;
     siam.nrg_iterations_cnt--;
     rawData.loadCurrentData();
-    rawData.loadqOperator(&doubleOcc, "/doubleOcc" + std::to_string(in - 1));
     fdmTc.calcThermodynamics(enScale);
     // fdmTc.calcThermodynamics(std::pow(LAMBDA, -(in - 1.0) / 2.0));
   }
