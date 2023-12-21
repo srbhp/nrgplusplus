@@ -4,7 +4,7 @@ import sys
 sys.path.insert(0, os.path.abspath("."))
 # -- Project Information----------------------------------
 project = "nrgplusplus"
-copyright = "2017-2022, Saurabh Pradhan"
+copyright = "2017-2023, Saurabh Pradhan"
 author = "Saurabh Pradhan"
 
 
