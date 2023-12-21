@@ -89,41 +89,6 @@ int main() {
   std::cout << grEnergy.size() << " : " << ic << std::endl;
   std::cout << "Absolute Energy: " << std::setprecision(16) << absEnergy
             << std::endl;
-  // Start of the Backward Iteration
-  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  // Backward iteration starts now.
-  // BOOM:: BOOM
-  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  // std::cout << "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" << std::endl;
-  // std::cout << "%%% Backward Iteration %%%%%%" << std::endl;
-  // std::cout << "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" << std::endl;
-  // // set temperatureArray
-  // double              vMax    = 2; // Max Voltage can be 2* bandwidth
-  // double              vMin    = 1e-10;
-  // int                 tPoints = 200;
-  // double              delTime = (tPoints - 1.0) / (std::log(vMax / vMin));
-  // std::vector<double> temperatureArray(tPoints);
-  // // Log scale
-  // for (int i = 0; i < tPoints; i++) {
-  //     temperatureArray[i] = vMin * std::exp(std::fabs(i) * 1. / delTime);
-  // }
-  // // Load data
-  // // Start ofd the fdmSpectrum
-  // fdmThermodynamics fdmTc(&nrgModel, temperatureArray);
-  // for (size_t in = nMax; in > minIterations; in--) {
-  //     // We dont need load the nrg data for the
-  //     // last iteration
-  //     double enScale = std::pow(LAMBDA, -(1. * in - 1.0) / 2.0);
-  //     std::cout << "--Started Backward iteration: " << in
-  //               << " Mtr: " << minIterations << " enScale:" << enScale
-  //               << std::endl;
-  //     nrgModel.nrg_iterations_cnt--;
-  //     rawData.loadCurrentData();
-  //     fdmTc.calcThermodynamics(enScale);
-  //     // fdmTc.calcThermodynamics(std::pow(LAMBDA, -(in - 1.0) / 2.0));
-  // }
-  // fdmTc.saveFinalData(&rfile);
-  // Dont do this
   rfile.close();
   // create operators that connect to the environment
   return 0;

@@ -3,11 +3,11 @@
 #include "nrgcore/nrgcore.hpp"
 #include "utils/h5stream.hpp"
 #include <iostream>
-double LAMBDA = 2.0; // Dont do this
-double hopping(int site) {
+const double LAMBDA = 2.0; // Dont do this
+double       hopping(int site) {
   return 0.5 * (1.0 + 1.0 / LAMBDA) * (1. - std::pow(LAMBDA, -site - 1)) /
          std::sqrt((1.0 - std::pow(LAMBDA, -2. * site - 1)) *
-                   (1.0 - std::pow(LAMBDA, -2. * site - 3)));
+                         (1.0 - std::pow(LAMBDA, -2. * site - 3)));
 }
 int main() {
   h5stream::h5stream rfile("results.h5");

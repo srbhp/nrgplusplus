@@ -13,7 +13,7 @@ double       hopping(int site) {
 int main() {
   h5stream::h5stream rfile("resultsTc.h5");
   timer              mtime("Total time : ");
-  size_t             nMax{40}; // Number of NRG iteration
+  int                nMax{40}; // Number of NRG iteration
   double             U_int = 0.20;
   double             GAMMA = 0.0100;
   double fc = 0.5 * std::log(LAMBDA) * (1. + LAMBDA) / (LAMBDA - 1.);
@@ -47,7 +47,7 @@ int main() {
   siam.update_internal_state();
   std::cout << "Eigenvalues: " << siam.all_eigenvalue.size() << " |"
             << siam.all_eigenvalue << std::endl;
-  for (size_t in = 0; in < nMax; in++) {
+  for (int in = 0; in < nMax; in++) {
     double rescale = 1.0;
     if (in > 0) {
       rescale = std::sqrt(LAMBDA);
