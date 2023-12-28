@@ -19,7 +19,7 @@ https://srbhp.github.io/nrgplusplus/build.html
 
 
 ## Example : Single Impurity Anderson Impurity (SIAM)
-`(See : examples/entropySIAM/main.cpp)`
+`(See : examples/rgflowSIAM/main.cpp)`
 
 Define the impurity Model wth onsite energy `eps` and Coulomb energy `U_int`. 
 
@@ -45,20 +45,31 @@ of the Impurity.
   siam.add_bath_site({V, V}, 1.0); // V is the coupling og the impurity and first bath site. 
   siam.update_internal_state();
 ```
-Next we iteratively add the bath sites in the same way. 
+Next we iteratively add the bath sites in the same way. We 
+also create HDF5 file object to save the Eigenvalues.
+
 
 ```cpp
+  // file where outputput will be wriiten
+  h5stream::h5stream rfile("resultSIAM.h5");
+  // Iterative add bath sites
   for (int in = 0; in < nMax; in++) {
     double rescale = 1.0;
     if (in > 0) {
       rescale = std::sqrt(LAMBDA);
     }
     siam.add_bath_site({hopping(in, LAMBDA), hopping(in, LAMBDA)}, rescale);
+    // Update System Operators now here if we need to.
+    // This has to be done before updating the systems internal state.
     siam.update_internal_state();
+    // Save the eigenvalue of the current iteration
+    rfile.write(siam.all_eigenvalue, "Eigenvalues" + std::to_string(in));
+
   }
+  rfile.close();
 ```
-
-
+Plot the RG flow `(See : examples/rgflowSIAM/plot.py)`.
+![SIAM RG Flow](docs/image/rgflowSIAM.png)
 
 ## Contributing
 
