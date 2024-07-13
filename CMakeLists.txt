@@ -11,7 +11,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CLANG_ENABLE_STATIC_ANALYZER ON)
 set(LLVM_ENABLE_PROJECTS "clang;clang-tools-extra;compiler-rt;llvm-spirv;sycl;libclc")
 set(LLVM_ENABLE_RUNTIMES "libcxx;libcxxabi")
-
+set(CMAKE_CXX_FLAGS " -D_GLIBCXX_USE_TBB_PAR_BACKEND=0 -fsanitize=address,leak,undefined -Wno-narrowing -fsanitize-recover=all -g -O0" )
 # Add the cmake folder so the FindSphinx module is found
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
@@ -28,12 +28,12 @@ set(THREADS_PREFER_PTHREAD_FLAG ON) # This is just for us, we do prefer pthreads
 # Create Documentation 
 add_subdirectory("nrgcore")
 add_subdirectory("docs")
-add_subdirectory("examples/rgflowSIAM")
+# add_subdirectory("examples/rgflowSIAM")
 #add_subdirectory("examples/entropySIAM")
 # add all sub directories .. 
-# file(GLOB V_GLOB LIST_DIRECTORIES true "examples/*")
-# foreach(item ${V_GLOB})
-# 	if(IS_DIRECTORY ${item})
-# 		add_subdirectory(${item})
-# 	endif()
-# endforeach()
+file(GLOB V_GLOB LIST_DIRECTORIES true "examples/*")
+foreach(item ${V_GLOB})
+	if(IS_DIRECTORY ${item})
+		add_subdirectory(${item})
+	endif()
+endforeach()

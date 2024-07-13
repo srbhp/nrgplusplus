@@ -30,7 +30,7 @@ Ubuntu/Debian based Linux OS
 -----------------------------------
 Here is a list commands for to install the dependencies.
 
-  .. code-block:: python
+  .. code-block:: bash 
 
     sudo apt-get update 
     sudo apt-get install sphinx-doc doxygen graphviz libhdf5-dev --yes
