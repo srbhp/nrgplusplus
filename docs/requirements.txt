@@ -3,5 +3,5 @@ breathe
 sphinx-sitemap
 sphinx
 exhale
-sphinx_pydata_theme
+pydata-sphinx-theme
 alabaster
