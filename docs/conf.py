@@ -66,7 +66,7 @@ pygments_style = "sphinx"
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "alabaster"  # "sphinx_rtd_theme"
+html_theme = "sphinx_pydata_theme"
 # sidebar
 html_sidebars = {
     "**": [
