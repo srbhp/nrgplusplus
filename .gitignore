@@ -1,7 +1,6 @@
 *log*
 *.pdf
 *tempfile*
-build/
 .ccls-cache/
 .cache/
 poetry.lock
