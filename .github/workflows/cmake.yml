@@ -34,9 +34,9 @@ jobs:
     runs-on: ubuntu-20.04 # ubuntu-latest
 
     steps:
-    - uses: actions/checkout
+    - uses: actions/checkout@v3
     - name: Setup Pages
-      uses: actions/configure-pages
+      uses: actions/configure-pages@v3
     - name: Requirements
       run: 
         sudo apt-get update 
@@ -63,7 +63,7 @@ jobs:
         #   source  /opt/intel/oneapi/setvars.sh 
         #   && cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} 
     - name: Upload artifact
-      uses: actions/upload-pages-artifact
+      uses: actions/upload-pages-artifact@v4
       with:
           # Upload entire repository
           # path: './build/docs/sphinx'
