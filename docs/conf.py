@@ -54,7 +54,7 @@ highlight_language = "cpp"
 #       version to be the same.  For your own projects, you would NOT do this!
 version = "0.0.1"  # exhale.__version__
 # The full version, including alpha/beta/rc tags.
-release = "rc"  # exhale.__version__
+# release = "rc"  # exhale.__version__
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -77,6 +77,23 @@ html_theme = "pydata_sphinx_theme"
 #        "donate.html",
 #    ]
 # }
+html_theme_options = {
+    "header_links_before_dropdown": 4,
+    "icon_links": [
+        {
+            # Label for this link
+            "name": "GitHub",
+            # URL where the link will redirect
+            "url": "https://github.com/srbhp/nrgplusplus",  # required
+            # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
+            "icon": "fa-brands fa-square-github",
+            # The type of image to be used (see below for details)
+            "type": "fontawesome",
+        }
+    ],
+}
+html_theme_options = {}
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

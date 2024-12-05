@@ -12,7 +12,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #pragma once
-#include "H5Cpp.h"
+#include <H5Cpp.h>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -81,16 +81,16 @@ namespace h5stream {
 class dspace {
 public:
   H5::DataSet dataset;
-  explicit dspace(const H5::DataSet &datasetx) : dataset(datasetx){};
+  explicit dspace(const H5::DataSet &datasetx) : dataset(datasetx) {};
   /**
    * @brief Write Metadata
    *
-   * @tparam T
-   * @param data
-   * @param dataname
+   * @tparam T : Type of the array
+   * @param data : Array that needs to stored
+   * @param dataname : DataSet name
    */
   template <typename T>
-  void write_atr(const T data, const H5std_string &dataname) {
+  void write_atr(const T &data, const H5std_string &dataname) {
     auto          type           = get_datatype_for_hdf5<T>();
     H5::DataSpace attr_dataspace = H5::DataSpace(H5S_SCALAR);
     H5::Attribute attribute =
@@ -100,9 +100,9 @@ public:
   /**
    * @brief Read Metadata
    *
-   * @tparam T
-   * @param data
-   * @param dataname
+   * @tparam T : Type of the array
+   * @param data : Array that needs to stored
+   * @param dataname : DataSet name
    */
   template <typename T> void read_atr(T &data, const H5std_string &dataname) {
     // auto type = get_datatype_for_hdf5<T>();
@@ -121,13 +121,13 @@ public:
 class gspace { // for group
 public:
   H5::Group dataset;
-  explicit gspace(const H5::Group &datasetx) : dataset(datasetx){};
+  explicit gspace(const H5::Group &datasetx) : dataset(datasetx) {};
   /**
    * @brief Write Metadata
    *
-   * @tparam T
-   * @param data
-   * @param dataname
+   * @tparam T : Type of the array
+   * @param data : Array that needs to stored
+   * @param dataname : DataSet name
    */
   template <typename T>
   void write_atr(const T data, const H5std_string &dataname) {
@@ -140,9 +140,9 @@ public:
   /**
    * @brief Read Metadata
    *
-   * @tparam T
-   * @param data
-   * @param dataname
+   * @tparam T : Type of the array
+   * @param data : Array that needs to stored
+   * @param dataname : DataSet name
    */
   template <typename T> void read_atr(T &data, const H5std_string &dataname) {
     // auto type = get_datatype_for_hdf5<T>();
@@ -302,9 +302,9 @@ public:
   /**
    * @brief
    *
-   * @param datasetName
-   * @param data
-   * @param data_size
+   * @tparam T : Type of the array
+   * @param data : Array that needs to stored
+   * @param dataname : DataSet name
    */
   template <typename T = double>
   void write(const H5std_string &datasetName, const T *data,
@@ -331,8 +331,8 @@ public:
   /**
    * @brief
    *
-   * @param data
-   * @param datasetName
+   * @param data : Array that needs to stored
+   * @param dataname : DataSet name
    */
   template <typename T = double, template <typename...> class vec = std::vector>
   void read(vec<T> &data, const H5std_string &datasetName) {
@@ -359,8 +359,8 @@ public:
   /**
    * @brief Read the data
    *
-   * @param data
-   * @param datasetName
+   * @param data :  Array of data
+   * @param datasetName : dataset name
    */
   template <typename T = double, template <typename...> class vec>
   void read(std::vector<vec<T>> &data, const H5std_string &datasetName) {
@@ -402,7 +402,7 @@ public:
   /**
    * @brief
    *
-   * @param dataset_name
+   * @param dataset_name : dataset name
    * @return
    */
   dspace getDataspace(const H5std_string &dataset_name) {
@@ -411,7 +411,7 @@ public:
   /**
    * @brief
    *
-   * @param dataset_name
+   * @param dataset_name : DataSet name
    * @return
    */
   gspace getGroup(const H5std_string &dataset_name) {
@@ -420,7 +420,7 @@ public:
   /**
    * @brief Create a group name
    *
-   * @param group_name
+   * @param group_name : Group name
    * @return
    */
   auto createGroup(const H5std_string &group_name) {
@@ -430,10 +430,9 @@ public:
   // write metadata at the root label
   /**
    * @brief Write Metadata
-   *
-   * @tparam T `datatype`
-   * @param data
-   * @param label
+   * @tparam T : Type of the array
+   * @param data : Array that needs to stored
+   * @param dataname : DataSet name
    */
   template <typename T>
   void writeMetadata(const T &data, const H5std_string &label) {
@@ -443,10 +442,10 @@ public:
   }
   /**
    * @brief
+   * @tparam T : Type of the array
+   * @param data : Array that needs to stored
+   * @param dataname : DataSet name
    *
-   * @tparam T
-   * @param data
-   * @param label
    */
   template <typename T> void readMetadata(T &data, const H5std_string &label) {
     //

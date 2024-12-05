@@ -3,5 +3,6 @@
 *tempfile*
 .ccls-cache/
 .cache/
+build/
 poetry.lock
 compile_commands.json

@@ -1,4 +1,4 @@
-Core class of the ``nrgcore`` system
+``nrgcore`` class
 ================
 
 .. doxygenclass:: nrgcore
