@@ -1,6 +1,6 @@
 # nrgplusplus
 
-![Documentation](https://github.com/srbhp/nrgplusplus/actions/workflows/cmake.yml/badge.svg)
+[![.github/workflows/cmake.yml](https://github.com/srbhp/nrgplusplus/actions/workflows/cmake.yml/badge.svg?branch=main&event=push)](https://github.com/srbhp/nrgplusplus/actions/workflows/cmake.yml)
 
 This is a modern C++ implementation of the 
 Numerical Renormalization Group (NRG) Method 
