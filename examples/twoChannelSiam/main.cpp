@@ -16,9 +16,8 @@ int main() {
   int                nMax{40}; // Number of NRG iteration
   double             U_int = 0.20;
   double             GAMMA = 0.0100;
-  double fc = 0.5 * std::log(LAMBDA) * (1. + LAMBDA) / (LAMBDA - 1.);
-  double V  = std::sqrt(2.0 * fc * GAMMA / std::acos(-1.));
-  std::sqrt(2.0 * GAMMA / std::acos(-1.));
+  double   fc  = 0.5 * std::log(LAMBDA) * (1. + LAMBDA) / (LAMBDA - 1.);
+  double   V   = std::sqrt(2.0 * fc * GAMMA / std::acos(-1.));
   double   eps = -U_int * 0.50;
   spinhalf impurity(eps, U_int);
   // Enlarge the no of fermion on the impurity
