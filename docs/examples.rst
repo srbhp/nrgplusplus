@@ -1,0 +1,4 @@
+Examples
+========
+
+.. include:: ../examples/**.md

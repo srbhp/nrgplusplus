@@ -1,16 +1,11 @@
 #pragma once
 #include "models/fermionBasis.hpp"
 #include "nrgcore/qOperator.hpp"
-#include "nrgcore/qsymmetry.hpp"
 #include "utils/qmatrix.hpp"
-#include <algorithm>
 #include <cmath>
-#include <complex>
 #include <cstddef>
 #include <iostream>
-#include <map>
 #include <optional>
-#include <string>
 #include <vector>
 class freeModel : public fermionBasis {
   /** This is single channel free model class

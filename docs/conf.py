@@ -1,3 +1,7 @@
+""" "
+README.md
+"""
+
 import os
 import sys
 
@@ -19,6 +23,21 @@ extensions = [
     # there may be others here already, e.g. 'sphinx.ext.mathjax'
     "breathe",
     "exhale",
+    # inbuilt extensions
+    # "sphinx.ext.autodoc",
+    # "sphinx.ext.autosectionlabel",
+    # "sphinx.ext.autosummary",
+    # "sphinx.ext.coverage",
+    # "sphinx.ext.extlinks",
+    # "sphinx.ext.graphviz",
+    # "sphinx.ext.imgconverter",
+    # "sphinx.ext.inheritance_diagram",
+    # "sphinx.ext.intersphinx",
+    # "sphinx.ext.linkcode",
+    # "sphinx.ext.napoleon",
+    # "sphinx.ext.todo",
+    # "sphinx.ext.viewcode",
+    "myst_parser",
 ]
 
 # Setup the breathe extension
@@ -67,16 +86,6 @@ pygments_style = "sphinx"
 # a list of builtin themes.
 #
 html_theme = "pydata_sphinx_theme"
-# sidebar
-# html_sidebars = {
-#    "**": [
-#        "about.html",
-#        "navigation.html",
-#        "relations.html",
-#        "searchbox.html",
-#        "donate.html",
-#    ]
-# }
 html_theme_options = {
     "header_links_before_dropdown": 4,
     "icon_links": [
@@ -92,7 +101,6 @@ html_theme_options = {
         }
     ],
 }
-html_theme_options = {}
 
 
 # Add any paths that contain custom static files (such as style sheets) here,

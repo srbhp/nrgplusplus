@@ -114,7 +114,7 @@ public:
 };
 // ---- -----------------------------------
 /**
- * @class gspace: Read and write metadata to  a `H5::Group` object.
+ * @class gspace: reading  and write metadata to  a `H5::Group` object.
  * @brief
  *
  */

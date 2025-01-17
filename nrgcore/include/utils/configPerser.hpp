@@ -1,11 +1,9 @@
 #pragma once
-#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <map>
 #include <regex>
 #include <string>
-#include <vector>
 class configPerser {
   // # start starts with comment
   // spaces are ignored
