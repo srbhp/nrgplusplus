@@ -123,7 +123,7 @@ public:
   [[nodiscard]] size_t getrow() const { return row; }
   [[nodiscard]] size_t getcolumn() const { return column; }
   [[nodiscard]] T     &operator()(size_t i, size_t j) {
-    return this->mat[i * column + j];
+        return this->mat[i * column + j];
   }
   [[nodiscard]] T operator()(size_t i, size_t j) const {
     return this->mat[i * column + j];
@@ -131,7 +131,7 @@ public:
   // add a at operator
   [[nodiscard]] T &at(size_t i, size_t j) { return this->mat[i * column + j]; }
   [[nodiscard]] T  at(size_t i, size_t j) const {
-    return this->mat[i * column + j];
+     return this->mat[i * column + j];
   }
   // TODO(sp): arithmetic operator
   // TODO(sp): use stl
@@ -385,7 +385,7 @@ public:
     std::vector<T> vr(nsize * nsize, 0);
     //
     // timer t1("Solving exact");
-    mkl_set_num_threads(200);
+    // mkl_set_num_threads(200);
     auto info =
         LAPACKE_dgeev(LAPACK_ROW_MAJOR, 'V', 'V', nsize, this->data(), nsize,
                       wr.data(), wi.data(), vl.data(), nsize, vr.data(), nsize);
