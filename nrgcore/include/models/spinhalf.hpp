@@ -12,12 +12,10 @@
 #include <vector>
 /**
  * @class spinhalf
- * @brief Model  for a single orbital with spin up and down
- * f operator. SIAM can made entirely from this class.
+ * @brief Represents a single orbital with spin-up and spin-down operators.
  *
- *
- * Each Model class should have ` f_dag_operator`, `eigenvalues_Q`, `chi_Q`,
- * `n_Q`.
+ * This model can be used to construct the Single Impurity Anderson Model (SIAM).
+ * It includes methods to calculate eigenvalues, quantum numbers, and operators.
  */
 class spinhalf {
   std::vector<qmatrix<>> f_dag_raw;
@@ -26,13 +24,12 @@ class spinhalf {
   double                 magnetic_field;
 
 public:
-  // number of f operators
   /**
-   * @brief
+   * @brief Constructs the `spinhalf` model.
    *
-   * @param teps : \f$\epsilon_d \f$ is onsite energy of the SIAM
-   * @param tUint `U` Columb interaction of SIAM
-   * @param tmag : Magnetic field of SIAM
+   * @param teps Onsite energy of the SIAM.
+   * @param tUint Coulomb interaction energy of the SIAM.
+   * @param tmag Magnetic field of the SIAM (default is 0).
    */
   spinhalf(double teps, double tUint, double tmag = 0) // NOLINT
       : Uint(tUint), epsilon_d(teps), magnetic_field(tmag) {
@@ -79,33 +76,57 @@ public:
     // End of the constructor
   }
   // TODO(sp): Remove the copy of the objects
+  /**
+   * @brief Returns the quantum numbers of the basis states.
+   *
+   * @return A vector of quantum numbers.
+   */
   [[nodiscard]] std::vector<std::vector<int>> get_basis() const { return n_Q; };
+
+  /**
+   * @brief Returns the eigenvalues of the Hamiltonian.
+   *
+   * @return A vector of eigenvalues for each quantum number block.
+   */
   [[nodiscard]] std::vector<std::vector<double>> get_eigenvaluesQ() const {
     return eigenvalues_Q;
   }
+
+  /**
+   * @brief Returns the fermion sign for each basis state.
+   *
+   * @return A vector of fermion signs.
+   */
   [[nodiscard]] std::vector<double> get_chi_Q() const { return chi_Q; }
+
   /**
    * @brief \f$ f^\dagger\f$ operator
    */
   std::vector<qOperator> f_dag_operator;
+
   /**
    * @brief Eigenvalues of the Hamiltonian
    */
   std::vector<std::vector<double>> eigenvalues_Q;
+
   /**
    * @brief Fermion sign of the each basis states. \f$ (-1)^ {n_{particle}}\f$
    */
   std::vector<double> chi_Q;
+
   /**
    * @brief Quantum numbers of the basis states.
    */
   std::vector<std::vector<int>> n_Q;
+
   std::vector<qOperator>        doubleOccupancy;
+
   /**
-   * @brief Double Occupancy of the site as operator. Not needed for the SIAM
-   * model build. Usefull for the static or dynamic calculation.
+   * @brief Returns the double occupancy operator.
    *
-   * @return
+   * This operator is useful for static or dynamic calculations.
+   *
+   * @return A vector of `qOperator` objects representing double occupancy.
    */
   [[nodiscard]] auto getDoubleOcc() const { return doubleOccupancy; }
 };

@@ -9,14 +9,16 @@
 #include <optional>
 #include <tuple>
 #include <vector>
+
 /**
- * @brief This function update a `qOperator` of the
- * impurity class. This function should be called after
- * the function `add_bath_site` has been called and before
- * the `update_internal_state`.
+ * @brief Updates the system operators for the NRG object.
  *
- * @tparam nrgcore_type nrgcore object type.
- * @param systemo_oparator_nQ `qOperator` of the impurity class.
+ * This function iterates over the quantum numbers and updates the system
+ * operators based on the coupled quantum indices and bath eigenvalues.
+ *
+ * @tparam nrgcore_type The type of the NRG core object.
+ * @param nrg_object Pointer to the NRG core object.
+ * @param systemo_oparator_nQ Vector of system operators to be updated.
  */
 template <typename nrgcore_type> // nrgcore_type is a type of
 void update_system_operator(nrgcore_type           *nrg_object, // NOLINT

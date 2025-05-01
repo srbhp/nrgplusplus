@@ -17,9 +17,19 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-// #include <vector>
-//  Maps C++ type to HDF5 type
-template <typename T> inline const H5::PredType &get_datatype_for_hdf5();
+
+/**
+ * @brief Maps a C++ type to the corresponding HDF5 data type.
+ *
+ * This function template is specialized for various C++ types to return
+ * the appropriate HDF5 data type.
+ *
+ * @tparam T The C++ type to map.
+ * @return A reference to the corresponding HDF5 data type.
+ */
+template <typename T>
+inline const H5::PredType &get_datatype_for_hdf5();
+
 // Reference:
 // https://www.hdfgroup.org/HDF5/doc/cpplus_RM/class_h5_1_1_pred_type.html
 template <> inline const H5::PredType &get_datatype_for_hdf5<char>() {

@@ -10,43 +10,17 @@
 #include <stdexcept>
 #include <tuple>
 #include <vector>
-// Take two hamiltonian as a template parameter
-// Create a new hamiltonian
+
 /**
- * @brief We use this class  solve the NRG problem
- * of a bath and an Impurity. This class take two template parameter
- * one for the impurity and one for the bath. The bath and impurity
- * are the should have the same quantum number.
+ * @class nrgcore
+ * @brief Solves the NRG problem for a bath and an impurity.
  *
- * The bath and impurity Hamiltonian is diagonalized in the block basis
- * of the quantum numbers. These eigenvales are zero for a metallic bath
- * and non-zero for a superconductor bath.
+ * This class takes two template parameters for the impurity and bath models.
+ * It diagonalizes the Hamiltonian in the block basis of quantum numbers
+ * and performs iterative NRG calculations.
  *
- * We assume that the
- * impurity and bath are connected by a few interactions terms.
- *
- * \f[ H_{inter} = \sum_{i} (\lambda_i a_{i}^{\dagger}b_{i} + h.c ) \f]
- * where \f$ a_{i}^{\dagger} \f$ is the creation operator of the impurity
- * and \f$ b_{i}^{\dagger} \f$ is the creation operator of the bath.
- * The \f$ \lambda_i \f$ are the coupling constants.
- *
- *
- *
- *
- *
- * The number of operator for the bath and impurity should be the same.
- * If this is the case (i.e., Anderson Model) then we can pass the impurity
- * class and bath class to the nrgcore class as a  template parameter. If this
- * is not the case (i.e., Kondo Model )then  we create the impurity class out of
- * the impurity site and the first Wilson site. Then we pass this combined
- * impurity class and bath class to the nrgcore class.
- *
- *
- * @tparam im_type Type of Impurity class.
- * @tparam bath_type Type of bath class.
- * @param im_hamilt Impurity class  Hamiltonian.
- * @param bt_hamilt Bath class Hamiltonian.
- * @return [TODO:return]
+ * @tparam im_type Type of the impurity model.
+ * @tparam bath_type Type of the bath model.
  */
 template <typename im_type,   // Impurity type
           typename bath_type> // bath type
@@ -58,10 +32,12 @@ class nrgcore {
 
 public:
   /**
-   * @brief [TODO:description]
+   * @brief Constructs the `nrgcore` object.
    *
-   * @param im_hamilt [TODO:parameter]
-   * @param bt_hamilt [TODO:parameter]
+   * Initializes the impurity and bath models and sets default parameters.
+   *
+   * @param im_hamilt Reference to the impurity Hamiltonian.
+   * @param bt_hamilt Reference to the bath Hamiltonian.
    */
   nrgcore(im_type &im_hamilt, bath_type &bt_hamilt)
       : impurityModel(&im_hamilt), bath_model(&bt_hamilt),
@@ -73,14 +49,15 @@ public:
     set_parameters(); // set the default parameters
     test();
   }
+
   /**
-   * @brief This function is called to add a bath site. This is
-   * done for each iteration of the simulation. This function
-   * create a full Hamiltonian from the impurity and bath class
-   * and diagonalize it. The eigenvalues are stored in eigenvaluesQ.
+   * @brief Adds a bath site for the current iteration.
    *
-   * @param thopping This a array for the \f \lambda_i \f
-   * @param rescale This is the rescaling factor  \f \sqrt{\Lambda} \f
+   * This function constructs the full Hamiltonian, diagonalizes it,
+   * and updates the internal state.
+   *
+   * @param thopping Array of hopping parameters.
+   * @param rescale Rescaling factor for the energy.
    */
   void add_bath_site(const std::vector<double> &thopping, double rescale) {
     timer t1("add_bath_site " + std::to_string(nrg_iterations_cnt));
@@ -124,22 +101,24 @@ public:
     // for set_current_fdag_operator
     // update_internal_state();
   }
+
   /**
-   * @brief This function is called to discard the higher energy state and
-   * update some  the internal state of the nrgcore class. This function
-   * should be called after add_bath_site. If we need to update some
-   * bath or impurity operators (i.e., f_dag_operator) then we should call
-   * this function after the update is done.
+   * @brief Updates the internal state of the `nrgcore` object.
    *
+   * This function discards higher energy states and updates the basis
+   * for the next iteration.
    */
   void update_internal_state() {
     nrg_iterations_cnt++;
     discard_higher_energies();
     pre_sysmQ = std::move(current_sysmQ);
   }
+
   /**
-   * @brief [TODO: We have added few basic test for the impurity and bath class
-   * here.]
+   * @brief Performs basic tests for the impurity and bath models.
+   *
+   * Ensures that the quantum numbers and operator sizes are consistent
+   * between the impurity and bath models.
    */
   void test() {
     // Number of quantum number
@@ -159,6 +138,7 @@ public:
       throw std::runtime_error(thString);
     }
   }
+
   void create_next_hamiltonians(const std::vector<double> &t_hopping, // NOLINT
                                 double                     rescale) {
     if (t_hopping.size() != pre_fdag_oparator.size()) {
@@ -261,6 +241,7 @@ public:
       current_hamiltonQ[licq] = h_nqi;
     }
   }
+
   void create_next_basis() {
     coupled_nQ_index.clear();
     current_sysmQ.clear();
@@ -285,7 +266,7 @@ public:
       }
     }
   };
-  // function to create in the nrgcore
+
   void discard_higher_energies() {
     all_eigenvalue.clear();
     for (auto aa : eigenvaluesQ) {
@@ -354,6 +335,7 @@ public:
       }
     }
   }
+
   /**
    * @brief Set the maximum numbers of states to be kept states. The
    * actual number of states is determined by adding few more degenarete
@@ -368,7 +350,7 @@ public:
     nrg_iterations_min = 0;
     max_kept_states    = no_of_kept_states;
   }
-  // variables
+
   /**
    * @brief Get the current Basis vector.
    *
@@ -380,6 +362,7 @@ public:
     }
     return current_sysmQ; // because current  stuffs are move
   }
+
   /**
    * @brief This function returns the eigenvalues of the Hamiltonian
    * in the current basis.
@@ -392,6 +375,7 @@ public:
     }
     return eigenvaluesQ;
   }
+
   /**
    * @brief Returns the \f f^{\dagger} \f operator in the current basis
    * current wilson site. This `qOperator` is used to construct the Hamiltonian
@@ -400,6 +384,7 @@ public:
    * @return std::vector<qOperator>
    */
   auto get_f_dag_operator() { return pre_fdag_oparator; }
+
   /**
    * @brief Check whether any states are discarded in the current iteration.
    *
@@ -514,6 +499,7 @@ private:
       pre_fdag_oparator[ip].set(qfr[std::distance(foprIdx.begin(), itf)], i, j);
     }
   }
+
   void enforceDegeneracy() {
     // enforce the degenarecy of the energy levels
     for (auto &aa : eigenvaluesQ) {
@@ -533,6 +519,7 @@ private:
       }
     }
   }
+
   void set_current_fdag_operator_old() { // NOLINT
     for (auto &aa : pre_fdag_oparator) {
       aa.clear();
@@ -606,6 +593,7 @@ private:
       }
     }
   }
+
   // Store and set previous hamiltonian
   // indices of of coupled system and bath n_Q i.e.,
   // which subspaces are connected

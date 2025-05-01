@@ -11,35 +11,47 @@
 #include <optional>
 #include <tuple>
 #include <vector>
+
 /**
- * @brief
+ * @class fdmSpectrum
+ * @brief Calculates the spectral function using the FDM (Full Density Matrix) approach.
  *
- * @tparam nrgcore_type
- * @param t_nrg_object
- * @return
+ * This class computes the spectral weights and reduced density matrices
+ * for a given NRG core object.
+ *
+ * @tparam nrgcore_type The type of the NRG core object.
  */
-template <typename nrgcore_type> // nrgcore_type is a type of
-// We don't want to inherit the nrgcore_type.
-// Just want to use few of its objects as a pointer
-// We don't want to reference to any specific model here.
-//
-// Warning: this class DOES NOT take care of the fermion sign.
-// You need to provide the operator with  sign
-// TODO(sp): : kBt != 0 and a = b^\dag
+template <typename nrgcore_type>
 class fdmSpectrum {
   nrgcore_type *nrg_object;
   double        kBT{0}; // Temperature of nrg system i.e., in FDM formalism
+
 public:
-  // fdmSpectrum() {}
-  explicit fdmSpectrum(nrgcore_type *t_nrg_object // nrgcore_type
-  ) {
+  /**
+   * @brief Constructs the `fdmSpectrum` object.
+   *
+   * @param t_nrg_object Pointer to the NRG core object.
+   */
+  explicit fdmSpectrum(nrgcore_type *t_nrg_object) {
     setup(t_nrg_object);
   }
+
+  /**
+   * @brief Sets up the FDM spectrum calculation.
+   *
+   * @param t_nrg_object Pointer to the NRG core object.
+   */
   void setup(nrgcore_type *t_nrg_object) {
     lastiteration           = true;
     nrg_object              = t_nrg_object;
     globalGroundStateEnergy = 0; //= nrg_object->all_eigenvalue[0];
   }
+
+  /**
+   * @brief Calculates the spectral function.
+   *
+   * @param energyScale The energy scale for rescaling.
+   */
   void calcSpectrum(double energyScale) {
     energyRescale = energyScale;
     // Clear the operator
@@ -49,6 +61,7 @@ public:
     setReduceDensityMatrix();
     lastiteration = false;
   }
+
   void setReduceDensityMatrix() {
     // timer t1("setReduceDensityMatrix");
     // Set reducedRho
@@ -93,6 +106,7 @@ public:
       // End of matrix generation.
     }
   }
+
   void setLocalPartitionFunction() {
     localGroundStateEnergy = 0;
     localPartitionFunction = 0; // Ground state degenarecy
@@ -127,8 +141,10 @@ public:
       }
     } //
   }
+
   std::vector<std::vector<double>> BoltzmannFactor;
-  void                             setRhoZero() {
+
+  void setRhoZero() {
     if (lastiteration) {
       setLocalPartitionFunction();
     }
@@ -163,6 +179,7 @@ public:
     std::cout << "rhoTrace: " << rhoTrace << std::endl;
     // move the operator
   }                        // End of  update_system_operatorQ
+
   void rhoDotOperators() { // NOLINT
     double specSum = 0.0;
     //
@@ -234,8 +251,9 @@ public:
     // End of matrix generation.
     // Rotate the c operator in the eigen basis
   }
-  //
+
   void setTemperature(double at) { kBT = at; }
+
   void setCurrentIndex() {
     if (currentKeptIndex.empty()) {
       for (size_t i = 0; i < nrg_object->current_sysmQ.size(); i++) {
@@ -246,6 +264,7 @@ public:
     }
     previoudKeptIndex = nrg_object->eigenvaluesQ_kept_indices;
   }
+
   void setOperator(std::vector<qOperator> *bopr,
                    std::vector<qOperator> *aopr = nullptr) {
     aOperator = aopr;
@@ -255,7 +274,15 @@ public:
       negativeWeight.emplace_back(energyPts, 0);
     }
   }
-  template <typename filetype> void saveFinalData(filetype *pfile) {
+
+  /**
+   * @brief Saves the final spectral data to a file.
+   *
+   * @tparam filetype The type of the file object.
+   * @param pfile Pointer to the file object.
+   */
+  template <typename filetype>
+  void saveFinalData(filetype *pfile) {
     std::vector<double> energyPoints(energyPts, 0);
     for (int i = 0; i < energyPts; i++) {
       energyPoints[i] = (minEnergy * std::exp(i * 1. / delE));

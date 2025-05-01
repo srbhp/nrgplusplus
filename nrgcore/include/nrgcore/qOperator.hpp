@@ -10,21 +10,12 @@
 #include <set>
 /**
  * @class qOperator
- * @brief qOperator is a class to store
- * the oprator sub-blocks only where this has a
- * finite value. It does not store any thing
- * if the sub-blocks don't have any finite element.
- * Remember that the `get ` function is an std::optional.
+ * @brief Represents a quantum operator in a block-diagonal form.
  *
- *
+ * This class provides methods to manipulate and display quantum operators
+ * used in the NRG calculations.
  */
 class qOperator {
-  //
-  //
-  //
-  //
-  //
-  //
   std::map<std::array<size_t, 2>, qmatrix<>> storage;
 
 public:
@@ -112,7 +103,9 @@ public:
   //  }
   //}
   /**
-   * @brief  Clear the storage for the operator.
+   * @brief Clears the storage for the operator.
+   *
+   * This method removes all stored matrix elements and resets the operator.
    */
   void clear() {
     // Clear Matrix
@@ -122,10 +115,11 @@ public:
     storage.clear();
   }
   /**
-   * @brief Print the `qOperator` to the output stream.
+   * @brief Prints the `qOperator` to the output stream.
+   *
    * Avoid calling this function if the size of the `qOperator` is large.
    *
-   * @param out Output stream
+   * @param out Output stream to print to.
    */
   void display(std::ostream &out) const {
     for (const auto &aa : storage) {
@@ -134,12 +128,13 @@ public:
     }
   }
   /**
-   * @brief We can use `std::cout << qOperator ; ` or any other `ostream`
-   * object.
+   * @brief Overloads the stream insertion operator for `qOperator`.
    *
-   * @param out
-   * @param val
-   * @return
+   * Allows the use of `std::cout << qOperator` or any other `ostream` object.
+   *
+   * @param out The output stream.
+   * @param val The `qOperator` to print.
+   * @return The modified output stream.
    */
   friend std::ostream &operator<<(std::ostream &out, const qOperator &val) {
     out << "\n";

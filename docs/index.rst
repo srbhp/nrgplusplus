@@ -22,6 +22,7 @@ designed with efficiency and speed in mind.
    :width: 100%
    :alt: Outline of the nrgplusplus library
 
+The ``nrgcore`` is the main class which handles all NRG sub-tasks. 
 ``nrgcore`` takes two class as a template argument 
 for the Impurity model and the bath model. The bath model
 is a class that describes bath. The impurity model is a class
@@ -43,6 +44,7 @@ Example : Single Impurity Anderson Impurity (SIAM)
 ---------------------------------------------------
 `(See : examples/rgflowSIAM/main.cpp)`
 
+A overview of the SIAM model can be found here `Bulla, 2008 <https://doi.org/10.1103/RevModPhys.80.395>  `_ .
 Define the impurity Model wth onsite energy `eps` and Coulomb energy `U_int`. 
 
 .. code-block:: cpp

@@ -4,6 +4,9 @@
 #include <map>
 #include <regex>
 #include <string>
+
+// TODO: Add documentation for this file once its purpose and functionality are defined.
+
 class configPerser {
   // # start starts with comment
   // spaces are ignored
