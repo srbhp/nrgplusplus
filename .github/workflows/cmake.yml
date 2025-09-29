@@ -1,12 +1,12 @@
 name: Github Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: main
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 0 * * *'  # Once per day
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
