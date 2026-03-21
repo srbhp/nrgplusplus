@@ -20,6 +20,10 @@ set(BLA_VENDOR OpenBLAS)
 find_package(LAPACK REQUIRED)
 find_package(BLAS REQUIRED)
 include_directories(${LAPACK_INCLUDE_DIRS} ${BLAS_INCLUDE_DIRS})
+find_library(LAPACKE_LIB lapacke)
+if(LAPACKE_LIB)
+  set(LAPACK_LIBRARIES ${LAPACKE_LIB} ${LAPACK_LIBRARIES})
+endif()
 
 #Add dependencies
 find_package(Threads REQUIRED)  # Threads may or may not be required. For the profiler, the target that you link against
