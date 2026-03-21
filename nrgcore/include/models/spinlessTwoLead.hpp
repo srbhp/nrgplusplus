@@ -4,10 +4,14 @@
 #include "nrgcore/qsymmetry.hpp"
 #include "utils/qmatrix.hpp"
 class spinnlessTwoLead {
-  /** This class is for a single orbital with
-   * coupled to Two lead. Only chrge is conserved
+  /**
+   * spinnlessTwoLead models one spinless orbital coupled to two leads.
    *
+   * Conserved quantity:
+   * - charge only (fermionBasis::chargeOnly)
    *
+   * The constructor builds the fermion basis, sets up operators, and
+   * diagonalizes the local Hamiltonian for each charge sector Q.
    */
 public:
   explicit spinnlessTwoLead(double teps = 0) {
@@ -45,15 +49,20 @@ public:
     // TODO(sp): rotate the f operator  and n operator
   }
   [[nodiscard]] std::vector<std::vector<int>> get_basis() const {
-    /** returns the basis vector
+    /**
+     * Returns the sector basis `n_Q` as a list of charge vectors.
      *
+     * For spinnlessTwoLead, each inner vector corresponds to a unique
+     * charge configuration used by the fermionBasis blocking.
      */
     return n_Q;
   }
+
   [[nodiscard]] std::vector<std::vector<double>> get_eigenvaluesQ() const {
-    /** returns eigenvalues_Q
+    /**
+     * Returns eigenvalues of the local Hamiltonian for each `n_Q` sector.
      *
-     *
+     * The outer vector index matches the Q sector from `get_basis()`.
      */
     return eigenvalues_Q;
   }
