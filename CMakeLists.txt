@@ -18,7 +18,8 @@ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 #Add dependencies
 set(BLA_VENDOR OpenBLAS)
 find_package(LAPACK REQUIRED)
-include_directories(${LAPACKE_INCLUDE_DIRS})
+find_package(BLAS REQUIRED)
+include_directories(${LAPACK_INCLUDE_DIRS} ${BLAS_INCLUDE_DIRS})
 
 #Add dependencies
 find_package(Threads REQUIRED)  # Threads may or may not be required. For the profiler, the target that you link against

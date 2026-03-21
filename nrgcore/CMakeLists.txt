@@ -45,6 +45,7 @@ set(LINK_LIBS ${LINK_LIBS} ${HDF5_LIBRARIES})
 
 #----------------------------------------------------------------
 add_library(NRG "${headers};${sources}" )
+target_link_libraries(NRG ${LAPACK_LIBRARIES} ${BLAS_LIBRARIES} ${LINK_LIBS} Threads::Threads)
 # add_library(NRG ${headers} ${sources})
 # target_include_directories(NRG PUBLIC .)
 # fix rebuild if header or src file changes 
