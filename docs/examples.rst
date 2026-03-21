@@ -1,4 +1,4 @@
 Examples
 ========
 
-.. include:: ../examples/**.md
+.. include:: ../docs/examples/*/readme.md
