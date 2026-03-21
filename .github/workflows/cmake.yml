@@ -40,8 +40,8 @@ jobs:
       continue-on-error: true
     - name: Requirements
       run: 
-        apt-get update 
-        && apt-get install sphinx-doc doxygen graphviz libhdf5-dev  libopenblas-dev liblapack-dev liblapacke-dev gpg-agent wget --yes
+        sudo apt-get update 
+        && sudo apt-get install sphinx-doc doxygen graphviz libhdf5-dev  libopenblas-dev liblapack-dev liblapacke-dev gpg-agent wget --yes
         && pip3 install sphinx-rtd-theme breathe sphinx-sitemap sphinx==7.1 exhale pydata-sphinx-theme myst-parser
 
     - name: Configure CMake and Build 
