@@ -34,9 +34,9 @@ jobs:
     runs-on: ubuntu-latest #     
 
     steps:
-    - uses: actions/checkout
+    - uses: actions/checkout@v6
     - name: Setup Pages
-      uses: actions/configure-pages
+      uses: actions/configure-pages@v5
       continue-on-error: true
     - name: Requirements
       run: 
@@ -52,7 +52,7 @@ jobs:
         touch ${{github.workspace}}/build/docs/sphinx/.nojekyll
         
     - name: Upload artifact
-      uses: actions/upload-pages-artifact
+      uses: actions/upload-pages-artifact@v3
       continue-on-error: true
       with:
           # Upload entire repository
@@ -60,7 +60,7 @@ jobs:
           path: '${{github.workspace}}/build/docs/sphinx'
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages
+      uses: actions/deploy-pages@v4
       continue-on-error: true
     # Add a empty commit 
     - name: Add empty commit to trigger deployment
