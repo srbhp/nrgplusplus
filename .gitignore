@@ -1,5 +1,7 @@
 # hdf file
+
 *build*
+*bin/*
 *h5
 *log*
 .vscode/
