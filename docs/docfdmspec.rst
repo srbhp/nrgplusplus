@@ -1,5 +1,5 @@
-Calculation of the FDM Spectrum 
-================
+Calculation of the FDM Spectrum
+===============================
 
 .. doxygenclass:: fdmSpectrum
    :members:

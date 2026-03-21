@@ -31,7 +31,7 @@ target_link_libraries(
 	HDF5::HDF5
   # MKL::MKL
   # mkl_intel_lp64 mkl_intel_thread mkl_core
-	mkl_intel_lp64 mkl_core mkl_intel_thread mkl_core iomp5
+	${LAPACK_LIBRARIES}
 )
 
 

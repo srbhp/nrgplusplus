@@ -19,7 +19,21 @@ class qOperator {
   std::map<std::array<size_t, 2>, qmatrix<>> storage;
 
 public:
+  /**
+   * @brief Default constructor creates an empty block-operator.
+   */
   qOperator() = default;
+
+  /**
+   * @brief Construct a block operator with an initial block entry.
+   *
+   * This constructor stores a single block `opr` at block coordinates
+   * `(i,j)` and supports move semantics for efficient block initialization.
+   *
+   * @param opr The block matrix to insert.
+   * @param i Block row index.
+   * @param j Block column index.
+   */
   qOperator(qmatrix<double> &opr, size_t i, size_t j) {
     std::array<size_t, 2> idx = {i, j}; // ToDo : Check for overrides
     storage[idx]              = std::move(opr);

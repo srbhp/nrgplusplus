@@ -16,6 +16,11 @@ set(CMAKE_CXX_FLAGS " -D_GLIBCXX_USE_TBB_PAR_BACKEND=0 -fsanitize=address,leak,u
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 #Add dependencies
+set(BLA_VENDOR OpenBLAS)
+find_package(LAPACK REQUIRED)
+include_directories(${LAPACKE_INCLUDE_DIRS})
+
+#Add dependencies
 find_package(Threads REQUIRED)  # Threads may or may not be required. For the profiler, the target that you link against
 set(THREADS_PREFER_PTHREAD_FLAG ON) # This is just for us, we do prefer pthreads on our system, because linux etc. We
 #MKL

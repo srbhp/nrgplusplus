@@ -44,6 +44,34 @@ extensions = [
 breathe_projects = {"nrgplusplus": "../build/_doxygen/xml"}
 breathe_default_project = "nrgplusplus"
 
+# Configure Breathe to handle Doxygen @code blocks properly
+breathe_domain_by_extension = {
+    "h": "cpp",
+    "hpp": "cpp",
+    "cpp": "cpp",
+    "c": "c",
+}
+breathe_domain_by_file_pattern = {
+    "*.hpp": "cpp",
+    "*.cpp": "cpp",
+    "*.h": "cpp",
+    "*.c": "c",
+}
+
+# Configure code block handling to strip Doxygen @code markers
+breathe_strip_code_block = True
+breathe_use_code_block_directive = True
+breathe_code_block_language_replacements = {
+    "cpp": "cpp",
+    "c": "c",
+    "python": "python",
+    "bash": "bash",
+    "verbatim": "cpp",  # Handle @verbatim blocks as C++ code
+}
+
+# Do not scan the secondary exhale generated source tree, this avoids duplicate labels.
+exclude_patterns = ["source/api/**"]
+
 # Setup the exhale extension
 exhale_args = {
     # These arguments are required
@@ -67,13 +95,10 @@ primary_domain = "cpp"
 # Tell sphinx what the pygments highlight language should be.
 highlight_language = "cpp"
 
-# The short X.Y version.
-# import exhale
-# NOTE: this is the companion site for Exhale, which is why I'm setting the
-#       version to be the same.  For your own projects, you would NOT do this!
-version = "0.0.1"  # exhale.__version__
-# The full version, including alpha/beta/rc tags.
-# release = "rc"  # exhale.__version__
+# Suppress specific highlighting warnings
+suppress_warnings = [
+    "misc.highlighting_failure",
+]
 
 # -- Options for HTML output -------------------------------------------------
 

@@ -92,6 +92,12 @@ public:
    * @return
    */
   [[nodiscard]] auto get_f_dag_operator() const { return f_dag_operator; }
+  /**
+   * @brief Calculate and store total charge quantum numbers for each basis state.
+   *
+   * This method assumes particle-number conservation and sums the
+   * occupations across all fermionic orbitals.
+   */
   void               create_QuantumNChargeonly() {
     // Here We assume that
     // charge of the individual spin is conserved
@@ -107,6 +113,12 @@ public:
       // std::cout << std::endl;
     }
   }
+  /**
+   * @brief Calculate and store charge and spin quantum numbers for each basis state.
+   *
+   * For each many-body state, this method computes (charge, spin_z) pairs
+   * using even/odd orbital contributions.
+   */
   void create_QuantumNspinCharge() {
     // Here We assume that
     // charge of the individual spin is conserved
@@ -127,6 +139,15 @@ public:
       // std::cout << std::endl;
     }
   }
+  /**
+   * @brief Compute "+-S_z" quantum numbers for a spin-conserved basis.
+   *
+   * `qsymmetry` describes partitioning of orbitals into spin-up and spin-down sets.
+   * If empty, the method creates a default even/odd split and then calculates
+   * `S_z` values as the difference of up and down occupancies.
+   *
+   * @param qsymmetry Vector of orbital index groups: [up_set, down_set]
+   */
   void create_QuantumSpinOnly(std::vector<std::vector<size_t>> &qsymmetry) {
     // qsymmetry defines the symmetries of propblem
     // qsymmetry.size = 2 . If there is four fermion flavours the qsymmetry is
@@ -171,6 +192,15 @@ public:
       // std::cout << std::endl;
     }
   }
+  /**
+   * @brief Build integer quantum-number vectors from orbital occupations.
+   *
+   * For each basis state, calcuates a quantum number per symmetry block in
+   * `qsymmetry` by summing occupancy values. This is a generic routine used
+   * by different symmetry modes.
+   *
+   * @param qsymmetry List of index groups defining each conserved quantity.
+   */
   void createQNumbers(const std::vector<std::vector<size_t>> &qsymmetry) {
     // qsymmetry defines the symmetries of propblem
     // qsymmetry.size = 2 for a system with charge and conserved
@@ -191,6 +221,12 @@ public:
       // std::cout << std::endl;
     }
   }
+  /**
+   * @brief Build block structure from computed quantum numbers.
+   *
+   * Groups basis states that share identical quantum numbers into blocks.
+   * Produces `nQBlocks`, `unique_Qnumbers`, and prepares for block-operator assembly.
+   */
   void create_Block_structure() {
     nQBlocks.clear();
     unique_Qnumbers.clear();
@@ -230,12 +266,28 @@ public:
     // std::cout << "nQBlocks : " << nQBlocks.size() << std::endl;
     //
   }
+  /**
+   * @brief Return the cached unique quantum-number vectors.
+   *
+   * If no blocks have been built, logs a warning and returns an empty vector.
+   *
+   * @return Vector of unique quantum numbers for each block.
+   */
   auto get_unique_Qnumbers() {
     if (unique_Qnumbers.empty()) {
       std::cout << "Warning: unique_Qnumbers is empty !" << std::endl;
     }
     return unique_Qnumbers;
   }
+  /**
+   * @brief Convert full-space operators to block (quantum-number) representation.
+   *
+   * Given a list of system operators in full basis, this method extracts
+   * block-submatrices corresponding to each quantum-number sector from `nQBlocks`.
+   *
+   * @param sys_operators Full-space operators (one per species).
+   * @return Block-diagonal operator set in pseudo-sparse format (qOperator).
+   */
   std::vector<qOperator>
   get_block_operators(const std::vector<qmatrix<>> &sys_operators) {
     // This function can be used to calculate any other
@@ -264,6 +316,16 @@ public:
     } // End of operator
     return block_operators;
   }
+  /**
+   * @brief Extract block diagonal Hamiltonian from full Hamiltonian matrix.
+   *
+   * Verifies Hermiticity, then assembles block operators for each identity
+   * quantum number sector. Throws if the Hamiltonian is not properly block
+   * diagonal.
+   *
+   * @param sys_operators Full-space Hamiltonian matrix.
+   * @return Block operator containing block Hamiltonians in `qOperator` form.
+   */
   qOperator get_block_Hamiltonian(const qmatrix<double> &sys_operators) {
     // This function can be used to calculate any other
     // check the Hamiltonian is Harmitian i.e H == H.T
@@ -310,8 +372,28 @@ public:
     return block_operators;
   }
   // End of operator
+  /**
+   * @brief Get the fermion occupancy basis representation.
+   *
+   * @return Vector of occupation-number vectors, one per basis state.
+   */
   [[nodiscard]] auto get_basis() const { return fnParticle; }
+
+  /**
+   * @brief Enable or disable debug output for internal block construction.
+   *
+   * @param debug If true, prints extra diagnostic traces during basis operations.
+   */
   void               setDebugMode(bool debug = true) { DebugView = debug; }
+
+  /**
+   * @brief Build the full creation-operator basis and number quantum numbers.
+   *
+   * Generates fermion raising operators (`f^`) for each orbital and
+   * then computes occupation numbers used by quantum-number partitioning.
+   *
+   * @param ldof Number of fermionic orbitals (degrees of freedom).
+   */
   void               createFermionBasis(size_t ldof) {
     qmatrix<double> fdag({0, 0, 1, 0});
     qmatrix<double> sigz({1, 0, 0, -1});
@@ -337,6 +419,12 @@ public:
     //
   }
   std::vector<qmatrix<>> fermionOprMat;
+  /**
+   * @brief Construct block-wise f-dag operators from full operators.
+   *
+   * Uses the computed fermion operators in `fermionOprMat` and the block map
+   * from `create_Block_structure` to build `f_dag_operator`.
+   */
   void                   set_f_dag_operators() {
     f_dag_operator = get_block_operators(fermionOprMat);
   }

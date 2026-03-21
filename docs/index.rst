@@ -2,103 +2,94 @@
 nrgplusplus
 =========================================================
 
-The numerical renormalization group (NRG) method is a powerful
-technique for investigating the low-energy properties of strongly
-correlated electronic systems. It has found widespread applications
-in condensed matter physics, including the study of quantum impurity
-models and the Kondo effect. In order to facilitate the implementation
-of the NRG method, several software packages have been developed, each
-with its own strengths and limitations.
+**Efficient Numerical Renormalization Group (NRG) calculations in Modern C++**
 
-`nrgplusplus` is  implementation of the NRG method is written in the
-Modern C++ programming language. This package provides a versatile and
-efficient framework for performing NRG calculations. The C++ language 
-is well-suited to numerical calculations, and the package has been 
-designed with efficiency and speed in mind.
+``nrgplusplus`` is a high-performance C++ library for solving quantum impurity problems 
+using the Numerical Renormalization Group method. It is designed for studying strongly 
+correlated electron systems including:
+
+- **Kondo effect** and quantum impurities
+- **Single Impurity Anderson Model (SIAM)**
+- **Multi-channel and multi-impurity systems**
+- **Magnetic impurities in superconductors, Yu-Shiba-Rusinov states**
+
+The library provides a modular, template-based architecture that is both flexible for 
+model development and optimized for computational speed using Intel MKL.
 
 
+
+
+Architecture Overview
+---------------------
 
 .. image:: ../docs/image/outline.svg
    :width: 100%
-   :alt: Outline of the nrgplusplus library
+   :alt: Architecture of the nrgplusplus library
 
-The ``nrgcore`` is the main class which handles all NRG sub-tasks. 
-``nrgcore`` takes two class as a template argument 
-for the Impurity model and the bath model. The bath model
-is a class that describes bath. The impurity model is a class
-that describes the impurity. In some cases the impurity class 
-model is also include the first Wilson site.
+**Core Components:**
+
+- **nrgcore**: Main NRG solver class that manages iterations
+- **Impurity models**: Define the quantum impurity (e.g., Anderson model, Kondo model)
+- **Bath models**: Define the environment or conduction band
+- **Symmetries**: Block-diagonalize by conserved quantum numbers (charge, spin, etc.)
+
+Every impurity or bath model must provide:
+
+  * ``std::vector<qOperator> f_dag_operator`` — Fermionic creation operators
+  * ``std::vector<std::vector<double>> eigenvalues_Q`` — Eigenvalues per quantum number sector
+  * ``std::vector<double> chi_Q`` — Fermion signs (parity)
+  * ``std::vector<std::vector<int>> n_Q`` — Quantum numbers labeling each sector
 
 
-Each Model (bath or impurity) class  should have
-these member vairables:
+Quick Start Example: Single Impurity Anderson Model (SIAM)
+----------------------------------------------------------
 
+**Reference**: `Bulla et al., Rev. Mod. Phys. 80, 395 (2008) <https://doi.org/10.1103/RevModPhys.80.395>`_
+
+**1. Define the impurity and bath models:**
+
+.. code-block:: cpp
+
+  // Impurity: single orbital with onsite energy and Hubbard U
+  spinhalf impurity(eps=-1.0, U_int=2.0);
   
-  * std::vector<qOperator> f_dag_operator
-  * std::vector<std::vector<double>> eigenvalues_Q
-  * std::vector<double> chi_Q
-  * std::vector<std::vector<int>> n_Q
+  // Bath: non-interacting conduction electrons
+  spinhalf bathModel(eps=0, U_int=0);
 
-
-Example : Single Impurity Anderson Impurity (SIAM)
----------------------------------------------------
-`(See : examples/rgflowSIAM/main.cpp)`
-
-A overview of the SIAM model can be found here `Bulla, 2008 <https://doi.org/10.1103/RevModPhys.80.395>  `_ .
-Define the impurity Model wth onsite energy `eps` and Coulomb energy `U_int`. 
-
-.. code-block:: cpp
-
-  spinhalf impurity(eps, U_int);
-
-The bath for the SIAM is also constructed in the same way. 
-
-.. code-block:: cpp
-
-  spinhalf bathModel(0, 0); // set parameters
-
-Once we have created the bath and the impurity we can 
-construct a `nrgcore` object which will take care of 
-many things that we need to do for the `NRG iterations`.
-This includes calculating static and dynamic quantities
-of the Impurity.
+**2. Create the NRG solver and configure:**
 
 .. code-block:: cpp
 
   nrgcore<spinhalf, spinhalf> siam(impurity, bathModel);
-  siam.set_parameters(1024);       // set max number of states to be kept
-  siam.add_bath_site({V, V}, 1.0); // V is the coupling og the impurity and first bath site. 
-  siam.update_internal_state();
+  siam.set_parameters(1024);  // Keep up to 1024 states per iteration
 
-Next we iteratively add the bath sites in the same way. We 
-also create HDF5 file object to save the Eigenvalues.
-
+**3. Run NRG iterations:**
 
 .. code-block:: cpp
 
-  // file where outputput will be wriiten
-  h5stream::h5stream rfile("resultSIAM.h5");
-  // Iterative add bath sites
-  for (int in = 0; in < nMax; in++) {
-    double rescale = 1.0;
-    if (in > 0) {
-      rescale = std::sqrt(LAMBDA);
-    }
-    siam.add_bath_site({hopping(in, LAMBDA), hopping(in, LAMBDA)}, rescale);
-    // Update System Operators now here if we need to.
-    // This has to be done before updating the systems internal state.
+  h5stream::h5stream results("siam_output.h5");  // Save results to HDF5
+  
+  double Lambda = 2.0;  // RG flow parameter
+  for (int iteration = 0; iteration < nMax; iteration++) {
+    double V = 0.5;  // Impurity-bath coupling
+    double rescale = (iteration > 0) ? std::sqrt(Lambda) : 1.0;
+    
+    siam.add_bath_site({V, V}, rescale);
     siam.update_internal_state();
-    // Save the eigenvalue of the current iteration
-    rfile.write(siam.all_eigenvalue, "Eigenvalues" + std::to_string(in));
+    
+    results.write(siam.all_eigenvalue, "iteration" + std::to_string(iteration));
   }
-  rfile.close();
+  results.close();
+
+**4. Visualize results:**
 
 
-Plot the RG flow `(See : examples/rgflowSIAM/plot.py)`.
+Plot RG flow (see `examples/rgflowSIAM/plot.py`)
 
-.. image:: ../docs/image/rgflowSIAM.png
-   :width: 100%
-   :alt: RG flow plot
+.. image:: ../docs/image/rgflow.png
+   :width: 80%
+   :alt: RG flow of SIAM energy levels
+
 
 
 Docs

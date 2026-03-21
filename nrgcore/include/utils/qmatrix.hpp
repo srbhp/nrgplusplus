@@ -5,13 +5,17 @@
 #include <initializer_list>
 #include <iostream>
 #include <numeric>
-// #include <lapacke.h> // comment this if mkl is used
-// #include <cblas.h>
-// uncomment if you want to use the mkl class
+
+#if defined(USE_MKL) || defined(HAVE_MKL)
+#ifndef MKL_Complex16
 #define MKL_Complex16 std::complex<double>
+#endif
 #include <mkl.h>
 #include <mkl_lapacke.h>
-// typedef double _Complex DCOMPLEX
+#else
+#include <lapacke.h>
+#include <cblas.h>
+#endif
 // #include <omp.h>
 #include <ostream>
 #include <stdexcept>
@@ -42,15 +46,42 @@ template <typename T> void LOGGER(const std::string &name, T x) {
   std::cout << "## " << name << " : " << x << std::endl;
 }
 // #define logger(name) LOGGER(#name, (name))
-// This is a matrix class quamtum(q) operators
-// This is also consistent with Lapack_row_MAJOR
+
+/**
+ * @brief A template matrix class for quantum (q) operators and general linear algebra.
+ *
+ * qmatrix is a row-major matrix container for NRG quantum calculations, supporting:
+ * - Generic template types (double, std::complex<double>)
+ * - Dense matrix operations and eigenvalue decomposition
+ * - Kronecker products for tensor operations
+ * - Intel MKL optimized BLAS/LAPACK routines
+ *
+ * The matrix is stored in flat STL vector in row-major order (LAPACK_ROW_MAJOR),
+ * with element (i,j) at index i*column+j.
+ *
+ * @tparam T Matrix element type (default: double). Supports std::complex<double>.
+ * @note All indexing is 0-based. OpenMP parallelization used for large operations.
+ */
 using cm_vec = std::vector<std::complex<double>>;
 template <class T = double> // default is double
 class qmatrix {
+  /// @brief Flat vector storage of matrix elements in row-major order
   std::vector<T> mat{0};
-  size_t         row{0}, column{0}, dim{0};
+  /// @brief Number of rows
+  size_t         row{0};
+  /// @brief Number of columns  
+  size_t         column{0};
+  /// @brief Total elements (cached for efficiency)
+  size_t         dim{0};
 
 public:
+  /**
+   * @brief Construct matrix from initializer list.
+   *
+   * @param inputVec Initializer list with matrix elements in row-major order
+   * @param _row Number of rows (default: 0, compute from size)
+   * @param _column Number of columns (default: 0, compute from size)
+   */
   qmatrix(const std::initializer_list<T> inputVec, size_t _row = 0,
           size_t _column = 0)
       : mat(inputVec) {
@@ -106,6 +137,11 @@ public:
     this->mat.shrink_to_fit();
     // TODO(sp): restrict memory usage
   }
+  /**
+   * @brief Reset the matrix to empty state.
+   *
+   * Empties internal storage and resets dimensions to 0.
+   */
   void clear() {
     this->row    = 0;
     this->column = 0;
@@ -113,15 +149,48 @@ public:
     this->mat.clear();
     this->mat.shrink_to_fit();
   } // This is for square matrix
+
+  /**
+   * @brief Square matrix constructor for fill initialization.
+   *
+   * @param N number of rows and columns
+   * @param populate value for all entries
+   */
   qmatrix(size_t N, T populate) { qmatrix(N, N, populate); }
+
+  /**
+   * @brief Default constructor creates an empty matrix.
+   */
   qmatrix() { qmatrix(0, 0, 0); }
   [[nodiscard]] T     &operator()(size_t i) { return this->mat[i]; }
   [[nodiscard]] T      operator()(size_t i) const { return this->mat[i]; }
   [[nodiscard]] T     &at(size_t i) { return this->mat[i]; }
   [[nodiscard]] T      at(size_t i) const { return this->mat[i]; }
+  /**
+   * @brief Return number of elements in matrix storage.
+   *
+   * @return total number of entries, i.e., row * column.
+   */
   [[nodiscard]] size_t size() const { return dim; }
+
+  /**
+   * @brief Return number of rows.
+   * @return row count.
+   */
   [[nodiscard]] size_t getrow() const { return row; }
+
+  /**
+   * @brief Return number of columns.
+   * @return column count.
+   */
   [[nodiscard]] size_t getcolumn() const { return column; }
+
+  /**
+   * @brief Element access by linear index in row-major order.
+   *
+   * @param i linear index (0-based)
+   * @return reference to element.
+   */
   [[nodiscard]] T     &operator()(size_t i, size_t j) {
         return this->mat[i * column + j];
   }
@@ -135,18 +204,33 @@ public:
   }
   // TODO(sp): arithmetic operator
   // TODO(sp): use stl
+  /**
+   * @brief Sum all elements in the matrix.
+   *
+   * @return sum of all entries.
+   */
   [[nodiscard]] T sum() const {
-    // Sum of all elements
-    return std::accumulate(this->mat.begin(), this->mat.end(), 0);
+    return std::accumulate(this->mat.begin(), this->mat.end(), T{});
   }
+
+  /**
+   * @brief Sum absolute values of all entries.
+   *
+   * @return absolute sum of matrix entries.
+   */
   [[nodiscard]] T absSum() const {
-    // Sum of all absolute values of the elements
     double sum2 = 0;
     for (auto aa : this->mat) {
       sum2 = sum2 + std::fabs(aa);
     }
-    return sum;
+    return sum2;
   }
+  /**
+   * @brief Trace of the matrix (sum of diagonal elements).
+   *
+   * @return trace value.
+   * @throws std::runtime_error if matrix is not square.
+   */
   [[nodiscard]] T trace() const {
     if (this->column == this->row) {
       T result{0};

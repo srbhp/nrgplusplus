@@ -192,11 +192,11 @@ namespace h5stream {
  *		- "x":   Create a file, fail if exists
  *
  *
- *		@code{.cpp}
+ *		@verbatim
  *		h5stream::h5stream file("sample.h5", "tr");
  *		// or
  *		h5stream::h5stream file("sample.h5");
- *		@endcode
+ *		@endverbatim
  *
  * <H3>  write and read `std::vector`</H3>
 
@@ -204,10 +204,10 @@ namespace h5stream {
  *		Create a vector and write it to the file
  *
  *
- *		@code{.cpp}
+ *		@verbatim
  *		std::vector<double> matrix { 1, 2, 3282, 932 };
  *		file.write<double>(matrix, "matrix");
- *		@endcode
+ *		@endverbatim
  *
  *
  * <H3>   write and read Metadata </H3>
@@ -215,30 +215,30 @@ namespace h5stream {
  *		Write Attributes( Metadata) to the to the same data space
  *
  *
- *		@code{.cpp}
+ *		@verbatim
  *		auto dspace = file.get_dataspace("matrix");
  *		dspace.write_atr<double>(1.2, "Units");
- *		@endcode
+ *		@endverbatim
  *
  *
  *  <H3> Read data from the file </H3>
  *
  *
- *		@code{.cpp}
+ *		@verbatim
  *		auto xx = file.read_vector<double>("matrix");
  *		//OR
  *		file.read<double>(xx, "matrix");
- *		@endcode
+ *		@endverbatim
  *
  *
  *  <H3>  Read Attribute (Metadata) </H3>
- *		@code{.cpp}
+ *		@verbatim
  *		double x = 0;
  *		dspace.read_atr<double>(x, "Units");
  *		std::cout << "Attribute : " << x << std::endl;
  *		std::cout << "HDF file size (MB): " << file.file_size() <<
  *       std::endl;
- *		@endcode
+ *		@endverbatim
  *
  */
 class h5stream {

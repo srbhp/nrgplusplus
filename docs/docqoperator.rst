@@ -1,5 +1,5 @@
-Impurity and bath Operators 
-================
+Impurity and bath Operators
+===========================
 
 .. doxygenclass:: qOperator
    :members:
