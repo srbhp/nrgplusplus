@@ -516,18 +516,35 @@ private:
   double errorbarInEnergy{0}; // Tolerance for energy degeneracy.
 
 public:
-  std::vector<double> all_eigenvalue; // All eigenvalues across sectors.
-  std::vector<double> relativeGroundStateEnergy; // Ground state energies per iteration.
-  std::vector<std::vector<size_t>> eigenvaluesQ_kept_indices; // Indices of kept states per sector.
-  std::vector<qmatrix<double>>     current_hamiltonQ; // Current Hamiltonians (unitary matrices).
-  std::vector<std::vector<int>>    current_sysmQ; // Current quantum number sectors.
-  std::vector<std::vector<int>>    pre_sysmQ; // Previous quantum number sectors.
-  std::vector<std::vector<double>> eigenvaluesQ; // Eigenvalues per sector.
-  std::vector<std::vector<size_t>> coupled_nQ_index; // Coupled indices for sectors.
-  int                              nrg_iterations_cnt{}; // Current iteration count.
-  int                              nrg_iterations_min{}; // Iteration where truncation started.
-  std::vector<std::vector<double>> bath_eigenvaluesQ; // Bath eigenvalues per sector.
-  std::vector<std::vector<int>>    nq_bath; // Bath quantum numbers.
+  /** @brief All eigenvalues from all quantum number sectors, sorted in ascending order. */
+  std::vector<double> all_eigenvalue;
+  /** @brief The ground state energy of each NRG iteration. */
+  std::vector<double> relativeGroundStateEnergy;
+  /** @brief Indices of the kept states in each quantum number sector. */
+  std::vector<std::vector<size_t>> eigenvaluesQ_kept_indices;
+  /** @brief The Hamiltonian for each quantum number sector in the current iteration. This is the unitary matrix that diagonalizes the Hamiltonian.*/
+  std::vector<qmatrix<double>>     current_hamiltonQ;
+  /** @brief The quantum numbers of the current system. */
+  std::vector<std::vector<int>>    current_sysmQ;
+  /** @brief The quantum numbers of the previous system. */
+  std::vector<std::vector<int>>    pre_sysmQ;
+  /** @brief The eigenvalues of the Hamiltonian for each quantum number sector. */
+  std::vector<std::vector<double>> eigenvaluesQ;
+  /** @brief Indices that couple different quantum number sectors. */
+  std::vector<std::vector<size_t>> coupled_nQ_index;
+  /** @brief The current NRG iteration count. */
+  int                              nrg_iterations_cnt{};
+  /** @brief The NRG iteration from which the truncation of states started. */
+  int                              nrg_iterations_min{};
+  /** @brief The eigenvalues of the bath Hamiltonian for each quantum number sector. */
+  std::vector<std::vector<double>> bath_eigenvaluesQ;
+  /** @brief The quantum numbers of the bath. */
+  std::vector<std::vector<int>>    nq_bath;
+  /**
+   * @brief Retrieves a pointer to the f-dag operators of the previous Wilson site.
+   *
+   * @return A pointer to the vector of qOperator objects.
+   */
   std::vector<qOperator>          *getPreWilsonSiteOperators() {
   return &pre_fdag_oparator;
   }

@@ -2,6 +2,13 @@
 #include "models/fermionBasis.hpp"
 #include <cmath>
 #include <cstddef>
+/**
+ * @brief Constructs a twoChannel object.
+ *
+ * This constructor initializes the basis and operators for a two-channel spin-1/2 impurity.
+ * It uses a `fermionBasis` with 4 states (2 channels x 2 spins).
+ * The Hamiltonian for the bare impurity is initialized to zero.
+ */
 twoChannel::twoChannel() {
   //
   // create_basis();
@@ -39,25 +46,27 @@ twoChannel::twoChannel() {
   }
   // TODO: rotate the f operator
 }
+/**
+ * @brief Get the basis quantum numbers for all eigenstates.
+ *
+ * @return A vector of vectors, where each inner vector represents the quantum numbers of a state.
+ */
 std::vector<std::vector<int>> twoChannel::get_basis() {
-  /** returns the basis vector
-   *
-   */
   return n_Q;
 }
+/**
+ * @brief Get the ground state energy for each quantum number sector.
+ *
+ * @return A vector of vectors, where each inner vector contains the eigenvalues for a quantum number sector.
+ */
 std::vector<std::vector<double>> twoChannel::get_eigenvaluesQ() {
-  /** returns eigenvalues_Q
-   *
-   *
-   */
   return eigenvalues_Q;
 }
+/**
+ * @brief Get the fermion parity factor for each quantum number sector.
+ *
+ * @return A vector of doubles, where each element is the fermion parity sign for a quantum number sector.
+ */
 std::vector<double> twoChannel::get_chi_Q() {
-  /** This functions returns
-   *  `vector<vector>` of
-   *  \f$ \chi_Q  = e^{n_Q} \f$
-   *
-   *
-   */
   return chi_Q;
 }

@@ -248,6 +248,12 @@ public:
     //--------------------------------------------------------------
     // End of saveNrgData0
   }
+  /**
+   * @brief Loads the data for the current iteration from the file.
+   *
+   * This function is a convenience wrapper around `loadCurrentData(int in)`,
+   * using the current iteration count from the nrg_object.
+   */
   void loadCurrentData() { loadCurrentData(nrg_object->nrg_iterations_cnt); }
   /**
    * @brief Loads the data from the file. This function is called in the

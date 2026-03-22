@@ -11,14 +11,26 @@
 #include <vector>
 
 /**
- * @brief Updates the system operators for the NRG object.
+ * @brief Updates system operators for the next NRG iteration.
  *
- * This function iterates over the quantum numbers and updates the system
- * operators based on the coupled quantum indices and bath eigenvalues.
+ * This function transforms a given set of operators (e.g., impurity operators)
+ * into the basis of the new, larger system created after adding a bath site.
+ * This is a crucial step for calculating physical observables in later stages,
+ * such as in the backward iteration of the NRG.
  *
- * @tparam nrgcore_type The type of the NRG core object.
+ * The update is performed by constructing the operator representation in the
+ * coupled basis of the (system + new bath site) and then rotating it into the
+ * new eigenbasis of the combined system's Hamiltonian.
+ *
+ * @tparam nrgcore_type The type of the NRG core object, which provides the
+ *                      necessary information about the current NRG state
+ *                      (eigenbases, quantum numbers, etc.).
  * @param nrg_object Pointer to the NRG core object.
- * @param systemo_oparator_nQ Vector of system operators to be updated.
+ * @param systemo_oparator_nQ A vector of `qOperator` objects to be updated.
+ *                           These operators are defined in the basis of the
+ *                           previous NRG iteration. After the function call,
+ *                           they will be updated to the basis of the current
+ *                           iteration.
  */
 template <typename nrgcore_type> // nrgcore_type is a type of
 void update_system_operator(nrgcore_type           *nrg_object, // NOLINT

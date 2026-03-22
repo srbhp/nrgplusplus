@@ -6,11 +6,32 @@
 #include "utils/h5stream.hpp"
 #include <iostream>
 const double LAMBDA = 2.0; // Dont do this
-double       hopping(int site) {
+/**
+ * @brief Calculates the hopping parameter for a given site.
+ *
+ * This function calculates the hopping parameter for a given site in the context
+ * of the Numerical Renormalization Group (NRG) method. The formula used is
+ * based on the discretization of the bath density of states.
+ *
+ * @param site The site index.
+ * @return The hopping parameter value.
+ */
+double hopping(int site) {
   return 0.5 * (1.0 + 1.0 / LAMBDA) * (1. - std::pow(LAMBDA, -site - 1)) /
          std::sqrt((1.0 - std::pow(LAMBDA, -2. * site - 1)) *
-                         (1.0 - std::pow(LAMBDA, -2. * site - 3)));
+                   (1.0 - std::pow(LAMBDA, -2. * site - 3)));
 }
+/**
+ * @brief Main function for the Kondo model entropy calculation example.
+ *
+ * This example demonstrates the use of the NRG framework to solve the Kondo
+ * model and calculate the entropy. It initializes a spin-half Kondo impurity
+ * and a bath, then iteratively adds bath sites and diagonalizes the
+ * Hamiltonian. Finally, it performs a backward iteration to calculate
+ * thermodynamic properties like entropy.
+ *
+ * @return 0 on success.
+ */
 int main() {
   timer  mtime("Total time : ");
   size_t minIterations = 1;

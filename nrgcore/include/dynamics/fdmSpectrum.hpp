@@ -62,6 +62,12 @@ public:
     lastiteration = false;
   }
 
+  /**
+   * @brief Sets the reduced density matrix.
+   *
+   * This function calculates the reduced density matrix from the full density matrix `rhoZero`.
+   * It traces out the bath degrees of freedom to obtain the density matrix for the impurity part.
+   */
   void setReduceDensityMatrix() {
     // timer t1("setReduceDensityMatrix");
     // Set reducedRho
@@ -107,6 +113,12 @@ public:
     }
   }
 
+  /**
+   * @brief Sets the local partition function and Boltzmann factors.
+   *
+   * This function calculates the ground state energy and the partition function for the current shell.
+   * It then computes the Boltzmann factors which are used to initialize the density matrix at the last iteration.
+   */
   void setLocalPartitionFunction() {
     localGroundStateEnergy = 0;
     localPartitionFunction = 0; // Ground state degenarecy
@@ -144,6 +156,12 @@ public:
 
   std::vector<std::vector<double>> BoltzmannFactor;
 
+  /**
+   * @brief Sets the initial density matrix `rhoZero`.
+   *
+   * At the last iteration (T=0), the density matrix is initialized with the ground state projection.
+   * For other iterations, it is constructed using the reduced density matrix from the previous step.
+   */
   void setRhoZero() {
     if (lastiteration) {
       setLocalPartitionFunction();
@@ -180,6 +198,12 @@ public:
     // move the operator
   }                        // End of  update_system_operatorQ
 
+  /**
+   * @brief Calculates the contribution to the spectral function.
+   *
+   * This function calculates the spectral weights by computing traces of operator products with the density matrix.
+   * It computes both positive and negative frequency contributions.
+   */
   void rhoDotOperators() { // NOLINT
     double specSum = 0.0;
     //
@@ -252,8 +276,16 @@ public:
     // Rotate the c operator in the eigen basis
   }
 
+  /**
+   * @brief Sets the temperature for the calculation.
+   *
+   * @param at The temperature value.
+   */
   void setTemperature(double at) { kBT = at; }
 
+  /**
+   * @brief Sets the indices of the kept states for the current iteration.
+   */
   void setCurrentIndex() {
     if (currentKeptIndex.empty()) {
       for (size_t i = 0; i < nrg_object->current_sysmQ.size(); i++) {
@@ -265,6 +297,12 @@ public:
     previoudKeptIndex = nrg_object->eigenvaluesQ_kept_indices;
   }
 
+  /**
+   * @brief Sets the operators for the spectral function calculation.
+   *
+   * @param bopr Pointer to the vector of creation-like operators.
+   * @param aopr Pointer to the vector of annihilation-like operators (optional, if not provided, bopr is used for both).
+   */
   void setOperator(std::vector<qOperator> *bopr,
                    std::vector<qOperator> *aopr = nullptr) {
     aOperator = aopr;
