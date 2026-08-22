@@ -358,13 +358,15 @@ public:
         // std::cout << "One of the dimension is zero " << std::endl;
         return result;
       }
-      const double alpha = talpha;
-      const double beta  = 0;
       if constexpr (std::is_same_v<T, double>) {
+        const double alpha = talpha;
+        const double beta  = 0;
         cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m, n, k, alpha,
                     this->data(), k, rhs.data(), n, beta, result.data(), n);
       }
       if constexpr (std::is_same_v<T, std::complex<double>>) {
+        const std::complex<double> alpha{talpha, 0.0};
+        const std::complex<double> beta{0.0, 0.0};
         cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m, n, k, &alpha,
                     this->data(), k, rhs.data(), n, &beta, result.data(), n);
       }
