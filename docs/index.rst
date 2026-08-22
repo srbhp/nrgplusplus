@@ -5,16 +5,26 @@ nrgplusplus
 **Efficient Numerical Renormalization Group (NRG) calculations in Modern C++**
 
 ``nrgplusplus`` is a high-performance C++ library for solving quantum impurity problems 
-using the Numerical Renormalization Group method. It is designed for studying strongly 
-correlated electron systems including:
+using the Numerical Renormalization Group method. It provides comprehensive tools for studying strongly 
+correlated electron systems with flexible model definitions and optimized numerical performance.
 
-- **Kondo effect** and quantum impurities
-- **Single Impurity Anderson Model (SIAM)**
-- **Multi-channel and multi-impurity systems**
-- **Magnetic impurities in superconductors, Yu-Shiba-Rusinov states**
+**Supported Systems:**
 
-The library provides a modular, template-based architecture that is both flexible for 
-model development and optimized for computational speed using Intel MKL.
+- **Kondo effect** and quantum impurities  
+- **Single Impurity Anderson Model (SIAM)** — a fundamental model in condensed matter physics
+- **Multi-channel and multi-impurity systems** — complex many-body problems
+- **Superconducting proximity effects** — magnetic impurities in superconductors, Yu-Shiba-Rusinov states
+- **Free particles and resonant levels** — non-interacting reference systems
+- **Custom models** — fully extensible architecture for user-defined Hamiltonians
+
+**Key Capabilities:**
+
+- Dynamic spectral functions and correlation functions via Full Density Matrix NRG (FDM-NRG)
+- Temperature-dependent thermodynamic quantities (entropy, susceptibility, specific heat)
+- Flexible quantum number symmetries and block-diagonalization
+- Native HDF5 data persistence for large-scale computations
+- Modern C++20 design with efficient memory management
+- BLAS/LAPACK optimization for linear algebra operations
 
 
 
@@ -39,6 +49,38 @@ Every impurity or bath model must provide:
   * ``std::vector<std::vector<double>> eigenvalues_Q`` — Eigenvalues per quantum number sector
   * ``std::vector<double> chi_Q`` — Fermion signs (parity)
   * ``std::vector<std::vector<int>> n_Q`` — Quantum numbers labeling each sector
+
+
+Available Models and Examples
+------------------------------
+
+The library includes 10 complete, working examples covering a range of physical systems:
+
+**Renormalization Group Flow:**
+
+- **rgflowSIAM** — RG flow evolution for the Single Impurity Anderson Model
+- **rgflowKondo** — RG flow analysis of the Kondo effect with spin-flip scattering
+
+**Thermodynamic Properties:**
+
+- **entropySIAM** — Temperature-dependent entropy for Anderson impurities
+- **entropyKondo** — Temperature evolution in Kondo systems
+
+**Spectral and Dynamic Properties:**
+
+- **fdmSpectrumSiam** — Spectral function via Frequency Domain Mode for SIAM
+- **fdmSpectrumTwoChannel** — Multi-channel system spectral properties
+
+**Specialized Systems:**
+
+- **resonantLevel** — Non-interacting resonant level model
+- **twoChannelSiam** — Multi-channel Anderson impurity system
+- **rabiAnderson** — Rabi oscillations coupled to Anderson impurity
+- **freeModel** — Free fermion model for testing and validation
+
+Each example includes C++ source, CMake configuration, Python analysis scripts, and sample outputs. 
+See the `API Documentation <api/library_root.html>`_ for detailed class references and the 
+`Build Guide <build.html>`_ for compilation instructions.
 
 
 Quick Start Example: Single Impurity Anderson Model (SIAM)
@@ -83,7 +125,6 @@ Quick Start Example: Single Impurity Anderson Model (SIAM)
 
 **4. Visualize results:**
 
-
 Plot RG flow (see `examples/rgflowSIAM/plot.py`)
 
 .. image:: ../docs/image/rgflow.png
@@ -91,25 +132,103 @@ Plot RG flow (see `examples/rgflowSIAM/plot.py`)
    :alt: RG flow of SIAM energy levels
 
 
+Theory and References
+---------------------
 
-Docs
-====
+This implementation follows the Numerical Renormalization Group method as described in the seminal review:
+
+**Bulla, R., Costi, T. A., & Pruschke, T. (2008).**  
+*The Numerical Renormalization Group Method for Quantum Impurity Systems.*  
+**Reviews of Modern Physics**, 80(2), 395–450.  
+`https://doi.org/10.1103/RevModPhys.80.395 <https://doi.org/10.1103/RevModPhys.80.395>`_
+
+The method is particularly suited for:
+- Computing ground state and thermal properties
+- Calculating spectral functions and response functions
+- Studying universal properties in quantum impurity physics
+- Analyzing scaling behavior near quantum critical points
+
+
+System Requirements
+-------------------
+
+**Compiler & Build:**
+
+- C++20 compatible compiler (GCC 10+, Clang 12+, or equivalent)
+- CMake 3.11 or later
+
+**Libraries:**
+
+- BLAS (Basic Linear Algebra Subprograms)
+- LAPACK (Linear Algebra Package)
+- LAPACKE (C interface to LAPACK)
+- HDF5 (for data I/O)
+
+**Optional:**
+
+- Python 3.11+ (for visualization and analysis scripts)
+- Sphinx (for building documentation)
+
+See the `Build Guide <build.html>`_ for detailed installation instructions for your system.
+
+
+Getting Started
+===============
+
+New to ``nrgplusplus``? Here's how to get started:
+
+1. **Installation & Build** — `Build Guide <build.html>`_
+2. **Quick Examples** — Run the working examples in ``examples/``
+3. **API Reference** — Detailed class and function documentation below
+
+Complete Documentation
+======================
 
 .. toctree::
   :maxdepth: 2
-  :caption: Contents:
+  :caption: Installation & Setup:
 
-  api/library_root
   build
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Core Library:
+
   docnrgcore
+  docnrgdata
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Impurity Models:
+
   docspinhalf
   docfermionBasis
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Quantum Operators & Symmetries:
+
   docqoperator
   docsysopr
-  docnrgdata
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Dynamics & Spectroscopy:
+
   docfdmback
   docfdmspec
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Utilities & I/O:
+
   doch5stream
+
+.. toctree::
+  :maxdepth: 3
+  :caption: Full API Reference:
+
+  api/library_root
 
 Indices and tables
 ==================
