@@ -42,6 +42,13 @@ std::ostream &operator<<(std::ostream                           &out,
   }
   return out;
 }
+/**
+ * @brief Convenience logger used for quick debugging in numerical code.
+ *
+ * @tparam T Type of the value to print.
+ * @param name Label shown before the value.
+ * @param x Value to emit to standard output.
+ */
 template <typename T> void LOGGER(const std::string &name, T x) {
   std::cout << "## " << name << " : " << x << std::endl;
 }
@@ -65,29 +72,29 @@ template <typename T> void LOGGER(const std::string &name, T x) {
 using cm_vec = std::vector<std::complex<double>>;
 template <class T = double> // default is double
 class qmatrix {
-  /// @brief Flat vector storage of matrix elements in row-major order
+  /// @brief Flat vector storage of matrix elements in row-major order.
   std::vector<T> mat{0};
-  /// @brief Number of rows
+  /// @brief Number of rows in the matrix.
   size_t         row{0};
-  /// @brief Number of columns  
+  /// @brief Number of columns in the matrix.
   size_t         column{0};
-  /// @brief Total elements (cached for efficiency)
+  /// @brief Total number of stored elements.
   size_t         dim{0};
 
 public:
   /**
-   * @brief Construct matrix from initializer list.
+   * @brief Construct a matrix from an initializer list.
    *
-   * @param inputVec Initializer list with matrix elements in row-major order
-   * @param _row Number of rows (default: 0, compute from size)
-   * @param _column Number of columns (default: 0, compute from size)
+   * If no explicit shape is provided, the list is interpreted as a square matrix.
+   *
+   * @param inputVec Row-major values to initialize the matrix with.
+   * @param _row Number of rows; when zero the size is inferred as square.
+   * @param _column Number of columns; when zero the size is inferred as square.
+   * @throws std::runtime_error If a square matrix is implied but the flat size is not square.
    */
   qmatrix(const std::initializer_list<T> inputVec, size_t _row = 0,
           size_t _column = 0)
       : mat(inputVec) {
-    // check if this is a quare matrix
-    // std::cout << "constructed with a " << inputVec.size() << "-element
-    // list\n";
     if (_row == 0 && _column == 0) {
       this->row    = std::sqrt(inputVec.size());
       this->column = std::sqrt(inputVec.size());
@@ -103,9 +110,17 @@ public:
     }
     this->mat.shrink_to_fit();
   }
+
+  /**
+   * @brief Construct a matrix from an STL vector.
+   *
+   * @param inputVec Flat row-major values.
+   * @param _row Number of rows; zero implies a square matrix.
+   * @param _column Number of columns; zero implies a square matrix.
+   * @throws std::runtime_error If the supplied vector is not compatible with a square matrix.
+   */
   qmatrix(const std::vector<T> &inputVec, size_t _row = 0, // NOLINT
           size_t _column = 0) {
-    // check if this is a quare matrix
     if (_row == 0 && _column == 0) {
       this->row    = std::sqrt(inputVec.size());
       this->column = std::sqrt(inputVec.size());
@@ -121,26 +136,39 @@ public:
     this->mat = inputVec;
     this->mat.shrink_to_fit();
   }
+
+  /**
+   * @brief Allocate a matrix with the given shape and fill value.
+   *
+   * @param _row Number of rows.
+   * @param _column Number of columns.
+   * @param populate Fill value assigned to every entry.
+   */
   qmatrix(size_t _row, size_t _column, T populate) {
     this->row    = _row;
     this->column = _column;
     this->dim    = _column * _row;
     this->mat    = std::vector<T>(_row * _column, populate);
     this->mat.shrink_to_fit();
-    // TODO(sp): restrict memory usage
   }
+
+  /**
+   * @brief Resize the matrix and repopulate all entries.
+   *
+   * @param _row Number of rows in the new matrix.
+   * @param _column Number of columns in the new matrix.
+   * @param populate Initial value for each new element.
+   */
   void resize(size_t _row = 0, size_t _column = 0, T populate = 0) {
     this->row    = _row;
     this->column = _column;
     this->dim    = _column * _row;
     this->mat    = std::vector<T>(_row * _column, populate);
     this->mat.shrink_to_fit();
-    // TODO(sp): restrict memory usage
   }
+
   /**
-   * @brief Reset the matrix to empty state.
-   *
-   * Empties internal storage and resets dimensions to 0.
+   * @brief Reset the matrix to an empty state.
    */
   void clear() {
     this->row    = 0;
@@ -148,75 +176,127 @@ public:
     this->dim    = 0;
     this->mat.clear();
     this->mat.shrink_to_fit();
-  } // This is for square matrix
+  }
 
   /**
-   * @brief Square matrix constructor for fill initialization.
+   * @brief Construct a square matrix with a constant fill value.
    *
-   * @param N number of rows and columns
-   * @param populate value for all entries
+   * @param N Matrix dimension.
+   * @param populate Value assigned to each element.
    */
   qmatrix(size_t N, T populate) : qmatrix(N, N, populate) {}
 
   /**
-   * @brief Default constructor creates an empty matrix.
+   * @brief Default constructor; creates an empty matrix.
    */
   qmatrix() { qmatrix(0, 0, 0); }
-  [[nodiscard]] T     &operator()(size_t i) { return this->mat[i]; }
-  [[nodiscard]] T      operator()(size_t i) const { return this->mat[i]; }
-  [[nodiscard]] T     &at(size_t i) { return this->mat[i]; }
-  [[nodiscard]] T      at(size_t i) const { return this->mat[i]; }
+
   /**
-   * @brief Return number of elements in matrix storage.
+   * @brief Access a single flattened element by linear index.
    *
-   * @return total number of entries, i.e., row * column.
+   * @param i Linear storage index.
+   * @return Reference to the element at that index.
+   */
+  [[nodiscard]] T &operator()(size_t i) { return this->mat[i]; }
+
+  /**
+   * @brief Access a single flattened element by linear index in const context.
+   *
+   * @param i Linear storage index.
+   * @return Copy of the value at that index.
+   */
+  [[nodiscard]] T operator()(size_t i) const { return this->mat[i]; }
+
+  /**
+   * @brief Access a single flattened element by linear index.
+   *
+   * @param i Linear storage index.
+   * @return Reference to the element at that index.
+   */
+  [[nodiscard]] T &at(size_t i) { return this->mat[i]; }
+
+  /**
+   * @brief Access a single flattened element by linear index in const context.
+   *
+   * @param i Linear storage index.
+   * @return Copy of the value at that index.
+   */
+  [[nodiscard]] T at(size_t i) const { return this->mat[i]; }
+
+  /**
+   * @brief Return the number of stored elements.
+   *
+   * @return The matrix capacity in flat storage, equal to row * column.
    */
   [[nodiscard]] size_t size() const { return dim; }
 
   /**
-   * @brief Return number of rows.
-   * @return row count.
+   * @brief Return the number of rows.
+   * @return Row count.
    */
   [[nodiscard]] size_t getrow() const { return row; }
 
   /**
-   * @brief Return number of columns.
-   * @return column count.
+   * @brief Return the number of columns.
+   * @return Column count.
    */
   [[nodiscard]] size_t getcolumn() const { return column; }
 
   /**
-   * @brief Element access by linear index in row-major order.
+   * @brief Access an element using row and column indices.
    *
-   * @param i linear index (0-based)
-   * @return reference to element.
+   * @param i Row index.
+   * @param j Column index.
+   * @return Reference to the selected element.
    */
-  [[nodiscard]] T     &operator()(size_t i, size_t j) {
-        return this->mat[i * column + j];
+  [[nodiscard]] T &operator()(size_t i, size_t j) {
+    return this->mat[i * column + j];
   }
+
+  /**
+   * @brief Access an element using row and column indices in const context.
+   *
+   * @param i Row index.
+   * @param j Column index.
+   * @return Copy of the selected element.
+   */
   [[nodiscard]] T operator()(size_t i, size_t j) const {
     return this->mat[i * column + j];
   }
-  // add a at operator
-  [[nodiscard]] T &at(size_t i, size_t j) { return this->mat[i * column + j]; }
-  [[nodiscard]] T  at(size_t i, size_t j) const {
-     return this->mat[i * column + j];
-  }
-  // TODO(sp): arithmetic operator
-  // TODO(sp): use stl
+
   /**
-   * @brief Sum all elements in the matrix.
+   * @brief Access an element using row and column indices with bounds-safe semantics.
    *
-   * @return sum of all entries.
+   * @param i Row index.
+   * @param j Column index.
+   * @return Reference to the selected element.
+   */
+  [[nodiscard]] T &at(size_t i, size_t j) { return this->mat[i * column + j]; }
+
+  /**
+   * @brief Access an element using row and column indices with const semantics.
+   *
+   * @param i Row index.
+   * @param j Column index.
+   * @return Copy of the selected element.
+   */
+  [[nodiscard]] T at(size_t i, size_t j) const {
+    return this->mat[i * column + j];
+  }
+
+  /**
+   * @brief Sum all matrix elements.
+   *
+   * @return Sum of every entry in the matrix.
    */
   [[nodiscard]] T sum() const {
     return std::accumulate(this->mat.begin(), this->mat.end(), T{});
   }
 
   /**
-   * @brief Sum absolute values of all entries.
+   * @brief Sum the absolute values of all matrix entries.
    *
-   * @return absolute sum of matrix entries.
+   * @return Absolute-value sum.
    */
   [[nodiscard]] T absSum() const {
     double sum2 = 0;
@@ -225,11 +305,12 @@ public:
     }
     return sum2;
   }
+
   /**
-   * @brief Trace of the matrix (sum of diagonal elements).
+   * @brief Compute the trace of the matrix.
    *
-   * @return trace value.
-   * @throws std::runtime_error if matrix is not square.
+   * @return Sum of the diagonal elements.
+   * @throws std::runtime_error If the matrix is not square.
    */
   [[nodiscard]] T trace() const {
     if (this->column == this->row) {
@@ -241,6 +322,12 @@ public:
     }
     throw std::runtime_error("Matrix is not square matrix");
   }
+
+  /**
+   * @brief Extract the diagonal entries as a vector.
+   *
+   * @return Vector containing the main diagonal.
+   */
   [[nodiscard]] auto getdiagonal() {
     std::vector<T> result(this->row, 0);
     for (size_t i = 0; i < this->row; i++) {
@@ -248,6 +335,14 @@ public:
     }
     return result;
   }
+
+  /**
+   * @brief Create an identity matrix of the requested size.
+   *
+   * @param _row Matrix dimension. When zero, the current square dimension is used.
+   * @return Identity matrix with dimension _row x _row.
+   * @throws std::runtime_error If the current matrix is not square.
+   */
   [[nodiscard]] qmatrix<T> id(size_t _row = 0) const {
     if (this->row != this->column) {
       throw std::runtime_error("Matrix is not square matrix");
@@ -255,30 +350,46 @@ public:
     if (_row == 0) {
       _row = this->row;
     }
-    qmatrix<T> result(_row, _row, 0); // reverse the row and column
+    qmatrix<T> result(_row, _row, 0);
     for (size_t i = 0; i < _row; i++) {
       result(i, i) = 1.0;
     }
     return result;
   }
+
+  /**
+   * @brief Extract the real part of a complex-valued matrix.
+   *
+   * @return Matrix containing real parts of each entry.
+   */
   [[nodiscard]] qmatrix<double> real() const {
-    qmatrix<double> result(this->column, this->row,
-                           0); // reverse the row and column
+    qmatrix<double> result(this->column, this->row, 0);
     for (size_t i = 0; i < this->dim; i++) {
       result(i) = this->at(i).real();
     }
     return result;
   }
+
+  /**
+   * @brief Extract the imaginary part of a complex-valued matrix.
+   *
+   * @return Matrix containing imaginary parts of each entry.
+   */
   [[nodiscard]] qmatrix<double> imag() const {
-    qmatrix<double> result(this->column, this->row,
-                           0); // reverse the row and column
+    qmatrix<double> result(this->column, this->row, 0);
     for (size_t i = 0; i < this->dim; i++) {
       result(i) = this->at(i).imag();
     }
     return result;
   }
-  [[nodiscard]] qmatrix<T> cTranspose() const {    // Conjugate transpose
-    qmatrix<T> result(this->column, this->row, 0); // reverse the row and column
+
+  /**
+   * @brief Compute the conjugate transpose of the matrix.
+   *
+   * @return Transposed matrix with complex conjugation applied.
+   */
+  [[nodiscard]] qmatrix<T> cTranspose() const {
+    qmatrix<T> result(this->column, this->row, 0);
     if constexpr (std::is_same_v<T, std::complex<double>>) {
       for (size_t i = 0; i < this->row; i++) {
         for (size_t j = 0; j < this->column; j++) {
@@ -294,6 +405,13 @@ public:
     }
     return result;
   }
+
+  /**
+   * @brief Multiply the matrix by a scalar.
+   *
+   * @param x Scalar multiplier.
+   * @return Result of element-wise scalar multiplication.
+   */
   [[nodiscard]] qmatrix operator*(const T &x) const {
     qmatrix result(this->row, this->column, 0);
 #pragma omp parallel for // NOLINT
@@ -302,6 +420,13 @@ public:
     }
     return result;
   }
+
+  /**
+   * @brief Divide the matrix by a scalar.
+   *
+   * @param x Scalar divisor.
+   * @return Result of element-wise scalar division.
+   */
   [[nodiscard]] qmatrix operator/(const T &x) const {
     qmatrix result(this->row, this->column, 0);
 #pragma omp parallel for // NOLINT
@@ -310,33 +435,64 @@ public:
     }
     return result;
   }
-  //  void reset(const T &x = 0) {
-  //    for (auto &aa : this->mat) {
-  //      aa = x;
-  //    }
-  //  }
-  T                     *data() { return this->mat.data(); }
+
+  /**
+   * @brief Return a pointer to the underlying flat storage.
+   *
+   * @return Pointer to the internal data array.
+   */
+  T *data() { return this->mat.data(); }
+
+  /**
+   * @brief Return a const pointer to the underlying flat storage.
+   *
+   * @return Const pointer to the internal data array.
+   */
   [[nodiscard]] const T *data() const { return this->mat.data(); }
-  [[nodiscard]] auto     begin() const { return this->mat.begin(); }
-  [[nodiscard]] auto     end() const { return this->mat.end(); }
-  //
-  //
-  void                  display() {}
+
+  /**
+   * @brief Return a const iterator to the beginning of the underlying storage.
+   * @return Begin iterator.
+   */
+  [[nodiscard]] auto begin() const { return this->mat.begin(); }
+
+  /**
+   * @brief Return a const iterator to the end of the underlying storage.
+   * @return End iterator.
+   */
+  [[nodiscard]] auto end() const { return this->mat.end(); }
+
+  /**
+   * @brief Print the matrix contents to standard output.
+   */
+  void display() {}
+
+  /**
+   * @brief Add two matrices of identical shape.
+   *
+   * @param rhs Matrix on the right-hand side.
+   * @return Element-wise sum.
+   * @throws std::runtime_error If the matrix dimensions differ.
+   */
   [[nodiscard]] qmatrix operator+(const qmatrix<T> &rhs) const {
-    // std::cout << "Started operator+";
     if (this->row == rhs.row && this->column == rhs.column) {
       qmatrix result(this->row, this->column, 0);
 #pragma omp parallel for // NOLINT
       for (size_t i = 0; i < this->dim; i++) {
         result(i) = this->at(i) + rhs(i);
       }
-      // std::cout << "End of operator+" << std::endl;
       return result;
-    } //
-      // else throw
+    }
     throw std::runtime_error("qmatrix have different size for operator+");
   }
-  // Subtract
+
+  /**
+   * @brief Subtract two matrices of identical shape.
+   *
+   * @param rhs Matrix on the right-hand side.
+   * @return Element-wise difference.
+   * @throws std::runtime_error If the matrix dimensions differ.
+   */
   [[nodiscard]] qmatrix operator-(const qmatrix<T> &rhs) const {
     if (this->row == rhs.row && this->column == rhs.column) {
       qmatrix result(this->row, this->column, 0);
@@ -348,6 +504,15 @@ public:
     }
     throw std::runtime_error("qmatrix have different size for operator -\n");
   }
+
+  /**
+   * @brief Multiply this matrix by another matrix using BLAS-backed matrix multiplication.
+   *
+   * @param rhs Right-hand matrix with compatible dimensions.
+   * @param talpha Optional scalar prefactor.
+   * @return Product matrix of dimension row x rhs.column.
+   * @throws std::runtime_error If the inner dimensions do not match.
+   */
   [[nodiscard]] qmatrix<T> dot(const qmatrix<T> &rhs, double talpha = 1.0) {
     if (this->column == rhs.row) {
       qmatrix result(this->row, rhs.column, 0);
@@ -355,7 +520,6 @@ public:
       size_t  k = this->column;
       size_t  n = rhs.column;
       if (m == 0 || k == 0 || n == 0) {
-        // std::cout << "One of the dimension is zero " << std::endl;
         return result;
       }
       if constexpr (std::is_same_v<T, double>) {
@@ -374,17 +538,20 @@ public:
     }
     throw std::runtime_error("dot:qmatrix have different size for dot\n");
   }
+
+  /**
+   * @brief Diagonalize a symmetric or Hermitian matrix and return eigenvalues.
+   *
+   * @return Vector of eigenvalues in ascending order as returned by LAPACK.
+   * @throws std::runtime_error If the matrix is not square.
+   */
   [[nodiscard]] std::vector<double> diag() {
-    // This function diagonalizes a symmetric/harmitian matrix.
-    // So eigen value are always real(double).
-    // If the matrix is not symmetric the call nonsys_diag
     if (this->row != this->column) {
       throw std::runtime_error("Error: Matrix is not a square matrix! \n");
     }
     std::vector<double> w(this->row, 0);
     size_t              n = w.size();
     if (n == 0) {
-      // std::cout << "This is a empty matrix" << std::endl;
       return w;
     }
     int info = -1;
@@ -395,15 +562,21 @@ public:
     if constexpr (std::is_same_v<T, std::complex<double>>) {
       info = LAPACKE_zheevd(
           LAPACK_ROW_MAJOR, 'V', 'U', n,
-          // reinterpret_cast<__complex__ double *>(this->mat.data()), n,
           this->mat.data(), n, w.data());
     }
-    // int info= LAPACKE_dsyev( LAPACK_ROW_MAJOR, 'V', 'U', n, a, n, w );
     if (info > 0) {
       std::cout << "Error:Not able to solve Eigen value problem." << std::endl;
     }
     return w;
   }
+
+  /**
+   * @brief Solve the nonsymmetric eigenproblem for a complex matrix.
+   *
+   * @return Tuple containing left eigenvectors, right eigenvectors, and eigenvalues.
+   * @throws std::runtime_error If the matrix is not square.
+   * @throws std::invalid_argument If the matrix is not complex-valued.
+   */
   [[nodiscard]] std::tuple<qmatrix<T>, qmatrix<T>, cm_vec>
   nonsys_diag_complex() {
     if (this->row != this->column) {
@@ -416,31 +589,20 @@ public:
     if constexpr (std::is_same_v<T, std::complex<double>>) {
       auto info = LAPACKE_zgeev(
           LAPACK_ROW_MAJOR, 'V', 'V', n,
-          // recast the complex pointer
-          // reinterpret_cast<__complex__ double *>(this->data()), n,
           this->data(), n,
-          // recast the complex pointer
           w.data(),
-          // recast the complex pointer
           lv.data(), n,
-          // recast the complex pointer
           rv.data(), n);
-/* Check for convergence */
-// Normalize the vectors only for the diagonal elements
 #pragma omp parallel for // NOLINT
       for (size_t i = 0; i < n; i++) {
         std::complex<double> aa{0};
         for (size_t k = 0; k < n; k++) {
           aa += std::conj(lv(k, i)) * rv(k, i);
         }
-        // if (std::fabs(aa) < 1e-5) {
-        //  // std::cout << "Warning:Normed:" << aa;
-        //} else {
         for (size_t k = 0; k < n; k++) {
           lv(k, i) = lv(k, i) / std::conj(std::sqrt(aa));
           rv(k, i) = rv(k, i) / (std::sqrt(aa));
         }
-        //}
       }
       if (info > 0) {
         throw std::runtime_error(
@@ -451,8 +613,14 @@ public:
           "nonsys_diag_complex: This function is for complex matrices");
     }
     return std::tuple(lv, rv, w);
-    // return {lv, rv, w};
   }
+
+  /**
+   * @brief Solve the nonsymmetric real eigenproblem for a real-valued matrix.
+   *
+   * @return Tuple containing left vectors, right vectors, and complex eigenvalues.
+   * @throws std::invalid_argument If the matrix is not square or is not a qmatrix<double>.
+   */
   std::tuple<qmatrix<std::complex<T>>, qmatrix<std::complex<T>>,
              std::vector<std::complex<T>>>
   nonsys_diag_real() {
@@ -469,13 +637,9 @@ public:
     std::vector<T> wi(nsize, 0);
     std::vector<T> vl(nsize * nsize, 0);
     std::vector<T> vr(nsize * nsize, 0);
-    //
-    // timer t1("Solving exact");
-    // mkl_set_num_threads(200);
     auto info =
         LAPACKE_dgeev(LAPACK_ROW_MAJOR, 'V', 'V', nsize, this->data(), nsize,
                       wr.data(), wi.data(), vl.data(), nsize, vr.data(), nsize);
-    // std::cout << "ExactSolver Done " << t1.getDuration() << std::endl;
     if (info > 0) {
       std::cout << "The algorithm failed to compute eigenvalues." << std::endl;
       exit(1);
@@ -483,13 +647,10 @@ public:
     std::vector<std::complex<T>> eigenvalues(nsize, 0);
     qmatrix<std::complex<T>>     leftVectors(nsize, nsize, 0);
     qmatrix<std::complex<T>>     rightVectors(nsize, nsize, 0);
-// set the values
 #pragma omp parallel for // NOLINT
     for (size_t j = 0; j < nsize; j++) {
       eigenvalues[j] = std::complex<T>(wr[j], wi[j]);
     }
-// set eigenvector
-// I dont know why the fuck this is organized this way
 #pragma omp parallel for // NOLINT
     for (size_t i = 0; i < nsize; i++) {
       size_t j = 0;
@@ -511,7 +672,6 @@ public:
         }
       }
     }
-// NOrmalize the vector
 #pragma omp parallel for // NOLINT
     for (size_t i = 0; i < nsize; i++) {
       std::complex<T> aa{0};
@@ -519,18 +679,23 @@ public:
         aa += std::conj(leftVectors(k, i)) * rightVectors(k, i);
       }
       if (std::fabs(aa) < 1e-5) {
-        // std::cout << "Warning:Normed:" << std::fabs(aa);
       } else {
         for (size_t k = 0; k < nsize; k++) {
           leftVectors(k, i)  = leftVectors(k, i) / std::conj(std::sqrt(aa));
           rightVectors(k, i) = rightVectors(k, i) / (std::sqrt(aa));
-          //  aa2 += std::conj(lv(k, i)) * rv(k, j);
         }
       }
-      //       std::cout << std::endl;
     }
     return {leftVectors, rightVectors, eigenvalues};
   }
+
+  /**
+   * @brief Stream a matrix to an output stream for debugging and logging.
+   *
+   * @param out Output stream.
+   * @param val Matrix to print.
+   * @return Reference to the same output stream.
+   */
   friend std::ostream &operator<<(std::ostream &out, const qmatrix<T> &val) {
     out << "\n";
     for (size_t i = 0; i < val.row; ++i) {
@@ -541,8 +706,15 @@ public:
     }
     return out;
   }
+
+  /**
+   * @brief Compute the Kronecker product between this matrix and another.
+   *
+   * @param rhs Right-hand matrix.
+   * @param alpha Optional scalar prefactor.
+   * @return Kronecker product matrix of dimension (row * rhs.row) by (column * rhs.column).
+   */
   qmatrix<T> krDot(const qmatrix<T> &rhs, double alpha = 1) {
-    // https://en.wikipedia.org/wiki/Kronecker_product
     size_t     m = this->row;
     size_t     n = this->column;
     size_t     p = rhs.row;
@@ -561,9 +733,13 @@ public:
     }
     return result;
   }
+
+  /**
+   * @brief Apply a unitary similarity transform using a supplied eigenvector basis.
+   *
+   * @param eigen_vector Matrix containing the eigenvectors to apply.
+   */
   void unitary_transform(const qmatrix<T> &eigen_vector) {
-    // U^T. x . U
-    // TODO(sp):
     auto result = eigen_vector.cTranspose().dot(this->dot(eigen_vector));
     *this       = result;
   }

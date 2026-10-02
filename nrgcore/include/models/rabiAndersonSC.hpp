@@ -13,22 +13,21 @@
 #include <optional>
 #include <string>
 #include <vector>
+
 /**
- * @brief [TODO:description]
+ * @brief Anderson-like impurity model with a superconducting pairing term.
+ *
+ * This model preserves spin as the only conserved quantum number while charge
+ * symmetry is broken by the superconducting pairing sector. It is used to study
+ * trion-like or superconducting impurity physics in a fermionic basis.
  */
 class rabiAndersonSC : public fermionBasis {
-  // This class is the same as the rabi-Anderson Model.
-  // Except the fact  that We now have Superconductor
-  // in the system. So Spin is now only conserved quatity
-  // and charge isn't conserved any more.
-  // CHECK: The class for the Wilson chaini has to be consistent.
 public:
   /**
-   * @brief [TODO:description]
+   * @brief Construct the superconducting Anderson model from a parameter map.
    *
-   * @param UCoulumb [TODO:description]
-   * @param gamma [TODO:description]
-   * @param omega [TODO:description]
+   * @param params Dictionary of model parameters including gammaZero,
+   * epsilonTrion, Omega, epsilonImpurity, UColoumbImpurity, and UColoumbTrion.
    */
   explicit rabiAndersonSC(const std::map<std::string, double> &params) {
     createBasis(params); // create the basis in nstates x nstates

@@ -12,29 +12,50 @@
 #include <optional>
 #include <string>
 #include <vector>
+
+/**
+ * @brief Kondo-type spin-conserving single-impurity model.
+ *
+ * This helper builds a local spin-only fermionic basis and constructs the
+ * exchange interaction between an impurity spin and a conduction-electron spin.
+ */
 class kondoSC {
   fermionBasis localSCbabsis;
-  /** This class is for a single orbital with spin up and down
-   * f operator. SIAM can be made entirely from this class.
-   *
-   *
-   */
+
 public:
   /**
-   * @brief Construct a new kondoSC object
+   * @brief Construct the Kondo single-channel model.
    *
-   * @param JKondo: J value for the Kondo interaction
-   * @param spinS: Spin value i.e,. 1/2 or 3/2. Integer Spin may not work
+   * @param JKondo Exchange coupling strength.
+   * @param spinS Impurity spin magnitude.
+   * @param localDelta Local superconducting pairing term or equivalent channel coupling.
    */
   kondoSC(double JKondo, double spinS, double localDelta)
       : localSCbabsis(2, fermionBasis::spinOnly) {
-    createBasis(JKondo, spinS,
-                localDelta); // create the basis in nstates x nstates
+    createBasis(JKondo, spinS, localDelta);
   }
+
+  /**
+   * @brief Return the symmetry quantum numbers for each block.
+   *
+   * @return Quantum-number labels per block.
+   */
   [[nodiscard]] std::vector<std::vector<int>> get_basis() const { return n_Q; }
+
+  /**
+   * @brief Return the eigenvalues in each symmetry block.
+   *
+   * @return Block energies for the constructed Hamiltonian.
+   */
   [[nodiscard]] std::vector<std::vector<double>> get_eigenvaluesQ() const {
     return eigenvalues_Q;
   }
+
+  /**
+   * @brief Return the parity sign associated with each block.
+   *
+   * @return Parity factor used in fermionic symmetry bookkeeping.
+   */
   [[nodiscard]] std::vector<double> get_chi_Q() const { return chi_Q; }
   //
   std::vector<std::vector<double>> eigenvalues_Q;

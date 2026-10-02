@@ -7,28 +7,48 @@
 #include <iostream>
 #include <optional>
 #include <vector>
+
+/**
+ * @brief Free-fermion reference model used for static thermodynamic benchmarks.
+ *
+ * This model builds a non-interacting fermionic basis with charge and spin
+ * quantum numbers and diagonalizes the local Hamiltonian in each symmetry sector.
+ * It is useful as a reference when comparing with interacting models or computing
+ * entropy and specific-heat contributions in a noninteracting limit.
+ */
 class freeModel : public fermionBasis {
-  /** This is single channel free model class
-   * to calculate the entropy/ specific heat
-   * and other static quantitities.
-   *
-   *
-   *
-   */
 public:
   /**
-   * @brief Construct a new rabiSpinless object
+   * @brief Construct the free-fermion benchmark model.
    *
-   * @param JKondo: J value for the Kondo interaction
-   * @param spinS: Spin value i.e,. 1/2 or 3/2. Integer Spin may not work
+   * Builds the fermion basis, identifies the conserved quantum numbers, and
+   * computes the diagonalized eigenvalues for each block.
    */
   freeModel() : fermionBasis(2, fermionBasis::chargeAndSpin) {
-    createBasis(); // create the basis in nstates x nstates
+    createBasis();
   }
+
+  /**
+   * @brief Return the list of quantum numbers for each symmetry sector.
+   *
+   * @return Vector of charge/spin sector labels.
+   */
   [[nodiscard]] std::vector<std::vector<int>> get_basis() const { return n_Q; }
+
+  /**
+   * @brief Return the eigenvalues of the Hamiltonian in each sector.
+   *
+   * @return Block-diagonal eigenvalues associated with each quantum-number sector.
+   */
   [[nodiscard]] std::vector<std::vector<double>> get_eigenvaluesQ() const {
     return eigenvalues_Q;
   }
+
+  /**
+   * @brief Return the fermionic parity factor for each sector.
+   *
+   * @return Vector of parity signs used in the fermionic sector structure.
+   */
   [[nodiscard]] std::vector<double> get_chi_Q() const { return chi_Q; }
   //
   std::vector<std::vector<double>> eigenvalues_Q;

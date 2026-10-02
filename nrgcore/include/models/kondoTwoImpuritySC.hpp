@@ -12,18 +12,20 @@
 #include <optional>
 #include <string>
 #include <vector>
+
+/**
+ * @brief Two-impurity Kondo model with spin-conserving symmetry sectors.
+ *
+ * The model builds a local basis for two coupled impurity spins and includes
+ * exchange and RKKY-type couplings between them together with a local pairing term.
+ */
 class kondoTwoImpuritySC : public fermionBasis {
-  /** This class is for a single orbital with spin up and down
-   * f operator. SIAM can be made entirely from this class.
-   *
-   *
-   */
 public:
   /**
-   * @brief Construct a new kondoTwoImpuritySC.hpp object
+   * @brief Construct a two-impurity Kondo model from a parameter map.
    *
-   * @param JKondo: J value for the Kondo interaction
-   * @param spinS: Spin value i.e,. 1/2 or 3/2. Integer Spin may not work
+   * @param params Map containing at least Jkondo1, Jkondo2, J_RKKY, spinS,
+   * and Delta_sc.
    */
   //    ########################################
   explicit kondoTwoImpuritySC(const std::map<std::string, double> &params) {

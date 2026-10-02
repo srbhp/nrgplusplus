@@ -14,19 +14,15 @@
 #include <tuple>
 #include <vector>
 /**
- * @brief This class provides a way to save the  `nrgcore` internal  data
- * from the NRG calculation
- * into a  HDF5 file. The data is saved in a file and can be read back
- * into the NRG calculation. This is useful for back-ward iteration of the
- * of the nrg-iterations. Everything needed for NRG iteration can accessed
- * from this this file. This class also provides functionality to
- * read and write `qOperator`.
+ * @class NrgData
+ * @brief Persist NRG iteration state and operators in an HDF5 file.
  *
+ * This class stores the snapshot of a Wilson-chain iteration needed for later
+ * backward iteration, including the current Hamiltonians, symmetry sectors,
+ * eigenvalues, kept indices, and any `qOperator` blocks. The data can be saved
+ * to disk, reloaded, and reused when reconstructing the chain state.
  *
- *
- * @tparam nrgcore_type Type of the `nrgcore` object.
- * @param tfilename File name of the HDF5 file to save the data. If this
- * is empty, a random file name is generated starting with the name  `tempfile`.
+ * @tparam nrgcore_type Type of the underlying NRG core object.
  */
 template <typename nrgcore_type> class NrgData {
   std::string        tmpNrgFilename;
@@ -36,10 +32,13 @@ template <typename nrgcore_type> class NrgData {
 
 public:
   /**
-   * @brief This sets the `nrg_object` to `nullptr` and you need to specify
-   *  the `nrg_object` by calling the `setNRGObject` function.
+   * @brief Construct a data container without attaching an NRG object yet.
    *
-   * @param tfilename File name of the HDF5 file to save the data.
+   * The object may be associated with a concrete NRG core later using
+   * `setNRGObject`.
+   *
+   * @param tfilename Optional path to the HDF5 file to be used for persistence.
+   * If empty, a temporary file name is generated automatically.
    */
   explicit NrgData(const std::string &tfilename =
                        "") { // We don't want to take nrgObject here
@@ -52,12 +51,15 @@ public:
     // TODO(sp): clear the input operator
     nrg_object = nullptr;
   }
+
   /**
-   * @brief Read the data from the file `tfile` into the `nrg_object`. This
-   * function is used to read the data back into the `nrg_object` for back-ward
-   * iteration of the NRG calculation.
+   * @brief Read previously saved iteration data from disk into the active NRG
+   * object.
    *
+   * This is typically used during backward iteration to restore a stored shell
+   * state from the HDF5 archive.
    *
+   * @param tfile Path to the HDF5 file containing the saved data.
    */
   void readFromFile(const std::string &tfile) {
     remove(tmpNrgFilename.c_str());
@@ -70,9 +72,11 @@ public:
                     "relativeGroundStateEnergy");
     }
   }
+
   /**
-   * @brief Set the file name of the HDF5 file to save the data.
+   * @brief Update the HDF5 file name used for persistence.
    *
+   * @param tfile New output file path.
    */
   void setFileName(const std::string &tfile) {
     tmpNrgFilename = tfile;
@@ -80,6 +84,14 @@ public:
     remove(tmpNrgFilename.c_str());
     pfiletmp.setFileName(tmpNrgFilename);
   }
+
+  /**
+   * @brief Construct a data container bound to a specific NRG core object.
+   *
+   * @param t_nrg_object Pointer to the active NRG model state.
+   * @param tfilename Optional HDF5 file path. If empty, a temporary file is
+   * created automatically.
+   */
   explicit NrgData(nrgcore_type      *t_nrg_object, // nrgcore_type
                    const std::string &tfilename = "")
       : nrg_object(t_nrg_object) {
@@ -91,34 +103,40 @@ public:
     pfiletmp.setFileName(tmpNrgFilename);
     // TODO(sp): clear the input operator
   }
+
   /**
-   * @brief Set the `nrg_object` to `t_nrg_object`.
+   * @brief Attach an NRG core instance to this data container.
    *
+   * @param t_nrg_object Pointer to the NRG object whose state will be stored and
+   * restored.
    */
   void setNRGObject(nrgcore_type *t_nrg_object) { nrg_object = t_nrg_object; }
-  // ~NrgData() { // clear/delete the temp file
-  //   clear();
-  // }
+
   /**
-   * @brief We should call this function after the last iteration of the Wilson
-   * Chain.
+   * @brief Save the final accumulated state metadata after the last iteration.
+   *
+   * This stores the iteration index list and the final relative ground-state
+   * energy for later reconstruction steps.
    */
   void saveFinalState() {
     pfiletmp.write<size_t>(savedNRGIndex, "savedNRGIndex");
     pfiletmp.write(nrg_object->relativeGroundStateEnergy,
                    "relativeGroundStateEnergy");
   }
+
   /**
-   * @brief We should always call this function after the last iteration of the
-   * Wilson Chain to close file.
+   * @brief Close the HDF5 file associated with this object.
    */
   void close() {
     // save the nrg Index
     pfiletmp.close();
     isClosed = true;
   }
+
   /**
-   * @brief This \f \textbf{deletes} \f the temp file and closes the file.
+   * @brief Delete the temporary HDF5 file and close the stream.
+   *
+   * This removes the persistent snapshot associated with the current run.
    */
   void clear() {
     if (!isClosed) {
@@ -127,9 +145,13 @@ public:
       isClosed = true;
     }
   }
+
   /**
-   * @brief This saves data for the  the current iteration state
-   * of the Wilson Chain.
+   * @brief Save the full state of the current Wilson-chain iteration.
+   *
+   * The function serializes the current shell Hamiltonians, symmetry sectors,
+   * eigenvalues, coupling metadata, and kept-state indices into the output HDF5
+   * file under a unique iteration group.
    */
   void saveCurrentData() {
     // Things to save
@@ -162,14 +184,12 @@ public:
     //--------------------------------------------------------------
     // End of saveNrgData0
   }
+
   /**
-   * @brief Saves the `qOperator` in the file. This function is called
-   * after the `qOperator` is constructed and rotated in the eigenbasis
-   * after each iteration.
+   * @brief Save a `qOperator` block into the HDF5 archive.
    *
-   * @param opr  `qOperator` to be saved.
-   * @param hgroup The group name in which the `qOperator` is to be saved.
-   * Remember pass same string when reading the `qOperator` from the file.
+   * @param opr Pointer to the operator list to write.
+   * @param hgroup Name of the HDF5 group under which the operator data is stored.
    */
   void saveqOperator(std::vector<qOperator> *opr, const std::string &hgroup) {
     // std::string hgroup{oprString};
@@ -203,13 +223,12 @@ public:
     //--------------------------------------------------------------
     // End of saveNrgData0
   }
+
   /**
-   * @brief  Reads the `qOperator` from the file. This function is called
-   * in the back-ward iteration of the Wilson Chain.
+   * @brief Restore a `qOperator` block from the HDF5 archive.
    *
-   *
-   * @param opr  `qOperator` to be read from the file.
-   * @param hgroup The group name in which the `qOperator` was saved.
+   * @param opr Pointer to the operator list to populate.
+   * @param hgroup Name of the HDF5 group containing the saved operator data.
    */
   void loadqOperator(std::vector<qOperator> *opr, const std::string &hgroup) {
     // clear the operator list
@@ -248,20 +267,18 @@ public:
     //--------------------------------------------------------------
     // End of saveNrgData0
   }
+
   /**
-   * @brief Loads the data for the current iteration from the file.
+   * @brief Load the currently active iteration from the file.
    *
-   * This function is a convenience wrapper around `loadCurrentData(int in)`,
-   * using the current iteration count from the nrg_object.
+   * This convenience wrapper calls `loadCurrentData(nrg_object->nrg_iterations_cnt)`.
    */
   void loadCurrentData() { loadCurrentData(nrg_object->nrg_iterations_cnt); }
+
   /**
-   * @brief Loads the data from the file. This function is called in the
-   * back-ward iteration of the Wilson Chain.
+   * @brief Restore a saved shell state from the HDF5 archive.
    *
-   * @param in The current iteration number or the Wilson number. We normally
-   * pass the `nrg_object->nrg_iterations_cnt` to this function. We set the
-   * impurity to the iteration number to be -1.
+   * @param in Iteration index to load from the stored data set.
    */
   void loadCurrentData(int in) {
     // Things to save
@@ -291,12 +308,14 @@ public:
     //--------------------------------------------------------------
     // End of loadNrgData0
   }
+
   /**
-   * @brief Print Debugg Info
+   * @brief Enable or disable verbose debug logging for HDF5 I/O operations.
    */
   bool debugIO = false;
+
   /**
-   * @brief Nrg iteration Numbers for which higher energy states are discarded.
+   * @brief List of saved NRG iteration indices retained in the archive.
    */
   std::vector<size_t> savedNRGIndex;
 };

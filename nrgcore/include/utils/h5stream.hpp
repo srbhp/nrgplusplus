@@ -84,20 +84,28 @@ template <typename T> struct h5str1 {
 namespace h5stream {
 /**
  * @class dspace
- * @brief This class is responsible to read and write of the metadata/atrributes
- * fo a dataset.
+ * @brief Helper for reading and writing dataset attributes in HDF5 files.
  *
+ * This lightweight wrapper exposes attribute read/write operations bound to an
+ * existing `H5::DataSet` instance.
  */
 class dspace {
 public:
   H5::DataSet dataset;
-  explicit dspace(const H5::DataSet &datasetx) : dataset(datasetx) {};
+
   /**
-   * @brief Write Metadata
+   * @brief Construct a dataset wrapper around an existing HDF5 dataset.
    *
-   * @tparam T : Type of the array
-   * @param data : Array that needs to stored
-   * @param dataname : DataSet name
+   * @param datasetx Underlying HDF5 dataset object.
+   */
+  explicit dspace(const H5::DataSet &datasetx) : dataset(datasetx) {};
+
+  /**
+   * @brief Write a scalar attribute to the wrapped dataset.
+   *
+   * @tparam T Type of the metadata value.
+   * @param data Scalar value to store as an attribute.
+   * @param dataname Name of the attribute.
    */
   template <typename T>
   void write_atr(const T &data, const H5std_string &dataname) {
@@ -107,37 +115,45 @@ public:
         dataset.createAttribute(dataname, type, attr_dataspace);
     attribute.write(type, &data);
   }
+
   /**
-   * @brief Read Metadata
+   * @brief Read a scalar attribute from the wrapped dataset.
    *
-   * @tparam T : Type of the array
-   * @param data : Array that needs to stored
-   * @param dataname : DataSet name
+   * @tparam T Type of the metadata value.
+   * @param data Value to populate from the attribute.
+   * @param dataname Name of the attribute.
    */
   template <typename T> void read_atr(T &data, const H5std_string &dataname) {
-    // auto type = get_datatype_for_hdf5<T>();
     H5::Attribute attribute = dataset.openAttribute(dataname);
     H5::DataType  type      = attribute.getDataType();
     attribute.read(type, &data);
   }
-  //----------------------
 };
-// ---- -----------------------------------
+
 /**
- * @class gspace: reading  and write metadata to  a `H5::Group` object.
- * @brief
+ * @class gspace
+ * @brief Helper for reading and writing attributes on an HDF5 group.
  *
+ * This wrapper mirrors `dspace` but binds directly to an HDF5 group instead of
+ * a dataset.
  */
-class gspace { // for group
+class gspace {
 public:
   H5::Group dataset;
-  explicit gspace(const H5::Group &datasetx) : dataset(datasetx) {};
+
   /**
-   * @brief Write Metadata
+   * @brief Construct a group wrapper around an existing HDF5 group.
    *
-   * @tparam T : Type of the array
-   * @param data : Array that needs to stored
-   * @param dataname : DataSet name
+   * @param datasetx Underlying HDF5 group object.
+   */
+  explicit gspace(const H5::Group &datasetx) : dataset(datasetx) {};
+
+  /**
+   * @brief Write a scalar attribute to the wrapped group.
+   *
+   * @tparam T Type of the metadata value.
+   * @param data Scalar value to store as an attribute.
+   * @param dataname Name of the attribute.
    */
   template <typename T>
   void write_atr(const T data, const H5std_string &dataname) {
@@ -147,99 +163,29 @@ public:
         dataset.createAttribute(dataname, type, attr_dataspace);
     attribute.write(type, &data);
   }
+
   /**
-   * @brief Read Metadata
+   * @brief Read a scalar attribute from the wrapped group.
    *
-   * @tparam T : Type of the array
-   * @param data : Array that needs to stored
-   * @param dataname : DataSet name
+   * @tparam T Type of the metadata value.
+   * @param data Value to populate from the attribute.
+   * @param dataname Name of the attribute.
    */
   template <typename T> void read_atr(T &data, const H5std_string &dataname) {
-    // auto type = get_datatype_for_hdf5<T>();
     H5::Attribute attribute = dataset.openAttribute(dataname);
     H5::DataType  type      = attribute.getDataType();
     attribute.read(type, &data);
   }
-  //----------------------
 };
 } // namespace h5stream
-//******************************************************************
-// namespace h5stream
-//----------------------------------------------------------
+
 namespace h5stream {
 /**
- * @class h5stream::h5stream
- * @brief C++ Header-only library for simple HDF5 input/output
+ * @class h5stream
+ * @brief Minimal header-only wrapper for common HDF5 read/write operations.
  *
- *  <H2>  How to use </H2>
- *
- *		Just include the `h5stream.hpp` into your your main file.
- *
- *  <H3> How to  Compile </H3>
- *
- *		@code{.bash}
- *		g++ -lhdf5 -lhdf5_cpp -std=c++1z example.cpp
- *		@endcode
- *
- * <H2> Example </H2>
- *
- *  <H3> Create a File with a mode. </H3>
- *
- *
- *		- "tr":   Create a file, truncate if it exists, Default
- *		- "r":    Readonly, the file must exist
- *		- "rw": Read/write, the file must exist
- *		- "x":   Create a file, fail if exists
- *
- *
- *		@verbatim
- *		h5stream::h5stream file("sample.h5", "tr");
- *		// or
- *		h5stream::h5stream file("sample.h5");
- *		@endverbatim
- *
- * <H3>  write and read `std::vector`</H3>
-
- *
- *		Create a vector and write it to the file
- *
- *
- *		@verbatim
- *		std::vector<double> matrix { 1, 2, 3282, 932 };
- *		file.write<double>(matrix, "matrix");
- *		@endverbatim
- *
- *
- * <H3>   write and read Metadata </H3>
- *
- *		Write Attributes( Metadata) to the to the same data space
- *
- *
- *		@verbatim
- *		auto dspace = file.get_dataspace("matrix");
- *		dspace.write_atr<double>(1.2, "Units");
- *		@endverbatim
- *
- *
- *  <H3> Read data from the file </H3>
- *
- *
- *		@verbatim
- *		auto xx = file.read_vector<double>("matrix");
- *		//OR
- *		file.read<double>(xx, "matrix");
- *		@endverbatim
- *
- *
- *  <H3>  Read Attribute (Metadata) </H3>
- *		@verbatim
- *		double x = 0;
- *		dspace.read_atr<double>(x, "Units");
- *		std::cout << "Attribute : " << x << std::endl;
- *		std::cout << "HDF file size (MB): " << file.file_size() <<
- *       std::endl;
- *		@endverbatim
- *
+ * The class provides utilities to create or open an HDF5 file, write/read
+ * vectors and scalar data, attach metadata attributes, and navigate groups.
  */
 class h5stream {
   bool debug = false;
@@ -247,29 +193,31 @@ class h5stream {
 public:
   H5std_string hdf5FileName;
   H5::H5File   hdf5File;
+
+  /**
+   * @brief Default construct an empty HDF5 stream object.
+   */
   h5stream() = default;
-  ;
+
+  /**
+   * @brief Construct and immediately open an HDF5 file.
+   *
+   * @param fileName Path to the HDF5 file.
+   * @param rw Access mode. Supported values are `"tr"`, `"r"`, `"rw"`, and
+   * `"x"`.
+   */
   explicit h5stream(const std::string &fileName,
                     const std::string &rw = std::string("tr")) {
     setFileName(fileName, rw);
   }
+
   /**
-   * @brief create and set the file name
+   * @brief Open or recreate the HDF5 file with the requested mode.
    *
-   * @param fileName
-   * @param rw : Possible values are
-   * "r": read only,
-   *
-   * "rw": Read-write access. If the file is currently open for
-   * read-only access then it will be reopened. Absence of this
-   * flag implies read-only access.
-   *
-   * "x": Fail if file already exists. "r" and "tr" are mutually exclusive
-   *
-   * "tr": Truncate file, if it already exists, erasing all data previously
-   * stored in the file.: default
+   * @param fileName Path to the file.
+   * @param rw Access mode: `"r"`, `"rw"`, `"x"`, or `"tr"`.
    */
-  void setFileName(const H5std_string &fileName, // NOLINT
+  void setFileName(const H5std_string &fileName,
                    const std::string  &rw = std::string("tr")) {
     hdf5FileName = fileName;
     std::cout << "hdf5FileName:" << hdf5FileName << std::endl;
@@ -292,29 +240,42 @@ public:
                 << std::endl;
     }
   }
+
+  /**
+   * @brief Write a nested vector structure to sequential HDF5 datasets.
+   *
+   * @tparam T Element type of the vector.
+   * @tparam vec Container type used for the nested vector.
+   * @param data Vector of vectors to serialize.
+   * @param datasetName Base name for the generated datasets.
+   */
   template <typename T = double, template <typename...> class vec>
   void write(const std::vector<vec<T>> &data, const H5std_string &datasetName) {
     for (size_t i = 0; i < data.size(); i++) {
       write<T, vec>(data[i], datasetName + std::to_string(i));
     }
   }
+
   /**
-   * @brief
+   * @brief Write a single vector to an HDF5 dataset.
    *
-   * @param data
-   * @param datasetName
+   * @tparam T Element type.
+   * @tparam vec Container type used for the vector.
+   * @param data Vector payload.
+   * @param datasetName Dataset name in the file.
    */
   template <typename T = double, template <typename...> class vec = std::vector>
   void write(const vec<T> &data, const H5std_string &datasetName) {
     write<T>(datasetName, data.data(), data.size());
   }
-  // Write raw pointer
+
   /**
-   * @brief
+   * @brief Write a raw C-style array to an HDF5 dataset.
    *
-   * @tparam T : Type of the array
-   * @param data : Array that needs to stored
-   * @param dataname : DataSet name
+   * @tparam T Element type.
+   * @param datasetName Dataset name in the HDF5 file.
+   * @param data Pointer to the first element.
+   * @param data_size Number of elements in the array.
    */
   template <typename T = double>
   void write(const H5std_string &datasetName, const T *data,
@@ -323,12 +284,12 @@ public:
       H5::Exception::dontPrint();
       const int RANK = 1;
       auto      type = get_datatype_for_hdf5<T>();
-      hsize_t   dimsf[1];   // dataset dimensions
-      dimsf[0] = data_size; //
+      hsize_t   dimsf[1];
+      dimsf[0] = data_size;
       H5::DataSpace dataspace(RANK, dimsf);
       H5::DataSet   dataset =
           hdf5File.createDataSet(datasetName, type, dataspace);
-      if (data_size != 0) { // Dont write if it zero
+      if (data_size != 0) {
         dataset.write(data, type);
       }
     } catch (...) {
@@ -337,12 +298,14 @@ public:
       throw std::runtime_error(errString);
     }
   }
-  // Read file
+
   /**
-   * @brief
+   * @brief Read a vector from an HDF5 dataset.
    *
-   * @param data : Array that needs to stored
-   * @param dataname : DataSet name
+   * @tparam T Element type.
+   * @tparam vec Container type used for the vector.
+   * @param data Output container to populate.
+   * @param datasetName Name of the dataset in the file.
    */
   template <typename T = double, template <typename...> class vec = std::vector>
   void read(vec<T> &data, const H5std_string &datasetName) {
@@ -354,23 +317,23 @@ public:
       hsize_t       dim[1];
       dataspace.getSimpleExtentDims(dim, nullptr);
       data.resize(dim[0]);
-      if (dim[0] != 0) { // Dont read if it zero
+      if (dim[0] != 0) {
         dataset.read(data.data(), type, dataspace, dataspace);
       }
     } catch (...) {
       std::string errString = "Error! :: Unable to READ datasetName " +
                               datasetName + " from the file " + hdf5FileName;
       throw std::runtime_error(errString);
-      //    H5::FileIException::printErrorStack();
     }
   }
-  // Higher order vector  or matrix type
-  // User has to give the correct size of the std::vector
+
   /**
-   * @brief Read the data
+   * @brief Read a nested vector structure stored as sequential datasets.
    *
-   * @param data :  Array of data
-   * @param datasetName : dataset name
+   * @tparam T Element type.
+   * @tparam vec Container type used for the nested vector.
+   * @param data Output vector of vectors.
+   * @param datasetName Base name for the generated datasets.
    */
   template <typename T = double, template <typename...> class vec>
   void read(std::vector<vec<T>> &data, const H5std_string &datasetName) {
@@ -378,102 +341,117 @@ public:
     size_t icount{0};
     bool   foundKey{true};
     while (foundKey) {
-      // for (size_t i = 0; i < 10; i++) {
       try {
         std::vector<T> aa;
         read<T, std::vector>(aa, datasetName + std::to_string(icount));
         data.push_back(aa);
         icount++;
       } catch (std::exception &e) {
-        // foundKey = false;
-        // std::cout << "foundKey: " << foundKey << e.what() << std::endl;
         break;
       }
     }
-    // throw warning if the dataset name was not found
     if (icount == 0) {
       std::string err_string =
           "Error :: Unable to read dataset! " + std::string(datasetName);
       throw std::runtime_error(err_string);
     }
   }
+
   /**
-   * @brief close the file
+   * @brief Close the currently open HDF5 file.
    */
   void close() { hdf5File.close(); }
+
   /**
-   * @brief Return the filesize in MB.
+   * @brief Return the file size in megabytes.
    *
-   * @return
+   * @return File size in MB.
    */
   [[nodiscard]] double fileSize() const {
     return static_cast<double>(hdf5File.getFileSize()) / (1024 * 1024.);
   }
+
   /**
-   * @brief
+   * @brief Open and wrap a dataset for attribute access.
    *
-   * @param dataset_name : dataset name
-   * @return
+   * @param dataset_name Name of the dataset.
+   * @return Lightweight dataset attribute wrapper.
    */
   dspace getDataspace(const H5std_string &dataset_name) {
     return dspace(hdf5File.openDataSet(dataset_name));
   }
+
   /**
-   * @brief
+   * @brief Open and wrap a group for attribute access.
    *
-   * @param dataset_name : DataSet name
-   * @return
+   * @param dataset_name Name of the group.
+   * @return Lightweight group attribute wrapper.
    */
   gspace getGroup(const H5std_string &dataset_name) {
     return gspace(hdf5File.openGroup(dataset_name));
   }
+
   /**
-   * @brief Create a group name
+   * @brief Create a new HDF5 group.
    *
-   * @param group_name : Group name
-   * @return
+   * @param group_name Name of the group to create.
+   * @return Wrapper around the newly created group.
    */
   auto createGroup(const H5std_string &group_name) {
     return gspace(hdf5File.createGroup(group_name));
   }
-  //*************************************************
-  // write metadata at the root label
+
   /**
-   * @brief Write Metadata
-   * @tparam T : Type of the array
-   * @param data : Array that needs to stored
-   * @param dataname : DataSet name
+   * @brief Write a scalar metadata attribute at the root level.
+   *
+   * @tparam T Type of the metadata value.
+   * @param data Metadata value to store.
+   * @param label Attribute name.
    */
   template <typename T>
   void writeMetadata(const T &data, const H5std_string &label) {
-    //
     auto ds = getDataspace("");
     ds.write_atr(data, label);
   }
+
   /**
-   * @brief
-   * @tparam T : Type of the array
-   * @param data : Array that needs to stored
-   * @param dataname : DataSet name
+   * @brief Read a scalar metadata attribute from the root level.
    *
+   * @tparam T Type of the metadata value.
+   * @param data Output value to populate.
+   * @param label Attribute name.
    */
   template <typename T> void readMetadata(T &data, const H5std_string &label) {
-    //
     auto ds = getDataspace("");
     ds.read_atr(data, label);
   }
-  //*************************************************
-  // overload << and >>
+
+  /**
+   * @brief Stream-style write helper for a simple HDF5 record descriptor.
+   *
+   * @tparam T Type of the pointed data.
+   * @param out Output stream wrapper.
+   * @param struct1 Descriptor containing the dataset name and pointer.
+   * @return Reference to the modified stream.
+   */
   template <typename T>
   friend h5stream &operator<<(h5stream &out, const h5str1<T> &struct1) {
     out.write<T>(struct1.keyName, struct1.data, struct1.dataSize);
     return out;
   }
+
+  /**
+   * @brief Stream-style read helper for a simple HDF5 record descriptor.
+   *
+   * @tparam T Type of the pointed data.
+   * @param out Input stream wrapper.
+   * @param struct1 Descriptor containing the dataset name and pointer.
+   * @return Reference to the modified stream.
+   */
   template <typename T>
   friend h5stream &operator>>(h5stream &out, const h5str1<T> &struct1) {
     out.read<T>(struct1.keyName, struct1.data, struct1.dataSize);
     return out;
   }
-  //-------------------------------------------------
 };
 } // namespace h5stream

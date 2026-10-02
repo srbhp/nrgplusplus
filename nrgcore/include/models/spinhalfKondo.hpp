@@ -12,18 +12,20 @@
 #include <optional>
 #include <string>
 #include <vector>
+
+/**
+ * @brief Spin-half Kondo impurity model in a conserved symmetry basis.
+ *
+ * The class builds an impurity spin coupled to conduction electrons and stores
+ * the diagonalized block structure for later use in NRG and thermodynamic routines.
+ */
 class spinhalfKondo {
-  /** This class is for a single orbital with spin up and down
-   * f operator. SIAM can be made entirely from this class.
-   *
-   *
-   */
 public:
   /**
-   * @brief Construct a new spinhalfKondo object
+   * @brief Construct the spin-half Kondo model.
    *
-   * @param JKondo: J value for the Kondo interaction
-   * @param spinS: Spin value i.e,. 1/2 or 3/2. Integer Spin may not work
+   * @param JKondo Exchange coupling between impurity and conduction electrons.
+   * @param spinS Impurity spin magnitude.
    */
   spinhalfKondo(double JKondo, double spinS) {
     auto nstates = static_cast<size_t>(
@@ -34,10 +36,27 @@ public:
               << "dof: " << dof << "\n";
     createBasis(JKondo, spinS); // create the basis in nstates x nstates
   }
+  /**
+   * @brief Return the quantum-number basis sectors.
+   *
+   * @return Block labels for the constructed symmetry basis.
+   */
   [[nodiscard]] std::vector<std::vector<int>> get_basis() const { return n_Q; }
+
+  /**
+   * @brief Return the eigenvalues in each symmetry block.
+   *
+   * @return Sector-wise eigenvalues of the Kondo Hamiltonian.
+   */
   [[nodiscard]] std::vector<std::vector<double>> get_eigenvaluesQ() const {
     return eigenvalues_Q;
   }
+
+  /**
+   * @brief Return the fermionic parity sign associated with each block.
+   *
+   * @return Parity factor for each quantum-number block.
+   */
   [[nodiscard]] std::vector<double> get_chi_Q() const { return chi_Q; }
   //
   std::vector<std::vector<double>> eigenvalues_Q;

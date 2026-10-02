@@ -13,16 +13,25 @@
 #include <string>
 #include <tuple>
 #include <vector>
+
+/**
+ * @brief Spin-half impurity model in a superconducting or spin-only basis.
+ *
+ * This model constructs a charge- and spin-conserving impurity problem in a
+ * reduced local basis used for spin-only sectors and superconducting extensions.
+ */
 class spinhalfSC {
-  /** This class is for a single orbital with spin up and down
-   * f operator. SIAM can made entirely from this class.
-   *
-   *
-   */
   std::vector<qmatrix<double>> f_dag_raw;
   fermionBasis                 localSCbabsis;
 
 public:
+  /**
+   * @brief Construct the spin-half superconducting impurity model.
+   *
+   * @param teps Onsite impurity energy.
+   * @param tUint Hubbard interaction strength.
+   * @param tmag Zeeman splitting field.
+   */
   spinhalfSC(double teps, double tUint, double tmag) // NOLINT
       : localSCbabsis(2, fermionBasis::spinOnly) {
     double Uint           = tUint;

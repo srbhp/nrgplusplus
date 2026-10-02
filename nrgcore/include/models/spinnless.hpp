@@ -3,13 +3,20 @@
 #include "nrgcore/qOperator.hpp"
 #include "nrgcore/qsymmetry.hpp"
 #include "utils/qmatrix.hpp"
+
+/**
+ * @brief Simplified spinless single-impurity model with charge conservation.
+ *
+ * The model keeps only a single spinless fermionic mode and is useful as a
+ * minimal reference for charge-only NRG problems.
+ */
 class spinless {
-  /** This class is for a single orbital with
-   * coupled to Two lead. Only chrge is conserved
-   *
-   *
-   */
 public:
+  /**
+   * @brief Construct the spinless impurity model.
+   *
+   * @param teps Onsite energy of the spinless orbital.
+   */
   explicit spinless(double teps = 0) {
     fermionBasis spinlessBasis(
         1,                       // 1 for the label and two for the lead

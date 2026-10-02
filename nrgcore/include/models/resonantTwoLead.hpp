@@ -3,13 +3,23 @@
 #include "nrgcore/qOperator.hpp"
 #include "nrgcore/qsymmetry.hpp"
 #include "utils/qmatrix.hpp"
+
+/**
+ * @brief Resonant two-lead impurity model with charge conservation.
+ *
+ * The model describes a single impurity site coupled to left and right leads,
+ * conserving total charge while allowing tunneling and local interaction terms.
+ */
 class resonantTwoLead {
-  /** This class is for a single orbital with
-   * coupled to Two lead. Only chrge is conserved
-   *
-   *
-   */
 public:
+  /**
+   * @brief Construct the resonant two-lead impurity model.
+   *
+   * @param teps Onsite impurity energy.
+   * @param tleftGamma Left-lead tunneling amplitude.
+   * @param trightGamma Right-lead tunneling amplitude.
+   * @param Uinterct Local interaction parameter between the impurity occupancy and lead occupancy.
+   */
   resonantTwoLead(double teps, double tleftGamma, double trightGamma,
                   double Uinterct) {
     fermionBasis resonantTwoLeadBasis(
