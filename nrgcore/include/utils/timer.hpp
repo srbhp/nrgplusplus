@@ -5,6 +5,7 @@
 #include <thread>
 
 /**
+ * @class timer
  * @brief RAII-style timer for measuring execution time of code blocks.
  *
  * Automatically measures elapsed time from construction to destruction.

@@ -45,12 +45,11 @@ public:
    */
   auto getMap() { return &storage; }
   /**
-   * @brief Set the `qOperator` for the `i`th and `j`th
-   * symmetry basis.
+   * @brief Set a block entry in the symmetry-basis operator.
    *
-   * @param opr : Matrix object
-   * @param i : `i`th symmetry block
-   * @param j : `j`th symmetry block
+   * @param opr Matrix object stored in the `(i, j)` block.
+   * @param i Row block index in the symmetry basis.
+   * @param j Column block index in the symmetry basis.
    */
   void set(const qmatrix<double> &opr, size_t i, size_t j) {
     std::array<size_t, 2> idx = {i, j}; // ToDo : Check for overrides
@@ -59,6 +58,13 @@ public:
     }
     storage[idx] = opr;
   }
+  /**
+   * @brief Set a block entry by moving a matrix into storage.
+   *
+   * @param opr Matrix object to move into the `(i, j)` block.
+   * @param i Row block index in the symmetry basis.
+   * @param j Column block index in the symmetry basis.
+   */
   void set(qmatrix<double> &opr, size_t i, size_t j) {
     // #pragma omp critical
     {
@@ -87,10 +93,10 @@ public:
     return {};
   }
   /**
-   * @brief  This function unitary transform the `qOperator` by the `U` matrix.
-   * The `U` matrix is a block-diagonal matrix of `qmatrix` type.
-   * The `qOperator` is transformed as \f U^\dagger \cdot  qOperator \cdot U \f
-   * .
+   * @brief Unitarily transform this operator with a block-diagonal matrix.
+   *
+   * The `U` matrix is a block-diagonal `qmatrix` and the operator is updated as
+   * \f$U^\dagger qOperator U\f$.
    *
    * @param U The unitary matrix to transform the `qOperator`. Usually
    * we get this matrix after diagonalization of the Hamiltonian.

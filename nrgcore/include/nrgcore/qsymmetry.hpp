@@ -4,6 +4,7 @@
 #include <vector>
 
 /**
+ * @class qsymmetry
  * @brief Manages quantum number symmetries and conservation laws.
  *
  * qsymmetry is a base class that tracks and manages quantum number symmetries

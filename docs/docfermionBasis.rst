@@ -1,8 +1,8 @@
-Fermion base class
-==================
+Fermion basis
+=============
 
-The `fermionBasis` class serves as the foundational class for representing fermionic systems in the codebase.
+The ``fermionBasis`` class defines the fermionic basis and the quantum-number sectors used to build and
+block-diagonalize impurity Hamiltonians. It provides the symmetry structure used throughout the NRG
+solver setup.
 
-.. doxygenclass:: fermionBasis 
-   :project: nrgplusplus
-   :members:
+For the generated class reference, see the `API documentation <api/library_root.html>`_.

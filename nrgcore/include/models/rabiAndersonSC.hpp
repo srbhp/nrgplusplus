@@ -32,14 +32,19 @@ public:
   explicit rabiAndersonSC(const std::map<std::string, double> &params) {
     createBasis(params); // create the basis in nstates x nstates
   }
+  /// @brief Return the quantum-number sectors for the current basis.
   [[nodiscard]] std::vector<std::vector<int>> get_basis() const { return n_Q; }
+  /// @brief Return the Hamiltonian eigenvalues for each symmetry block.
   [[nodiscard]] std::vector<std::vector<double>> get_eigenvaluesQ() const {
     return eigenvalues_Q;
   }
+  /// @brief Return the parity factor for each symmetry block.
   [[nodiscard]] std::vector<double> get_chi_Q() const { return chi_Q; }
-  //
+  /// @brief Eigenvalues in each symmetry block.
   std::vector<std::vector<double>> eigenvalues_Q;
+  /// @brief Parity sign for each symmetry sector.
   std::vector<double>              chi_Q;
+  /// @brief Quantum-number labels for each block.
   std::vector<std::vector<int>>    n_Q;
   //    ########################################
 private:

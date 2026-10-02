@@ -57,9 +57,11 @@ public:
    * @return Parity factor used in fermionic symmetry bookkeeping.
    */
   [[nodiscard]] std::vector<double> get_chi_Q() const { return chi_Q; }
-  //
+  /// @brief Eigenvalues of the Hamiltonian block structure.
   std::vector<std::vector<double>> eigenvalues_Q;
+  /// @brief Parity factor for each symmetry block.
   std::vector<double>              chi_Q;
+  /// @brief Quantum-number labels for each block.
   std::vector<std::vector<int>>    n_Q;
   //    ########################################
 private:

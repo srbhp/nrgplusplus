@@ -58,10 +58,13 @@ public:
    * @return Parity factor for each quantum-number block.
    */
   [[nodiscard]] std::vector<double> get_chi_Q() const { return chi_Q; }
-  //
+  /// @brief Eigenvalues in each symmetry sector.
   std::vector<std::vector<double>> eigenvalues_Q;
+  /// @brief Parity sign for each symmetry sector.
   std::vector<double>              chi_Q;
+  /// @brief Fermion creation operators in the rotated basis.
   std::vector<qOperator>           f_dag_operator;
+  /// @brief Quantum-number labels for each basis block.
   std::vector<std::vector<int>>    n_Q;
   //    ########################################
 private:

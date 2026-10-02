@@ -50,9 +50,11 @@ public:
    * @return Vector of parity signs used in the fermionic sector structure.
    */
   [[nodiscard]] std::vector<double> get_chi_Q() const { return chi_Q; }
-  //
+  /// @brief Eigenvalues in each symmetry block.
   std::vector<std::vector<double>> eigenvalues_Q;
+  /// @brief Fermionic parity sign for each block.
   std::vector<double>              chi_Q;
+  /// @brief Quantum numbers labeling each symmetry block.
   std::vector<std::vector<int>>    n_Q;
   //    ########################################
 private:

@@ -189,8 +189,9 @@ public:
   /**
    * @brief Accumulate the spectral weight contributions for the current shell.
    *
-   * The routine evaluates $\rho B$ and $B \rho$ contractions and accumulates the
-   * resulting positive and negative frequency contributions in the internal
+   * The routine evaluates \f$\rho B\f$ and \f$B \rho\f$ contractions and
+   * accumulates the resulting positive and negative frequency contributions in
+   * the internal
    * weight arrays.
    */
   void rhoDotOperators() {
@@ -338,11 +339,18 @@ private:
   double delE      = (energyPts - 1.0) / (std::log(maxEnergy / minEnergy));
 
 public: // Give access for openchain class
+  /// @brief Kept-state indices used to reduce the density matrix on the current shell.
   std::vector<std::vector<size_t>> currentKeptIndex;
+  /// @brief Full density matrix for the current shell in the current eigenbasis.
   std::vector<qmatrix<>>           rhoZero;
+  /// @brief Left-hand operator set used in the spectral contraction.
   std::vector<qOperator>          *aOperator{};
+  /// @brief Right-hand operator set used in the spectral contraction.
   std::vector<qOperator>          *bOperator{};
+  /// @brief True when processing the final shell of the current backward pass.
   bool                             lastiteration{true};
+  /// @brief Energy rescaling applied when constructing the spectral grid.
   double                           energyRescale{1};
+  /// @brief Numerical tolerance used to identify near-degenerate shell states.
   double                           energyErrorBar{1e-5};
 };

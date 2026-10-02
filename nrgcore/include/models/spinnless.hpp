@@ -65,21 +65,16 @@ public:
      */
     return eigenvalues_Q;
   }
+  /// @brief Return the parity sign associated with each charge sector.
   [[nodiscard]] std::vector<double> get_chi_Q() const {
-    /** This functions returns
-     *  `vector<vector>` of
-     *  \f$ \chi_Q  = e^{n_Q} \f$
-     *
-     *
-     */
     return chi_Q;
   }
-  // protected:
-  // parameter
-  // functions
-  //
+  /// @brief Fermion creation operators in the charge basis.
   std::vector<qOperator>           f_dag_operator;
+  /// @brief Eigenvalues in each symmetry block.
   std::vector<std::vector<double>> eigenvalues_Q;
+  /// @brief Parity sign for each sector.
   std::vector<double>              chi_Q;
+  /// @brief Charge quantum numbers for each basis state.
   std::vector<std::vector<int>>    n_Q;
 };

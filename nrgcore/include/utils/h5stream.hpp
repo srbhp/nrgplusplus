@@ -74,16 +74,25 @@ template <> inline const H5::PredType &get_datatype_for_hdf5<long double>() {
 }
 //---------------------------------------------------------
 namespace h5stream {
+/**
+ * @struct h5stream::h5str1
+ * @brief Lightweight descriptor for a single HDF5 dataset payload.
+ *
+ * @tparam T Data type pointed to by the dataset payload.
+ */
 template <typename T> struct h5str1 {
+  /// @brief Name of the HDF5 dataset to read or write.
   std::string    keyName;
+  /// @brief Pointer to the underlying array data.
   T             *data;
+  /// @brief Number of elements in the dataset payload.
   const unsigned dataSize{};
 };
 } // namespace h5stream
 //
 namespace h5stream {
 /**
- * @class dspace
+ * @class h5stream::dspace
  * @brief Helper for reading and writing dataset attributes in HDF5 files.
  *
  * This lightweight wrapper exposes attribute read/write operations bound to an
@@ -91,6 +100,7 @@ namespace h5stream {
  */
 class dspace {
 public:
+  /// @brief Wrapped HDF5 dataset used for attribute access.
   H5::DataSet dataset;
 
   /**
@@ -131,7 +141,7 @@ public:
 };
 
 /**
- * @class gspace
+ * @class h5stream::gspace
  * @brief Helper for reading and writing attributes on an HDF5 group.
  *
  * This wrapper mirrors `dspace` but binds directly to an HDF5 group instead of
@@ -139,6 +149,7 @@ public:
  */
 class gspace {
 public:
+  /// @brief Wrapped HDF5 group used for attribute access.
   H5::Group dataset;
 
   /**
@@ -181,7 +192,7 @@ public:
 
 namespace h5stream {
 /**
- * @class h5stream
+ * @class h5stream::h5stream
  * @brief Minimal header-only wrapper for common HDF5 read/write operations.
  *
  * The class provides utilities to create or open an HDF5 file, write/read
@@ -191,7 +202,9 @@ class h5stream {
   bool debug = false;
 
 public:
+  /// @brief Path to the currently open HDF5 file.
   H5std_string hdf5FileName;
+  /// @brief Active HDF5 file handle.
   H5::H5File   hdf5File;
 
   /**

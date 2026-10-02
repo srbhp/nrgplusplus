@@ -96,6 +96,11 @@ public:
     // End of the constructor
   }
   //
+  /**
+   * @brief Add a superconducting pairing term to the impurity Hamiltonian.
+   *
+   * @param delta Pairing amplitude added to the effective mean-field term.
+   */
   void addSCDelta(double delta) {
     auto H = (f_dag_raw[0].cTranspose().dot(f_dag_raw[1].cTranspose()) +
               f_dag_raw[1].dot(f_dag_raw[0])) *
@@ -144,21 +149,18 @@ public:
      */
     return eigenvalues_Q;
   }
+  /// @brief Return the parity factor associated with each symmetry sector.
   [[nodiscard]] std::vector<double> get_chi_Q() const {
-    /** This functions returns
-     *  `vector<vector>` of
-     *  \f$ \chi_Q  = e^{n_Q} \f$
-     *
-     *
-     */
     return chi_Q;
   }
-  // protected:
-  // functions
+  /// @brief Update the parity factors for the active basis.
   void set_chi_Q();
-  //
+  /// @brief Fermion creation operators in the rotated symmetry basis.
   std::vector<qOperator>           f_dag_operator;
+  /// @brief Eigenvalues stored by symmetry block.
   std::vector<std::vector<double>> eigenvalues_Q;
+  /// @brief Parity sign for each sector.
   std::vector<double>              chi_Q;
+  /// @brief Quantum-number labels for each block.
   std::vector<std::vector<int>>    n_Q;
 };

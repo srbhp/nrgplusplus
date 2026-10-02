@@ -94,36 +94,31 @@ public:
     // left and right operators are only needed
     // TODO: rotate the f operator  and n operator
   }
+  /// @brief Creation operator for the impurity site in the rotated basis.
   qOperator                                   impurityFdag;
+  /// @brief Number operator for the impurity site.
   qOperator                                   impurityNparticle;
+  /// @brief Return the charge quantum-number sectors of the basis.
   [[nodiscard]] std::vector<std::vector<int>> get_basis() const {
     /** returns the basis vector
      *
      */
     return n_Q;
   }
+  /// @brief Return the Hamiltonian eigenvalues for each charge sector.
   [[nodiscard]] std::vector<std::vector<double>> get_eigenvaluesQ() const {
-    /** return eigenvalues_Q
-     *
-     *
-     */
     return eigenvalues_Q;
   }
+  /// @brief Return the parity factor associated with each charge sector.
   [[nodiscard]] std::vector<double> get_chi_Q() const {
-    /** This functions returns
-     *  `vector<vector>` of
-     *  \f$ \chi_Q  = e^{n_Q} \f$
-     *
-     *
-     */
     return chi_Q;
   }
-  // protected:
-  // parameter
-  // functions
-  //
+  /// @brief Creation operators for the impurity and lead modes.
   std::vector<qOperator>           f_dag_operator;
+  /// @brief Eigenvalues in each block of the charge-conserving basis.
   std::vector<std::vector<double>> eigenvalues_Q;
+  /// @brief Charge-parity sign for each sector.
   std::vector<double>              chi_Q;
+  /// @brief Charge quantum numbers for each many-body state.
   std::vector<std::vector<int>>    n_Q;
 };

@@ -69,8 +69,14 @@ breathe_code_block_language_replacements = {
     "verbatim": "cpp",  # Handle @verbatim blocks as C++ code
 }
 
-# Do not scan the secondary exhale generated source tree, this avoids duplicate labels.
-exclude_patterns = ["source/api/**"]
+# Do not scan the secondary exhale generated source tree, generated build output,
+# or example README files that are intentionally included elsewhere.
+exclude_patterns = [
+    "source/api/**",
+    "_build/**",
+    "examples/**/readme.md",
+    "examples/**/todo.md",
+]
 
 # Setup the exhale extension
 exhale_args = {

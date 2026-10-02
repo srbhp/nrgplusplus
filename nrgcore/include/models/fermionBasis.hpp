@@ -389,8 +389,8 @@ public:
   /**
    * @brief Build the full creation-operator basis and number quantum numbers.
    *
-   * Generates fermion raising operators (`f^`) for each orbital and
-   * then computes occupation numbers used by quantum-number partitioning.
+   * Generates fermion raising operators for each orbital and then computes the
+   * occupation numbers used by the symmetry-partitioned basis construction.
    *
    * @param ldof Number of fermionic orbitals (degrees of freedom).
    */
@@ -418,6 +418,7 @@ public:
     }
     //
   }
+  /// @brief Full fermion creation-operator basis in the many-body occupation representation.
   std::vector<qmatrix<>> fermionOprMat;
   /**
    * @brief Construct block-wise f-dag operators from full operators.

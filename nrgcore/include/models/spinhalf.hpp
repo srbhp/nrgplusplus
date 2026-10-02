@@ -71,12 +71,9 @@ public:
    *
    * @see get_eigenvaluesQ() - Ground state energies for each quantum number sector
    * @see get_unique_Qnumbers() - Valid (N, S_z) quantum number combinations
-   *
-   * @example
-   * @code
-   * // SIAM parameters: single level at -1eV with U=2eV
-   * spinhalf quantum_dot(-1.0, 2.0, 0.0);
-   * @endcode
+   */
+  /**
+   * @brief Construct a spin-1/2 impurity with onsite energy, interaction, and field.
    */
   spinhalf(double teps, double tUint, double tmag = 0) // NOLINT
       : Uint(tUint), epsilon_d(teps), magnetic_field(tmag) {

@@ -55,6 +55,7 @@ template <typename T> void LOGGER(const std::string &name, T x) {
 // #define logger(name) LOGGER(#name, (name))
 
 /**
+ * @class qmatrix
  * @brief A template matrix class for quantum (q) operators and general linear algebra.
  *
  * qmatrix is a row-major matrix container for NRG quantum calculations, supporting:

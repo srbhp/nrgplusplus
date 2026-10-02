@@ -203,13 +203,18 @@ public:
     f_dag_operator = topr;
   }
   //    ######################################
+  /// @brief Return the quantum-number sectors for the current basis.
   [[nodiscard]] std::vector<std::vector<int>> get_basis() const { return n_Q; }
+  /// @brief Return the eigenvalues for each symmetry block.
   [[nodiscard]] std::vector<std::vector<double>> get_eigenvaluesQ() const {
     return eigenvalues_Q;
   }
+  /// @brief Return the parity sign associated with each block.
   [[nodiscard]] std::vector<double> get_chi_Q() const { return chi_Q; }
-  //
+  /// @brief Eigenvalues for each symmetry block.
   std::vector<std::vector<double>> eigenvalues_Q;
+  /// @brief Parity factor for each block.
   std::vector<double>              chi_Q;
+  /// @brief Quantum-number labels for each block.
   std::vector<std::vector<int>>    n_Q;
 };

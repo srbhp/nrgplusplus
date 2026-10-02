@@ -24,8 +24,10 @@
  */
 template <typename nrgcore_type> class fdmBackwardIteration {
 public:
+  /// @brief Pointer to the active NRG core object used by the backward iteration.
   nrgcore_type *nrgObject;
-  double        kBT{0}; // Temperature of nrg system i.e., in FDM formalism
+  /// @brief Temperature of the NRG system in the FDM formalism.
+  double        kBT{0};
 
   /**
    * @brief Construct an FDM backward-iteration helper for a given NRG core.
@@ -59,7 +61,7 @@ public:
    * order required for the backward iteration.
    *
    * @param energyScale Energy scale associated with the current NRG iteration,
-   * typically proportional to $\Lambda^{-(N-1)/2}$.
+   * typically proportional to \f$\Lambda^{-(N-1)/2}\f$.
    */
   void calcSpectrum(double energyScale) {
     // Clear the operator
@@ -168,7 +170,7 @@ public:
    * @brief Contract the density matrix with a set of static operators.
    *
    * @param bOperator Pointer to the operator set used in the contraction.
-   * @return Vector of scalar traces $\mathrm{Tr}[\rho B]$ for each operator.
+   * @return Vector of scalar traces \f$\mathrm{Tr}[\rho B]\f$ for each operator.
    */
   auto rhoDotStaticOperators(std::vector<qOperator> *bOperator) {
     // timer               t1("rhoDotStaticOperators");
@@ -202,8 +204,8 @@ public:
    * states are overwritten with the reduced density matrix from the previous
    * Wilson shell whenever the backward iteration is not in the final step.
    *
-   * @param tBoltzmannFactor Boltzmann factors of the form $\exp(-\beta E_n)$
-   * for each shell state.
+   * @param tBoltzmannFactor Boltzmann factors of the form
+   * \f$\exp(-\beta E_n)\f$ for each shell state.
    */
   void setRhoZero(const std::vector<std::vector<double>> &tBoltzmannFactor) {
     rhoZero.clear();
@@ -317,8 +319,12 @@ private:
   std::vector<double>    vecPartitions;
 
 public: // Give access for openchain class
+  /// @brief Kept-state indices for the current Wilson shell.
   std::vector<std::vector<size_t>> currentKeptIndex;
+  /// @brief Density matrices for the current shell in the active basis.
   std::vector<qmatrix<>>           rhoZero;
+  /// @brief True when the current shell is the final backward-iteration step.
   bool                             lastiteration{true};
+  /// @brief Numerical tolerance used when identifying degenerate shell states.
   double                           energyErrorBar{1e-5};
 };

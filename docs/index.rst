@@ -217,6 +217,13 @@ Complete Documentation
 
   docfdmback
   docfdmspec
+  docfdmSpectrum
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Examples:
+
+  examples
 
 .. toctree::
   :maxdepth: 2
