@@ -12,31 +12,26 @@
 #include <stdexcept>
 #include <tuple>
 #include <vector>
-
 /**
  * @class fdmSpectrum
- * @brief Calculates the spectral function using the FDM (Full Density Matrix) approach.
+ * @brief Calculates the spectral function using the FDM (Full Density Matrix)
+ * approach.
  *
  * This class computes the spectral weights and reduced density matrices
  * for a given NRG core object.
  *
  * @tparam nrgcore_type The type of the NRG core object.
  */
-template <typename nrgcore_type>
-class fdmSpectrum {
+template <typename nrgcore_type> class fdmSpectrum {
   nrgcore_type *nrg_object;
   double        kBT{0}; // Temperature of nrg system i.e., in FDM formalism
-
 public:
   /**
    * @brief Constructs the `fdmSpectrum` object.
    *
    * @param t_nrg_object Pointer to the NRG core object.
    */
-  explicit fdmSpectrum(nrgcore_type *t_nrg_object) {
-    setup(t_nrg_object);
-  }
-
+  explicit fdmSpectrum(nrgcore_type *t_nrg_object) { setup(t_nrg_object); }
   /**
    * @brief Sets up the FDM spectrum calculation.
    *
@@ -47,7 +42,6 @@ public:
     nrg_object              = t_nrg_object;
     globalGroundStateEnergy = 0; //= nrg_object->all_eigenvalue[0];
   }
-
   /**
    * @brief Calculates the spectral function.
    *
@@ -62,12 +56,12 @@ public:
     setReduceDensityMatrix();
     lastiteration = false;
   }
-
   /**
    * @brief Sets the reduced density matrix.
    *
-   * This function calculates the reduced density matrix from the full density matrix `rhoZero`.
-   * It traces out the bath degrees of freedom to obtain the density matrix for the impurity part.
+   * This function calculates the reduced density matrix from the full density
+   * matrix `rhoZero`. It traces out the bath degrees of freedom to obtain the
+   * density matrix for the impurity part.
    */
   void setReduceDensityMatrix() {
     // timer t1("setReduceDensityMatrix");
@@ -100,9 +94,9 @@ public:
                  il++) {
               aa += rhoZero[i].at(
                   kidx + it +
-                      nrg_object->eigenvaluesQ_kept_indices[ii].size() * il,
+                      (nrg_object->eigenvaluesQ_kept_indices[ii].size() * il),
                   kidx + it_p +
-                      nrg_object->eigenvaluesQ_kept_indices[ii].size() * il);
+                      (nrg_object->eigenvaluesQ_kept_indices[ii].size() * il));
             }
             reducedRho[ii].at(it, it_p) += aa;
           }
@@ -113,12 +107,12 @@ public:
       // End of matrix generation.
     }
   }
-
   /**
    * @brief Sets the local partition function and Boltzmann factors.
    *
-   * This function calculates the ground state energy and the partition function for the current shell.
-   * It then computes the Boltzmann factors which are used to initialize the density matrix at the last iteration.
+   * This function calculates the ground state energy and the partition function
+   * for the current shell. It then computes the Boltzmann factors which are
+   * used to initialize the density matrix at the last iteration.
    */
   void setLocalPartitionFunction() {
     localGroundStateEnergy = 0;
@@ -154,14 +148,13 @@ public:
       }
     } //
   }
-
   std::vector<std::vector<double>> BoltzmannFactor;
-
   /**
    * @brief Sets the initial density matrix `rhoZero`.
    *
-   * At the last iteration (T=0), the density matrix is initialized with the ground state projection.
-   * For other iterations, it is constructed using the reduced density matrix from the previous step.
+   * At the last iteration (T=0), the density matrix is initialized with the
+   * ground state projection. For other iterations, it is constructed using the
+   * reduced density matrix from the previous step.
    */
   void setRhoZero() {
     if (lastiteration) {
@@ -197,13 +190,13 @@ public:
     }
     std::cout << "rhoTrace: " << rhoTrace << std::endl;
     // move the operator
-  }                        // End of  update_system_operatorQ
-
+  } // End of  update_system_operatorQ
   /**
    * @brief Calculates the contribution to the spectral function.
    *
-   * This function calculates the spectral weights by computing traces of operator products with the density matrix.
-   * It computes both positive and negative frequency contributions.
+   * This function calculates the spectral weights by computing traces of
+   * operator products with the density matrix. It computes both positive and
+   * negative frequency contributions.
    */
   void rhoDotOperators() { // NOLINT
     double specSum = 0.0;
@@ -282,14 +275,12 @@ public:
     // End of matrix generation.
     // Rotate the c operator in the eigen basis
   }
-
   /**
    * @brief Sets the temperature for the calculation.
    *
    * @param at The temperature value.
    */
   void setTemperature(double at) { kBT = at; }
-
   /**
    * @brief Sets the indices of the kept states for the current iteration.
    */
@@ -303,12 +294,12 @@ public:
     }
     previoudKeptIndex = nrg_object->eigenvaluesQ_kept_indices;
   }
-
   /**
    * @brief Sets the operators for the spectral function calculation.
    *
    * @param bopr Pointer to the vector of creation-like operators.
-   * @param aopr Pointer to the vector of annihilation-like operators (optional, if not provided, bopr is used for both).
+   * @param aopr Pointer to the vector of annihilation-like operators (optional,
+   * if not provided, bopr is used for both).
    */
   void setOperator(std::vector<qOperator> *bopr,
                    std::vector<qOperator> *aopr = nullptr) {
@@ -326,15 +317,13 @@ public:
       negativeWeight.emplace_back(energyPts, 0);
     }
   }
-
   /**
    * @brief Saves the final spectral data to a file.
    *
    * @tparam filetype The type of the file object.
    * @param pfile Pointer to the file object.
    */
-  template <typename filetype>
-  void saveFinalData(filetype *pfile) {
+  template <typename filetype> void saveFinalData(filetype *pfile) {
     std::vector<double> energyPoints(energyPts, 0);
     for (int i = 0; i < energyPts; i++) {
       energyPoints[i] = (minEnergy * std::exp(i * 1. / delE));

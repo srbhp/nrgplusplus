@@ -97,9 +97,9 @@ public:
                  il++) {
               aa += rhoZero[i].at(
                   kidx + it +
-                      nrgObject->eigenvaluesQ_kept_indices[ii].size() * il,
+                      (nrgObject->eigenvaluesQ_kept_indices[ii].size() * il),
                   kidx + it_p +
-                      nrgObject->eigenvaluesQ_kept_indices[ii].size() * il);
+                      (nrgObject->eigenvaluesQ_kept_indices[ii].size() * il));
             }
             reducedRho[ii].at(it, it_p) += aa;
           }
