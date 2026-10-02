@@ -13,50 +13,53 @@
 #include <tuple>
 #include <vector>
 /**
- * @brief  This class is responsible for the backward iteration
- * of the NRG algorithm. This class has three useful functions
- * to calculate the energy dependent quantities such as $A(\omega)$.
- * These functions are :
- *   - 1. setCurrentIndex : set the indices  for the kept and Discarded states
- *   - 2. setRhoZero : Creates the density matrix of the current Wilson Chain.
- *   - 3. setReduceDensityMatrix: Reduce the density matrix after summing over
- * the Enviorentment degree.
+ * @class fdmBackwardIteration
+ * @brief Propagates the reduced density matrix through backward NRG iterations.
  *
+ * This helper class tracks the kept/discarded state indices for the current
+ * Wilson shell and builds the density matrix used to evaluate FDM-based
+ * spectral quantities such as local Green's functions and static responses.
  *
- * @tparam nrgcore_type : Type of the nrgcore object
- * @param t_nrgObject : norgcore object created from a Impurity and bath class.
- * @return [TODO:return]
+ * @tparam nrgcore_type Type of the underlying NRG core object.
  */
-template <typename nrgcore_type> // nrgcore_type is a type of
-class fdmBackwardIteration {
+template <typename nrgcore_type> class fdmBackwardIteration {
 public:
   nrgcore_type *nrgObject;
   double        kBT{0}; // Temperature of nrg system i.e., in FDM formalism
-  // fdmBackwardIteration() {}
-  explicit fdmBackwardIteration(nrgcore_type *t_nrgObject // nrgcore_type
-  ) {
+
+  /**
+   * @brief Construct an FDM backward-iteration helper for a given NRG core.
+   *
+   * @param t_nrgObject Pointer to the NRG model state used for the current
+   * calculation.
+   */
+  explicit fdmBackwardIteration(nrgcore_type *t_nrgObject) {
     setup(t_nrgObject);
     this->clearKeptIndex();
   }
+
   /**
-   * @brief Explicitly set the `nrgobject`
+   * @brief Bind the helper to a specific NRG core object.
    *
-   * @param t_nrgObject
+   * This resets the iteration state to the initial backward-iteration regime and
+   * prepares the object to work with the supplied model data.
+   *
+   * @param t_nrgObject Pointer to the NRG core object.
    */
   void setup(nrgcore_type *t_nrgObject) {
     lastiteration = true;
     nrgObject     = t_nrgObject;
   }
+
   /**
-   * @brief
-   * These function calls the following functions :
-   *   - 1. setCurrentIndex : set the indices  for the kept and Discarded states
-   *   - 2. setRhoZero : Creates the density matrix of the current Wilson Chain.
-   *   - 3. setReduceDensityMatrix: Reduce the density matrix after summing over
-   * the Enviorentment degree.
+   * @brief Compute the density-matrix ingredients for the current shell.
    *
-   * @param energyScale: Energy scale of the currect NRG iteration. \f$
-   * \Lambda^{-(N-1)/2} \f$
+   * The routine updates the kept-state index set, reconstructs the density
+   * matrix for the current shell, and reduces it to the impurity sector in the
+   * order required for the backward iteration.
+   *
+   * @param energyScale Energy scale associated with the current NRG iteration,
+   * typically proportional to $\Lambda^{-(N-1)/2}$.
    */
   void calcSpectrum(double energyScale) {
     // Clear the operator
@@ -66,8 +69,13 @@ public:
     // rhoDotOperators();
     setReduceDensityMatrix();
   }
+
   /**
-   * @brief Creates the reduced density matrix.
+   * @brief Build the reduced density matrix for the impurity sector.
+   *
+   * The full density matrix is rotated into the instantaneous eigenbasis and
+   * then traced over the bath degrees of freedom to produce the reduced density
+   * matrix stored in `reducedRho` for the current shell.
    */
   void setReduceDensityMatrix() {
     // Set reducedRho
@@ -109,19 +117,17 @@ public:
       }
       // End of matrix generation.
     }
-    // double trace = std::accumulate(
-    //                    reducedRho.begin(), reducedRho.end(), 0.0,
-    // [](double a, const qmatrix<> &b) {
-    //     return a + b.trace();
-    // });
-    // std::cout << "NrgItr: " << nrgObject->nrg_iterations_cnt
-    //           << "rhoTrace: " << trace << std::endl;
-    // once the reduce density matrix is defined We
-    // set the lastiteration to be false for the next iteration
+    // once the reduced density matrix is defined we
+    // set the last iteration flag for the next shell.
     lastiteration = false;
   }
+
   /**
-   * @brief Sets the Local partition function for the current Wilson chain.
+   * @brief Compute the local partition function and ground-state energy.
+   *
+   * The routine identifies the lowest-energy state in each shell and assigns
+   * Boltzmann weights to the states that are considered degenerate within the
+   * numerical tolerance defined by `energyErrorBar`.
    */
   void setLocalPartitionFunction() {
     localGroundStateEnergy = 0;
@@ -140,7 +146,7 @@ public:
           localPartitionFunction += 1.;
         }
       }
-    } //
+    }
     std::cout << "localGroundStateEnergy" << localGroundStateEnergy
               << " localPartitionFunction: " << localPartitionFunction
               << std::endl;
@@ -155,28 +161,24 @@ public:
           BoltzmannFactor[i][ie] = 0;
         }
       }
-    } //
+    }
   }
+
   /**
-   * @brief $\rho \cdot B$ : Dot product between $\rho$ and B operator.
+   * @brief Contract the density matrix with a set of static operators.
    *
-   * @param bOperator: Pointer to a std::vector of  B operators.
-   * @return returns the dot product value as std::vector
+   * @param bOperator Pointer to the operator set used in the contraction.
+   * @return Vector of scalar traces $\mathrm{Tr}[\rho B]$ for each operator.
    */
   auto rhoDotStaticOperators(std::vector<qOperator> *bOperator) {
     // timer               t1("rhoDotStaticOperators");
     std::vector<double> specSum(bOperator->size(), 0.0);
-    //
     for (size_t ip = 0; ip < bOperator->size(); ip++) {
       for (size_t i = 0; i < nrgObject->eigenvaluesQ.size(); i++) {
         size_t kpdim = nrgObject->eigenvaluesQ[i].size();
-        // std::cout << "--------------------------";
-        // std::cout << "idx" << idx << " idx_p" << idx_p << std::endl;
-        // TODO(sp): This
         auto sys_opr_opt = (*bOperator)[ip].get(i, i);
         if (sys_opr_opt) {
           auto *sys_opr = sys_opr_opt.value();
-          // set kept-kept part operator
           for (auto iv : currentKeptIndex[i]) {
             for (auto iv_p : currentKeptIndex[i]) {
               sys_opr->at(iv, iv_p) = 0;
@@ -188,41 +190,32 @@ public:
             }
           }
         }
-        // all the matrices are set
       }
     }
-    // set the matrix elements
-    // end of lm loop
-    // End of matrix generation.
-    // Rotate the c operator in the eigen basis
     return specSum;
   }
+
   /**
-   * @brief Set the density matrix based on the BoltzmannFactors
-   * and reduced density matrix of the previous Wilson Chain if available.
+   * @brief Construct the density matrix from a provided set of Boltzmann factors.
    *
-   * @param tBoltzmannFactor: Boltzmann Factors  of the form of $exp(- \beta
-   * E_n)$
+   * The discarded states are filled with the supplied weights while the kept
+   * states are overwritten with the reduced density matrix from the previous
+   * Wilson shell whenever the backward iteration is not in the final step.
+   *
+   * @param tBoltzmannFactor Boltzmann factors of the form $\exp(-\beta E_n)$
+   * for each shell state.
    */
   void setRhoZero(const std::vector<std::vector<double>> &tBoltzmannFactor) {
-    // Clear the operator
-    // Order of these functions are important
     rhoZero.clear();
     double rhoTrace = 0;
     for (size_t i = 0; i < nrgObject->current_sysmQ.size(); i++) {
       size_t kpdim = nrgObject->eigenvaluesQ[i].size();
-      // std::cout << "--------------------------";
-      // std::cout << "idx" << idx << " idx_p" << idx_p << std::endl;
       qmatrix<> tmat(kpdim, kpdim, 0);
-      // Discarded states
       for (size_t ie = currentKeptIndex[i].size();
            ie < nrgObject->eigenvaluesQ[i].size(); ie++) {
         tmat(ie, ie) = tBoltzmannFactor[i][ie];
       }
-      // Kept states
-      if (!lastiteration) { // Condition for the last Wilson site
-        // std::cout << "Not lastiteration" << std::endl;
-        //  Just Override the kept states
+      if (!lastiteration) {
         for (auto ik : currentKeptIndex[i]) {
           for (auto ikp : currentKeptIndex[i]) {
             tmat(ik, ikp) = reducedRho[i](ik, ikp);
@@ -230,47 +223,37 @@ public:
         }
       }
       rhoTrace += tmat.trace();
-      // Save the matrix
       rhoZero.push_back(tmat);
     }
     std::cout << "NRG Itr: " << nrgObject->nrg_iterations_cnt
               << "rhoTrace: " << rhoTrace << std::endl;
-    // move the operator
-  } // End of  update_system_operatorQ
+  }
+
+  /**
+   * @brief Construct the density matrix using the internally stored Boltzmann
+   * factors and reduced density matrix.
+   *
+   * This overload is used when the class has already computed the local
+   * partition function in the current shell.
+   */
   void setRhoZero() {
-    // Clear the operator
-    // Order of these functions are important
-    // This function is called
-    // for setting up current rho
-    //
-    //
-    //
     if (lastiteration) {
       setLocalPartitionFunction();
     }
     double rhoTrace{0};
-    // Calc partition function of the shell ::
     vecPartitions.push_back(localPartitionFunction);
     rhoZero.clear();
     std::cout << "Size : " << reducedRho.size() << " "
               << currentKeptIndex.size() << std::endl;
     for (size_t i = 0; i < nrgObject->current_sysmQ.size(); i++) {
       size_t kpdim = nrgObject->eigenvaluesQ[i].size();
-      // std::cout << "--------------------------";
-      // std::cout << "idx" << idx << " idx_p" << idx_p << std::endl;
       qmatrix<> tmat(kpdim, kpdim, 0);
-      // Discarded states
-      if (lastiteration) { // Only for the laast iterationT= 0
+      if (lastiteration) {
         for (size_t ie = 0; ie < nrgObject->eigenvaluesQ[i].size(); ie++) {
           tmat(ie, ie) = BoltzmannFactor[i][ie];
         }
       }
-      // Kept states
-      if (!lastiteration) { // Condition for the last Wilson site
-        // Just Override the kept states
-        // std::cout << reducedRho[i].size() << " " <<
-        // currentKeptIndex[i].size()
-        //           << std::endl;
+      if (!lastiteration) {
         for (auto ik : currentKeptIndex[i]) {
           for (auto ikp : currentKeptIndex[i]) {
             tmat(ik, ikp) = reducedRho[i](ik, ikp);
@@ -278,24 +261,28 @@ public:
         }
       }
       rhoTrace += tmat.trace();
-      // Save the matrix
       rhoZero.push_back(tmat);
     }
     std::cout << "NrgItr: " << nrgObject->nrg_iterations_cnt
               << "rhoTrace: " << rhoTrace << std::endl;
-    // move the operator
-  } // End of  update_system_operatorQ
-  //
+  }
+
   /**
-   * @brief Set the temperature of the system.
+   * @brief Set the temperature used for the calculation.
    *
-   * @param mkBT: Temperature
+   * @param mkBT Temperature in the same units as the NRG energy scale.
    */
   void setTemperature(double mkBT) { kBT = mkBT; }
+
+  /**
+   * @brief Update the kept states for the current shell.
+   *
+   * The implementation reuses the previous kept-state set during later
+   * iterations and initializes an empty set when the current shell is the last
+   * one in the backward pass.
+   */
   void setCurrentIndex() {
-    // This only work for the backward iteration
     if (lastiteration) {
-      // every state is Discarded
       for (size_t i = 0; i < nrgObject->current_sysmQ.size(); i++) {
         currentKeptIndex.emplace_back();
       }
@@ -304,8 +291,11 @@ public:
     }
     previoudKeptIndex = nrgObject->eigenvaluesQ_kept_indices;
   }
+
   /**
-   * @brief Clear everything. Useful for the last iteration.
+   * @brief Reset the stored shell information and clear the density-matrix cache.
+   *
+   * This is useful when restarting the backward iteration from the final shell.
    */
   void clearKeptIndex() {
     lastiteration = true;
