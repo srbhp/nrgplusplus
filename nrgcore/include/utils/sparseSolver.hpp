@@ -19,8 +19,8 @@
  * Suitable for small to medium systems where memory/speed trade-off favors
  * dense storage. Uses LAPACK's dgeev for non-symmetric eigenvalue problems.
  *
- * The solver finds the eigenvector corresponding to the eigenvalue with
- * minimum absolute value, normalized so that components sum to 1.
+ * The solver finds the eigenvector corresponding to the smallest algebraic
+ * eigenvalue, normalized so that components sum to 1.
  *
  * @note Eigenvector is returned as the ground state wavefunction
  * @note Uses O(N^3) LAPACK algorithms - suitable for N < 5000
@@ -57,7 +57,7 @@ public:
    *
    * Finds left/right eigenvector pairs and eigenvalues using non-symmetric
    * LAPACK routines. Returns the right eigenvector corresponding to the
-   * eigenvalue with smallest absolute value, normalized to unit sum.
+   * eigenvalue with the smallest real part, normalized to unit sum.
    *
    * @return Vector containing normalized ground state eigenvector components
    * @throw std::exception if LAPACK eigenvalue computation fails
@@ -72,7 +72,12 @@ public:
     auto                eig        = std::get<2>(diagSolver);
     std::vector<double> X(column, {0});
     double              trace = 0;
-    size_t              idx   = minIndex(eig); // index of minimum absolute value
+    const auto           eigIt = std::min_element(
+        eig.begin(), eig.end(),
+        [](const auto &lhs, const auto &rhs) {
+          return lhs.real() < rhs.real();
+        });
+    size_t idx = static_cast<size_t>(std::distance(eig.begin(), eigIt));
 #pragma omp parallel for reduction(+ : trace)
     for (size_t i = 0; i < column; i++) {
       X[i] = rightVec(i, idx).real();
@@ -102,8 +107,8 @@ public:
  * Uses Spectra library for sparse iterative eigensolvers with shift-invert
  * method to find eigenvalues near a target shift point.
  *
- * The solver finds the eigenvector with eigenvalue having minimum absolute
- * value (ground state), normalized so components sum to 1.
+ * The solver finds the eigenvector with the smallest algebraic eigenvalue
+ * (ground state), normalized so components sum to 1.
  *
  * @note Uses Spectra shift-invert which is efficient for interior eigenvalues
  * @note Memory-efficient for sparse matrices with O(nnz) storage
@@ -162,13 +167,13 @@ public:
    * @brief Solve sparse eigenvalue problem and return ground state eigenvector.
    *
    * Uses Spectra GenEigsRealShiftSolver with shift-invert transform.
-   * Finds 1 eigenvalue with magnitude closest to zero (ground state).
+   * Finds 1 eigenvalue with the smallest algebraic value (ground state).
    *
    * @return Normalized ground state eigenvector (sum = 1.0)
    * @throw std::runtime_error If Spectra eigenvalue computation fails
    *
    * @note Number of Lanczos vectors used: column/2
-   * @note Shift point: 0 (finds eigenvalue closest to 0)
+   * @note Shift point: 0
    * @note Tolerance: 1e-6 for eigenvalue convergence
    */
   auto solve() {
@@ -178,7 +183,7 @@ public:
     Spectra::GenEigsRealShiftSolver          eigs(op, 1, column / 2, 1e-6);
     
     eigs.init();
-    eigs.compute(Spectra::SortRule::LargestMagn);
+    eigs.compute(Spectra::SortRule::SmallestAlge);
     
     std::vector<double> X(column, {0});
     if (eigs.info() == Spectra::CompInfo::Successful) {

@@ -9,6 +9,7 @@
 #include <map>
 #include <numeric>
 #include <optional>
+#include <stdexcept>
 #include <tuple>
 #include <vector>
 
@@ -220,8 +221,14 @@ public:
             auto     *sys_opr = sys_opr_opt.value();
             qmatrix<> aMatrix;
             if (aOperator == nullptr) {
-              aMatrix = sys_opr_opt.value()->cTranspose();
-            } // Else this should be just boperator
+              aMatrix = sys_opr->cTranspose();
+            } else {
+              auto a_opr_opt = (*aOperator)[ip].get(i, j);
+              if (!a_opr_opt) {
+                continue;
+              }
+              aMatrix = *a_opr_opt.value();
+            }
             // set kept-kept part operator
             for (auto iv : currentKeptIndex[i]) {
               for (auto iv_p : currentKeptIndex[j]) {
@@ -305,6 +312,13 @@ public:
    */
   void setOperator(std::vector<qOperator> *bopr,
                    std::vector<qOperator> *aopr = nullptr) {
+    if (bopr == nullptr) {
+      throw std::invalid_argument("The creation-like operator cannot be null");
+    }
+    if (aopr != nullptr && aopr->size() != bopr->size()) {
+      throw std::invalid_argument(
+          "Creation-like and annihilation-like operator counts differ");
+    }
     aOperator = aopr;
     bOperator = bopr;
     for (size_t i = 0; i < bOperator->size(); i++) {

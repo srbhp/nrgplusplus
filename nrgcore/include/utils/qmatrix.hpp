@@ -156,7 +156,7 @@ public:
    * @param N number of rows and columns
    * @param populate value for all entries
    */
-  qmatrix(size_t N, T populate) { qmatrix(N, N, populate); }
+  qmatrix(size_t N, T populate) : qmatrix(N, N, populate) {}
 
   /**
    * @brief Default constructor creates an empty matrix.
