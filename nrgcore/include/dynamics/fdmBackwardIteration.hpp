@@ -60,14 +60,14 @@ public:
    * matrix for the current shell, and reduces it to the impurity sector in the
    * order required for the backward iteration.
    *
-   * @param energyScale Energy scale associated with the current NRG iteration,
-   * typically proportional to \f$\Lambda^{-(N-1)/2}\f$.
+   * @param energyScale Retained for API compatibility; density-matrix weights
+   * are constructed from the shell data held by this object.
    */
-  void calcSpectrum(double energyScale) {
+  void calcSpectrum([[maybe_unused]] double energyScale) {
     // Clear the operator
     setCurrentIndex();
     // Order of these functions are important
-    setRhoZero(energyScale);
+    setRhoZero();
     // rhoDotOperators();
     setReduceDensityMatrix();
   }
