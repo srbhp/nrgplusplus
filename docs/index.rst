@@ -216,7 +216,6 @@ Complete Documentation
   :caption: Dynamics & Spectroscopy:
 
   docfdmback
-  docfdmspec
   docfdmSpectrum
 
 .. toctree::
